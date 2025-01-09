@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
+from search_api.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
 
 class TestAgentSearchTermAnalyticsResponse(unittest.TestCase):
     """AgentSearchTermAnalyticsResponse unit test stubs"""
@@ -37,7 +37,7 @@ class TestAgentSearchTermAnalyticsResponse(unittest.TestCase):
             return AgentSearchTermAnalyticsResponse(
                 address = '',
                 term_percentages = [
-                    search_api_client.models.search_term_percentage.SearchTermPercentage(
+                    search_api.models.search_term_percentage.SearchTermPercentage(
                         term = '', 
                         last_24h_percentage = 0.0, 
                         last_7d_percentage = 0.0, 
@@ -48,7 +48,7 @@ class TestAgentSearchTermAnalyticsResponse(unittest.TestCase):
             return AgentSearchTermAnalyticsResponse(
                 address = '',
                 term_percentages = [
-                    search_api_client.models.search_term_percentage.SearchTermPercentage(
+                    search_api.models.search_term_percentage.SearchTermPercentage(
                         term = '', 
                         last_24h_percentage = 0.0, 
                         last_7d_percentage = 0.0, 

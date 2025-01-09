@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.api.functions_api import FunctionsApi
+from search_api.api.functions_api import FunctionsApi
 
 
 class TestFunctionsApi(unittest.TestCase):

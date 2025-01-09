@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from search_api_client.models.location_inner import LocationInner
+from search_api.models.location_inner import LocationInner
 
 # TODO update the JSON string below
 json = "{}"

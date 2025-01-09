@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.search_term_percentage import SearchTermPercentage
+from search_api.models.search_term_percentage import SearchTermPercentage
 
 class TestSearchTermPercentage(unittest.TestCase):
     """SearchTermPercentage unit test stubs"""

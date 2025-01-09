@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_filters import AgentFilters
+from search_api.models.agent_filters import AgentFilters
 
 class TestAgentFilters(unittest.TestCase):
     """AgentFilters unit test stubs"""

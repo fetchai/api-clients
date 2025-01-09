@@ -6,13 +6,13 @@ The agent search term analytics request object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** |  | 
+**address** | **str** | The address of the agent that we want to retrieve search term analytics for | 
 **top** | **int** | How many of the top mostly used search terms we want to retrieve analytics for | [optional] [default to 10]
 
 ## Example
 
 ```python
-from search_api_client.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
+from search_api.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
 
 # TODO update the JSON string below
 json = "{}"

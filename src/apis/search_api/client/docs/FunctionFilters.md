@@ -5,12 +5,12 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**function_type** | **List[str]** |  | [optional] 
+**function_type** | [**List[FunctionType]**](FunctionType.md) | The type of the function to search for | [optional] 
 
 ## Example
 
 ```python
-from search_api_client.models.function_filters import FunctionFilters
+from search_api.models.function_filters import FunctionFilters
 
 # TODO update the JSON string below
 json = "{}"

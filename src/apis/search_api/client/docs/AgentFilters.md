@@ -6,15 +6,15 @@ The set of filters that should be applied to the agent search entries
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | **List[str]** |  | [optional] 
-**category** | **List[str]** |  | [optional] 
-**agent_type** | **List[str]** |  | [optional] 
-**protocol_digest** | **List[str]** |  | [optional] 
+**state** | [**List[StatusType]**](StatusType.md) | The state of the agent, i.e. is it alive or not | [optional] 
+**category** | [**List[AgentCategory]**](AgentCategory.md) | The category of the creator of the agent | [optional] 
+**agent_type** | [**List[AgentType]**](AgentType.md) | The category of how the agent is hosted | [optional] 
+**protocol_digest** | **List[str]** | The digest(s) of the protocol(s) that belong(s) to the agent | [optional] 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_filters import AgentFilters
+from search_api.models.agent_filters import AgentFilters
 
 # TODO update the JSON string below
 json = "{}"

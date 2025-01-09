@@ -1,0 +1,25 @@
+name: Receive Documentation
+
+on:
+  repository_dispatch:
+    types: [send-docs]
+
+  jobs:
+    process-docs:
+      runs-on: ubuntu-latest
+      steps:
+#        - name: Checkout Repository
+#          uses: actions/checkout@v3
+        - name: Receive Documentation JSON
+          env:
+            DOCS_JSON: ${{ github.event.client_payload.docs_json }}
+          run: |
+            echo $DOCS_JSON
+#            echo "$DOCS_JSON" > docs.json
+#        - name: Commit Documentation
+#          run: |
+#            git config --local user.name "github-actions[bot]"
+#            git config --local user.email "github-actions[bot]@users.noreply.github.com"
+#            git add docs.json
+#            git commit -m "Update documentation from Repo A" || echo "No changes to commit"
+#            git push

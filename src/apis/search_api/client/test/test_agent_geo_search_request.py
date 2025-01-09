@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_geo_search_request import AgentGeoSearchRequest
+from search_api.models.agent_geo_search_request import AgentGeoSearchRequest
 
 class TestAgentGeoSearchRequest(unittest.TestCase):
     """AgentGeoSearchRequest unit test stubs"""
@@ -35,7 +35,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
         model = AgentGeoSearchRequest()
         if include_optional:
             return AgentGeoSearchRequest(
-                filters = search_api_client.models.agent_filters.AgentFilters(
+                filters = search_api.models.agent_filters.AgentFilters(
                     state = [
                         'active'
                         ], 
@@ -53,7 +53,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                 search_text = '',
                 offset = 56,
                 limit = 56,
-                geo_filter = search_api_client.models.agent_geo_filter.AgentGeoFilter(
+                geo_filter = search_api.models.agent_geo_filter.AgentGeoFilter(
                     latitude = -90.0, 
                     longitude = -180.0, 
                     radius = 1.337, ),
@@ -62,7 +62,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
             )
         else:
             return AgentGeoSearchRequest(
-                geo_filter = search_api_client.models.agent_geo_filter.AgentGeoFilter(
+                geo_filter = search_api.models.agent_geo_filter.AgentGeoFilter(
                     latitude = -90.0, 
                     longitude = -180.0, 
                     radius = 1.337, ),

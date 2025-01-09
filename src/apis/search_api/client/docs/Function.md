@@ -5,24 +5,24 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **str** |  | 
-**type** | **str** |  | 
-**name** | **str** |  | 
-**agent** | **str** |  | 
-**description** | **str** |  | 
-**is_primary** | **bool** |  | 
-**groups** | **List[str]** |  | [optional] 
-**total_interactions** | **int** |  | 
-**recent_interactions** | **int** |  | 
-**rating** | **float** |  | 
-**featured** | **bool** |  | [optional] [default to False]
-**last_updated** | **datetime** |  | 
-**created_at** | **datetime** |  | 
+**id** | **str** | the identifier of the function | 
+**type** | [**FunctionType**](FunctionType.md) | the type of the function / action | 
+**name** | **str** | the name of the function | 
+**agent** | **str** | the agent that the function belongs to | 
+**description** | **str** | the description of the function | 
+**is_primary** | **bool** | denotes if a function is primary or not | 
+**groups** | **List[str]** | group that the function belongs to | [optional] 
+**total_interactions** | **int** | the total interactions for this function | 
+**recent_interactions** | **int** | the number of interactions in the last 90 days | 
+**rating** | **float** |  | [optional] 
+**featured** | **bool** | signaled if the function is featured or not | [optional] [default to False]
+**last_updated** | **datetime** | the time at which the function was last updated at | 
+**created_at** | **datetime** | the time at which the function was first visible or created | 
 
 ## Example
 
 ```python
-from search_api_client.models.function import Function
+from search_api.models.function import Function
 
 # TODO update the JSON string below
 json = "{}"

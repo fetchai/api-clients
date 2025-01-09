@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_geo_filter import AgentGeoFilter
+from search_api.models.agent_geo_filter import AgentGeoFilter
 
 class TestAgentGeoFilter(unittest.TestCase):
     """AgentGeoFilter unit test stubs"""

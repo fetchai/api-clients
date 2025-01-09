@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.api.analytics_api import AnalyticsApi
+from search_api.api.analytics_api import AnalyticsApi
 
 
 class TestAnalyticsApi(unittest.TestCase):

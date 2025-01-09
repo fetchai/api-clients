@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_clicked_request import AgentClickedRequest
+from search_api.models.agent_clicked_request import AgentClickedRequest
 
 class TestAgentClickedRequest(unittest.TestCase):
     """AgentClickedRequest unit test stubs"""

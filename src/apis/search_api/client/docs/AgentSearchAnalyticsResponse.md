@@ -6,16 +6,16 @@ The agent search analytics response object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** |  | 
-**num_searches** | **int** |  | 
-**last_24h_num_searches** | **int** |  | 
-**last_30d_num_searches** | **int** |  | 
-**last_30d_history** | **List[int]** |  | 
+**address** | **str** | The address of the agent that we are retrieving search analytics for | 
+**num_searches** | **int** | Total number of searches when this agent was retrieved | 
+**last_24h_num_searches** | **int** | Number of searches in the last 24 hours when this agent was retrieved | 
+**last_30d_num_searches** | **int** | Number of searches in the last 30 days when this agent was retrieved | 
+**last_30d_history** | **List[int]** | Number of searches per day in the last 30 days when this agent was retrieved | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
+from search_api.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
 
 # TODO update the JSON string below
 json = "{}"

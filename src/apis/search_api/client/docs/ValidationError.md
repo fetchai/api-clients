@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**loc** | [**List[LocationInner]**](LocationInner.md) |  | 
+**loc** | [**List[ValidationErrorLocInner]**](ValidationErrorLocInner.md) |  | 
 **msg** | **str** |  | 
 **type** | **str** |  | 
 
 ## Example
 
 ```python
-from search_api_client.models.validation_error import ValidationError
+from search_api.models.validation_error import ValidationError
 
 # TODO update the JSON string below
 json = "{}"

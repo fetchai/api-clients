@@ -6,12 +6,12 @@ The agent search analytics request object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** |  | 
+**address** | **str** | The address of the agent that we want to retrieve search analytics for | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
+from search_api.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
 
 # TODO update the JSON string below
 json = "{}"

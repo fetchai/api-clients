@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_interaction_counts_response import AgentInteractionCountsResponse
+from search_api.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 
 class TestAgentInteractionCountsResponse(unittest.TestCase):
     """AgentInteractionCountsResponse unit test stubs"""
@@ -45,7 +45,7 @@ class TestAgentInteractionCountsResponse(unittest.TestCase):
                 total = [
                     56
                     ],
-                num_all_time_interactions = search_api_client.models.agent_all_time_interaction_counts.AgentAllTimeInteractionCounts(
+                num_all_time_interactions = search_api.models.agent_all_time_interaction_counts.AgentAllTimeInteractionCounts(
                     interval = 0.0, 
                     message = 0.0, 
                     total = 0.0, )
@@ -62,7 +62,7 @@ class TestAgentInteractionCountsResponse(unittest.TestCase):
                 total = [
                     56
                     ],
-                num_all_time_interactions = search_api_client.models.agent_all_time_interaction_counts.AgentAllTimeInteractionCounts(
+                num_all_time_interactions = search_api.models.agent_all_time_interaction_counts.AgentAllTimeInteractionCounts(
                     interval = 0.0, 
                     message = 0.0, 
                     total = 0.0, ),

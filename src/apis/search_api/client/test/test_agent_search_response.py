@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_search_response import AgentSearchResponse
+from search_api.models.agent_search_response import AgentSearchResponse
 
 class TestAgentSearchResponse(unittest.TestCase):
     """AgentSearchResponse unit test stubs"""
@@ -36,12 +36,12 @@ class TestAgentSearchResponse(unittest.TestCase):
         if include_optional:
             return AgentSearchResponse(
                 agents = [
-                    search_api_client.models.agent.Agent(
+                    search_api.models.agent.Agent(
                         address = '', 
                         name = '', 
                         readme = '', 
                         protocols = [
-                            search_api_client.models.protocol.Protocol(
+                            search_api.models.protocol.Protocol(
                                 name = '', 
                                 version = '', 
                                 digest = '', )
@@ -54,10 +54,11 @@ class TestAgentSearchResponse(unittest.TestCase):
                         type = 'hosted', 
                         category = 'fetch-ai', 
                         featured = True, 
-                        geo_location = search_api_client.models.agent_geo_location.AgentGeoLocation(
+                        geo_location = search_api.models.agent_geo_location.AgentGeoLocation(
                             latitude = 1.337, 
                             longitude = 1.337, 
                             radius = 1.337, ), 
+                        domain = '', 
                         last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],

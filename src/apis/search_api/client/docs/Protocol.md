@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**version** | **str** |  | 
-**digest** | **str** |  | 
+**name** | **str** | the name of the protocol | 
+**version** | **str** | the version of the protocol | 
+**digest** | **str** | the digest of the protocol | 
 
 ## Example
 
 ```python
-from search_api_client.models.protocol import Protocol
+from search_api.models.protocol import Protocol
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**search_id** | **str** |  | 
-**page_index** | **int** |  | 
-**address** | **str** |  | 
+**search_id** | **str** | search id generated before (during search) | 
+**page_index** | **int** | page index (should start from 0) | 
+**address** | **str** | the address of the agent that was clicked on | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_clicked_request import AgentClickedRequest
+from search_api.models.agent_clicked_request import AgentClickedRequest
 
 # TODO update the JSON string below
 json = "{}"

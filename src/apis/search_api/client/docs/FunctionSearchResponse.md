@@ -1,20 +1,21 @@
 # FunctionSearchResponse
 
+The function search response object
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**functions** | [**List[Function]**](Function.md) |  | [optional] 
-**offset** | **int** |  | 
-**limit** | **int** |  | 
-**num_hits** | **int** |  | 
-**total** | **int** |  | 
+**functions** | [**List[Function]**](Function.md) | The list of functions that match the search criteria | [optional] 
+**offset** | **int** | The offset of the first function in the search results for pagination | 
+**limit** | **int** | The limit of the search results for pagination | 
+**num_hits** | **int** | The number of hits might be smaller than the total number of hits (&#x60;total&#x60;) when using offset and limit | 
+**total** | **int** | The total number of hits might be bigger than the actual number of hits (&#x60;num_hits&#x60;) when using offset and limit | 
 
 ## Example
 
 ```python
-from search_api_client.models.function_search_response import FunctionSearchResponse
+from search_api.models.function_search_response import FunctionSearchResponse
 
 # TODO update the JSON string below
 json = "{}"

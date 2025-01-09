@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
+from search_api.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
 
 class TestAgentAllTimeInteractionCounts(unittest.TestCase):
     """AgentAllTimeInteractionCounts unit test stubs"""

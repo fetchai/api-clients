@@ -6,14 +6,14 @@ The geo filter that can be applied to the agent search
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**latitude** | **float** |  | 
-**longitude** | **float** |  | 
-**radius** | **float** |  | 
+**latitude** | **float** | The latitude of the location | 
+**longitude** | **float** | The longitude of the location | 
+**radius** | **float** | The radius of the search in meters | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_geo_filter import AgentGeoFilter
+from search_api.models.agent_geo_filter import AgentGeoFilter
 
 # TODO update the JSON string below
 json = "{}"

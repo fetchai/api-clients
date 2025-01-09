@@ -5,16 +5,16 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** |  | 
-**interval** | **List[int]** |  | 
-**message** | **List[int]** |  | 
-**total** | **List[int]** |  | 
-**num_all_time_interactions** | [**AgentAllTimeInteractionCounts**](AgentAllTimeInteractionCounts.md) |  | 
+**address** | **str** | the address of the agent | 
+**interval** | **List[int]** | the number of on_interval interactions for each day | 
+**message** | **List[int]** | the number of on_message interactions for each day | 
+**total** | **List[int]** | the sum of on_interval and on_message interaction counts for each day | 
+**num_all_time_interactions** | [**AgentAllTimeInteractionCounts**](AgentAllTimeInteractionCounts.md) | number of on_interval, on_message and total (sum of on_interval and on_message) interactions | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_interaction_counts_response import AgentInteractionCountsResponse
+from search_api.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 
 # TODO update the JSON string below
 json = "{}"

@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**latitude** | **float** |  | 
-**longitude** | **float** |  | 
-**radius** | **float** |  | [optional] [default to 0]
+**latitude** | **float** | the latitude of the agent | 
+**longitude** | **float** | the longitude of the agent | 
+**radius** | **float** | the radius in meters defining the area of effect of the agent | [optional] [default to 0]
 
 ## Example
 
 ```python
-from search_api_client.models.agent_geo_location import AgentGeoLocation
+from search_api.models.agent_geo_location import AgentGeoLocation
 
 # TODO update the JSON string below
 json = "{}"

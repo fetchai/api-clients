@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.function_search_request import FunctionSearchRequest
+from search_api.models.function_search_request import FunctionSearchRequest
 
 class TestFunctionSearchRequest(unittest.TestCase):
     """FunctionSearchRequest unit test stubs"""
@@ -35,7 +35,7 @@ class TestFunctionSearchRequest(unittest.TestCase):
         model = FunctionSearchRequest()
         if include_optional:
             return FunctionSearchRequest(
-                filters = search_api_client.models.function_filters.FunctionFilters(
+                filters = search_api.models.function_filters.FunctionFilters(
                     function_type = [
                         'function'
                         ], ),

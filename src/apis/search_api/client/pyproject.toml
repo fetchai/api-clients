@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "search_api_client"
+name = "search_api"
 version = "1.0.0"
 description = "FastAPI"
 authors = ["OpenAPI Generator Community <team@openapitools.org>"]
@@ -7,7 +7,7 @@ license = "NoLicense"
 readme = "README.md"
 repository = "https://github.com/GIT_USER_ID/GIT_REPO_ID"
 keywords = ["OpenAPI", "OpenAPI-Generator", "FastAPI"]
-include = ["search_api_client/py.typed"]
+include = ["search_api/py.typed"]
 
 [tool.poetry.dependencies]
 python = "^3.8"
@@ -35,7 +35,7 @@ extension-pkg-whitelist = "pydantic"
 
 [tool.mypy]
 files = [
-  "search_api_client",
+  "search_api",
   #"test",  # auto-generated tests
   "tests", # hand-written tests
 ]
@@ -73,7 +73,7 @@ disallow_any_generics = true
 
 [[tool.mypy.overrides]]
 module = [
-  "search_api_client.configuration",
+  "search_api.configuration",
 ]
 warn_unused_ignores = true
 strict_equality = true

@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.function_search_response import FunctionSearchResponse
+from search_api.models.function_search_response import FunctionSearchResponse
 
 class TestFunctionSearchResponse(unittest.TestCase):
     """FunctionSearchResponse unit test stubs"""
@@ -36,7 +36,7 @@ class TestFunctionSearchResponse(unittest.TestCase):
         if include_optional:
             return FunctionSearchResponse(
                 functions = [
-                    search_api_client.models.function.Function(
+                    search_api.models.function.Function(
                         id = '', 
                         type = 'function', 
                         name = '', 

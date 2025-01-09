@@ -6,13 +6,13 @@ The agent search term analytics response object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** |  | 
-**term_percentages** | [**List[SearchTermPercentage]**](SearchTermPercentage.md) |  | 
+**address** | **str** | The address of the agent that we are retrieving search analytics for | 
+**term_percentages** | [**List[SearchTermPercentage]**](SearchTermPercentage.md) | Percentage of searches with different terms when this agent was retrieved | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
+from search_api.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
 
 # TODO update the JSON string below
 json = "{}"

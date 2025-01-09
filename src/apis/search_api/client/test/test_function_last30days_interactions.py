@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.function_last30days_interactions import FunctionLast30daysInteractions
+from search_api.models.function_last30days_interactions import FunctionLast30daysInteractions
 
 class TestFunctionLast30daysInteractions(unittest.TestCase):
     """FunctionLast30daysInteractions unit test stubs"""

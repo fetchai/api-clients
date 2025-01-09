@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent import Agent
+from search_api.models.agent import Agent
 
 class TestAgent(unittest.TestCase):
     """Agent unit test stubs"""
@@ -39,7 +39,7 @@ class TestAgent(unittest.TestCase):
                 name = '',
                 readme = '',
                 protocols = [
-                    search_api_client.models.protocol.Protocol(
+                    search_api.models.protocol.Protocol(
                         name = '', 
                         version = '', 
                         digest = '', )
@@ -52,10 +52,11 @@ class TestAgent(unittest.TestCase):
                 type = 'hosted',
                 category = 'fetch-ai',
                 featured = True,
-                geo_location = search_api_client.models.agent_geo_location.AgentGeoLocation(
+                geo_location = search_api.models.agent_geo_location.AgentGeoLocation(
                     latitude = 1.337, 
                     longitude = 1.337, 
                     radius = 1.337, ),
+                domain = '',
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
@@ -65,22 +66,16 @@ class TestAgent(unittest.TestCase):
                 name = '',
                 readme = '',
                 protocols = [
-                    search_api_client.models.protocol.Protocol(
+                    search_api.models.protocol.Protocol(
                         name = '', 
                         version = '', 
                         digest = '', )
                     ],
-                avatar_href = '',
                 total_interactions = 56,
                 recent_interactions = 56,
-                rating = 1.337,
                 status = 'active',
                 type = 'hosted',
                 category = 'fetch-ai',
-                geo_location = search_api_client.models.agent_geo_location.AgentGeoLocation(
-                    latitude = 1.337, 
-                    longitude = 1.337, 
-                    radius = 1.337, ),
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )

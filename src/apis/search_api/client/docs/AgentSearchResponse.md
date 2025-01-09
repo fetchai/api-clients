@@ -5,17 +5,17 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agents** | [**List[Agent]**](Agent.md) |  | [optional] 
-**offset** | **int** |  | 
-**limit** | **int** |  | 
-**num_hits** | **int** |  | 
-**total** | **int** |  | 
-**search_id** | **str** |  | 
+**agents** | [**List[Agent]**](Agent.md) | The list of agents that are returned as part of the search | [optional] 
+**offset** | **int** | The offset of the search results | 
+**limit** | **int** | The limit of the search results | 
+**num_hits** | **int** | The number of hits might be smaller than the total number of hits (&#x60;total&#x60;) when using offset and limit | 
+**total** | **int** | The total number of hits might be bigger than the actual number of hits (&#x60;num_hits&#x60;)&#x60; when using offset and limit | 
+**search_id** | **str** | search id passed to the search in the request / generated for the search | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_search_response import AgentSearchResponse
+from search_api.models.agent_search_response import AgentSearchResponse
 
 # TODO update the JSON string below
 json = "{}"

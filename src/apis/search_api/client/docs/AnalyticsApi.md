@@ -1,4 +1,4 @@
-# search_api_client.AnalyticsApi
+# search_api.AnalyticsApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,24 +19,24 @@ It provides data about the search terms that led to the agent in question (agent
 
 
 ```python
-import search_api_client
-from search_api_client.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
-from search_api_client.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
-from search_api_client.rest import ApiException
+import search_api
+from search_api.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
+from search_api.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
+from search_api.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = search_api_client.Configuration(
+configuration = search_api.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with search_api_client.ApiClient(configuration) as api_client:
+with search_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = search_api_client.AnalyticsApi(api_client)
-    agent_search_term_analytics_request = search_api_client.AgentSearchTermAnalyticsRequest() # AgentSearchTermAnalyticsRequest | 
+    api_instance = search_api.AnalyticsApi(api_client)
+    agent_search_term_analytics_request = search_api.AgentSearchTermAnalyticsRequest() # AgentSearchTermAnalyticsRequest | 
 
     try:
         # Get Agent Search Term Analytics
@@ -87,24 +87,24 @@ Get Agent Search Analytics
 
 
 ```python
-import search_api_client
-from search_api_client.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
-from search_api_client.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
-from search_api_client.rest import ApiException
+import search_api
+from search_api.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
+from search_api.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
+from search_api.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = search_api_client.Configuration(
+configuration = search_api.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with search_api_client.ApiClient(configuration) as api_client:
+with search_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = search_api_client.AnalyticsApi(api_client)
-    agent_search_analytics_request = search_api_client.AgentSearchAnalyticsRequest() # AgentSearchAnalyticsRequest | 
+    api_instance = search_api.AnalyticsApi(api_client)
+    agent_search_analytics_request = search_api.AgentSearchAnalyticsRequest() # AgentSearchAnalyticsRequest | 
 
     try:
         # Get Agent Search Analytics

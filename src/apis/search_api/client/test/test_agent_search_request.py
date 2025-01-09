@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_search_request import AgentSearchRequest
+from search_api.models.agent_search_request import AgentSearchRequest
 
 class TestAgentSearchRequest(unittest.TestCase):
     """AgentSearchRequest unit test stubs"""
@@ -35,7 +35,7 @@ class TestAgentSearchRequest(unittest.TestCase):
         model = AgentSearchRequest()
         if include_optional:
             return AgentSearchRequest(
-                filters = search_api_client.models.agent_filters.AgentFilters(
+                filters = search_api.models.agent_filters.AgentFilters(
                     state = [
                         'active'
                         ], 

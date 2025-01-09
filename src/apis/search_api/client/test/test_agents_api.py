@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.api.agents_api import AgentsApi
+from search_api.api.agents_api import AgentsApi
 
 
 class TestAgentsApi(unittest.TestCase):
@@ -26,31 +26,31 @@ class TestAgentsApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
-    def test_agent_selected(self) -> None:
-        """Test case for agent_selected
-
-        Mark Agent Clicked
-        """
-        pass
-
-    def test_get_agent_interactions(self) -> None:
-        """Test case for get_agent_interactions
+    def test_get_agent_interactions_count(self) -> None:
+        """Test case for get_agent_interactions_count
 
         Get Interaction Counts Of Agent
-        """
-        pass
-
-    def test_search_agent(self) -> None:
-        """Test case for search_agent
-
-        Search Agents
         """
         pass
 
     def test_search_agent_by_geolocation(self) -> None:
         """Test case for search_agent_by_geolocation
 
-        Search Agents Geo
+        Search Agent By Geolocation
+        """
+        pass
+
+    def test_search_agents(self) -> None:
+        """Test case for search_agents
+
+        Search Agents
+        """
+        pass
+
+    def test_select_agent(self) -> None:
+        """Test case for select_agent
+
+        Select Agent
         """
         pass
 

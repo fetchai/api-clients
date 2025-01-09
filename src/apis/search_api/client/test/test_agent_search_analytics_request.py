@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
+from search_api.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
 
 class TestAgentSearchAnalyticsRequest(unittest.TestCase):
     """AgentSearchAnalyticsRequest unit test stubs"""

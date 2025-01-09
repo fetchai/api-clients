@@ -12,7 +12,7 @@ stages:
   script:
    - pip install -r requirements.txt
    - pip install -r test-requirements.txt
-   - pytest --cov=search_api_client
+   - pytest --cov=search_api
 
 pytest-3.8:
   extends: .pytest

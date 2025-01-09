@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.agent_geo_location import AgentGeoLocation
+from search_api.models.agent_geo_location import AgentGeoLocation
 
 class TestAgentGeoLocation(unittest.TestCase):
     """AgentGeoLocation unit test stubs"""

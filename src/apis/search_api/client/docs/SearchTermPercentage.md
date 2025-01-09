@@ -6,15 +6,15 @@ Percentage of searches when the agent was retrieved using this search term
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**term** | **str** |  | 
-**last_24h_percentage** | **float** |  | 
-**last_7d_percentage** | **float** |  | 
-**last_30d_percentage** | **float** |  | 
+**term** | **str** | Search term that was used when the agent was retrieved | 
+**last_24h_percentage** | **float** | Percentage of searches in last 24h when the agent was retrieved using this search term | 
+**last_7d_percentage** | **float** | Percentage of searches in last 7 days when the agent was retrieved using this search term | 
+**last_30d_percentage** | **float** | Percentage of searches in last 30 days when the agent was retrieved using this search term | 
 
 ## Example
 
 ```python
-from search_api_client.models.search_term_percentage import SearchTermPercentage
+from search_api.models.search_term_percentage import SearchTermPercentage
 
 # TODO update the JSON string below
 json = "{}"

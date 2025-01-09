@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.protocol import Protocol
+from search_api.models.protocol import Protocol
 
 class TestProtocol(unittest.TestCase):
     """Protocol unit test stubs"""

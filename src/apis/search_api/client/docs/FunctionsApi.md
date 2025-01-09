@@ -1,4 +1,4 @@
-# search_api_client.FunctionsApi
+# search_api.FunctionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,23 +17,23 @@ Get Recent Interactions Of Function
 
 
 ```python
-import search_api_client
-from search_api_client.models.function_last30days_interactions import FunctionLast30daysInteractions
-from search_api_client.rest import ApiException
+import search_api
+from search_api.models.function_last30days_interactions import FunctionLast30daysInteractions
+from search_api.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = search_api_client.Configuration(
+configuration = search_api.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with search_api_client.ApiClient(configuration) as api_client:
+with search_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = search_api_client.FunctionsApi(api_client)
-    function_id = 'function_id_example' # str | 
+    api_instance = search_api.FunctionsApi(api_client)
+    function_id = 'function_id_example' # str | Unique identifier of the function
 
     try:
         # Get Recent Interactions Of Function
@@ -51,7 +51,7 @@ with search_api_client.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **function_id** | **str**|  | 
+ **function_id** | **str**| Unique identifier of the function | 
 
 ### Return type
 
@@ -84,24 +84,24 @@ Search Functions
 
 
 ```python
-import search_api_client
-from search_api_client.models.function_search_request import FunctionSearchRequest
-from search_api_client.models.function_search_response import FunctionSearchResponse
-from search_api_client.rest import ApiException
+import search_api
+from search_api.models.function_search_request import FunctionSearchRequest
+from search_api.models.function_search_response import FunctionSearchResponse
+from search_api.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = search_api_client.Configuration(
+configuration = search_api.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with search_api_client.ApiClient(configuration) as api_client:
+with search_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = search_api_client.FunctionsApi(api_client)
-    function_search_request = search_api_client.FunctionSearchRequest() # FunctionSearchRequest | 
+    api_instance = search_api.FunctionsApi(api_client)
+    function_search_request = search_api.FunctionSearchRequest() # FunctionSearchRequest | 
 
     try:
         # Search Functions

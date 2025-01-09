@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.function import Function
+from search_api.models.function import Function
 
 class TestFunction(unittest.TestCase):
     """Function unit test stubs"""
@@ -61,7 +61,6 @@ class TestFunction(unittest.TestCase):
                 is_primary = True,
                 total_interactions = 56,
                 recent_interactions = 56,
-                rating = 1.337,
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
         )

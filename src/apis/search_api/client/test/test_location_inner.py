@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.location_inner import LocationInner
+from search_api.models.location_inner import LocationInner
 
 class TestLocationInner(unittest.TestCase):
     """LocationInner unit test stubs"""

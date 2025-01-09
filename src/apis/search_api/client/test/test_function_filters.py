@@ -14,7 +14,7 @@
 
 import unittest
 
-from search_api_client.models.function_filters import FunctionFilters
+from search_api.models.function_filters import FunctionFilters
 
 class TestFunctionFilters(unittest.TestCase):
     """FunctionFilters unit test stubs"""

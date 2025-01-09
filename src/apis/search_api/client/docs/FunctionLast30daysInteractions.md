@@ -1,17 +1,18 @@
 # FunctionLast30daysInteractions
 
+The function last 30 days interactions response object
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**function_id** | **str** |  | 
-**total** | **List[int]** |  | 
+**function_id** | **str** | Unique identifier of the function | 
+**total** | **List[int]** | the total number of interactions for each day | 
 
 ## Example
 
 ```python
-from search_api_client.models.function_last30days_interactions import FunctionLast30daysInteractions
+from search_api.models.function_last30days_interactions import FunctionLast30daysInteractions
 
 # TODO update the JSON string below
 json = "{}"

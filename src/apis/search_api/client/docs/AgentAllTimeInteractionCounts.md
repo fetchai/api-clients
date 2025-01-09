@@ -5,14 +5,14 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**interval** | **int** |  | 
-**message** | **int** |  | 
-**total** | **int** |  | 
+**interval** | **int** | number of on_interval interactions | 
+**message** | **int** | number of on_message interactions | 
+**total** | **int** | the sum of on_interval and on_message interaction counts | 
 
 ## Example
 
 ```python
-from search_api_client.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
+from search_api.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
 
 # TODO update the JSON string below
 json = "{}"
