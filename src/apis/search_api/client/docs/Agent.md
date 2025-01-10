@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **category** | [**AgentCategory**](AgentCategory.md) | the creator of the agent | 
 **featured** | **bool** | signaled if the agent is featured or not | [optional] [default to False]
 **geo_location** | [**AgentGeoLocation**](AgentGeoLocation.md) | the geolocation of the agent | [optional] 
+**domain** | **str** | the domain of the agent | [optional] 
 **last_updated** | **datetime** | the time at which the agent was last updated at | 
 **created_at** | **datetime** | the time at which the agent was first visible or created | 
 

@@ -32,7 +32,7 @@ class AgentSearchRequest(BaseModel):
     filters: Optional[AgentFilters] = Field(default=None, description="The set of filters that should be applied to the search")
     sort: Optional[SortType] = Field(default=None, description="The type of sorting that should be applied to the search results")
     direction: Optional[Direction] = Field(default=None, description="The direction of the sorting, ascending or descending")
-    search_text: Optional[StrictStr] = None
+    search_text: Optional[StrictStr] = Field(default=None, description="The optional search text that should be included. This should not be a filter mechanism but entries that are closer to the search text should be ranked higher")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
@@ -81,11 +81,6 @@ class AgentSearchRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of filters
         if self.filters:
             _dict['filters'] = self.filters.to_dict()
-        # set to None if search_text (nullable) is None
-        # and model_fields_set contains the field
-        if self.search_text is None and "search_text" in self.model_fields_set:
-            _dict['search_text'] = None
-
         return _dict
 
     @classmethod
