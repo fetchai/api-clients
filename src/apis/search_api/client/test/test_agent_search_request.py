@@ -47,6 +47,12 @@ class TestAgentSearchRequest(unittest.TestCase):
                         ], 
                     protocol_digest = [
                         ''
+                        ], 
+                    has_location = True, 
+                    has_readme = True, 
+                    n_interactions = '1k', 
+                    tags = [
+                        ''
                         ], ),
                 sort = 'relevancy',
                 direction = 'asc',
@@ -54,7 +60,8 @@ class TestAgentSearchRequest(unittest.TestCase):
                 offset = 56,
                 limit = 56,
                 search_id = '',
-                source = ''
+                source = '',
+                only_current_campaign_eligible = True
             )
         else:
             return AgentSearchRequest(

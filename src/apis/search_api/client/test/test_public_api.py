@@ -26,6 +26,13 @@ class TestPublicApi(unittest.TestCase):
     def tearDown(self) -> None:
         pass
 
+    def test_check_current_campaign_eligibility(self) -> None:
+        """Test case for check_current_campaign_eligibility
+
+        Check Current Campaign Eligibility
+        """
+        pass
+
     def test_get_agent_interactions_count(self) -> None:
         """Test case for get_agent_interactions_count
 

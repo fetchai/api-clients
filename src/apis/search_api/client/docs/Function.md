@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **str** | the identifier of the function | 
-**type** | [**FunctionType**](FunctionType.md) | the type of the function / action | 
+**type** | [**FunctionType**](FunctionType.md) |  | 
 **name** | **str** | the name of the function | 
 **agent** | **str** | the agent that the function belongs to | 
 **description** | **str** | the description of the function | 

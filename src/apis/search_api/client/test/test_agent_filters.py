@@ -46,6 +46,12 @@ class TestAgentFilters(unittest.TestCase):
                     ],
                 protocol_digest = [
                     ''
+                    ],
+                has_location = True,
+                has_readme = True,
+                n_interactions = '1k',
+                tags = [
+                    ''
                     ]
             )
         else:

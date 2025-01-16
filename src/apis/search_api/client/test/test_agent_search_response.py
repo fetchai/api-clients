@@ -38,6 +38,7 @@ class TestAgentSearchResponse(unittest.TestCase):
                 agents = [
                     search_api.models.agent.Agent(
                         address = '', 
+                        prefix = 'agent', 
                         name = '', 
                         readme = '', 
                         protocols = [

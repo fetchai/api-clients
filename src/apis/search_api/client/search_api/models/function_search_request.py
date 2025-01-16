@@ -30,9 +30,9 @@ class FunctionSearchRequest(BaseModel):
     The function search request object
     """ # noqa: E501
     filters: Optional[FunctionFilters] = None
-    sort: Optional[SortType] = Field(default=None, description="The type of sorting that should be applied to the search results, relevancy is the default and should be")
-    direction: Optional[Direction] = Field(default=None, description="The direction of the sorting, ascending or descending")
-    search_text: Optional[StrictStr] = Field(default=None, description="The optional search text that should be included. This should not be a filter mechanism but entries that are closer to the search text should be ranked higher.")
+    sort: Optional[SortType] = None
+    direction: Optional[Direction] = None
+    search_text: Optional[StrictStr] = None
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "search_text", "offset", "limit"]
@@ -79,6 +79,11 @@ class FunctionSearchRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of filters
         if self.filters:
             _dict['filters'] = self.filters.to_dict()
+        # set to None if search_text (nullable) is None
+        # and model_fields_set contains the field
+        if self.search_text is None and "search_text" in self.model_fields_set:
+            _dict['search_text'] = None
+
         return _dict
 
     @classmethod

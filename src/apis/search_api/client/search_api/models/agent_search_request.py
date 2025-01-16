@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from search_api.models.agent_filters import AgentFilters
 from search_api.models.direction import Direction
@@ -29,15 +29,16 @@ class AgentSearchRequest(BaseModel):
     """
     The agent search request object
     """ # noqa: E501
-    filters: Optional[AgentFilters] = Field(default=None, description="The set of filters that should be applied to the search")
-    sort: Optional[SortType] = Field(default=None, description="The type of sorting that should be applied to the search results")
-    direction: Optional[Direction] = Field(default=None, description="The direction of the sorting, ascending or descending")
-    search_text: Optional[StrictStr] = Field(default=None, description="The optional search text that should be included. This should not be a filter mechanism but entries that are closer to the search text should be ranked higher")
+    filters: Optional[AgentFilters] = None
+    sort: Optional[SortType] = None
+    direction: Optional[Direction] = None
+    search_text: Optional[StrictStr] = None
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
-    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "search_text", "offset", "limit", "search_id", "source"]
+    only_current_campaign_eligible: Optional[StrictBool] = False
+    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "search_text", "offset", "limit", "search_id", "source", "only_current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -81,6 +82,11 @@ class AgentSearchRequest(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of filters
         if self.filters:
             _dict['filters'] = self.filters.to_dict()
+        # set to None if search_text (nullable) is None
+        # and model_fields_set contains the field
+        if self.search_text is None and "search_text" in self.model_fields_set:
+            _dict['search_text'] = None
+
         return _dict
 
     @classmethod
@@ -100,7 +106,8 @@ class AgentSearchRequest(BaseModel):
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
             "search_id": obj.get("search_id"),
-            "source": obj.get("source") if obj.get("source") is not None else ''
+            "source": obj.get("source") if obj.get("source") is not None else '',
+            "only_current_campaign_eligible": obj.get("only_current_campaign_eligible") if obj.get("only_current_campaign_eligible") is not None else False
         })
         return _obj
 

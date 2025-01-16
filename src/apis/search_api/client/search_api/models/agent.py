@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from search_api.models.agent_category import AgentCategory
 from search_api.models.agent_geo_location import AgentGeoLocation
@@ -33,22 +33,30 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     address: StrictStr = Field(description="the address of the agent (this should be used as the id of the agent)")
+    prefix: StrictStr
     name: StrictStr = Field(description="the public name of the agent")
     readme: StrictStr = Field(description="the contents of the readme file")
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")
-    avatar_href: Optional[StrictStr] = Field(default=None, description="the href for the avatar image for the agent")
+    avatar_href: Optional[StrictStr] = None
     total_interactions: StrictInt = Field(description="the total interactions for this agent")
     recent_interactions: StrictInt = Field(description="the number of interactions in the last 90 days")
-    rating: Optional[Union[StrictFloat, StrictInt]] = Field(default=None, description="agent rating a number between 0 and 5")
-    status: StatusType = Field(description="the status if the agent")
-    type: AgentType = Field(description="the type of agent")
-    category: AgentCategory = Field(description="the creator of the agent")
+    rating: Optional[Union[StrictFloat, StrictInt]] = None
+    status: StatusType
+    type: AgentType
+    category: AgentCategory
     featured: Optional[StrictBool] = Field(default=False, description="signaled if the agent is featured or not")
-    geo_location: Optional[AgentGeoLocation] = Field(default=None, description="the geolocation of the agent")
-    domain: Optional[StrictStr] = Field(default=None, description="the domain of the agent")
+    geo_location: Optional[AgentGeoLocation] = None
+    domain: Optional[StrictStr] = None
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
-    __properties: ClassVar[List[str]] = ["address", "name", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "category", "featured", "geo_location", "domain", "last_updated", "created_at"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "category", "featured", "geo_location", "domain", "last_updated", "created_at"]
+
+    @field_validator('prefix')
+    def prefix_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['agent', 'test-agent']):
+            raise ValueError("must be one of enum values ('agent', 'test-agent')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,6 +107,26 @@ class Agent(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of geo_location
         if self.geo_location:
             _dict['geo_location'] = self.geo_location.to_dict()
+        # set to None if avatar_href (nullable) is None
+        # and model_fields_set contains the field
+        if self.avatar_href is None and "avatar_href" in self.model_fields_set:
+            _dict['avatar_href'] = None
+
+        # set to None if rating (nullable) is None
+        # and model_fields_set contains the field
+        if self.rating is None and "rating" in self.model_fields_set:
+            _dict['rating'] = None
+
+        # set to None if geo_location (nullable) is None
+        # and model_fields_set contains the field
+        if self.geo_location is None and "geo_location" in self.model_fields_set:
+            _dict['geo_location'] = None
+
+        # set to None if domain (nullable) is None
+        # and model_fields_set contains the field
+        if self.domain is None and "domain" in self.model_fields_set:
+            _dict['domain'] = None
+
         return _dict
 
     @classmethod
@@ -112,6 +140,7 @@ class Agent(BaseModel):
 
         _obj = cls.model_validate({
             "address": obj.get("address"),
+            "prefix": obj.get("prefix"),
             "name": obj.get("name"),
             "readme": obj.get("readme"),
             "protocols": [Protocol.from_dict(_item) for _item in obj["protocols"]] if obj.get("protocols") is not None else None,

@@ -47,6 +47,12 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                         ], 
                     protocol_digest = [
                         ''
+                        ], 
+                    has_location = True, 
+                    has_readme = True, 
+                    n_interactions = '1k', 
+                    tags = [
+                        ''
                         ], ),
                 sort = 'relevancy',
                 direction = 'asc',

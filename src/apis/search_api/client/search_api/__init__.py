@@ -59,9 +59,10 @@ from search_api.models.function_search_request import FunctionSearchRequest
 from search_api.models.function_search_response import FunctionSearchResponse
 from search_api.models.function_type import FunctionType
 from search_api.models.http_validation_error import HTTPValidationError
+from search_api.models.interactions_threshold import InteractionsThreshold
+from search_api.models.location_inner import LocationInner
 from search_api.models.protocol import Protocol
 from search_api.models.search_term_percentage import SearchTermPercentage
 from search_api.models.sort_type import SortType
 from search_api.models.status_type import StatusType
 from search_api.models.validation_error import ValidationError
-from search_api.models.validation_error_loc_inner import ValidationErrorLocInner

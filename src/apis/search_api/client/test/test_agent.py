@@ -36,6 +36,7 @@ class TestAgent(unittest.TestCase):
         if include_optional:
             return Agent(
                 address = '',
+                prefix = 'agent',
                 name = '',
                 readme = '',
                 protocols = [
@@ -63,6 +64,7 @@ class TestAgent(unittest.TestCase):
         else:
             return Agent(
                 address = '',
+                prefix = 'agent',
                 name = '',
                 readme = '',
                 protocols = [

@@ -6,14 +6,15 @@ The agent search request object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**filters** | [**AgentFilters**](AgentFilters.md) | The set of filters that should be applied to the search | [optional] 
-**sort** | [**SortType**](SortType.md) | The type of sorting that should be applied to the search results | [optional] 
-**direction** | [**Direction**](Direction.md) | The direction of the sorting, ascending or descending | [optional] 
-**search_text** | **str** | The optional search text that should be included. This should not be a filter mechanism but entries that are closer to the search text should be ranked higher | [optional] 
+**filters** | [**AgentFilters**](AgentFilters.md) |  | [optional] 
+**sort** | [**SortType**](SortType.md) |  | [optional] 
+**direction** | [**Direction**](Direction.md) |  | [optional] 
+**search_text** | **str** |  | [optional] 
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
 **search_id** | **str** | Unique identifier of the search in question (search id generated before (previous search)). | [optional] 
 **source** | **str** | The source where the request is sent from. Ideally should be one of the following: &#39;&#39;, &#39;agentverse&#39;, &#39;flockx&#39;, an agent address | [optional] [default to '']
+**only_current_campaign_eligible** | **bool** |  | [optional] [default to False]
 
 ## Example
 

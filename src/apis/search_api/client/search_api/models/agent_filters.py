@@ -17,10 +17,11 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from search_api.models.agent_category import AgentCategory
 from search_api.models.agent_type import AgentType
+from search_api.models.interactions_threshold import InteractionsThreshold
 from search_api.models.status_type import StatusType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -33,7 +34,11 @@ class AgentFilters(BaseModel):
     category: Optional[List[AgentCategory]] = Field(default=None, description="The category of the creator of the agent")
     agent_type: Optional[List[AgentType]] = Field(default=None, description="The category of how the agent is hosted")
     protocol_digest: Optional[List[StrictStr]] = Field(default=None, description="The digest(s) of the protocol(s) that belong(s) to the agent")
-    __properties: ClassVar[List[str]] = ["state", "category", "agent_type", "protocol_digest"]
+    has_location: Optional[StrictBool] = False
+    has_readme: Optional[StrictBool] = False
+    n_interactions: Optional[InteractionsThreshold] = None
+    tags: Optional[List[StrictStr]] = Field(default=None, description="The tag(s) associated to the agent")
+    __properties: ClassVar[List[str]] = ["state", "category", "agent_type", "protocol_digest", "has_location", "has_readme", "n_interactions", "tags"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -74,6 +79,11 @@ class AgentFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if n_interactions (nullable) is None
+        # and model_fields_set contains the field
+        if self.n_interactions is None and "n_interactions" in self.model_fields_set:
+            _dict['n_interactions'] = None
+
         return _dict
 
     @classmethod
@@ -89,7 +99,11 @@ class AgentFilters(BaseModel):
             "state": obj.get("state"),
             "category": obj.get("category"),
             "agent_type": obj.get("agent_type"),
-            "protocol_digest": obj.get("protocol_digest")
+            "protocol_digest": obj.get("protocol_digest"),
+            "has_location": obj.get("has_location") if obj.get("has_location") is not None else False,
+            "has_readme": obj.get("has_readme") if obj.get("has_readme") is not None else False,
+            "n_interactions": obj.get("n_interactions"),
+            "tags": obj.get("tags")
         })
         return _obj
 
