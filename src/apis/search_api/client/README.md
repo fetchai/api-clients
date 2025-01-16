@@ -88,6 +88,7 @@ Class | Method | HTTP request | Description
 *AgentsApi* | [**check_current_campaign_eligibility**](docs/AgentsApi.md#check_current_campaign_eligibility) | **GET** /v1/search/agents/current-campaign-eligibility/{address} | Check Current Campaign Eligibility
 *AgentsApi* | [**get_agent_interactions_count**](docs/AgentsApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
 *AgentsApi* | [**search_agent_by_geolocation**](docs/AgentsApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
+*AgentsApi* | [**search_agent_tags**](docs/AgentsApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
 *AgentsApi* | [**search_agents**](docs/AgentsApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
 *AgentsApi* | [**select_agent**](docs/AgentsApi.md#select_agent) | **POST** /v1/search/agents/click | Select Agent
 *AnalyticsApi* | [**get_agent_search_terms_analytics**](docs/AnalyticsApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
@@ -100,6 +101,7 @@ Class | Method | HTTP request | Description
 *PublicApi* | [**get_agent_searches_analytics**](docs/PublicApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
 *PublicApi* | [**get_function_interactions**](docs/PublicApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
 *PublicApi* | [**search_agent_by_geolocation**](docs/PublicApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
+*PublicApi* | [**search_agent_tags**](docs/PublicApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
 *PublicApi* | [**search_agents**](docs/PublicApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
 *PublicApi* | [**search_functions**](docs/PublicApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
 *PublicApi* | [**select_agent**](docs/PublicApi.md#select_agent) | **POST** /v1/search/agents/click | Select Agent
@@ -109,6 +111,7 @@ Class | Method | HTTP request | Description
 *SearchApi* | [**get_agent_searches_analytics**](docs/SearchApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
 *SearchApi* | [**get_function_interactions**](docs/SearchApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
 *SearchApi* | [**search_agent_by_geolocation**](docs/SearchApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
+*SearchApi* | [**search_agent_tags**](docs/SearchApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
 *SearchApi* | [**search_agents**](docs/SearchApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
 *SearchApi* | [**search_functions**](docs/SearchApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
 *SearchApi* | [**select_agent**](docs/SearchApi.md#select_agent) | **POST** /v1/search/agents/click | Select Agent
@@ -131,6 +134,9 @@ Class | Method | HTTP request | Description
  - [AgentSearchResponse](docs/AgentSearchResponse.md)
  - [AgentSearchTermAnalyticsRequest](docs/AgentSearchTermAnalyticsRequest.md)
  - [AgentSearchTermAnalyticsResponse](docs/AgentSearchTermAnalyticsResponse.md)
+ - [AgentTag](docs/AgentTag.md)
+ - [AgentTagSearchRequest](docs/AgentTagSearchRequest.md)
+ - [AgentTagSearchResponse](docs/AgentTagSearchResponse.md)
  - [AgentType](docs/AgentType.md)
  - [Direction](docs/Direction.md)
  - [Function](docs/Function.md)

@@ -7,6 +7,7 @@ Method | HTTP request | Description
 [**check_current_campaign_eligibility**](AgentsApi.md#check_current_campaign_eligibility) | **GET** /v1/search/agents/current-campaign-eligibility/{address} | Check Current Campaign Eligibility
 [**get_agent_interactions_count**](AgentsApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
 [**search_agent_by_geolocation**](AgentsApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
+[**search_agent_tags**](AgentsApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
 [**search_agents**](AgentsApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
 [**select_agent**](AgentsApi.md#select_agent) | **POST** /v1/search/agents/click | Select Agent
 
@@ -197,6 +198,74 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AgentSearchResponse**](AgentSearchResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **search_agent_tags**
+> AgentTagSearchResponse search_agent_tags(agent_tag_search_request)
+
+Search Agent Tags
+
+### Example
+
+
+```python
+import search_api
+from search_api.models.agent_tag_search_request import AgentTagSearchRequest
+from search_api.models.agent_tag_search_response import AgentTagSearchResponse
+from search_api.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to http://localhost
+# See configuration.py for a list of all supported configuration parameters.
+configuration = search_api.Configuration(
+    host = "http://localhost"
+)
+
+
+# Enter a context with an instance of the API client
+with search_api.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = search_api.AgentsApi(api_client)
+    agent_tag_search_request = search_api.AgentTagSearchRequest() # AgentTagSearchRequest | 
+
+    try:
+        # Search Agent Tags
+        api_response = api_instance.search_agent_tags(agent_tag_search_request)
+        print("The response of AgentsApi->search_agent_tags:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->search_agent_tags: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_tag_search_request** | [**AgentTagSearchRequest**](AgentTagSearchRequest.md)|  | 
+
+### Return type
+
+[**AgentTagSearchResponse**](AgentTagSearchResponse.md)
 
 ### Authorization
 

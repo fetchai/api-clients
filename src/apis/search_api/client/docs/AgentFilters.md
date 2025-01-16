@@ -10,8 +10,8 @@ Name | Type | Description | Notes
 **category** | [**List[AgentCategory]**](AgentCategory.md) | The category of the creator of the agent | [optional] 
 **agent_type** | [**List[AgentType]**](AgentType.md) | The category of how the agent is hosted | [optional] 
 **protocol_digest** | **List[str]** | The digest(s) of the protocol(s) that belong(s) to the agent | [optional] 
-**has_location** | **bool** |  | [optional] [default to False]
-**has_readme** | **bool** |  | [optional] [default to False]
+**has_location** | **bool** | If set to True, it will filter for agents that have a geo location specified | [optional] [default to False]
+**has_readme** | **bool** | If set to True, it will filter for agents that have a non-empty readme | [optional] [default to False]
 **n_interactions** | [**InteractionsThreshold**](InteractionsThreshold.md) |  | [optional] 
 **tags** | **List[str]** | The tag(s) associated to the agent | [optional] 
 

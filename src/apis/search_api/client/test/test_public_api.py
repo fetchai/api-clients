@@ -68,6 +68,13 @@ class TestPublicApi(unittest.TestCase):
         """
         pass
 
+    def test_search_agent_tags(self) -> None:
+        """Test case for search_agent_tags
+
+        Search Agent Tags
+        """
+        pass
+
     def test_search_agents(self) -> None:
         """Test case for search_agents
 

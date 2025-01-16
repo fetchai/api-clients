@@ -34,8 +34,8 @@ class AgentFilters(BaseModel):
     category: Optional[List[AgentCategory]] = Field(default=None, description="The category of the creator of the agent")
     agent_type: Optional[List[AgentType]] = Field(default=None, description="The category of how the agent is hosted")
     protocol_digest: Optional[List[StrictStr]] = Field(default=None, description="The digest(s) of the protocol(s) that belong(s) to the agent")
-    has_location: Optional[StrictBool] = False
-    has_readme: Optional[StrictBool] = False
+    has_location: Optional[StrictBool] = Field(default=False, description="If set to True, it will filter for agents that have a geo location specified")
+    has_readme: Optional[StrictBool] = Field(default=False, description="If set to True, it will filter for agents that have a non-empty readme")
     n_interactions: Optional[InteractionsThreshold] = None
     tags: Optional[List[StrictStr]] = Field(default=None, description="The tag(s) associated to the agent")
     __properties: ClassVar[List[str]] = ["state", "category", "agent_type", "protocol_digest", "has_location", "has_readme", "n_interactions", "tags"]
