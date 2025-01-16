@@ -18,11 +18,12 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from search_api.models.agent_category import AgentCategory
 from search_api.models.agent_geo_location import AgentGeoLocation
 from search_api.models.agent_type import AgentType
+from search_api.models.net_type import NetType
 from search_api.models.protocol import Protocol
 from search_api.models.status_type import StatusType
 from typing import Optional, Set
@@ -33,7 +34,7 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     address: StrictStr = Field(description="the address of the agent (this should be used as the id of the agent)")
-    prefix: StrictStr = Field(description="In which net it is running (mainnet or test-net)")
+    prefix: NetType
     name: StrictStr = Field(description="the public name of the agent")
     readme: StrictStr = Field(description="the contents of the readme file")
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")
@@ -49,14 +50,8 @@ class Agent(BaseModel):
     domain: Optional[StrictStr] = None
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "category", "featured", "geo_location", "domain", "last_updated", "created_at"]
-
-    @field_validator('prefix')
-    def prefix_validate_enum(cls, value):
-        """Validates the enum"""
-        if value not in set(['agent', 'test-agent']):
-            raise ValueError("must be one of enum values ('agent', 'test-agent')")
-        return value
+    current_campaign_eligible: Optional[StrictBool] = False
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "category", "featured", "geo_location", "domain", "last_updated", "created_at", "current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -155,7 +150,8 @@ class Agent(BaseModel):
             "geo_location": AgentGeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
             "domain": obj.get("domain"),
             "last_updated": obj.get("last_updated"),
-            "created_at": obj.get("created_at")
+            "created_at": obj.get("created_at"),
+            "current_campaign_eligible": obj.get("current_campaign_eligible") if obj.get("current_campaign_eligible") is not None else False
         })
         return _obj
 

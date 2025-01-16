@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **prefix** | **str** |  | [optional] 
-**limit** | **int** |  | [optional] [default to 5]
+**limit** | **int** | The limit of search results to return (5 by default) | [optional] [default to 5]
 
 ## Example
 

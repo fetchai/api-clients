@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,7 +27,7 @@ class AgentTagSearchRequest(BaseModel):
     AgentTagSearchRequest
     """ # noqa: E501
     prefix: Optional[StrictStr] = None
-    limit: Optional[StrictInt] = 5
+    limit: Optional[StrictInt] = Field(default=5, description="The limit of search results to return (5 by default)")
     __properties: ClassVar[List[str]] = ["prefix", "limit"]
 
     model_config = ConfigDict(

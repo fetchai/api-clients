@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | the address of the agent (this should be used as the id of the agent) | 
-**prefix** | **str** | In which net it is running (mainnet or test-net) | 
+**prefix** | [**NetType**](NetType.md) |  | 
 **name** | **str** | the public name of the agent | 
 **readme** | **str** | the contents of the readme file | 
 **protocols** | [**List[Protocol]**](Protocol.md) | the list of protocols supported by the agent | 
@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **domain** | **str** |  | [optional] 
 **last_updated** | **datetime** | the time at which the agent was last updated at | 
 **created_at** | **datetime** | the time at which the agent was first visible or created | 
+**current_campaign_eligible** | **bool** |  | [optional] [default to False]
 
 ## Example
 

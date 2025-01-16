@@ -148,6 +148,7 @@ Class | Method | HTTP request | Description
  - [HTTPValidationError](docs/HTTPValidationError.md)
  - [InteractionsThreshold](docs/InteractionsThreshold.md)
  - [LocationInner](docs/LocationInner.md)
+ - [NetType](docs/NetType.md)
  - [Protocol](docs/Protocol.md)
  - [SearchTermPercentage](docs/SearchTermPercentage.md)
  - [SortType](docs/SortType.md)

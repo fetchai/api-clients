@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tag** | **str** |  | 
+**tag** | **str** | The tag of the agent (e.g.: llm, geo, travel, utility, finance, ...) | 
 
 ## Example
 

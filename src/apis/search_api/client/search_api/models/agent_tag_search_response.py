@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
 from search_api.models.agent_tag import AgentTag
 from typing import Optional, Set
@@ -27,7 +27,7 @@ class AgentTagSearchResponse(BaseModel):
     """
     AgentTagSearchResponse
     """ # noqa: E501
-    tags: Optional[List[AgentTag]] = None
+    tags: Optional[List[AgentTag]] = Field(default=None, description="The list of tags that are returned as part of the search")
     __properties: ClassVar[List[str]] = ["tags"]
 
     model_config = ConfigDict(

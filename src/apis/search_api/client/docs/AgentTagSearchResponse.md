@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**tags** | [**List[AgentTag]**](AgentTag.md) |  | [optional] 
+**tags** | [**List[AgentTag]**](AgentTag.md) | The list of tags that are returned as part of the search | [optional] 
 
 ## Example
 
