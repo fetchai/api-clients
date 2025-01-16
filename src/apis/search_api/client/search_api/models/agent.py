@@ -33,7 +33,7 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     address: StrictStr = Field(description="the address of the agent (this should be used as the id of the agent)")
-    prefix: StrictStr
+    prefix: StrictStr = Field(description="In which net it is running (mainnet or test-net)")
     name: StrictStr = Field(description="the public name of the agent")
     readme: StrictStr = Field(description="the contents of the readme file")
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")
