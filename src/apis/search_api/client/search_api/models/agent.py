@@ -23,7 +23,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Union
 from search_api.models.agent_category import AgentCategory
 from search_api.models.agent_geo_location import AgentGeoLocation
 from search_api.models.agent_type import AgentType
-from search_api.models.net_type import NetType
+from search_api.models.net_protocol import NetProtocol
 from search_api.models.protocol import Protocol
 from search_api.models.status_type import StatusType
 from typing import Optional, Set
@@ -34,7 +34,7 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     address: StrictStr = Field(description="the address of the agent (this should be used as the id of the agent)")
-    prefix: NetType
+    prefix: NetProtocol
     name: StrictStr = Field(description="the public name of the agent")
     readme: StrictStr = Field(description="the contents of the readme file")
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")

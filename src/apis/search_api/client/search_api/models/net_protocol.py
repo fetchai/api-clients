@@ -18,9 +18,9 @@ from enum import Enum
 from typing_extensions import Self
 
 
-class NetType(str, Enum):
+class NetProtocol(str, Enum):
     """
-    NetType
+    NetProtocol
     """
 
     """
@@ -31,7 +31,7 @@ class NetType(str, Enum):
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
-        """Create an instance of NetType from a JSON string"""
+        """Create an instance of NetProtocol from a JSON string"""
         return cls(json.loads(json_str))
 
 

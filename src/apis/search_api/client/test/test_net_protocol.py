@@ -14,10 +14,10 @@
 
 import unittest
 
-from search_api.models.net_type import NetType
+from search_api.models.net_protocol import NetProtocol
 
-class TestNetType(unittest.TestCase):
-    """NetType unit test stubs"""
+class TestNetProtocol(unittest.TestCase):
+    """NetProtocol unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,9 +25,9 @@ class TestNetType(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def testNetType(self):
-        """Test NetType"""
-        # inst = NetType()
+    def testNetProtocol(self):
+        """Test NetProtocol"""
+        # inst = NetProtocol()
 
 if __name__ == '__main__':
     unittest.main()

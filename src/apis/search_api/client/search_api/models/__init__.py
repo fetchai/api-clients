@@ -43,7 +43,7 @@ from search_api.models.function_type import FunctionType
 from search_api.models.http_validation_error import HTTPValidationError
 from search_api.models.interactions_threshold import InteractionsThreshold
 from search_api.models.location_inner import LocationInner
-from search_api.models.net_type import NetType
+from search_api.models.net_protocol import NetProtocol
 from search_api.models.protocol import Protocol
 from search_api.models.search_term_percentage import SearchTermPercentage
 from search_api.models.sort_type import SortType

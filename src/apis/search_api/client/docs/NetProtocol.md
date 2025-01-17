@@ -1,4 +1,4 @@
-# NetType
+# NetProtocol
 
 
 ## Enum

@@ -36,7 +36,7 @@ docs/FunctionsApi.md
 docs/HTTPValidationError.md
 docs/InteractionsThreshold.md
 docs/LocationInner.md
-docs/NetType.md
+docs/NetProtocol.md
 docs/Protocol.md
 docs/PublicApi.md
 docs/SearchApi.md
@@ -88,7 +88,7 @@ search_api/models/function_type.py
 search_api/models/http_validation_error.py
 search_api/models/interactions_threshold.py
 search_api/models/location_inner.py
-search_api/models/net_type.py
+search_api/models/net_protocol.py
 search_api/models/protocol.py
 search_api/models/search_term_percentage.py
 search_api/models/sort_type.py
@@ -132,7 +132,7 @@ test/test_functions_api.py
 test/test_http_validation_error.py
 test/test_interactions_threshold.py
 test/test_location_inner.py
-test/test_net_type.py
+test/test_net_protocol.py
 test/test_protocol.py
 test/test_public_api.py
 test/test_search_api.py
