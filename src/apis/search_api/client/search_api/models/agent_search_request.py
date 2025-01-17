@@ -37,7 +37,7 @@ class AgentSearchRequest(BaseModel):
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
-    only_current_campaign_eligible: Optional[StrictBool] = False
+    only_current_campaign_eligible: Optional[StrictBool] = Field(default=False, description="If True, only agents eligible for current campaign are shown")
     __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "search_text", "offset", "limit", "search_id", "source", "only_current_campaign_eligible"]
 
     model_config = ConfigDict(
