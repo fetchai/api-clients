@@ -427,7 +427,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **search_agent_tags**
-> AgentTagSearchResponse search_agent_tags(agent_tag_search_request)
+> AgentTagSearchResponse search_agent_tags(prefix=prefix, limit=limit)
 
 Search Agent Tags
 
@@ -436,7 +436,6 @@ Search Agent Tags
 
 ```python
 import search_api
-from search_api.models.agent_tag_search_request import AgentTagSearchRequest
 from search_api.models.agent_tag_search_response import AgentTagSearchResponse
 from search_api.rest import ApiException
 from pprint import pprint
@@ -452,11 +451,12 @@ configuration = search_api.Configuration(
 with search_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.PublicApi(api_client)
-    agent_tag_search_request = search_api.AgentTagSearchRequest() # AgentTagSearchRequest | 
+    prefix = 'prefix_example' # str |  (optional)
+    limit = 5 # int |  (optional) (default to 5)
 
     try:
         # Search Agent Tags
-        api_response = api_instance.search_agent_tags(agent_tag_search_request)
+        api_response = api_instance.search_agent_tags(prefix=prefix, limit=limit)
         print("The response of PublicApi->search_agent_tags:\n")
         pprint(api_response)
     except Exception as e:
@@ -470,7 +470,8 @@ with search_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_tag_search_request** | [**AgentTagSearchRequest**](AgentTagSearchRequest.md)|  | 
+ **prefix** | **str**|  | [optional] 
+ **limit** | **int**|  | [optional] [default to 5]
 
 ### Return type
 
@@ -482,7 +483,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

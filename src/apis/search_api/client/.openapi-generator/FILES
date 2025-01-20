@@ -20,7 +20,6 @@ docs/AgentSearchResponse.md
 docs/AgentSearchTermAnalyticsRequest.md
 docs/AgentSearchTermAnalyticsResponse.md
 docs/AgentTag.md
-docs/AgentTagSearchRequest.md
 docs/AgentTagSearchResponse.md
 docs/AgentType.md
 docs/AgentsApi.md
@@ -75,7 +74,6 @@ search_api/models/agent_search_response.py
 search_api/models/agent_search_term_analytics_request.py
 search_api/models/agent_search_term_analytics_response.py
 search_api/models/agent_tag.py
-search_api/models/agent_tag_search_request.py
 search_api/models/agent_tag_search_response.py
 search_api/models/agent_type.py
 search_api/models/direction.py
@@ -116,7 +114,6 @@ test/test_agent_search_response.py
 test/test_agent_search_term_analytics_request.py
 test/test_agent_search_term_analytics_response.py
 test/test_agent_tag.py
-test/test_agent_tag_search_request.py
 test/test_agent_tag_search_response.py
 test/test_agent_type.py
 test/test_agents_api.py

@@ -16,8 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import Field, StrictBool, StrictStr
-from typing import Any, Dict
+from pydantic import Field, StrictBool, StrictInt, StrictStr
+from typing import Any, Dict, Optional
 from typing_extensions import Annotated
 from search_api.models.agent_clicked_request import AgentClickedRequest
 from search_api.models.agent_geo_search_request import AgentGeoSearchRequest
@@ -28,7 +28,6 @@ from search_api.models.agent_search_request import AgentSearchRequest
 from search_api.models.agent_search_response import AgentSearchResponse
 from search_api.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
 from search_api.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
-from search_api.models.agent_tag_search_request import AgentTagSearchRequest
 from search_api.models.agent_tag_search_response import AgentTagSearchResponse
 from search_api.models.function_last30days_interactions import FunctionLast30daysInteractions
 from search_api.models.function_search_request import FunctionSearchRequest
@@ -1663,7 +1662,8 @@ class PublicApi:
     @validate_call
     def search_agent_tags(
         self,
-        agent_tag_search_request: AgentTagSearchRequest,
+        prefix: Optional[StrictStr] = None,
+        limit: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1680,8 +1680,10 @@ class PublicApi:
         """Search Agent Tags
 
 
-        :param agent_tag_search_request: (required)
-        :type agent_tag_search_request: AgentTagSearchRequest
+        :param prefix:
+        :type prefix: str
+        :param limit:
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1705,7 +1707,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._search_agent_tags_serialize(
-            agent_tag_search_request=agent_tag_search_request,
+            prefix=prefix,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1730,7 +1733,8 @@ class PublicApi:
     @validate_call
     def search_agent_tags_with_http_info(
         self,
-        agent_tag_search_request: AgentTagSearchRequest,
+        prefix: Optional[StrictStr] = None,
+        limit: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1747,8 +1751,10 @@ class PublicApi:
         """Search Agent Tags
 
 
-        :param agent_tag_search_request: (required)
-        :type agent_tag_search_request: AgentTagSearchRequest
+        :param prefix:
+        :type prefix: str
+        :param limit:
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1772,7 +1778,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._search_agent_tags_serialize(
-            agent_tag_search_request=agent_tag_search_request,
+            prefix=prefix,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1797,7 +1804,8 @@ class PublicApi:
     @validate_call
     def search_agent_tags_without_preload_content(
         self,
-        agent_tag_search_request: AgentTagSearchRequest,
+        prefix: Optional[StrictStr] = None,
+        limit: Optional[StrictInt] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1814,8 +1822,10 @@ class PublicApi:
         """Search Agent Tags
 
 
-        :param agent_tag_search_request: (required)
-        :type agent_tag_search_request: AgentTagSearchRequest
+        :param prefix:
+        :type prefix: str
+        :param limit:
+        :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1839,7 +1849,8 @@ class PublicApi:
         """ # noqa: E501
 
         _param = self._search_agent_tags_serialize(
-            agent_tag_search_request=agent_tag_search_request,
+            prefix=prefix,
+            limit=limit,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1859,7 +1870,8 @@ class PublicApi:
 
     def _search_agent_tags_serialize(
         self,
-        agent_tag_search_request,
+        prefix,
+        limit,
         _request_auth,
         _content_type,
         _headers,
@@ -1882,11 +1894,17 @@ class PublicApi:
 
         # process the path parameters
         # process the query parameters
+        if prefix is not None:
+            
+            _query_params.append(('prefix', prefix))
+            
+        if limit is not None:
+            
+            _query_params.append(('limit', limit))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if agent_tag_search_request is not None:
-            _body_params = agent_tag_search_request
 
 
         # set the HTTP header `Accept`
@@ -1897,19 +1915,6 @@ class PublicApi:
                 ]
             )
 
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
 
         # authentication setting
         _auth_settings: List[str] = [

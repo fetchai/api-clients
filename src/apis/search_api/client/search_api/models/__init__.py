@@ -30,7 +30,6 @@ from search_api.models.agent_search_response import AgentSearchResponse
 from search_api.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
 from search_api.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
 from search_api.models.agent_tag import AgentTag
-from search_api.models.agent_tag_search_request import AgentTagSearchRequest
 from search_api.models.agent_tag_search_response import AgentTagSearchResponse
 from search_api.models.agent_type import AgentType
 from search_api.models.direction import Direction
