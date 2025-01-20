@@ -451,8 +451,8 @@ configuration = search_api.Configuration(
 with search_api.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = search_api.PublicApi(api_client)
-    prefix = 'prefix_example' # str |  (optional)
-    limit = 5 # int |  (optional) (default to 5)
+    prefix = 'prefix_example' # str | The prefix to use for searching tags (optional)
+    limit = 5 # int | The limit of search results to return (5 by default) (optional) (default to 5)
 
     try:
         # Search Agent Tags
@@ -470,8 +470,8 @@ with search_api.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **prefix** | **str**|  | [optional] 
- **limit** | **int**|  | [optional] [default to 5]
+ **prefix** | **str**| The prefix to use for searching tags | [optional] 
+ **limit** | **int**| The limit of search results to return (5 by default) | [optional] [default to 5]
 
 ### Return type
 

@@ -846,8 +846,8 @@ class AgentsApi:
     @validate_call
     def search_agent_tags(
         self,
-        prefix: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
+        prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -864,9 +864,9 @@ class AgentsApi:
         """Search Agent Tags
 
 
-        :param prefix:
+        :param prefix: The prefix to use for searching tags
         :type prefix: str
-        :param limit:
+        :param limit: The limit of search results to return (5 by default)
         :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -917,8 +917,8 @@ class AgentsApi:
     @validate_call
     def search_agent_tags_with_http_info(
         self,
-        prefix: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
+        prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -935,9 +935,9 @@ class AgentsApi:
         """Search Agent Tags
 
 
-        :param prefix:
+        :param prefix: The prefix to use for searching tags
         :type prefix: str
-        :param limit:
+        :param limit: The limit of search results to return (5 by default)
         :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
@@ -988,8 +988,8 @@ class AgentsApi:
     @validate_call
     def search_agent_tags_without_preload_content(
         self,
-        prefix: Optional[StrictStr] = None,
-        limit: Optional[StrictInt] = None,
+        prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
+        limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1006,9 +1006,9 @@ class AgentsApi:
         """Search Agent Tags
 
 
-        :param prefix:
+        :param prefix: The prefix to use for searching tags
         :type prefix: str
-        :param limit:
+        :param limit: The limit of search results to return (5 by default)
         :type limit: int
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
