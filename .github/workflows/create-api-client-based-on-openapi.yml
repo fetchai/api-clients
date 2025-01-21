@@ -77,8 +77,8 @@ jobs:
           generatorName: python
           inputSpec: $openapi_filepath
           additionalProperties:
-            packageName: $APP_NAME
-            projectName: $CLIENT_ROOT_PROJECT_NAME.$APP_NAME
+            packageName: $CLIENT_ROOT_PROJECT_NAME.$APP_NAME
+            projectName: $APP_NAME
             generateSourceCodeOnly: true
           configOptions:
             packageVersion: "1.0.0"
