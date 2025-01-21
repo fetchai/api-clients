@@ -13,21 +13,25 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v3
+
       - name: Receive and Persist JSON OpenAPI specs
         env:
           AUTHOR: ${{ github.event.client_payload.author }}
           OPENAPI_COMPRESSED: ${{ github.event.client_payload.file_content_base_64 }}
-          app_name: ${{ github.event.client_payload.app_name }}
+          CLIENT_ROOT_PROJECT_NAME: "agentverse_clients"
+          APP_NAME: ${{ github.event.client_payload.app_name }}
           web_openapi_path: ${{ github.workspace }}/src/web/openapi_specs
         run: |
           author=$GITHUB_AUTHOR
           echo "::notice:: Process triggered by $AUTHOR"
-          app_name=$(echo $app_name | sed s/-/_/g)
-          if [[ $app_name == "" ]]; then
-            echo "::error:: app_name cannot be empty"
+          
+          # Replace - by _ in order to avoid some errors at generating packages.
+          APP_NAME=$(echo $APP_NAME | sed s/-/_/g)
+          if [[ $APP_NAME == "" ]]; then
+            echo "::error:: APP_NAME cannot be empty"
             exit 1
           fi
-          openapi_filename="$app_name"_openapi_specification.json
+          openapi_filename="$APP_NAME"_openapi_specification.json
           openapi_filepath=$web_openapi_path/$openapi_filename
           echo "Persisting openapi specs  in $openapi_filepath" 
           OPENAPI=$(echo $OPENAPI_COMPRESSED | base64 -d | unxz -c)
@@ -36,30 +40,30 @@ jobs:
           
           echo "api_root_dir=${{ github.workspace }}/src/apis" >> $GITHUB_ENV
           
-          echo "::notice::Update for $app_name"
+          echo "::notice::Update for $APP_NAME"
 
-          echo "app_name=$app_name" >> $GITHUB_ENV
-          echo "openapi_filepath=$openapi_filepath"
+          echo "APP_NAME=$APP_NAME" >> $GITHUB_ENV
           echo "openapi_filepath=$openapi_filepath" >> $GITHUB_ENV
           echo "openapi_filename=$openapi_filename" >> $GITHUB_ENV
+
       - name: Create scaffolding & register docs
         run: |
           echo "api_root_dir: $api_root_dir"
           
           # TODO: What to do with conflict?
-          if [ ! -d $api_root_dir/$app_name ]
+          if [ ! -d $api_root_dir/$APP_NAME ]
           then
-            echo "::notice:: Creating dir $api_root_dir/$app_name"
-            mkdir $api_root_dir/$app_name
+            echo "::notice:: Creating dir $api_root_dir/$APP_NAME"
+            mkdir $api_root_dir/$APP_NAME
           else
-            echo "API $api_root_dir/$app_name already exists."
+            echo "API $api_root_dir/$APP_NAME already exists."
           fi
           
           # Add file to register docs into fastapi 
-          cat <<- EOF > $api_root_dir/$app_name/register_api_docs.py
-          api_id: str = '$app_name'
+          cat <<- EOF > $api_root_dir/$APP_NAME/register_api_docs.py
+          api_id: str = '$APP_NAME'
           openapi_specs_name: str = '$openapi_filename'
-          docs_endpoint_name: str = '/$app_name/'
+          docs_endpoint_name: str = '/$APP_NAME/'
           EOF
 
       - name: Prepare openapi config file
@@ -69,17 +73,17 @@ jobs:
           generatorName: python
           inputSpec: $openapi_filepath
           additionalProperties:
-            packageName: $app_name
-            projectName: $app_name
+            packageName: $APP_NAME
+            projectName: $APP_NAME
           configOptions:
             packageVersion: "1.0.0"
             library: fastapi
           EOF
           
-          if [ -d $api_root_dir/$app_name/client ]
+          if [ -d $api_root_dir/$APP_NAME/client ]
           then
             echo "Deleting old client..."
-            rm -R $api_root_dir/$app_name/client
+            rm -R $api_root_dir/$APP_NAME/client
           fi
           
           echo "openapi_filepath=$openapi_filepath"
@@ -88,20 +92,19 @@ jobs:
           echo "config_file_path=$config_file_path" >> $GITHUB_ENV
           echo $OPENAPI > ./openapi.json
           
-
       - name: Generate client
         uses: openapi-generators/openapitools-generator-action@v1
         with:
           generator: python
           config-file: ${{ env.config_file_path }}
           openapi-file: ./src/web/openapi_specs/${{ env.openapi_filename }}
-          command-args: "-o ./src/apis/${{ env.app_name }}/client"
+          command-args: "-o ./src/apis/${{ env.APP_NAME }}/client"
 
       - name: Persist changes with Git
         run: |
-          echo "Commiting dir $api_root_dir/$app_name"
+          echo "Commiting dir $api_root_dir/$APP_NAME"
           git config --local user.name "fetchbot"
           git config --local user.email "fetchbot@fetch.ai"
-          git add $api_root_dir/$app_name ${{ github.workspace }}/src/web/
-          git commit -m "Adding or updating docs and client for $app_name" || echo "No changes to commit"
+          git add $api_root_dir/$APP_NAME ${{ github.workspace }}/src/web/
+          git commit -m "Adding or updating docs and client for $APP_NAME" || echo "No changes to commit"
           git push
