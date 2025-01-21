@@ -103,7 +103,7 @@ jobs:
           generator: python
           config-file: ${{ env.config_file_path }}
           openapi-file: ./src/web/openapi_specs/${{ env.openapi_filename }}
-          command-args: "-o ${{ env.CLIENT_ROOT_DIR }}/"
+          command-args: "-o ./src/agentverse-clients"
 
       - name: Persist changes with Git
         run: |
