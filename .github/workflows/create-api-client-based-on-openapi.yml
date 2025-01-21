@@ -20,7 +20,7 @@ jobs:
           OPENAPI_COMPRESSED: ${{ github.event.client_payload.file_content_base_64 }}
           CLIENT_ROOT_PROJECT_NAME: "agentverse_clients"
           APP_NAME: ${{ github.event.client_payload.app_name }}
-          web_openapi_path: ${{ github.workspace }}/src/web/openapi_specs
+          WEB_OPENAPI_PATH: ${{ github.workspace }}/src/web/openapi_specs
         run: |
           author=$GITHUB_AUTHOR
           echo "::notice:: Process triggered by $AUTHOR"
@@ -32,7 +32,7 @@ jobs:
             exit 1
           fi
           openapi_filename="$APP_NAME"_openapi_specification.json
-          openapi_filepath=$web_openapi_path/$openapi_filename
+          openapi_filepath=$WEB_OPENAPI_PATH/$openapi_filename
           echo "Persisting openapi specs  in $openapi_filepath" 
           OPENAPI=$(echo $OPENAPI_COMPRESSED | base64 -d | unxz -c)
           echo $OPENAPI > $openapi_filepath
