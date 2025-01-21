@@ -1,0 +1,22 @@
+[project]
+name = "agentverse-clients"
+version = "0.1.0"
+description = ""
+authors = [
+    {name = "Xavier",email = "xavier.peiro@fetch.ai"}
+]
+readme = "README.md"
+requires-python = "^3.8"
+dependencies = [
+    "urllib3 (>=1.25.3,<3.0.0)",
+    "python-dateutil (>=2.8.2)",
+    "pydantic (>=2)",
+    "typing-extensions (>=4.7.1)"
+]
+
+[tool.poetry]
+packages = [{include = "agentverse_clients"}]
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
