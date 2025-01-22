@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_clients.search.models.function_type import FunctionType
+from agentverse_client.search.models.function_type import FunctionType
 from typing import Optional, Set
 from typing_extensions import Self
 

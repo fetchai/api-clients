@@ -1,4 +1,4 @@
-# agentverse_clients.search.FunctionsApi
+# agentverse_client.search.FunctionsApi
 
 All URIs are relative to *http://localhost*
 
@@ -17,22 +17,22 @@ Get Recent Interactions Of Function
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.function_last30days_interactions import FunctionLast30daysInteractions
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.function_last30days_interactions import FunctionLast30daysInteractions
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.FunctionsApi(api_client)
+    api_instance = agentverse_client.search.FunctionsApi(api_client)
     function_id = 'function_id_example' # str | Unique identifier of the function
 
     try:
@@ -84,24 +84,24 @@ Search Functions
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.function_search_request import FunctionSearchRequest
-from agentverse_clients.search.models.function_search_response import FunctionSearchResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.function_search_request import FunctionSearchRequest
+from agentverse_client.search.models.function_search_response import FunctionSearchResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.FunctionsApi(api_client)
-    function_search_request = agentverse_clients.search.FunctionSearchRequest() # FunctionSearchRequest | 
+    api_instance = agentverse_client.search.FunctionsApi(api_client)
+    function_search_request = agentverse_client.search.FunctionSearchRequest() # FunctionSearchRequest | 
 
     try:
         # Search Functions

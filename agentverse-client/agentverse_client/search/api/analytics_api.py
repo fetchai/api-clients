@@ -16,14 +16,14 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from agentverse_clients.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
-from agentverse_clients.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
-from agentverse_clients.search.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
-from agentverse_clients.search.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
+from agentverse_client.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
+from agentverse_client.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
+from agentverse_client.search.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
+from agentverse_client.search.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
 
-from agentverse_clients.search.api_client import ApiClient, RequestSerialized
-from agentverse_clients.search.api_response import ApiResponse
-from agentverse_clients.search.rest import RESTResponseType
+from agentverse_client.search.api_client import ApiClient, RequestSerialized
+from agentverse_client.search.api_response import ApiResponse
+from agentverse_client.search.rest import RESTResponseType
 
 
 class AnalyticsApi:

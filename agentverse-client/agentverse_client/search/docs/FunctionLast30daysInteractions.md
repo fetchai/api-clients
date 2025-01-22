@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.function_last30days_interactions import FunctionLast30daysInteractions
+from agentverse_client.search.models.function_last30days_interactions import FunctionLast30daysInteractions
 
 # TODO update the JSON string below
 json = "{}"

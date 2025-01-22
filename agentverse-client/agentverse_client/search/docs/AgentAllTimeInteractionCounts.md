@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
+from agentverse_client.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
 
 # TODO update the JSON string below
 json = "{}"

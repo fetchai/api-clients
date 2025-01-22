@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
+from agentverse_client.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
 
 # TODO update the JSON string below
 json = "{}"

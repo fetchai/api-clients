@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from agentverse_clients.search.models.location_inner import LocationInner
+from agentverse_client.search.models.location_inner import LocationInner
 from typing import Optional, Set
 from typing_extensions import Self
 

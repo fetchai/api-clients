@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_clients.search.models.agent_tag import AgentTag
+from agentverse_client.search.models.agent_tag import AgentTag
 from typing import Optional, Set
 from typing_extensions import Self
 

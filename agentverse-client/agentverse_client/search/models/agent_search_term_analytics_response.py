@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
-from agentverse_clients.search.models.search_term_percentage import SearchTermPercentage
+from agentverse_client.search.models.search_term_percentage import SearchTermPercentage
 from typing import Optional, Set
 from typing_extensions import Self
 

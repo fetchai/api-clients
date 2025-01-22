@@ -19,10 +19,10 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_clients.search.models.agent_category import AgentCategory
-from agentverse_clients.search.models.agent_type import AgentType
-from agentverse_clients.search.models.interactions_threshold import InteractionsThreshold
-from agentverse_clients.search.models.status_type import StatusType
+from agentverse_client.search.models.agent_category import AgentCategory
+from agentverse_client.search.models.agent_type import AgentType
+from agentverse_client.search.models.interactions_threshold import InteractionsThreshold
+from agentverse_client.search.models.status_type import StatusType
 from typing import Optional, Set
 from typing_extensions import Self
 

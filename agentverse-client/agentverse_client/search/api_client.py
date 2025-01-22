@@ -26,11 +26,11 @@ from urllib.parse import quote
 from typing import Tuple, Optional, List, Dict, Union
 from pydantic import SecretStr
 
-from agentverse_clients.search.configuration import Configuration
-from agentverse_clients.search.api_response import ApiResponse, T as ApiResponseT
-import agentverse_clients.search.models
-from agentverse_clients.search import rest
-from agentverse_clients.search.exceptions import (
+from agentverse_client.search.configuration import Configuration
+from agentverse_client.search.api_response import ApiResponse, T as ApiResponseT
+import agentverse_client.search.models
+from agentverse_client.search import rest
+from agentverse_client.search.exceptions import (
     ApiValueError,
     ApiException,
     BadRequestException,
@@ -449,7 +449,7 @@ class ApiClient:
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(agentverse_clients.search.models, klass)
+                klass = getattr(agentverse_client.search.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)

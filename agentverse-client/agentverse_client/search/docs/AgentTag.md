@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.agent_tag import AgentTag
+from agentverse_client.search.models.agent_tag import AgentTag
 
 # TODO update the JSON string below
 json = "{}"

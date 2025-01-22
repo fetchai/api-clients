@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.http_validation_error import HTTPValidationError
+from agentverse_client.search.models.http_validation_error import HTTPValidationError
 
 # TODO update the JSON string below
 json = "{}"

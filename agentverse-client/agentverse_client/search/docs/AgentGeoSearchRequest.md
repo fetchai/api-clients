@@ -19,7 +19,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.agent_geo_search_request import AgentGeoSearchRequest
+from agentverse_client.search.models.agent_geo_search_request import AgentGeoSearchRequest
 
 # TODO update the JSON string below
 json = "{}"

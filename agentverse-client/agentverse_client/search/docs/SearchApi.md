@@ -1,4 +1,4 @@
-# agentverse_clients.search.SearchApi
+# agentverse_client.search.SearchApi
 
 All URIs are relative to *http://localhost*
 
@@ -27,21 +27,21 @@ Retrieves a dictionary that shows eligibility status of the agent in current cam
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
+    api_instance = agentverse_client.search.SearchApi(api_client)
     address = 'address_example' # str | 
 
     try:
@@ -95,22 +95,22 @@ Retrieves interaction count histories and all-time interaction counts of the age
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_interaction_counts_response import AgentInteractionCountsResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_interaction_counts_response import AgentInteractionCountsResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
+    api_instance = agentverse_client.search.SearchApi(api_client)
     address = 'address_example' # str | The address of the agent
 
     try:
@@ -164,24 +164,24 @@ It provides data about the search terms that led to the agent in question (agent
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
-from agentverse_clients.search.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
+from agentverse_client.search.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
-    agent_search_term_analytics_request = agentverse_clients.search.AgentSearchTermAnalyticsRequest() # AgentSearchTermAnalyticsRequest | 
+    api_instance = agentverse_client.search.SearchApi(api_client)
+    agent_search_term_analytics_request = agentverse_client.search.AgentSearchTermAnalyticsRequest() # AgentSearchTermAnalyticsRequest | 
 
     try:
         # Get Agent Search Term Analytics
@@ -232,24 +232,24 @@ Get Agent Search Analytics
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
-from agentverse_clients.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
+from agentverse_client.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
-    agent_search_analytics_request = agentverse_clients.search.AgentSearchAnalyticsRequest() # AgentSearchAnalyticsRequest | 
+    api_instance = agentverse_client.search.SearchApi(api_client)
+    agent_search_analytics_request = agentverse_client.search.AgentSearchAnalyticsRequest() # AgentSearchAnalyticsRequest | 
 
     try:
         # Get Agent Search Analytics
@@ -300,22 +300,22 @@ Get Recent Interactions Of Function
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.function_last30days_interactions import FunctionLast30daysInteractions
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.function_last30days_interactions import FunctionLast30daysInteractions
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
+    api_instance = agentverse_client.search.SearchApi(api_client)
     function_id = 'function_id_example' # str | Unique identifier of the function
 
     try:
@@ -367,24 +367,24 @@ Search Agent By Geolocation
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_geo_search_request import AgentGeoSearchRequest
-from agentverse_clients.search.models.agent_search_response import AgentSearchResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_geo_search_request import AgentGeoSearchRequest
+from agentverse_client.search.models.agent_search_response import AgentSearchResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
-    agent_geo_search_request = agentverse_clients.search.AgentGeoSearchRequest() # AgentGeoSearchRequest | 
+    api_instance = agentverse_client.search.SearchApi(api_client)
+    agent_geo_search_request = agentverse_client.search.AgentGeoSearchRequest() # AgentGeoSearchRequest | 
 
     try:
         # Search Agent By Geolocation
@@ -435,22 +435,22 @@ Search Agent Tags
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_tag_search_response import AgentTagSearchResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_tag_search_response import AgentTagSearchResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
+    api_instance = agentverse_client.search.SearchApi(api_client)
     prefix = 'prefix_example' # str | The prefix to use for searching tags (optional)
     limit = 5 # int | The limit of search results to return (5 by default) (optional) (default to 5)
 
@@ -506,24 +506,24 @@ Search for agents.
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_search_request import AgentSearchRequest
-from agentverse_clients.search.models.agent_search_response import AgentSearchResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_search_request import AgentSearchRequest
+from agentverse_client.search.models.agent_search_response import AgentSearchResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
-    agent_search_request = agentverse_clients.search.AgentSearchRequest() # AgentSearchRequest | 
+    api_instance = agentverse_client.search.SearchApi(api_client)
+    agent_search_request = agentverse_client.search.AgentSearchRequest() # AgentSearchRequest | 
 
     try:
         # Search Agents
@@ -574,24 +574,24 @@ Search Functions
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.function_search_request import FunctionSearchRequest
-from agentverse_clients.search.models.function_search_response import FunctionSearchResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.function_search_request import FunctionSearchRequest
+from agentverse_client.search.models.function_search_response import FunctionSearchResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
-    function_search_request = agentverse_clients.search.FunctionSearchRequest() # FunctionSearchRequest | 
+    api_instance = agentverse_client.search.SearchApi(api_client)
+    function_search_request = agentverse_client.search.FunctionSearchRequest() # FunctionSearchRequest | 
 
     try:
         # Search Functions
@@ -642,23 +642,23 @@ Select Agent
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_clicked_request import AgentClickedRequest
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_clicked_request import AgentClickedRequest
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.SearchApi(api_client)
-    agent_clicked_request = agentverse_clients.search.AgentClickedRequest() # AgentClickedRequest | 
+    api_instance = agentverse_client.search.SearchApi(api_client)
+    agent_clicked_request = agentverse_client.search.AgentClickedRequest() # AgentClickedRequest | 
 
     try:
         # Select Agent

@@ -1,4 +1,4 @@
-# agentverse_clients.search.AnalyticsApi
+# agentverse_client.search.AnalyticsApi
 
 All URIs are relative to *http://localhost*
 
@@ -19,24 +19,24 @@ It provides data about the search terms that led to the agent in question (agent
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
-from agentverse_clients.search.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
+from agentverse_client.search.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.AnalyticsApi(api_client)
-    agent_search_term_analytics_request = agentverse_clients.search.AgentSearchTermAnalyticsRequest() # AgentSearchTermAnalyticsRequest | 
+    api_instance = agentverse_client.search.AnalyticsApi(api_client)
+    agent_search_term_analytics_request = agentverse_client.search.AgentSearchTermAnalyticsRequest() # AgentSearchTermAnalyticsRequest | 
 
     try:
         # Get Agent Search Term Analytics
@@ -87,24 +87,24 @@ Get Agent Search Analytics
 
 
 ```python
-import agentverse_clients.search
-from agentverse_clients.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
-from agentverse_clients.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
-from agentverse_clients.search.rest import ApiException
+import agentverse_client.search
+from agentverse_client.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
+from agentverse_client.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
+from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_clients.search.Configuration(
+configuration = agentverse_client.search.Configuration(
     host = "http://localhost"
 )
 
 
 # Enter a context with an instance of the API client
-with agentverse_clients.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_clients.search.AnalyticsApi(api_client)
-    agent_search_analytics_request = agentverse_clients.search.AgentSearchAnalyticsRequest() # AgentSearchAnalyticsRequest | 
+    api_instance = agentverse_client.search.AnalyticsApi(api_client)
+    agent_search_analytics_request = agentverse_client.search.AgentSearchAnalyticsRequest() # AgentSearchAnalyticsRequest | 
 
     try:
         # Get Agent Search Analytics

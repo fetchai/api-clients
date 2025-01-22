@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.validation_error import ValidationError
+from agentverse_client.search.models.validation_error import ValidationError
 
 # TODO update the JSON string below
 json = "{}"

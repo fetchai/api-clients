@@ -14,7 +14,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.search_term_percentage import SearchTermPercentage
+from agentverse_client.search.models.search_term_percentage import SearchTermPercentage
 
 # TODO update the JSON string below
 json = "{}"

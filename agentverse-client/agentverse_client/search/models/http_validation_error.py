@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_clients.search.models.validation_error import ValidationError
+from agentverse_client.search.models.validation_error import ValidationError
 from typing import Optional, Set
 from typing_extensions import Self
 

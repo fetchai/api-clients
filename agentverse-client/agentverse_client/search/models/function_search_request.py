@@ -19,9 +19,9 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_clients.search.models.direction import Direction
-from agentverse_clients.search.models.function_filters import FunctionFilters
-from agentverse_clients.search.models.sort_type import SortType
+from agentverse_client.search.models.direction import Direction
+from agentverse_client.search.models.function_filters import FunctionFilters
+from agentverse_client.search.models.sort_type import SortType
 from typing import Optional, Set
 from typing_extensions import Self
 

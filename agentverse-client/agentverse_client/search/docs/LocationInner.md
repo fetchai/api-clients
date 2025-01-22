@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.location_inner import LocationInner
+from agentverse_client.search.models.location_inner import LocationInner
 
 # TODO update the JSON string below
 json = "{}"

@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.protocol import Protocol
+from agentverse_client.search.models.protocol import Protocol
 
 # TODO update the JSON string below
 json = "{}"

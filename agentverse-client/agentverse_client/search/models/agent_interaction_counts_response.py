@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from agentverse_clients.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
+from agentverse_client.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
 from typing import Optional, Set
 from typing_extensions import Self
 

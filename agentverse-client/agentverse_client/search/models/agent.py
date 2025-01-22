@@ -20,12 +20,12 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from agentverse_clients.search.models.agent_category import AgentCategory
-from agentverse_clients.search.models.agent_geo_location import AgentGeoLocation
-from agentverse_clients.search.models.agent_type import AgentType
-from agentverse_clients.search.models.net_protocol import NetProtocol
-from agentverse_clients.search.models.protocol import Protocol
-from agentverse_clients.search.models.status_type import StatusType
+from agentverse_client.search.models.agent_category import AgentCategory
+from agentverse_client.search.models.agent_geo_location import AgentGeoLocation
+from agentverse_client.search.models.agent_type import AgentType
+from agentverse_client.search.models.net_protocol import NetProtocol
+from agentverse_client.search.models.protocol import Protocol
+from agentverse_client.search.models.status_type import StatusType
 from typing import Optional, Set
 from typing_extensions import Self
 

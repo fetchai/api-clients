@@ -22,7 +22,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.function import Function
+from agentverse_client.search.models.function import Function
 
 # TODO update the JSON string below
 json = "{}"

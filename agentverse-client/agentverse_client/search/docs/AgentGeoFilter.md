@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.agent_geo_filter import AgentGeoFilter
+from agentverse_client.search.models.agent_geo_filter import AgentGeoFilter
 
 # TODO update the JSON string below
 json = "{}"

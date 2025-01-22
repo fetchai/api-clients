@@ -19,16 +19,16 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictInt, StrictStr
 from typing import Any, Dict, Optional
 from typing_extensions import Annotated
-from agentverse_clients.search.models.agent_clicked_request import AgentClickedRequest
-from agentverse_clients.search.models.agent_geo_search_request import AgentGeoSearchRequest
-from agentverse_clients.search.models.agent_interaction_counts_response import AgentInteractionCountsResponse
-from agentverse_clients.search.models.agent_search_request import AgentSearchRequest
-from agentverse_clients.search.models.agent_search_response import AgentSearchResponse
-from agentverse_clients.search.models.agent_tag_search_response import AgentTagSearchResponse
+from agentverse_client.search.models.agent_clicked_request import AgentClickedRequest
+from agentverse_client.search.models.agent_geo_search_request import AgentGeoSearchRequest
+from agentverse_client.search.models.agent_interaction_counts_response import AgentInteractionCountsResponse
+from agentverse_client.search.models.agent_search_request import AgentSearchRequest
+from agentverse_client.search.models.agent_search_response import AgentSearchResponse
+from agentverse_client.search.models.agent_tag_search_response import AgentTagSearchResponse
 
-from agentverse_clients.search.api_client import ApiClient, RequestSerialized
-from agentverse_clients.search.api_response import ApiResponse
-from agentverse_clients.search.rest import RESTResponseType
+from agentverse_client.search.api_client import ApiClient, RequestSerialized
+from agentverse_client.search.api_response import ApiResponse
+from agentverse_client.search.rest import RESTResponseType
 
 
 class AgentsApi:

@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_clients.search.models.function_filters import FunctionFilters
+from agentverse_client.search.models.function_filters import FunctionFilters
 
 # TODO update the JSON string below
 json = "{}"

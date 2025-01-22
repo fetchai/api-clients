@@ -18,13 +18,13 @@ from typing_extensions import Annotated
 
 from pydantic import Field, StrictStr
 from typing_extensions import Annotated
-from agentverse_clients.search.models.function_last30days_interactions import FunctionLast30daysInteractions
-from agentverse_clients.search.models.function_search_request import FunctionSearchRequest
-from agentverse_clients.search.models.function_search_response import FunctionSearchResponse
+from agentverse_client.search.models.function_last30days_interactions import FunctionLast30daysInteractions
+from agentverse_client.search.models.function_search_request import FunctionSearchRequest
+from agentverse_client.search.models.function_search_response import FunctionSearchResponse
 
-from agentverse_clients.search.api_client import ApiClient, RequestSerialized
-from agentverse_clients.search.api_response import ApiResponse
-from agentverse_clients.search.rest import RESTResponseType
+from agentverse_client.search.api_client import ApiClient, RequestSerialized
+from agentverse_client.search.api_response import ApiResponse
+from agentverse_client.search.rest import RESTResponseType
 
 
 class FunctionsApi:
