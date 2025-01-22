@@ -47,6 +47,7 @@ jobs:
           echo "openapi_filename=$openapi_filename" >> $GITHUB_ENV
 
       - name: Check registered apps and get client path
+
         run: |
           echo "::notice:: hello"
           registered_apps=${{ vars.APP_MAPPING }}
@@ -58,6 +59,8 @@ jobs:
           client_path=$(echo $registered_apps | jq -c '.["'$APP_NAME'"]')
           echo $registered_apps
           echo $client_path
+          echo $APP_NAME
+          echo '.["'$APP_NAME'"]'
           if [ $client_path = "null" ]
           then
             exit 1
