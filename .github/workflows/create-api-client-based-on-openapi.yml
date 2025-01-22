@@ -38,7 +38,7 @@ jobs:
           echo "----"
           
           echo "API_ROOT_DIR=${{ github.workspace }}/apis" >> $GITHUB_ENV
-          echo "CLIENT_ROOT_DIR=${{ github.workspace }}/agentverse-clients" >> $GITHUB_ENV
+          echo "CLIENT_ROOT_DIR=${{ github.workspace }}/agentverse-client" >> $GITHUB_ENV
           
           echo "::notice::Update for $APP_NAME"
 
@@ -83,7 +83,7 @@ jobs:
 
       - name: Prepare openapi config file
         env:
-          CLIENT_ROOT_PROJECT_NAME: "agentverse_clients"
+          CLIENT_ROOT_PROJECT_NAME: "agentverse_client"
         run: |
           config_file_path="./generator_config_file.yaml"
           
@@ -111,7 +111,7 @@ jobs:
           generator: python
           config-file: ${{ env.config_file_path }}
           openapi-file: ./web/openapi_specs/${{ env.openapi_filename }}
-          command-args: "-o ./agentverse-clients"
+          command-args: "-o ./agentverse-client"
 
       - name: Persist changes with Git
         run: |
