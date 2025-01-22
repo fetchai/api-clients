@@ -47,20 +47,13 @@ jobs:
           echo "openapi_filename=$openapi_filename" >> $GITHUB_ENV
 
       - name: Check registered apps and get client path
-
         run: |
           app_key=${{ github.event.client_payload.app_name }}
           registered_apps=${{ vars.APP_MAPPING }}
-          echo "::notice:: $registered_apps"
-          echo $registered_apps
           # decode
           registered_apps=$(echo $registered_apps | xxd -r -p)
           # get path from json
-          client_path=$(echo $registered_apps | jq -c '.["'$app_key'"]')
-          echo $registered_apps
-          echo $client_path
-          echo $APP_NAME
-          echo '.["'$APP_NAME'"]'
+          client_path=$(echo $registered_apps | jq -rc '.["'$app_key'"]')
           if [ $client_path = "null" ]
           then
             exit 1
