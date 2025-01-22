@@ -46,6 +46,24 @@ jobs:
           echo "openapi_filepath=$openapi_filepath" >> $GITHUB_ENV
           echo "openapi_filename=$openapi_filename" >> $GITHUB_ENV
 
+      - name: Check registered apps and get client path
+        run: |
+          echo "::notice:: hello"
+          registered_apps=${{ vars.APP_MAPPING }}
+          echo "::notice:: $registered_apps"
+          echo $registered_apps
+          # decode
+          registered_apps=$(echo $registered_apps | xxd -r -p)
+          # get path from json
+          client_path=$(echo $registered_apps | jq -c '.["'$APP_NAME'"]')
+          echo $registered_apps
+          echo $client_path
+          if [ $client_path = "null" ]
+          then
+            exit 1
+          else
+            echo "CLIENT_PATH=$client_path" >> $GITHUB_ENV
+          fi
       - name: Create scaffolding & register docs
         run: |
           echo "API_ROOT_DIR: $API_ROOT_DIR"
@@ -77,7 +95,7 @@ jobs:
           generatorName: python
           inputSpec: $openapi_filepath
           additionalProperties:
-            packageName: $CLIENT_ROOT_PROJECT_NAME.$APP_NAME
+            packageName: $CLIENT_ROOT_PROJECT_NAME.$CLIENT_PATH
             projectName: $APP_NAME
             generateSourceCodeOnly: true
           configOptions:
@@ -85,13 +103,6 @@ jobs:
             library: fastapi
           EOF
           
-          if [ -d $API_ROOT_DIR/$APP_NAME/client ]
-          then
-            echo "Deleting old client..."
-            rm -R $API_ROOT_DIR/$APP_NAME/client
-          fi
-          
-          echo "openapi_filepath=$openapi_filepath"
           cat $config_file_path
           
           echo "config_file_path=$config_file_path" >> $GITHUB_ENV
