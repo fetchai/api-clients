@@ -49,14 +49,14 @@ jobs:
       - name: Check registered apps and get client path
 
         run: |
-          echo "::notice:: hello"
+          app_key=${{ github.event.client_payload.app_name }}
           registered_apps=${{ vars.APP_MAPPING }}
           echo "::notice:: $registered_apps"
           echo $registered_apps
           # decode
           registered_apps=$(echo $registered_apps | xxd -r -p)
           # get path from json
-          client_path=$(echo $registered_apps | jq -c '.["'$APP_NAME'"]')
+          client_path=$(echo $registered_apps | jq -c '.["'$app_key'"]')
           echo $registered_apps
           echo $client_path
           echo $APP_NAME
