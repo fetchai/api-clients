@@ -19,7 +19,7 @@ jobs:
           AUTHOR: ${{ github.event.client_payload.author }}
           OPENAPI_COMPRESSED: ${{ github.event.client_payload.file_content_base_64 }}
           APP_NAME: ${{ github.event.client_payload.app_name }}
-          WEB_OPENAPI_PATH: ${{ github.workspace }}/src/web/openapi_specs
+          WEB_OPENAPI_PATH: ${{ github.workspace }}/web/openapi_specs
         run: |
           author=$GITHUB_AUTHOR
           echo "::notice:: Process triggered by $AUTHOR"
@@ -37,8 +37,8 @@ jobs:
           echo $OPENAPI > $openapi_filepath
           echo "----"
           
-          echo "API_ROOT_DIR=${{ github.workspace }}/src/apis" >> $GITHUB_ENV
-          echo "CLIENT_ROOT_DIR=${{ github.workspace }}/src/agentverse-clients" >> $GITHUB_ENV
+          echo "API_ROOT_DIR=${{ github.workspace }}/apis" >> $GITHUB_ENV
+          echo "CLIENT_ROOT_DIR=${{ github.workspace }}/agentverse-clients" >> $GITHUB_ENV
           
           echo "::notice::Update for $APP_NAME"
 
@@ -58,6 +58,7 @@ jobs:
           then
             exit 1
           else
+            client_path=$(echo $client_path | sed s/-/_/g)
             echo "CLIENT_PATH=$client_path" >> $GITHUB_ENV
           fi
       - name: Create scaffolding & register docs
@@ -109,14 +110,14 @@ jobs:
         with:
           generator: python
           config-file: ${{ env.config_file_path }}
-          openapi-file: ./src/web/openapi_specs/${{ env.openapi_filename }}
-          command-args: "-o ./src/agentverse-clients"
+          openapi-file: ./web/openapi_specs/${{ env.openapi_filename }}
+          command-args: "-o ./agentverse-clients"
 
       - name: Persist changes with Git
         run: |
           echo "Commiting dir $API_ROOT_DIR/$APP_NAME"
           git config --local user.name "fetchbot"
           git config --local user.email "fetchbot@fetch.ai"
-          git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/src/web/ ${{ env.CLIENT_ROOT_DIR }}
+          git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}
           git commit -m "Adding or updating docs and client for $APP_NAME" || echo "No changes to commit"
           git push
