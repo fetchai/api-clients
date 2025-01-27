@@ -44,14 +44,15 @@ class Agent(BaseModel):
     rating: Optional[Union[StrictFloat, StrictInt]] = None
     status: StatusType
     type: AgentType
-    category: AgentCategory
     featured: Optional[StrictBool] = Field(default=False, description="signaled if the agent is featured or not")
+    category: AgentCategory
+    system_wide_tags: List[StrictStr] = Field(description="the system-wide tags assigned to the agent")
     geo_location: Optional[AgentGeoLocation] = None
     domain: Optional[StrictStr] = None
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
     current_campaign_eligible: Optional[StrictBool] = False
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "category", "featured", "geo_location", "domain", "last_updated", "created_at", "current_campaign_eligible"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "last_updated", "created_at", "current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -145,8 +146,9 @@ class Agent(BaseModel):
             "rating": obj.get("rating"),
             "status": obj.get("status"),
             "type": obj.get("type"),
-            "category": obj.get("category"),
             "featured": obj.get("featured") if obj.get("featured") is not None else False,
+            "category": obj.get("category"),
+            "system_wide_tags": obj.get("system_wide_tags"),
             "geo_location": AgentGeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
             "domain": obj.get("domain"),
             "last_updated": obj.get("last_updated"),
