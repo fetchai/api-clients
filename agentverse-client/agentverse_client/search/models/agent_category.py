@@ -27,6 +27,7 @@ class AgentCategory(str, Enum):
     allowed enum values
     """
     FETCH_MINUS_AI = 'fetch-ai'
+    VERIFIED = 'verified'
     COMMUNITY = 'community'
 
     @classmethod
