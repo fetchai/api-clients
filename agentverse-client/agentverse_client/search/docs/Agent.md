@@ -16,8 +16,9 @@ Name | Type | Description | Notes
 **rating** | **float** |  | [optional] 
 **status** | [**StatusType**](StatusType.md) |  | 
 **type** | [**AgentType**](AgentType.md) |  | 
-**category** | [**AgentCategory**](AgentCategory.md) |  | 
 **featured** | **bool** | signaled if the agent is featured or not | [optional] [default to False]
+**category** | [**AgentCategory**](AgentCategory.md) |  | 
+**system_wide_tags** | **List[str]** | the system-wide tags assigned to the agent | 
 **geo_location** | [**AgentGeoLocation**](AgentGeoLocation.md) |  | [optional] 
 **domain** | **str** |  | [optional] 
 **last_updated** | **datetime** | the time at which the agent was last updated at | 
