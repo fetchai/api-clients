@@ -15,7 +15,7 @@ dependencies = [
 ]
 
 [tool.poetry]
-packages = [{include = "agentverse_clients"}]
+packages = [{include = "agentverse_client"}]
 
 [build-system]
 requires = ["poetry-core>=2.0.0,<3.0.0"]
