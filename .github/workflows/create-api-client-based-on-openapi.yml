@@ -95,9 +95,9 @@ jobs:
             packageName: $CLIENT_ROOT_PROJECT_NAME.$CLIENT_PATH
             projectName: $APP_NAME
             generateSourceCodeOnly: true
+            library: asyncio
           configOptions:
             packageVersion: "1.0.0"
-            library: fastapi
           EOF
           
           cat $config_file_path
