@@ -52,7 +52,7 @@ class SearchApi:
 
 
     @validate_call
-    def check_current_campaign_eligibility(
+    async def check_current_campaign_eligibility(
         self,
         address: StrictStr,
         _request_timeout: Union[
@@ -108,11 +108,11 @@ class SearchApi:
             '200': "Dict[str, bool]",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -120,7 +120,7 @@ class SearchApi:
 
 
     @validate_call
-    def check_current_campaign_eligibility_with_http_info(
+    async def check_current_campaign_eligibility_with_http_info(
         self,
         address: StrictStr,
         _request_timeout: Union[
@@ -176,11 +176,11 @@ class SearchApi:
             '200': "Dict[str, bool]",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -188,7 +188,7 @@ class SearchApi:
 
 
     @validate_call
-    def check_current_campaign_eligibility_without_preload_content(
+    async def check_current_campaign_eligibility_without_preload_content(
         self,
         address: StrictStr,
         _request_timeout: Union[
@@ -244,7 +244,7 @@ class SearchApi:
             '200': "Dict[str, bool]",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -315,7 +315,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_interactions_count(
+    async def get_agent_interactions_count(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
         _request_timeout: Union[
@@ -371,11 +371,11 @@ class SearchApi:
             '200': "AgentInteractionCountsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -383,7 +383,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_interactions_count_with_http_info(
+    async def get_agent_interactions_count_with_http_info(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
         _request_timeout: Union[
@@ -439,11 +439,11 @@ class SearchApi:
             '200': "AgentInteractionCountsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -451,7 +451,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_interactions_count_without_preload_content(
+    async def get_agent_interactions_count_without_preload_content(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
         _request_timeout: Union[
@@ -507,7 +507,7 @@ class SearchApi:
             '200': "AgentInteractionCountsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -578,7 +578,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_search_terms_analytics(
+    async def get_agent_search_terms_analytics(
         self,
         agent_search_term_analytics_request: AgentSearchTermAnalyticsRequest,
         _request_timeout: Union[
@@ -634,11 +634,11 @@ class SearchApi:
             '200': "AgentSearchTermAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -646,7 +646,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_search_terms_analytics_with_http_info(
+    async def get_agent_search_terms_analytics_with_http_info(
         self,
         agent_search_term_analytics_request: AgentSearchTermAnalyticsRequest,
         _request_timeout: Union[
@@ -702,11 +702,11 @@ class SearchApi:
             '200': "AgentSearchTermAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -714,7 +714,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_search_terms_analytics_without_preload_content(
+    async def get_agent_search_terms_analytics_without_preload_content(
         self,
         agent_search_term_analytics_request: AgentSearchTermAnalyticsRequest,
         _request_timeout: Union[
@@ -770,7 +770,7 @@ class SearchApi:
             '200': "AgentSearchTermAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -854,7 +854,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_searches_analytics(
+    async def get_agent_searches_analytics(
         self,
         agent_search_analytics_request: AgentSearchAnalyticsRequest,
         _request_timeout: Union[
@@ -909,11 +909,11 @@ class SearchApi:
             '200': "AgentSearchAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -921,7 +921,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_searches_analytics_with_http_info(
+    async def get_agent_searches_analytics_with_http_info(
         self,
         agent_search_analytics_request: AgentSearchAnalyticsRequest,
         _request_timeout: Union[
@@ -976,11 +976,11 @@ class SearchApi:
             '200': "AgentSearchAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -988,7 +988,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_agent_searches_analytics_without_preload_content(
+    async def get_agent_searches_analytics_without_preload_content(
         self,
         agent_search_analytics_request: AgentSearchAnalyticsRequest,
         _request_timeout: Union[
@@ -1043,7 +1043,7 @@ class SearchApi:
             '200': "AgentSearchAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1127,7 +1127,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_function_interactions(
+    async def get_function_interactions(
         self,
         function_id: Annotated[StrictStr, Field(description="Unique identifier of the function")],
         _request_timeout: Union[
@@ -1182,11 +1182,11 @@ class SearchApi:
             '200': "FunctionLast30daysInteractions",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1194,7 +1194,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_function_interactions_with_http_info(
+    async def get_function_interactions_with_http_info(
         self,
         function_id: Annotated[StrictStr, Field(description="Unique identifier of the function")],
         _request_timeout: Union[
@@ -1249,11 +1249,11 @@ class SearchApi:
             '200': "FunctionLast30daysInteractions",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1261,7 +1261,7 @@ class SearchApi:
 
 
     @validate_call
-    def get_function_interactions_without_preload_content(
+    async def get_function_interactions_without_preload_content(
         self,
         function_id: Annotated[StrictStr, Field(description="Unique identifier of the function")],
         _request_timeout: Union[
@@ -1316,7 +1316,7 @@ class SearchApi:
             '200': "FunctionLast30daysInteractions",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1387,7 +1387,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agent_by_geolocation(
+    async def search_agent_by_geolocation(
         self,
         agent_geo_search_request: AgentGeoSearchRequest,
         _request_timeout: Union[
@@ -1442,11 +1442,11 @@ class SearchApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1454,7 +1454,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agent_by_geolocation_with_http_info(
+    async def search_agent_by_geolocation_with_http_info(
         self,
         agent_geo_search_request: AgentGeoSearchRequest,
         _request_timeout: Union[
@@ -1509,11 +1509,11 @@ class SearchApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1521,7 +1521,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agent_by_geolocation_without_preload_content(
+    async def search_agent_by_geolocation_without_preload_content(
         self,
         agent_geo_search_request: AgentGeoSearchRequest,
         _request_timeout: Union[
@@ -1576,7 +1576,7 @@ class SearchApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1660,7 +1660,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agent_tags(
+    async def search_agent_tags(
         self,
         prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
@@ -1719,11 +1719,11 @@ class SearchApi:
             '200': "AgentTagSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1731,7 +1731,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agent_tags_with_http_info(
+    async def search_agent_tags_with_http_info(
         self,
         prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
@@ -1790,11 +1790,11 @@ class SearchApi:
             '200': "AgentTagSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1802,7 +1802,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agent_tags_without_preload_content(
+    async def search_agent_tags_without_preload_content(
         self,
         prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
@@ -1861,7 +1861,7 @@ class SearchApi:
             '200': "AgentTagSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1939,7 +1939,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agents(
+    async def search_agents(
         self,
         agent_search_request: AgentSearchRequest,
         _request_timeout: Union[
@@ -1995,11 +1995,11 @@ class SearchApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2007,7 +2007,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agents_with_http_info(
+    async def search_agents_with_http_info(
         self,
         agent_search_request: AgentSearchRequest,
         _request_timeout: Union[
@@ -2063,11 +2063,11 @@ class SearchApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2075,7 +2075,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_agents_without_preload_content(
+    async def search_agents_without_preload_content(
         self,
         agent_search_request: AgentSearchRequest,
         _request_timeout: Union[
@@ -2131,7 +2131,7 @@ class SearchApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2215,7 +2215,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_functions(
+    async def search_functions(
         self,
         function_search_request: FunctionSearchRequest,
         _request_timeout: Union[
@@ -2270,11 +2270,11 @@ class SearchApi:
             '200': "FunctionSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2282,7 +2282,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_functions_with_http_info(
+    async def search_functions_with_http_info(
         self,
         function_search_request: FunctionSearchRequest,
         _request_timeout: Union[
@@ -2337,11 +2337,11 @@ class SearchApi:
             '200': "FunctionSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2349,7 +2349,7 @@ class SearchApi:
 
 
     @validate_call
-    def search_functions_without_preload_content(
+    async def search_functions_without_preload_content(
         self,
         function_search_request: FunctionSearchRequest,
         _request_timeout: Union[
@@ -2404,7 +2404,7 @@ class SearchApi:
             '200': "FunctionSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -2488,7 +2488,7 @@ class SearchApi:
 
 
     @validate_call
-    def select_agent(
+    async def select_agent(
         self,
         agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
@@ -2543,11 +2543,11 @@ class SearchApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2555,7 +2555,7 @@ class SearchApi:
 
 
     @validate_call
-    def select_agent_with_http_info(
+    async def select_agent_with_http_info(
         self,
         agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
@@ -2610,11 +2610,11 @@ class SearchApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -2622,7 +2622,7 @@ class SearchApi:
 
 
     @validate_call
-    def select_agent_without_preload_content(
+    async def select_agent_without_preload_content(
         self,
         agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
@@ -2677,7 +2677,7 @@ class SearchApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

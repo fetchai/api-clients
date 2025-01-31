@@ -41,7 +41,7 @@ class FunctionsApi:
 
 
     @validate_call
-    def get_function_interactions(
+    async def get_function_interactions(
         self,
         function_id: Annotated[StrictStr, Field(description="Unique identifier of the function")],
         _request_timeout: Union[
@@ -96,11 +96,11 @@ class FunctionsApi:
             '200': "FunctionLast30daysInteractions",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -108,7 +108,7 @@ class FunctionsApi:
 
 
     @validate_call
-    def get_function_interactions_with_http_info(
+    async def get_function_interactions_with_http_info(
         self,
         function_id: Annotated[StrictStr, Field(description="Unique identifier of the function")],
         _request_timeout: Union[
@@ -163,11 +163,11 @@ class FunctionsApi:
             '200': "FunctionLast30daysInteractions",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -175,7 +175,7 @@ class FunctionsApi:
 
 
     @validate_call
-    def get_function_interactions_without_preload_content(
+    async def get_function_interactions_without_preload_content(
         self,
         function_id: Annotated[StrictStr, Field(description="Unique identifier of the function")],
         _request_timeout: Union[
@@ -230,7 +230,7 @@ class FunctionsApi:
             '200': "FunctionLast30daysInteractions",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -301,7 +301,7 @@ class FunctionsApi:
 
 
     @validate_call
-    def search_functions(
+    async def search_functions(
         self,
         function_search_request: FunctionSearchRequest,
         _request_timeout: Union[
@@ -356,11 +356,11 @@ class FunctionsApi:
             '200': "FunctionSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -368,7 +368,7 @@ class FunctionsApi:
 
 
     @validate_call
-    def search_functions_with_http_info(
+    async def search_functions_with_http_info(
         self,
         function_search_request: FunctionSearchRequest,
         _request_timeout: Union[
@@ -423,11 +423,11 @@ class FunctionsApi:
             '200': "FunctionSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -435,7 +435,7 @@ class FunctionsApi:
 
 
     @validate_call
-    def search_functions_without_preload_content(
+    async def search_functions_without_preload_content(
         self,
         function_search_request: FunctionSearchRequest,
         _request_timeout: Union[
@@ -490,7 +490,7 @@ class FunctionsApi:
             '200': "FunctionSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

@@ -30,14 +30,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.FunctionsApi(api_client)
     function_id = 'function_id_example' # str | Unique identifier of the function
 
     try:
         # Get Recent Interactions Of Function
-        api_response = api_instance.get_function_interactions(function_id)
+        api_response = await api_instance.get_function_interactions(function_id)
         print("The response of FunctionsApi->get_function_interactions:\n")
         pprint(api_response)
     except Exception as e:
@@ -98,14 +98,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.FunctionsApi(api_client)
     function_search_request = agentverse_client.search.FunctionSearchRequest() # FunctionSearchRequest | 
 
     try:
         # Search Functions
-        api_response = api_instance.search_functions(function_search_request)
+        api_response = await api_instance.search_functions(function_search_request)
         print("The response of FunctionsApi->search_functions:\n")
         pprint(api_response)
     except Exception as e:

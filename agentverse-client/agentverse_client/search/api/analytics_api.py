@@ -40,7 +40,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def get_agent_search_terms_analytics(
+    async def get_agent_search_terms_analytics(
         self,
         agent_search_term_analytics_request: AgentSearchTermAnalyticsRequest,
         _request_timeout: Union[
@@ -96,11 +96,11 @@ class AnalyticsApi:
             '200': "AgentSearchTermAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -108,7 +108,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def get_agent_search_terms_analytics_with_http_info(
+    async def get_agent_search_terms_analytics_with_http_info(
         self,
         agent_search_term_analytics_request: AgentSearchTermAnalyticsRequest,
         _request_timeout: Union[
@@ -164,11 +164,11 @@ class AnalyticsApi:
             '200': "AgentSearchTermAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -176,7 +176,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def get_agent_search_terms_analytics_without_preload_content(
+    async def get_agent_search_terms_analytics_without_preload_content(
         self,
         agent_search_term_analytics_request: AgentSearchTermAnalyticsRequest,
         _request_timeout: Union[
@@ -232,7 +232,7 @@ class AnalyticsApi:
             '200': "AgentSearchTermAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -316,7 +316,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def get_agent_searches_analytics(
+    async def get_agent_searches_analytics(
         self,
         agent_search_analytics_request: AgentSearchAnalyticsRequest,
         _request_timeout: Union[
@@ -371,11 +371,11 @@ class AnalyticsApi:
             '200': "AgentSearchAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -383,7 +383,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def get_agent_searches_analytics_with_http_info(
+    async def get_agent_searches_analytics_with_http_info(
         self,
         agent_search_analytics_request: AgentSearchAnalyticsRequest,
         _request_timeout: Union[
@@ -438,11 +438,11 @@ class AnalyticsApi:
             '200': "AgentSearchAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -450,7 +450,7 @@ class AnalyticsApi:
 
 
     @validate_call
-    def get_agent_searches_analytics_without_preload_content(
+    async def get_agent_searches_analytics_without_preload_content(
         self,
         agent_search_analytics_request: AgentSearchAnalyticsRequest,
         _request_timeout: Union[
@@ -505,7 +505,7 @@ class AnalyticsApi:
             '200': "AgentSearchAnalyticsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )

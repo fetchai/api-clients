@@ -35,14 +35,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.AgentsApi(api_client)
     address = 'address_example' # str | 
 
     try:
         # Check Current Campaign Eligibility
-        api_response = api_instance.check_current_campaign_eligibility(address)
+        api_response = await api_instance.check_current_campaign_eligibility(address)
         print("The response of AgentsApi->check_current_campaign_eligibility:\n")
         pprint(api_response)
     except Exception as e:
@@ -104,14 +104,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.AgentsApi(api_client)
     address = 'address_example' # str | The address of the agent
 
     try:
         # Get Interaction Counts Of Agent
-        api_response = api_instance.get_agent_interactions_count(address)
+        api_response = await api_instance.get_agent_interactions_count(address)
         print("The response of AgentsApi->get_agent_interactions_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -172,14 +172,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.AgentsApi(api_client)
     agent_geo_search_request = agentverse_client.search.AgentGeoSearchRequest() # AgentGeoSearchRequest | 
 
     try:
         # Search Agent By Geolocation
-        api_response = api_instance.search_agent_by_geolocation(agent_geo_search_request)
+        api_response = await api_instance.search_agent_by_geolocation(agent_geo_search_request)
         print("The response of AgentsApi->search_agent_by_geolocation:\n")
         pprint(api_response)
     except Exception as e:
@@ -239,7 +239,7 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.AgentsApi(api_client)
     prefix = 'prefix_example' # str | The prefix to use for searching tags (optional)
@@ -247,7 +247,7 @@ with agentverse_client.search.ApiClient(configuration) as api_client:
 
     try:
         # Search Agent Tags
-        api_response = api_instance.search_agent_tags(prefix=prefix, limit=limit)
+        api_response = await api_instance.search_agent_tags(prefix=prefix, limit=limit)
         print("The response of AgentsApi->search_agent_tags:\n")
         pprint(api_response)
     except Exception as e:
@@ -311,14 +311,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.AgentsApi(api_client)
     agent_search_request = agentverse_client.search.AgentSearchRequest() # AgentSearchRequest | 
 
     try:
         # Search Agents
-        api_response = api_instance.search_agents(agent_search_request)
+        api_response = await api_instance.search_agents(agent_search_request)
         print("The response of AgentsApi->search_agents:\n")
         pprint(api_response)
     except Exception as e:
@@ -378,14 +378,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.AgentsApi(api_client)
     agent_clicked_request = agentverse_client.search.AgentClickedRequest() # AgentClickedRequest | 
 
     try:
         # Select Agent
-        api_response = api_instance.select_agent(agent_clicked_request)
+        api_response = await api_instance.select_agent(agent_clicked_request)
         print("The response of AgentsApi->select_agent:\n")
         pprint(api_response)
     except Exception as e:

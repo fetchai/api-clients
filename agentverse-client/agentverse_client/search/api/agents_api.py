@@ -45,7 +45,7 @@ class AgentsApi:
 
 
     @validate_call
-    def check_current_campaign_eligibility(
+    async def check_current_campaign_eligibility(
         self,
         address: StrictStr,
         _request_timeout: Union[
@@ -101,11 +101,11 @@ class AgentsApi:
             '200': "Dict[str, bool]",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -113,7 +113,7 @@ class AgentsApi:
 
 
     @validate_call
-    def check_current_campaign_eligibility_with_http_info(
+    async def check_current_campaign_eligibility_with_http_info(
         self,
         address: StrictStr,
         _request_timeout: Union[
@@ -169,11 +169,11 @@ class AgentsApi:
             '200': "Dict[str, bool]",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -181,7 +181,7 @@ class AgentsApi:
 
 
     @validate_call
-    def check_current_campaign_eligibility_without_preload_content(
+    async def check_current_campaign_eligibility_without_preload_content(
         self,
         address: StrictStr,
         _request_timeout: Union[
@@ -237,7 +237,7 @@ class AgentsApi:
             '200': "Dict[str, bool]",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -308,7 +308,7 @@ class AgentsApi:
 
 
     @validate_call
-    def get_agent_interactions_count(
+    async def get_agent_interactions_count(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
         _request_timeout: Union[
@@ -364,11 +364,11 @@ class AgentsApi:
             '200': "AgentInteractionCountsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -376,7 +376,7 @@ class AgentsApi:
 
 
     @validate_call
-    def get_agent_interactions_count_with_http_info(
+    async def get_agent_interactions_count_with_http_info(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
         _request_timeout: Union[
@@ -432,11 +432,11 @@ class AgentsApi:
             '200': "AgentInteractionCountsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -444,7 +444,7 @@ class AgentsApi:
 
 
     @validate_call
-    def get_agent_interactions_count_without_preload_content(
+    async def get_agent_interactions_count_without_preload_content(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
         _request_timeout: Union[
@@ -500,7 +500,7 @@ class AgentsApi:
             '200': "AgentInteractionCountsResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -571,7 +571,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agent_by_geolocation(
+    async def search_agent_by_geolocation(
         self,
         agent_geo_search_request: AgentGeoSearchRequest,
         _request_timeout: Union[
@@ -626,11 +626,11 @@ class AgentsApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -638,7 +638,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agent_by_geolocation_with_http_info(
+    async def search_agent_by_geolocation_with_http_info(
         self,
         agent_geo_search_request: AgentGeoSearchRequest,
         _request_timeout: Union[
@@ -693,11 +693,11 @@ class AgentsApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -705,7 +705,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agent_by_geolocation_without_preload_content(
+    async def search_agent_by_geolocation_without_preload_content(
         self,
         agent_geo_search_request: AgentGeoSearchRequest,
         _request_timeout: Union[
@@ -760,7 +760,7 @@ class AgentsApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -844,7 +844,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agent_tags(
+    async def search_agent_tags(
         self,
         prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
@@ -903,11 +903,11 @@ class AgentsApi:
             '200': "AgentTagSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -915,7 +915,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agent_tags_with_http_info(
+    async def search_agent_tags_with_http_info(
         self,
         prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
@@ -974,11 +974,11 @@ class AgentsApi:
             '200': "AgentTagSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -986,7 +986,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agent_tags_without_preload_content(
+    async def search_agent_tags_without_preload_content(
         self,
         prefix: Annotated[Optional[StrictStr], Field(description="The prefix to use for searching tags")] = None,
         limit: Annotated[Optional[StrictInt], Field(description="The limit of search results to return (5 by default)")] = None,
@@ -1045,7 +1045,7 @@ class AgentsApi:
             '200': "AgentTagSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1123,7 +1123,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agents(
+    async def search_agents(
         self,
         agent_search_request: AgentSearchRequest,
         _request_timeout: Union[
@@ -1179,11 +1179,11 @@ class AgentsApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1191,7 +1191,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agents_with_http_info(
+    async def search_agents_with_http_info(
         self,
         agent_search_request: AgentSearchRequest,
         _request_timeout: Union[
@@ -1247,11 +1247,11 @@ class AgentsApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1259,7 +1259,7 @@ class AgentsApi:
 
 
     @validate_call
-    def search_agents_without_preload_content(
+    async def search_agents_without_preload_content(
         self,
         agent_search_request: AgentSearchRequest,
         _request_timeout: Union[
@@ -1315,7 +1315,7 @@ class AgentsApi:
             '200': "AgentSearchResponse",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
@@ -1399,7 +1399,7 @@ class AgentsApi:
 
 
     @validate_call
-    def select_agent(
+    async def select_agent(
         self,
         agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
@@ -1454,11 +1454,11 @@ class AgentsApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1466,7 +1466,7 @@ class AgentsApi:
 
 
     @validate_call
-    def select_agent_with_http_info(
+    async def select_agent_with_http_info(
         self,
         agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
@@ -1521,11 +1521,11 @@ class AgentsApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
-        response_data.read()
+        await response_data.read()
         return self.api_client.response_deserialize(
             response_data=response_data,
             response_types_map=_response_types_map,
@@ -1533,7 +1533,7 @@ class AgentsApi:
 
 
     @validate_call
-    def select_agent_without_preload_content(
+    async def select_agent_without_preload_content(
         self,
         agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
@@ -1588,7 +1588,7 @@ class AgentsApi:
             '200': "object",
             '422': "HTTPValidationError",
         }
-        response_data = self.api_client.call_api(
+        response_data = await self.api_client.call_api(
             *_param,
             _request_timeout=_request_timeout
         )
