@@ -1,10 +1,6 @@
 agentverse_client/__init__.py
 agentverse_client/search/__init__.py
 agentverse_client/search/api/__init__.py
-agentverse_client/search/api/agents_api.py
-agentverse_client/search/api/analytics_api.py
-agentverse_client/search/api/functions_api.py
-agentverse_client/search/api/public_api.py
 agentverse_client/search/api/search_api.py
 agentverse_client/search/api_client.py
 agentverse_client/search/api_response.py
@@ -27,8 +23,6 @@ agentverse_client/search/docs/AgentSearchTermAnalyticsResponse.md
 agentverse_client/search/docs/AgentTag.md
 agentverse_client/search/docs/AgentTagSearchResponse.md
 agentverse_client/search/docs/AgentType.md
-agentverse_client/search/docs/AgentsApi.md
-agentverse_client/search/docs/AnalyticsApi.md
 agentverse_client/search/docs/Direction.md
 agentverse_client/search/docs/Function.md
 agentverse_client/search/docs/FunctionFilters.md
@@ -36,13 +30,11 @@ agentverse_client/search/docs/FunctionLast30daysInteractions.md
 agentverse_client/search/docs/FunctionSearchRequest.md
 agentverse_client/search/docs/FunctionSearchResponse.md
 agentverse_client/search/docs/FunctionType.md
-agentverse_client/search/docs/FunctionsApi.md
 agentverse_client/search/docs/HTTPValidationError.md
 agentverse_client/search/docs/InteractionsThreshold.md
 agentverse_client/search/docs/LocationInner.md
 agentverse_client/search/docs/NetProtocol.md
 agentverse_client/search/docs/Protocol.md
-agentverse_client/search/docs/PublicApi.md
 agentverse_client/search/docs/SearchApi.md
 agentverse_client/search/docs/SearchTermPercentage.md
 agentverse_client/search/docs/SortType.md

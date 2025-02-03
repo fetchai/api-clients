@@ -47,16 +47,16 @@ configuration = agentverse_client.search.Configuration(
 # Enter a context with an instance of the API client
 async with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.search.AgentsApi(api_client)
+    api_instance = agentverse_client.search.SearchApi(api_client)
     address = 'address_example' # str | 
 
     try:
         # Check Current Campaign Eligibility
         api_response = await api_instance.check_current_campaign_eligibility(address)
-        print("The response of AgentsApi->check_current_campaign_eligibility:\n")
+        print("The response of SearchApi->check_current_campaign_eligibility:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AgentsApi->check_current_campaign_eligibility: %s\n" % e)
+        print("Exception when calling SearchApi->check_current_campaign_eligibility: %s\n" % e)
 
 ```
 
@@ -66,26 +66,6 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AgentsApi* | [**check_current_campaign_eligibility**](agentverse_client/search/docs/AgentsApi.md#check_current_campaign_eligibility) | **GET** /v1/search/agents/current-campaign-eligibility/{address} | Check Current Campaign Eligibility
-*AgentsApi* | [**get_agent_interactions_count**](agentverse_client/search/docs/AgentsApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
-*AgentsApi* | [**search_agent_by_geolocation**](agentverse_client/search/docs/AgentsApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
-*AgentsApi* | [**search_agent_tags**](agentverse_client/search/docs/AgentsApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
-*AgentsApi* | [**search_agents**](agentverse_client/search/docs/AgentsApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
-*AgentsApi* | [**select_agent**](agentverse_client/search/docs/AgentsApi.md#select_agent) | **POST** /v1/search/agents/click | Select Agent
-*AnalyticsApi* | [**get_agent_search_terms_analytics**](agentverse_client/search/docs/AnalyticsApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
-*AnalyticsApi* | [**get_agent_searches_analytics**](agentverse_client/search/docs/AnalyticsApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
-*FunctionsApi* | [**get_function_interactions**](agentverse_client/search/docs/FunctionsApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
-*FunctionsApi* | [**search_functions**](agentverse_client/search/docs/FunctionsApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
-*PublicApi* | [**check_current_campaign_eligibility**](agentverse_client/search/docs/PublicApi.md#check_current_campaign_eligibility) | **GET** /v1/search/agents/current-campaign-eligibility/{address} | Check Current Campaign Eligibility
-*PublicApi* | [**get_agent_interactions_count**](agentverse_client/search/docs/PublicApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
-*PublicApi* | [**get_agent_search_terms_analytics**](agentverse_client/search/docs/PublicApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
-*PublicApi* | [**get_agent_searches_analytics**](agentverse_client/search/docs/PublicApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
-*PublicApi* | [**get_function_interactions**](agentverse_client/search/docs/PublicApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
-*PublicApi* | [**search_agent_by_geolocation**](agentverse_client/search/docs/PublicApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
-*PublicApi* | [**search_agent_tags**](agentverse_client/search/docs/PublicApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
-*PublicApi* | [**search_agents**](agentverse_client/search/docs/PublicApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
-*PublicApi* | [**search_functions**](agentverse_client/search/docs/PublicApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
-*PublicApi* | [**select_agent**](agentverse_client/search/docs/PublicApi.md#select_agent) | **POST** /v1/search/agents/click | Select Agent
 *SearchApi* | [**check_current_campaign_eligibility**](agentverse_client/search/docs/SearchApi.md#check_current_campaign_eligibility) | **GET** /v1/search/agents/current-campaign-eligibility/{address} | Check Current Campaign Eligibility
 *SearchApi* | [**get_agent_interactions_count**](agentverse_client/search/docs/SearchApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
 *SearchApi* | [**get_agent_search_terms_analytics**](agentverse_client/search/docs/SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
