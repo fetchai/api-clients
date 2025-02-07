@@ -1,8 +1,8 @@
 # Description
-Under src/apis you will find a list of all available Fetch AI's APIs.
+Under apis you will find a list of all available Fetch AI's APIs.
 
-In each, under the client directory, you will find a functional client to interact 
-with the latest version of the service's API in question.
+Under the agentverse-client/agentverse_client directory, you will find a functional clients to interact 
+with the latest version of the services' API in question.
 
 You can also get information about the API running our web app, 
 where all Fetch AI's APIs docs are exposed using swagger & redocs.
