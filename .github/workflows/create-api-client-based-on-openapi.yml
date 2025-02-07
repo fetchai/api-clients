@@ -81,9 +81,13 @@ jobs:
           docs_endpoint_name: str = '/$APP_NAME/'
           EOF
 
-      - name: Prepare openapi config file
+      # SYNC CLIENT GENERATION
+      # ---
+      - name: "SYNC CLIENT: Prepare openapi config file"
         env:
           CLIENT_ROOT_PROJECT_NAME: "agentverse_client"
+          LIBRARY: urllib3
+          PACKAGE_NAME: agentverse_client.${{env.CLIENT_PATH}}
         run: |
           config_file_path="./generator_config_file.yaml"
           
@@ -92,10 +96,10 @@ jobs:
           generatorName: python
           inputSpec: $openapi_filepath
           additionalProperties:
-            packageName: $CLIENT_ROOT_PROJECT_NAME.$CLIENT_PATH
+            packageName: $PACKAGE_NAME
             projectName: $APP_NAME
             generateSourceCodeOnly: true
-            library: asyncio
+            library: $LIBRARY
           configOptions:
             packageVersion: "1.0.0"
           EOF
@@ -105,7 +109,7 @@ jobs:
           echo "config_file_path=$config_file_path" >> $GITHUB_ENV
           echo $OPENAPI > ./openapi.json
           
-      - name: Generate client
+      - name: "SYNC CLIENT: Generate client"
         uses: openapi-generators/openapitools-generator-action@v1
         env:
           API_TAG: ${{ github.event.client_payload.api_tag }}
@@ -114,10 +118,67 @@ jobs:
           config-file: ${{ env.config_file_path }}
           openapi-file: ./web/openapi_specs/${{ env.openapi_filename }}
           command-args: "--global-property models,supportingFiles,apis='$API_TAG' -o ./agentverse-client"
+      # ---
 
+
+      # ASYNC CLIENT GENERATION
+      # ---
+      - name: "ASYNC CLIENT: Prepare openapi config file"
+        env:
+          CLIENT_ROOT_PROJECT_NAME: "agentverse_client"
+          LIBRARY: asyncio
+          ROOT_PACKAGE_NAME: agentverse_client
+          ASYNC_CLIENT_DIR_NAME: aio
+        run: |
+          echo "ROOT_PACKAGE_NAME=$ROOT_PACKAGE_NAME" >> $GITHUB_ENV
+          echo "ASYNC_CLIENT_DIR_NAME=$ASYNC_CLIENT_DIR_NAME" >> $GITHUB_ENV
+          ASYNC_PACKAGE_NAME="$ROOT_PACKAGE_NAME".$CLIENT_PATH."$ASYNC_CLIENT_DIR_NAME"
+          config_file_path="./generator_config_file.yaml"
+          
+          # CONFIG FILE DEFINITION
+          cat <<- EOF -> $config_file_path
+          generatorName: python
+          inputSpec: $openapi_filepath
+          additionalProperties:
+            packageName: $ASYNC_PACKAGE_NAME
+            projectName: $APP_NAME
+            generateSourceCodeOnly: true
+            library: $LIBRARY
+          configOptions:
+            packageVersion: "1.0.0"
+          EOF
+          
+          cat $config_file_path
+          
+          echo "config_file_path=$config_file_path" >> $GITHUB_ENV
+          echo $OPENAPI > ./openapi.json
+
+      - name: "ASYNC CLIENT: Generate client"
+        uses: openapi-generators/openapitools-generator-action@v1
+        env:
+          API_TAG: ${{ github.event.client_payload.api_tag }}
+          ASYNC_OUTPUT_LOCATION: "./tmp_async_agentverse-client"
+        with:
+          generator: python
+          config-file: ${{ env.config_file_path }}
+          openapi-file: ./web/openapi_specs/${{ env.openapi_filename }}
+          command-args: "--global-property models,supportingFiles,apis='$API_TAG' -o $ASYNC_OUTPUT_LOCATION"
+      # ---
+
+      # Moving async client to the root client dir.
+      # ---
+      - name: Move async client to the root client dir.
+        env:
+          ASYNC_OUTPUT_LOCATION: "./tmp_async_agentverse-client"
+        run: |
+          ASYNC_PACKAGE_NAME="$ROOT_PACKAGE_NAME".$CLIENT_PATH."$ASYNC_CLIENT_DIR_NAME"
+          rm -fR $CLIENT_ROOT_DIR/agentverse_client/$CLIENT_PATH/$ASYNC_CLIENT_DIR_NAME 
+          mv "$ASYNC_OUTPUT_LOCATION"/"$ROOT_PACKAGE_NAME"/$CLIENT_PATH/"$ASYNC_CLIENT_DIR_NAME" $CLIENT_ROOT_DIR/agentverse_client/$CLIENT_PATH
+
+      # ---
       - name: Persist changes with Git
         run: |
-          echo "Commiting dir $API_ROOT_DIR/$APP_NAME"
+          echo "Commiting dir $API_ROOT_DIR/$APP_NAME, ${{ github.workspace }}/web/ and ${{ env.CLIENT_ROOT_DIR }}"
           git config --local user.name "fetchbot"
           git config --local user.email "fetchbot@fetch.ai"
           git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}

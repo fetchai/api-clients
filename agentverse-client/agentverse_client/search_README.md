@@ -20,8 +20,6 @@ To be able to use it, you will need these dependencies in your own package that 
 
 * urllib3 >= 1.25.3, < 3.0.0
 * python-dateutil >= 2.8.2
-* aiohttp >= 3.8.4
-* aiohttp-retry >= 2.8.3
 * pydantic >= 2
 * typing-extensions >= 4.7.1
 
@@ -45,14 +43,14 @@ configuration = agentverse_client.search.Configuration(
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.search.ApiClient(configuration) as api_client:
+with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.SearchApi(api_client)
     address = 'address_example' # str | 
 
     try:
         # Check Current Campaign Eligibility
-        api_response = await api_instance.check_current_campaign_eligibility(address)
+        api_response = api_instance.check_current_campaign_eligibility(address)
         print("The response of SearchApi->check_current_campaign_eligibility:\n")
         pprint(api_response)
     except ApiException as e:
