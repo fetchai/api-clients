@@ -35,7 +35,6 @@ agentverse_client/search/docs/InteractionsThreshold.md
 agentverse_client/search/docs/LocationInner.md
 agentverse_client/search/docs/NetProtocol.md
 agentverse_client/search/docs/Protocol.md
-agentverse_client/search/docs/RelevancyCutoff.md
 agentverse_client/search/docs/SearchApi.md
 agentverse_client/search/docs/SearchTermPercentage.md
 agentverse_client/search/docs/SortType.md
@@ -73,12 +72,10 @@ agentverse_client/search/models/interactions_threshold.py
 agentverse_client/search/models/location_inner.py
 agentverse_client/search/models/net_protocol.py
 agentverse_client/search/models/protocol.py
-agentverse_client/search/models/relevancy_cutoff.py
 agentverse_client/search/models/search_term_percentage.py
 agentverse_client/search/models/sort_type.py
 agentverse_client/search/models/status_type.py
 agentverse_client/search/models/validation_error.py
 agentverse_client/search/rest.py
 agentverse_client/search/test/__init__.py
-agentverse_client/search/test/test_relevancy_cutoff.py
 agentverse_client/search_README.md

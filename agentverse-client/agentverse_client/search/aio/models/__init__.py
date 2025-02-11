@@ -44,7 +44,6 @@ from agentverse_client.search.aio.models.interactions_threshold import Interacti
 from agentverse_client.search.aio.models.location_inner import LocationInner
 from agentverse_client.search.aio.models.net_protocol import NetProtocol
 from agentverse_client.search.aio.models.protocol import Protocol
-from agentverse_client.search.aio.models.relevancy_cutoff import RelevancyCutoff
 from agentverse_client.search.aio.models.search_term_percentage import SearchTermPercentage
 from agentverse_client.search.aio.models.sort_type import SortType
 from agentverse_client.search.aio.models.status_type import StatusType
