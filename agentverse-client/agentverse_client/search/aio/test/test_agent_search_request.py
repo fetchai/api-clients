@@ -56,6 +56,7 @@ class TestAgentSearchRequest(unittest.TestCase):
                         ], ),
                 sort = 'relevancy',
                 direction = 'asc',
+                cutoff = 'none',
                 search_text = '',
                 offset = 56,
                 limit = 56,

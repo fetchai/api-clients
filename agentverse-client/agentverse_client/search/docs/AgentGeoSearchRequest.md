@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **filters** | [**AgentFilters**](AgentFilters.md) |  | [optional] 
 **sort** | [**SortType**](SortType.md) |  | [optional] 
 **direction** | [**Direction**](Direction.md) |  | [optional] 
+**cutoff** | [**RelevancyCutoff**](RelevancyCutoff.md) |  | [optional] 
 **search_text** | **str** |  | [optional] 
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]

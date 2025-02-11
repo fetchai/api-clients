@@ -108,6 +108,7 @@ Class | Method | HTTP request | Description
  - [LocationInner](agentverse_client/search/docs/LocationInner.md)
  - [NetProtocol](agentverse_client/search/docs/NetProtocol.md)
  - [Protocol](agentverse_client/search/docs/Protocol.md)
+ - [RelevancyCutoff](agentverse_client/search/docs/RelevancyCutoff.md)
  - [SearchTermPercentage](agentverse_client/search/docs/SearchTermPercentage.md)
  - [SortType](agentverse_client/search/docs/SortType.md)
  - [StatusType](agentverse_client/search/docs/StatusType.md)
