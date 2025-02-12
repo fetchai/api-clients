@@ -7,12 +7,12 @@ The agent geo search request object
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **filters** | [**AgentFilters**](AgentFilters.md) |  | [optional] 
-**sort** | [**SortType**](SortType.md) |  | [optional] 
-**direction** | [**Direction**](Direction.md) |  | [optional] 
+**sort** | [**SortType**](SortType.md) | The type of sorting that should be applied to the search results | [optional] 
+**direction** | [**Direction**](Direction.md) | The direction of the sorting, ascending or descending | [optional] 
 **search_text** | **str** |  | [optional] 
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
-**geo_filter** | [**AgentGeoFilter**](AgentGeoFilter.md) |  | 
+**geo_filter** | [**AgentGeoFilter**](AgentGeoFilter.md) | The geo filter that can be applied to the search | 
 **search_id** | **str** | Unique identifier of the search in question (search id generated before (previous search)). | [optional] 
 **source** | **str** | The source where the request is sent from. Ideally should be one of the following: &#39;&#39;, &#39;agentverse&#39;, &#39;flockx&#39;, an agent address | [optional] [default to '']
 

@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **interval** | **List[int]** | the number of on_interval interactions for each day | 
 **message** | **List[int]** | the number of on_message interactions for each day | 
 **total** | **List[int]** | the sum of on_interval and on_message interaction counts for each day | 
-**num_all_time_interactions** | [**AgentAllTimeInteractionCounts**](AgentAllTimeInteractionCounts.md) |  | 
+**num_all_time_interactions** | [**AgentAllTimeInteractionCounts**](AgentAllTimeInteractionCounts.md) | number of on_interval, on_message and total (sum of on_interval and on_message) interactions | 
 
 ## Example
 

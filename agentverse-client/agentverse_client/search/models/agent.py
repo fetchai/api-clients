@@ -34,7 +34,7 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     address: StrictStr = Field(description="the address of the agent (this should be used as the id of the agent)")
-    prefix: NetProtocol
+    prefix: NetProtocol = Field(description="In which net it is running (mainnet or test-net)")
     name: StrictStr = Field(description="the public name of the agent")
     readme: StrictStr = Field(description="the contents of the readme file")
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")
@@ -42,10 +42,10 @@ class Agent(BaseModel):
     total_interactions: StrictInt = Field(description="the total interactions for this agent")
     recent_interactions: StrictInt = Field(description="the number of interactions in the last 90 days")
     rating: Optional[Union[StrictFloat, StrictInt]] = None
-    status: StatusType
-    type: AgentType
+    status: StatusType = Field(description="the status if the agent")
+    type: AgentType = Field(description="the type of agent")
     featured: Optional[StrictBool] = Field(default=False, description="signaled if the agent is featured or not")
-    category: AgentCategory
+    category: AgentCategory = Field(description="the creator of the agent")
     system_wide_tags: List[StrictStr] = Field(description="the system-wide tags assigned to the agent")
     geo_location: Optional[AgentGeoLocation] = None
     domain: Optional[StrictStr] = None
