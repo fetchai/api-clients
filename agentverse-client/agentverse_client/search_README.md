@@ -22,6 +22,8 @@ To be able to use it, you will need these dependencies in your own package that 
 * python-dateutil >= 2.8.2
 * pydantic >= 2
 * typing-extensions >= 4.7.1
+* aiohttp-retry >= 4.7.1
+* aiohttp >= 4.7.1
 
 ## Getting Started
 
@@ -29,33 +31,50 @@ In your own code, to use this library to connect and interact with search_api,
 you can run the following:
 
 ```python
-
-import agentverse_client.search
+from agentverse_client.search import (
+    SearchApi,
+    Configuration,
+    ApiClient,
+    AgentSearchRequest, 
+    AgentSearchResponse,
+    SortType,
+    Direction, 
+    Agent
+)
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to http://localhost
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+configuration = Configuration(
+    host = "https://agentverse.ai"
 )
 
-
-
 # Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
+with ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.search.SearchApi(api_client)
-    address = 'address_example' # str | 
-
+    api_instance = SearchApi(api_client)
+    
+    # Notice in that request you could add some filters if you wish, the options are many.
+    agent_search_request = AgentSearchRequest(
+        search_text="Financial advisor",
+        sort=SortType.RELEVANCY,
+        direction=Direction.ASC, # Please, notive that ASC and DESC work reversed of what you could expect.
+        offset=0,
+        limit=10,
+    )
     try:
         # Check Current Campaign Eligibility
-        api_response = api_instance.check_current_campaign_eligibility(address)
-        print("The response of SearchApi->check_current_campaign_eligibility:\n")
+        api_response: AgentSearchResponse = api_instance.search_agents(agent_search_request)
+        print("The response of SearchApi->search_agents:\n")
         pprint(api_response)
+        
+        agent: Agent
+        for agent in api_response.agents:
+            pprint(agent)
+            
     except ApiException as e:
-        print("Exception when calling SearchApi->check_current_campaign_eligibility: %s\n" % e)
-
+        print("Exception when calling SearchApi->search_agents: %s\n" % e)
 ```
 
 ## Documentation for API Endpoints
