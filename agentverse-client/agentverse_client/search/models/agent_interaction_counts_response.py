@@ -32,7 +32,7 @@ class AgentInteractionCountsResponse(BaseModel):
     interval: Annotated[List[StrictInt], Field(min_length=30, max_length=30)] = Field(description="the number of on_interval interactions for each day")
     message: Annotated[List[StrictInt], Field(min_length=30, max_length=30)] = Field(description="the number of on_message interactions for each day")
     total: Annotated[List[StrictInt], Field(min_length=30, max_length=30)] = Field(description="the sum of on_interval and on_message interaction counts for each day")
-    num_all_time_interactions: AgentAllTimeInteractionCounts = Field(description="number of on_interval, on_message and total (sum of on_interval and on_message) interactions")
+    num_all_time_interactions: AgentAllTimeInteractionCounts
     __properties: ClassVar[List[str]] = ["address", "interval", "message", "total", "num_all_time_interactions"]
 
     model_config = ConfigDict(

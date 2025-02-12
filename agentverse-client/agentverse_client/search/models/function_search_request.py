@@ -30,8 +30,8 @@ class FunctionSearchRequest(BaseModel):
     The function search request object
     """ # noqa: E501
     filters: Optional[FunctionFilters] = None
-    sort: Optional[SortType] = Field(default=None, description="The type of sorting that should be applied to the search results, relevancy is the default and should be")
-    direction: Optional[Direction] = Field(default=None, description="The direction of the sorting, ascending or descending")
+    sort: Optional[SortType] = None
+    direction: Optional[Direction] = None
     search_text: Optional[StrictStr] = None
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")

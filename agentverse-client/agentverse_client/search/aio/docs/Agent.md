@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | the address of the agent (this should be used as the id of the agent) | 
-**prefix** | [**NetProtocol**](NetProtocol.md) | In which net it is running (mainnet or test-net) | 
+**prefix** | [**NetProtocol**](NetProtocol.md) |  | 
 **name** | **str** | the public name of the agent | 
 **readme** | **str** | the contents of the readme file | 
 **protocols** | [**List[Protocol]**](Protocol.md) | the list of protocols supported by the agent | 
@@ -14,10 +14,10 @@ Name | Type | Description | Notes
 **total_interactions** | **int** | the total interactions for this agent | 
 **recent_interactions** | **int** | the number of interactions in the last 90 days | 
 **rating** | **float** |  | [optional] 
-**status** | [**StatusType**](StatusType.md) | the status if the agent | 
-**type** | [**AgentType**](AgentType.md) | the type of agent | 
+**status** | [**StatusType**](StatusType.md) |  | 
+**type** | [**AgentType**](AgentType.md) |  | 
 **featured** | **bool** | signaled if the agent is featured or not | [optional] [default to False]
-**category** | [**AgentCategory**](AgentCategory.md) | the creator of the agent | 
+**category** | [**AgentCategory**](AgentCategory.md) |  | 
 **system_wide_tags** | **List[str]** | the system-wide tags assigned to the agent | 
 **geo_location** | [**AgentGeoLocation**](AgentGeoLocation.md) |  | [optional] 
 **domain** | **str** |  | [optional] 
