@@ -9,7 +9,6 @@ Name | Type | Description | Notes
 **filters** | [**AgentFilters**](AgentFilters.md) |  | [optional] 
 **sort** | [**SortType**](SortType.md) | The type of sorting that should be applied to the search results | [optional] 
 **direction** | [**Direction**](Direction.md) | The direction of the sorting, ascending or descending | [optional] 
-**cutoff** | [**RelevancyCutoff**](RelevancyCutoff.md) | Controls how strictly the search results should be filtered based on their relevancy | [optional] 
 **search_text** | **str** |  | [optional] 
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
