@@ -38,7 +38,7 @@ class TestAgentSearchResponse(unittest.TestCase):
                 agents = [
                     agentverse_client.search.aio.models.agent.Agent(
                         address = '', 
-                        prefix = 'agent', 
+                        prefix = null, 
                         name = '', 
                         readme = '', 
                         protocols = [
@@ -51,10 +51,10 @@ class TestAgentSearchResponse(unittest.TestCase):
                         total_interactions = 56, 
                         recent_interactions = 56, 
                         rating = 1.337, 
-                        status = 'active', 
-                        type = 'hosted', 
+                        status = null, 
+                        type = null, 
                         featured = True, 
-                        category = 'fetch-ai', 
+                        category = null, 
                         system_wide_tags = [
                             ''
                             ], 

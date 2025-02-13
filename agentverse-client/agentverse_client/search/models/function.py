@@ -29,7 +29,7 @@ class Function(BaseModel):
     Function
     """ # noqa: E501
     id: StrictStr = Field(description="the identifier of the function")
-    type: FunctionType
+    type: FunctionType = Field(description="the type of the function / action")
     name: StrictStr = Field(description="the name of the function")
     agent: StrictStr = Field(description="the agent that the function belongs to")
     description: StrictStr = Field(description="the description of the function")

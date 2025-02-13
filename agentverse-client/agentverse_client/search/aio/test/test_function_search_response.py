@@ -38,7 +38,7 @@ class TestFunctionSearchResponse(unittest.TestCase):
                 functions = [
                     agentverse_client.search.aio.models.function.Function(
                         id = '', 
-                        type = 'function', 
+                        type = null, 
                         name = '', 
                         agent = '', 
                         description = '', 
