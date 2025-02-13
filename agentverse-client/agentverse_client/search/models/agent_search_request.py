@@ -21,6 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, Strict
 from typing import Any, ClassVar, Dict, List, Optional
 from agentverse_client.search.models.agent_filters import AgentFilters
 from agentverse_client.search.models.direction import Direction
+from agentverse_client.search.models.relevancy_cutoff import RelevancyCutoff
 from agentverse_client.search.models.sort_type import SortType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -32,13 +33,14 @@ class AgentSearchRequest(BaseModel):
     filters: Optional[AgentFilters] = None
     sort: Optional[SortType] = Field(default=None, description="The type of sorting that should be applied to the search results")
     direction: Optional[Direction] = Field(default=None, description="The direction of the sorting, ascending or descending")
+    cutoff: Optional[RelevancyCutoff] = Field(default=None, description="Controls how strictly the search results should be filtered based on their relevancy")
     search_text: Optional[StrictStr] = None
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
     only_current_campaign_eligible: Optional[StrictBool] = Field(default=False, description="If True, only agents eligible for current campaign are shown")
-    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "search_text", "offset", "limit", "search_id", "source", "only_current_campaign_eligible"]
+    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "offset", "limit", "search_id", "source", "only_current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -102,6 +104,7 @@ class AgentSearchRequest(BaseModel):
             "filters": AgentFilters.from_dict(obj["filters"]) if obj.get("filters") is not None else None,
             "sort": obj.get("sort"),
             "direction": obj.get("direction"),
+            "cutoff": obj.get("cutoff"),
             "search_text": obj.get("search_text"),
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
