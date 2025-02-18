@@ -100,6 +100,7 @@ jobs:
             projectName: $APP_NAME
             generateSourceCodeOnly: true
             library: $LIBRARY
+            basePath: https://agentverse.ai
           configOptions:
             packageVersion: "1.0.0"
           EOF
@@ -144,6 +145,7 @@ jobs:
             projectName: $APP_NAME
             generateSourceCodeOnly: true
             library: $LIBRARY
+            basePath: https://agentverse.ai
           configOptions:
             packageVersion: "1.0.0"
           EOF
