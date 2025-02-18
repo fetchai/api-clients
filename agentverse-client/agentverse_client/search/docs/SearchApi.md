@@ -1,6 +1,6 @@
 # agentverse_client.search.SearchApi
 
-All URIs are relative to *http://localhost*
+All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,10 +31,10 @@ import agentverse_client.search
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -100,10 +100,10 @@ from agentverse_client.search.models.agent_interaction_counts_response import Ag
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -170,10 +170,10 @@ from agentverse_client.search.models.agent_search_term_analytics_response import
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -238,10 +238,10 @@ from agentverse_client.search.models.agent_search_analytics_response import Agen
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -305,10 +305,10 @@ from agentverse_client.search.models.function_last30days_interactions import Fun
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -373,10 +373,10 @@ from agentverse_client.search.models.agent_search_response import AgentSearchRes
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -440,10 +440,10 @@ from agentverse_client.search.models.agent_tag_search_response import AgentTagSe
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -512,10 +512,10 @@ from agentverse_client.search.models.agent_search_response import AgentSearchRes
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -580,10 +580,10 @@ from agentverse_client.search.models.function_search_response import FunctionSea
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
@@ -647,10 +647,10 @@ from agentverse_client.search.models.agent_clicked_request import AgentClickedRe
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to http://localhost
+# Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
 configuration = agentverse_client.search.Configuration(
-    host = "http://localhost"
+    host = "https://agentverse.ai"
 )
 
 
