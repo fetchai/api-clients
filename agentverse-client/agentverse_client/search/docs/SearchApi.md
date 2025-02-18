@@ -4,7 +4,6 @@ All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**check_current_campaign_eligibility**](SearchApi.md#check_current_campaign_eligibility) | **GET** /v1/search/agents/current-campaign-eligibility/{address} | Check Current Campaign Eligibility
 [**get_agent_interactions_count**](SearchApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
 [**get_agent_search_terms_analytics**](SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
 [**get_agent_searches_analytics**](SearchApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
@@ -15,74 +14,6 @@ Method | HTTP request | Description
 [**search_functions**](SearchApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
 [**select_agent**](SearchApi.md#select_agent) | **POST** /v1/search/agents/click | Select Agent
 
-
-# **check_current_campaign_eligibility**
-> Dict[str, bool] check_current_campaign_eligibility(address)
-
-Check Current Campaign Eligibility
-
-Retrieves a dictionary that shows eligibility status of the agent in current campaign  A key in the dictionary is the condition name  and the corresponding value shows if the condition is met/unmet (True/False) by the agent
-
-### Example
-
-
-```python
-import agentverse_client.search
-from agentverse_client.search.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.search.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.search.SearchApi(api_client)
-    address = 'address_example' # str | 
-
-    try:
-        # Check Current Campaign Eligibility
-        api_response = api_instance.check_current_campaign_eligibility(address)
-        print("The response of SearchApi->check_current_campaign_eligibility:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling SearchApi->check_current_campaign_eligibility: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**|  | 
-
-### Return type
-
-**Dict[str, bool]**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_agent_interactions_count**
 > AgentInteractionCountsResponse get_agent_interactions_count(address)

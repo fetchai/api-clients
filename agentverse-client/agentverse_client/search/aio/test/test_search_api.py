@@ -26,13 +26,6 @@ class TestSearchApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_check_current_campaign_eligibility(self) -> None:
-        """Test case for check_current_campaign_eligibility
-
-        Check Current Campaign Eligibility
-        """
-        pass
-
     async def test_get_agent_interactions_count(self) -> None:
         """Test case for get_agent_interactions_count
 
