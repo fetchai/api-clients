@@ -116,6 +116,7 @@ jobs:
           API_TAG: ${{ github.event.client_payload.api_tag }}
         with:
           generator: python
+          generator-tag: 'v7.11.0'
           config-file: ${{ env.config_file_path }}
           openapi-file: ./web/openapi_specs/${{ env.openapi_filename }}
           command-args: "--global-property models,supportingFiles,apis='$API_TAG' -o ./agentverse-client"
@@ -162,6 +163,7 @@ jobs:
           ASYNC_OUTPUT_LOCATION: "./tmp_async_agentverse-client"
         with:
           generator: python
+          generator-tag: 'v7.11.0'
           config-file: ${{ env.config_file_path }}
           openapi-file: ./web/openapi_specs/${{ env.openapi_filename }}
           command-args: "--global-property models,supportingFiles,apis='$API_TAG' -o $ASYNC_OUTPUT_LOCATION"
