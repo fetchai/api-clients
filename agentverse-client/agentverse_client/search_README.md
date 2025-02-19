@@ -37,7 +37,8 @@ from agentverse_client.search import (
     AgentSearchResponse,
     SortType,
     Direction,
-    Agent
+    Agent,
+    AgentClickedRequest
 )
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
@@ -62,16 +63,26 @@ with ApiClient(configuration) as api_client:
         limit=10,
     )
     try:
-        api_response: AgentSearchResponse = api_instance.search_agents(agent_search_request)
+        search_response: AgentSearchResponse = api_instance.search_agents(agent_search_request)
         print("The response of SearchApi->search_agents:\n")
-        pprint(api_response)
-
-        agent: Agent
-        for agent in api_response.agents:
-            pprint(agent)
-
+        pprint(search_response)
     except ApiException as e:
         print("Exception when calling SearchApi->search_agents: %s\n" % e)
+
+    search_response_d: dict = search_response.model_dump()
+    page_index: int = search_response_d.get("offset") // search_response_d.get("num_hits")
+    agent_clicked_request: AgentClickedRequest = AgentClickedRequest(
+        search_id=search_response_d.get("search_id"),
+        page_index=page_index,
+        address=search_response_d.get("agents")[0].get("address"),
+    )
+
+    try:
+        api_instance.feedback(agent_clicked_request)
+        print("Successful request to SearchApi->feedback\n")
+    except Exception as e:
+        print("Exception when calling SearchApi->feedback: %s\n" % e)
+        raise
 ```
 
 You will receive an AgentSearchResponse object as response, corresponding to a json analog to:
