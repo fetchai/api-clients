@@ -26,10 +26,10 @@ class TestSearchApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_feedback(self) -> None:
-        """Test case for feedback
+    async def test_check_current_campaign_eligibility(self) -> None:
+        """Test case for check_current_campaign_eligibility
 
-        Feedback
+        Check Current Campaign Eligibility
         """
         pass
 
@@ -86,6 +86,13 @@ class TestSearchApi(unittest.IsolatedAsyncioTestCase):
         """Test case for search_functions
 
         Search Functions
+        """
+        pass
+
+    async def test_select_agent(self) -> None:
+        """Test case for select_agent
+
+        Select Agent
         """
         pass
 
