@@ -20,5 +20,6 @@
 # For example, you can ignore all files in a docs folder with the file extension .md:
 #docs/*.md
 **/search_README.md
+**/aio_search_README.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
