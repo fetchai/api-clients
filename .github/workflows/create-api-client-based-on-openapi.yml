@@ -158,7 +158,7 @@ jobs:
           files:
             configuration.mustache:
               templateType: SupportingFiles
-              destinationFilename: "agentverse_client/$CLIENT_PATH/ASYNC_CLIENT_DIR_NAME/configuration.py"
+              destinationFilename: "agentverse_client/$CLIENT_PATH/$ASYNC_CLIENT_DIR_NAME/configuration.py"
           configOptions:
             packageVersion: "1.0.0"
           EOF         
