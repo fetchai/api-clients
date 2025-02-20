@@ -167,7 +167,7 @@ class Configuration:
 
     def __init__(
         self,
-        host: Optional[str]=None,
+        host: Optional[str]="https://agentverse.ai",
         api_key: Optional[Dict[str, str]]=None,
         api_key_prefix: Optional[Dict[str, str]]=None,
         username: Optional[str]=None,
@@ -185,7 +185,7 @@ class Configuration:
     ) -> None:
         """Constructor
         """
-        self._base_path = "https://agentverse.ai" if host is None else host
+        self._base_path = "http://localhost" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
