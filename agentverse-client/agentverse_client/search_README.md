@@ -33,26 +33,21 @@ you can run the following:
 ```python
 from agentverse_client.search import (
     SearchApi,
-    Configuration,
     ApiClient,
     AgentSearchRequest,
     AgentSearchResponse,
     SortType,
     Direction,
     Agent,
-    AgentSearchRequest
+    SearchFeedbackRequest
 )
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = Configuration(
-    host="https://agentverse.ai"
-)
 
 # Enter a context with an instance of the API client
-with ApiClient(configuration) as api_client:
+with ApiClient() as api_client:
     # Create an instance of the API class
     api_instance = SearchApi(api_client)
 
@@ -73,14 +68,14 @@ with ApiClient(configuration) as api_client:
 
     search_response_d: dict = search_response.model_dump()
     page_index: int = search_response_d.get("offset") // search_response_d.get("num_hits")
-    agent_clicked_request: AgentSearchRequest = AgentSearchRequest(
+    search_feedback_request: SearchFeedbackRequest = SearchFeedbackRequest(
         search_id=search_response_d.get("search_id"),
         page_index=page_index,
         address=search_response_d.get("agents")[0].get("address"),
     )
 
     try:
-        api_instance.feedback(agent_clicked_request)
+        api_instance.feedback(search_feedback_request)
         print("Successful request to SearchApi->feedback\n")
     except Exception as e:
         print("Exception when calling SearchApi->feedback: %s\n" % e)
