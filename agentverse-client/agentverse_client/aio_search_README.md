@@ -43,7 +43,7 @@ from agentverse_client.search.aio import (
     AgentSearchResponse,
     SortType,
     Direction,
-    AgentClickedRequest
+    AgentSearchRequest
 )
 from agentverse_client.search.aio.rest import ApiException
 from pprint import pprint
@@ -77,7 +77,7 @@ async def main():
 
         search_response_d: dict = search_response.model_dump()
         page_index: int = search_response_d.get("offset") // search_response_d.get("num_hits")
-        agent_clicked_request: AgentClickedRequest = AgentClickedRequest(
+        agent_clicked_request: AgentSearchRequest = AgentSearchRequest(
             search_id=search_response_d.get("search_id"),
             page_index=page_index,
             address=search_response_d.get("agents")[0].get("address"),
@@ -116,7 +116,7 @@ Class | Method | HTTP request | Description
  - [Agent](./search/aio/docs/Agent.md)
  - [AgentAllTimeInteractionCounts](./search/aio/docs/AgentAllTimeInteractionCounts.md)
  - [AgentCategory](./search/aio/docs/AgentCategory.md)
- - [AgentClickedRequest](./search/aio/docs/AgentClickedRequest.md)
+ - [AgentSearchRequest](./search/aio/docs/AgentSearchRequest.md)
  - [AgentFilters](./search/aio/docs/AgentFilters.md)
  - [AgentGeoFilter](./search/aio/docs/AgentGeoFilter.md)
  - [AgentGeoLocation](./search/aio/docs/AgentGeoLocation.md)
