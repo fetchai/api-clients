@@ -155,6 +155,12 @@ jobs:
             library: $LIBRARY
             basePath: https://agentverse.ai # This and serverURL have to be the same value
             serverURL: https://agentverse.ai # This and basePath have to be the same value
+          files:
+            configuration.mustache:
+              templateType: SupportingFiles
+              destinationFilename: "agentverse_client/$CLIENT_PATH/$ASYNC_CLIENT_DIR_NAME/configuration.py"
+          configOptions:
+            packageVersion: "1.0.0"
           EOF
          
           cat $config_file_path
