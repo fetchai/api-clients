@@ -138,56 +138,56 @@ You will receive an AgentSearchResponse object as response, corresponding to a j
 
 All URIs are relative to *https://agentverse.ai*
 
-Class | Method | HTTP request | Description
------------- | ------------- | ------------- | -------------
-*SearchApi* | [**feedback**](agentverse_client/search/docs/SearchApi.md#feedback) | **POST** /v1/search/agents/click | Feedback
-*SearchApi* | [**get_agent_interactions_count**](agentverse_client/search/docs/SearchApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
-*SearchApi* | [**get_agent_search_terms_analytics**](agentverse_client/search/docs/SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
-*SearchApi* | [**get_agent_searches_analytics**](agentverse_client/search/docs/SearchApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
-*SearchApi* | [**get_function_interactions**](agentverse_client/search/docs/SearchApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
-*SearchApi* | [**search_agent_by_geolocation**](agentverse_client/search/docs/SearchApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
-*SearchApi* | [**search_agent_tags**](agentverse_client/search/docs/SearchApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
-*SearchApi* | [**search_agents**](agentverse_client/search/docs/SearchApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
-*SearchApi* | [**search_functions**](agentverse_client/search/docs/SearchApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
+Class | Method                                                                                                             | HTTP request | Description
+------------ |--------------------------------------------------------------------------------------------------------------------| ------------- | -------------
+*SearchApi* | [**feedback**](./search/docs/SearchApi.md#feedback)                                               | **POST** /v1/search/agents/click | Feedback
+*SearchApi* | [**get_agent_interactions_count**](./search/docs/SearchApi.md#get_agent_interactions_count)        | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
+*SearchApi* | [**get_agent_search_terms_analytics**](./search/docs/SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
+*SearchApi* | [**get_agent_searches_analytics**](./search/docs/SearchApi.md#get_agent_searches_analytics)        | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
+*SearchApi* | [**get_function_interactions**](./search/docs/SearchApi.md#get_function_interactions)              | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
+*SearchApi* | [**search_agent_by_geolocation**](./search/docs/SearchApi.md#search_agent_by_geolocation)          | **POST** /v1/search/agents/geo | Search Agent By Geolocation
+*SearchApi* | [**search_agent_tags**](./search/docs/SearchApi.md#search_agent_tags)                              | **GET** /v1/search/agents/tags | Search Agent Tags
+*SearchApi* | [**search_agents**](./search/docs/SearchApi.md#search_agents)                                      | **POST** /v1/search/agents | Search Agents
+*SearchApi* | [**search_functions**](./search/docs/SearchApi.md#search_functions)                                | **POST** /v1/search/functions | Search Functions
 
 
 ## Documentation For Models
 
- - [Agent](agentverse_client/search/docs/Agent.md)
- - [AgentAllTimeInteractionCounts](agentverse_client/search/docs/AgentAllTimeInteractionCounts.md)
- - [AgentCategory](agentverse_client/search/docs/AgentCategory.md)
- - [AgentClickedRequest](agentverse_client/search/docs/AgentClickedRequest.md)
- - [AgentFilters](agentverse_client/search/docs/AgentFilters.md)
- - [AgentGeoFilter](agentverse_client/search/docs/AgentGeoFilter.md)
- - [AgentGeoLocation](agentverse_client/search/docs/AgentGeoLocation.md)
- - [AgentGeoSearchRequest](agentverse_client/search/docs/AgentGeoSearchRequest.md)
- - [AgentInteractionCountsResponse](agentverse_client/search/docs/AgentInteractionCountsResponse.md)
- - [AgentSearchAnalyticsRequest](agentverse_client/search/docs/AgentSearchAnalyticsRequest.md)
- - [AgentSearchAnalyticsResponse](agentverse_client/search/docs/AgentSearchAnalyticsResponse.md)
- - [AgentSearchRequest](agentverse_client/search/docs/AgentSearchRequest.md)
- - [AgentSearchResponse](agentverse_client/search/docs/AgentSearchResponse.md)
- - [AgentSearchTermAnalyticsRequest](agentverse_client/search/docs/AgentSearchTermAnalyticsRequest.md)
- - [AgentSearchTermAnalyticsResponse](agentverse_client/search/docs/AgentSearchTermAnalyticsResponse.md)
- - [AgentTag](agentverse_client/search/docs/AgentTag.md)
- - [AgentTagSearchResponse](agentverse_client/search/docs/AgentTagSearchResponse.md)
- - [AgentType](agentverse_client/search/docs/AgentType.md)
- - [Direction](agentverse_client/search/docs/Direction.md)
- - [Function](agentverse_client/search/docs/Function.md)
- - [FunctionFilters](agentverse_client/search/docs/FunctionFilters.md)
- - [FunctionLast30daysInteractions](agentverse_client/search/docs/FunctionLast30daysInteractions.md)
- - [FunctionSearchRequest](agentverse_client/search/docs/FunctionSearchRequest.md)
- - [FunctionSearchResponse](agentverse_client/search/docs/FunctionSearchResponse.md)
- - [FunctionType](agentverse_client/search/docs/FunctionType.md)
- - [HTTPValidationError](agentverse_client/search/docs/HTTPValidationError.md)
- - [InteractionsThreshold](agentverse_client/search/docs/InteractionsThreshold.md)
- - [LocationInner](agentverse_client/search/docs/LocationInner.md)
- - [NetProtocol](agentverse_client/search/docs/NetProtocol.md)
- - [Protocol](agentverse_client/search/docs/Protocol.md)
- - [RelevancyCutoff](agentverse_client/search/docs/RelevancyCutoff.md)
- - [SearchTermPercentage](agentverse_client/search/docs/SearchTermPercentage.md)
- - [SortType](agentverse_client/search/docs/SortType.md)
- - [StatusType](agentverse_client/search/docs/StatusType.md)
- - [ValidationError](agentverse_client/search/docs/ValidationError.md)
+ - [Agent](./search/docs/Agent.md)
+ - [AgentAllTimeInteractionCounts](./search/docs/AgentAllTimeInteractionCounts.md)
+ - [AgentCategory](./search/docs/AgentCategory.md)
+ - [AgentClickedRequest](./search/docs/AgentClickedRequest.md)
+ - [AgentFilters](./search/docs/AgentFilters.md)
+ - [AgentGeoFilter](./search/docs/AgentGeoFilter.md)
+ - [AgentGeoLocation](./search/docs/AgentGeoLocation.md)
+ - [AgentGeoSearchRequest](./search/docs/AgentGeoSearchRequest.md)
+ - [AgentInteractionCountsResponse](./search/docs/AgentInteractionCountsResponse.md)
+ - [AgentSearchAnalyticsRequest](./search/docs/AgentSearchAnalyticsRequest.md)
+ - [AgentSearchAnalyticsResponse](./search/docs/AgentSearchAnalyticsResponse.md)
+ - [AgentSearchRequest](./search/docs/AgentSearchRequest.md)
+ - [AgentSearchResponse](./search/docs/AgentSearchResponse.md)
+ - [AgentSearchTermAnalyticsRequest](./search/docs/AgentSearchTermAnalyticsRequest.md)
+ - [AgentSearchTermAnalyticsResponse](./search/docs/AgentSearchTermAnalyticsResponse.md)
+ - [AgentTag](./search/docs/AgentTag.md)
+ - [AgentTagSearchResponse](./search/docs/AgentTagSearchResponse.md)
+ - [AgentType](./search/docs/AgentType.md)
+ - [Direction](./search/docs/Direction.md)
+ - [Function](./search/docs/Function.md)
+ - [FunctionFilters](./search/docs/FunctionFilters.md)
+ - [FunctionLast30daysInteractions](./search/docs/FunctionLast30daysInteractions.md)
+ - [FunctionSearchRequest](./search/docs/FunctionSearchRequest.md)
+ - [FunctionSearchResponse](./search/docs/FunctionSearchResponse.md)
+ - [FunctionType](./search/docs/FunctionType.md)
+ - [HTTPValidationError](./search/docs/HTTPValidationError.md)
+ - [InteractionsThreshold](./search/docs/InteractionsThreshold.md)
+ - [LocationInner](./search/docs/LocationInner.md)
+ - [NetProtocol](./search/docs/NetProtocol.md)
+ - [Protocol](./search/docs/Protocol.md)
+ - [RelevancyCutoff](./search/docs/RelevancyCutoff.md)
+ - [SearchTermPercentage](./search/docs/SearchTermPercentage.md)
+ - [SortType](./search/docs/SortType.md)
+ - [StatusType](./search/docs/StatusType.md)
+ - [ValidationError](./search/docs/ValidationError.md)
 
 
 <a id="documentation-for-authorization"></a>

@@ -100,54 +100,54 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*SearchApi* | [**feedback**](agentverse_client/search/aio/docs/SearchApi.md#feedback) | **POST** /v1/search/agents/click | Feedback
-*SearchApi* | [**get_agent_interactions_count**](agentverse_client/search/aio/docs/SearchApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
-*SearchApi* | [**get_agent_search_terms_analytics**](agentverse_client/search/aio/docs/SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
-*SearchApi* | [**get_agent_searches_analytics**](agentverse_client/search/aio/docs/SearchApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
-*SearchApi* | [**get_function_interactions**](agentverse_client/search/aio/docs/SearchApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
-*SearchApi* | [**search_agent_by_geolocation**](agentverse_client/search/aio/docs/SearchApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
-*SearchApi* | [**search_agent_tags**](agentverse_client/search/aio/docs/SearchApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
-*SearchApi* | [**search_agents**](agentverse_client/search/aio/docs/SearchApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
-*SearchApi* | [**search_functions**](agentverse_client/search/aio/docs/SearchApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
+*SearchApi* | [**feedback**](./search/aio/docs/SearchApi.md#feedback) | **POST** /v1/search/agents/click | Feedback
+*SearchApi* | [**get_agent_interactions_count**](./search/aio/docs/SearchApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
+*SearchApi* | [**get_agent_search_terms_analytics**](./search/aio/docs/SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
+*SearchApi* | [**get_agent_searches_analytics**](./search/aio/docs/SearchApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
+*SearchApi* | [**get_function_interactions**](./search/aio/docs/SearchApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
+*SearchApi* | [**search_agent_by_geolocation**](./search/aio/docs/SearchApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
+*SearchApi* | [**search_agent_tags**](./search/aio/docs/SearchApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
+*SearchApi* | [**search_agents**](./search/aio/docs/SearchApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
+*SearchApi* | [**search_functions**](./search/aio/docs/SearchApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
 
 
 ## Documentation For Models
 
- - [Agent](agentverse_client/search/aio/docs/Agent.md)
- - [AgentAllTimeInteractionCounts](agentverse_client/search/aio/docs/AgentAllTimeInteractionCounts.md)
- - [AgentCategory](agentverse_client/search/aio/docs/AgentCategory.md)
- - [AgentClickedRequest](agentverse_client/search/aio/docs/AgentClickedRequest.md)
- - [AgentFilters](agentverse_client/search/aio/docs/AgentFilters.md)
- - [AgentGeoFilter](agentverse_client/search/aio/docs/AgentGeoFilter.md)
- - [AgentGeoLocation](agentverse_client/search/aio/docs/AgentGeoLocation.md)
- - [AgentGeoSearchRequest](agentverse_client/search/aio/docs/AgentGeoSearchRequest.md)
- - [AgentInteractionCountsResponse](agentverse_client/search/aio/docs/AgentInteractionCountsResponse.md)
- - [AgentSearchAnalyticsRequest](agentverse_client/search/aio/docs/AgentSearchAnalyticsRequest.md)
- - [AgentSearchAnalyticsResponse](agentverse_client/search/aio/docs/AgentSearchAnalyticsResponse.md)
- - [AgentSearchRequest](agentverse_client/search/aio/docs/AgentSearchRequest.md)
- - [AgentSearchResponse](agentverse_client/search/aio/docs/AgentSearchResponse.md)
- - [AgentSearchTermAnalyticsRequest](agentverse_client/search/aio/docs/AgentSearchTermAnalyticsRequest.md)
- - [AgentSearchTermAnalyticsResponse](agentverse_client/search/aio/docs/AgentSearchTermAnalyticsResponse.md)
- - [AgentTag](agentverse_client/search/aio/docs/AgentTag.md)
- - [AgentTagSearchResponse](agentverse_client/search/aio/docs/AgentTagSearchResponse.md)
- - [AgentType](agentverse_client/search/aio/docs/AgentType.md)
- - [Direction](agentverse_client/search/aio/docs/Direction.md)
- - [Function](agentverse_client/search/aio/docs/Function.md)
- - [FunctionFilters](agentverse_client/search/aio/docs/FunctionFilters.md)
- - [FunctionLast30daysInteractions](agentverse_client/search/aio/docs/FunctionLast30daysInteractions.md)
- - [FunctionSearchRequest](agentverse_client/search/aio/docs/FunctionSearchRequest.md)
- - [FunctionSearchResponse](agentverse_client/search/aio/docs/FunctionSearchResponse.md)
- - [FunctionType](agentverse_client/search/aio/docs/FunctionType.md)
- - [HTTPValidationError](agentverse_client/search/aio/docs/HTTPValidationError.md)
- - [InteractionsThreshold](agentverse_client/search/aio/docs/InteractionsThreshold.md)
- - [LocationInner](agentverse_client/search/aio/docs/LocationInner.md)
- - [NetProtocol](agentverse_client/search/aio/docs/NetProtocol.md)
- - [Protocol](agentverse_client/search/aio/docs/Protocol.md)
- - [RelevancyCutoff](agentverse_client/search/aio/docs/RelevancyCutoff.md)
- - [SearchTermPercentage](agentverse_client/search/aio/docs/SearchTermPercentage.md)
- - [SortType](agentverse_client/search/aio/docs/SortType.md)
- - [StatusType](agentverse_client/search/aio/docs/StatusType.md)
- - [ValidationError](agentverse_client/search/aio/docs/ValidationError.md)
+ - [Agent](./search/aio/docs/Agent.md)
+ - [AgentAllTimeInteractionCounts](./search/aio/docs/AgentAllTimeInteractionCounts.md)
+ - [AgentCategory](./search/aio/docs/AgentCategory.md)
+ - [AgentClickedRequest](./search/aio/docs/AgentClickedRequest.md)
+ - [AgentFilters](./search/aio/docs/AgentFilters.md)
+ - [AgentGeoFilter](./search/aio/docs/AgentGeoFilter.md)
+ - [AgentGeoLocation](./search/aio/docs/AgentGeoLocation.md)
+ - [AgentGeoSearchRequest](./search/aio/docs/AgentGeoSearchRequest.md)
+ - [AgentInteractionCountsResponse](./search/aio/docs/AgentInteractionCountsResponse.md)
+ - [AgentSearchAnalyticsRequest](./search/aio/docs/AgentSearchAnalyticsRequest.md)
+ - [AgentSearchAnalyticsResponse](./search/aio/docs/AgentSearchAnalyticsResponse.md)
+ - [AgentSearchRequest](./search/aio/docs/AgentSearchRequest.md)
+ - [AgentSearchResponse](./search/aio/docs/AgentSearchResponse.md)
+ - [AgentSearchTermAnalyticsRequest](./search/aio/docs/AgentSearchTermAnalyticsRequest.md)
+ - [AgentSearchTermAnalyticsResponse](./search/aio/docs/AgentSearchTermAnalyticsResponse.md)
+ - [AgentTag](./search/aio/docs/AgentTag.md)
+ - [AgentTagSearchResponse](./search/aio/docs/AgentTagSearchResponse.md)
+ - [AgentType](./search/aio/docs/AgentType.md)
+ - [Direction](./search/aio/docs/Direction.md)
+ - [Function](./search/aio/docs/Function.md)
+ - [FunctionFilters](./search/aio/docs/FunctionFilters.md)
+ - [FunctionLast30daysInteractions](./search/aio/docs/FunctionLast30daysInteractions.md)
+ - [FunctionSearchRequest](./search/aio/docs/FunctionSearchRequest.md)
+ - [FunctionSearchResponse](./search/aio/docs/FunctionSearchResponse.md)
+ - [FunctionType](./search/aio/docs/FunctionType.md)
+ - [HTTPValidationError](./search/aio/docs/HTTPValidationError.md)
+ - [InteractionsThreshold](./search/aio/docs/InteractionsThreshold.md)
+ - [LocationInner](./search/aio/docs/LocationInner.md)
+ - [NetProtocol](./search/aio/docs/NetProtocol.md)
+ - [Protocol](./search/aio/docs/Protocol.md)
+ - [RelevancyCutoff](./search/aio/docs/RelevancyCutoff.md)
+ - [SearchTermPercentage](./search/aio/docs/SearchTermPercentage.md)
+ - [SortType](./search/aio/docs/SortType.md)
+ - [StatusType](./search/aio/docs/StatusType.md)
+ - [ValidationError](./search/aio/docs/ValidationError.md)
 
 
 <a id="documentation-for-authorization"></a>
