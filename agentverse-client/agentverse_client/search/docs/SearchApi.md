@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **feedback**
-> object feedback(search_feedback_request)
+> object feedback(agent_clicked_request)
 
 Feedback
 
@@ -25,7 +25,7 @@ Feedback
 
 ```python
 import agentverse_client.search
-from agentverse_client.search.models.search_feedback_request import SearchFeedbackRequest
+from agentverse_client.search.models.agent_clicked_request import AgentClickedRequest
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
@@ -40,11 +40,11 @@ configuration = agentverse_client.search.Configuration(
 with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.SearchApi(api_client)
-    search_feedback_request = agentverse_client.search.SearchFeedbackRequest() # SearchFeedbackRequest | 
+    agent_clicked_request = agentverse_client.search.AgentClickedRequest() # AgentClickedRequest | 
 
     try:
         # Feedback
-        api_response = api_instance.feedback(search_feedback_request)
+        api_response = api_instance.feedback(agent_clicked_request)
         print("The response of SearchApi->feedback:\n")
         pprint(api_response)
     except Exception as e:
@@ -58,7 +58,7 @@ with agentverse_client.search.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **search_feedback_request** | [**SearchFeedbackRequest**](SearchFeedbackRequest.md)|  | 
+ **agent_clicked_request** | [**AgentClickedRequest**](AgentClickedRequest.md)|  | 
 
 ### Return type
 
@@ -83,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_agent_interactions_count**
-> AgentInteractionCountsResponse get_agent_interactions_count(address)
+> AgentInteractionCountsResponse get_agent_interactions_count(address, contract=contract)
 
 Get Interaction Counts Of Agent
 
@@ -110,10 +110,11 @@ with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.SearchApi(api_client)
     address = 'address_example' # str | The address of the agent
+    contract = agentverse_client.search.AgentContract() # AgentContract | The Almanac contract where the agent is registered (testnet by default) (optional)
 
     try:
         # Get Interaction Counts Of Agent
-        api_response = api_instance.get_agent_interactions_count(address)
+        api_response = api_instance.get_agent_interactions_count(address, contract=contract)
         print("The response of SearchApi->get_agent_interactions_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -128,6 +129,7 @@ with agentverse_client.search.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **str**| The address of the agent | 
+ **contract** | [**AgentContract**](.md)| The Almanac contract where the agent is registered (testnet by default) | [optional] 
 
 ### Return type
 

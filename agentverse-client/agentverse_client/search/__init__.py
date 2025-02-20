@@ -34,6 +34,8 @@ from agentverse_client.search.exceptions import ApiException
 from agentverse_client.search.models.agent import Agent
 from agentverse_client.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
 from agentverse_client.search.models.agent_category import AgentCategory
+from agentverse_client.search.models.agent_clicked_request import AgentClickedRequest
+from agentverse_client.search.models.agent_contract import AgentContract
 from agentverse_client.search.models.agent_filters import AgentFilters
 from agentverse_client.search.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.models.agent_geo_location import AgentGeoLocation
@@ -61,7 +63,6 @@ from agentverse_client.search.models.location_inner import LocationInner
 from agentverse_client.search.models.net_protocol import NetProtocol
 from agentverse_client.search.models.protocol import Protocol
 from agentverse_client.search.models.relevancy_cutoff import RelevancyCutoff
-from agentverse_client.search.models.search_feedback_request import SearchFeedbackRequest
 from agentverse_client.search.models.search_term_percentage import SearchTermPercentage
 from agentverse_client.search.models.sort_type import SortType
 from agentverse_client.search.models.status_type import StatusType

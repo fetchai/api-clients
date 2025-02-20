@@ -17,21 +17,22 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from agentverse_client.search.models.agent_contract import AgentContract
+from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AgentSearchTermAnalyticsRequest(BaseModel):
+class AgentClickedRequest(BaseModel):
     """
-    The agent search term analytics request object
+    AgentClickedRequest
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    top: Optional[Annotated[int, Field(le=100, strict=True)]] = Field(default=10, description="How many of the top mostly used search terms we want to retrieve analytics for")
-    __properties: ClassVar[List[str]] = ["address", "contract", "top"]
+    search_id: StrictStr = Field(description="search id generated before (during search)")
+    page_index: Annotated[int, Field(strict=True, ge=0)] = Field(description="page index (should start from 0)")
+    __properties: ClassVar[List[str]] = ["address", "contract", "search_id", "page_index"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -58,7 +59,7 @@ class AgentSearchTermAnalyticsRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AgentSearchTermAnalyticsRequest from a JSON string"""
+        """Create an instance of AgentClickedRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,7 +84,7 @@ class AgentSearchTermAnalyticsRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AgentSearchTermAnalyticsRequest from a dict"""
+        """Create an instance of AgentClickedRequest from a dict"""
         if obj is None:
             return None
 
@@ -93,7 +94,8 @@ class AgentSearchTermAnalyticsRequest(BaseModel):
         _obj = cls.model_validate({
             "address": obj.get("address"),
             "contract": obj.get("contract"),
-            "top": obj.get("top") if obj.get("top") is not None else 10
+            "search_id": obj.get("search_id"),
+            "page_index": obj.get("page_index")
         })
         return _obj
 

@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.search_feedback_request import SearchFeedbackRequest
+from agentverse_client.search.aio.models.agent_clicked_request import AgentClickedRequest
 
-class TestSearchFeedbackRequest(unittest.TestCase):
-    """SearchFeedbackRequest unit test stubs"""
+class TestAgentClickedRequest(unittest.TestCase):
+    """AgentClickedRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,30 +25,31 @@ class TestSearchFeedbackRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> SearchFeedbackRequest:
-        """Test SearchFeedbackRequest
+    def make_instance(self, include_optional) -> AgentClickedRequest:
+        """Test AgentClickedRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `SearchFeedbackRequest`
+        # uncomment below to create an instance of `AgentClickedRequest`
         """
-        model = SearchFeedbackRequest()
+        model = AgentClickedRequest()
         if include_optional:
-            return SearchFeedbackRequest(
+            return AgentClickedRequest(
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                contract = 'mainnet',
                 search_id = '',
-                page_index = 0.0,
-                address = ''
+                page_index = 0.0
             )
         else:
-            return SearchFeedbackRequest(
+            return AgentClickedRequest(
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 search_id = '',
                 page_index = 0.0,
-                address = '',
         )
         """
 
-    def testSearchFeedbackRequest(self):
-        """Test SearchFeedbackRequest"""
+    def testAgentClickedRequest(self):
+        """Test AgentClickedRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -17,8 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from agentverse_client.search.models.agent_contract import AgentContract
 from agentverse_client.search.models.search_term_percentage import SearchTermPercentage
 from typing import Optional, Set
 from typing_extensions import Self
@@ -27,9 +29,17 @@ class AgentSearchTermAnalyticsResponse(BaseModel):
     """
     The agent search term analytics response object
     """ # noqa: E501
-    address: StrictStr = Field(description="The address of the agent that we are retrieving search analytics for")
+    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
+    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
     term_percentages: List[SearchTermPercentage] = Field(description="Percentage of searches with different terms when this agent was retrieved")
-    __properties: ClassVar[List[str]] = ["address", "term_percentages"]
+    __properties: ClassVar[List[str]] = ["address", "contract", "term_percentages"]
+
+    @field_validator('address')
+    def address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
+            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -90,6 +100,7 @@ class AgentSearchTermAnalyticsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "address": obj.get("address"),
+            "contract": obj.get("contract"),
             "term_percentages": [SearchTermPercentage.from_dict(_item) for _item in obj["term_percentages"]] if obj.get("term_percentages") is not None else None
         })
         return _obj

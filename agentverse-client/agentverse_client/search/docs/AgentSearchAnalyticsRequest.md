@@ -6,7 +6,8 @@ The agent search analytics request object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** | The address of the agent that we want to retrieve search analytics for | 
+**address** | **str** | The address of the agent | 
+**contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
 
 ## Example
 

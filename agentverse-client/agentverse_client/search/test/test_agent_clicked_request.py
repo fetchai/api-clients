@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
+from agentverse_client.search.models.agent_clicked_request import AgentClickedRequest
 
-class TestAgentSearchAnalyticsRequest(unittest.TestCase):
-    """AgentSearchAnalyticsRequest unit test stubs"""
+class TestAgentClickedRequest(unittest.TestCase):
+    """AgentClickedRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,27 +25,31 @@ class TestAgentSearchAnalyticsRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AgentSearchAnalyticsRequest:
-        """Test AgentSearchAnalyticsRequest
+    def make_instance(self, include_optional) -> AgentClickedRequest:
+        """Test AgentClickedRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AgentSearchAnalyticsRequest`
+        # uncomment below to create an instance of `AgentClickedRequest`
         """
-        model = AgentSearchAnalyticsRequest()
+        model = AgentClickedRequest()
         if include_optional:
-            return AgentSearchAnalyticsRequest(
+            return AgentClickedRequest(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                contract = 'mainnet'
+                contract = 'mainnet',
+                search_id = '',
+                page_index = 0.0
             )
         else:
-            return AgentSearchAnalyticsRequest(
+            return AgentClickedRequest(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                search_id = '',
+                page_index = 0.0,
         )
         """
 
-    def testAgentSearchAnalyticsRequest(self):
-        """Test AgentSearchAnalyticsRequest"""
+    def testAgentClickedRequest(self):
+        """Test AgentClickedRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

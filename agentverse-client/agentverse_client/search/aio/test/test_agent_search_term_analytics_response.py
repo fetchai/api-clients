@@ -35,7 +35,8 @@ class TestAgentSearchTermAnalyticsResponse(unittest.TestCase):
         model = AgentSearchTermAnalyticsResponse()
         if include_optional:
             return AgentSearchTermAnalyticsResponse(
-                address = '',
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                contract = 'mainnet',
                 term_percentages = [
                     agentverse_client.search.aio.models.search_term_percentage.SearchTermPercentage(
                         term = '', 
@@ -46,7 +47,7 @@ class TestAgentSearchTermAnalyticsResponse(unittest.TestCase):
             )
         else:
             return AgentSearchTermAnalyticsResponse(
-                address = '',
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 term_percentages = [
                     agentverse_client.search.aio.models.search_term_percentage.SearchTermPercentage(
                         term = '', 

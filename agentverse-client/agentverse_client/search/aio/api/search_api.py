@@ -19,6 +19,7 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Any, Optional
 from typing_extensions import Annotated
+from agentverse_client.search.aio.models.agent_clicked_request import AgentClickedRequest
 from agentverse_client.search.aio.models.agent_geo_search_request import AgentGeoSearchRequest
 from agentverse_client.search.aio.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 from agentverse_client.search.aio.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
@@ -31,7 +32,6 @@ from agentverse_client.search.aio.models.agent_tag_search_response import AgentT
 from agentverse_client.search.aio.models.function_last30days_interactions import FunctionLast30daysInteractions
 from agentverse_client.search.aio.models.function_search_request import FunctionSearchRequest
 from agentverse_client.search.aio.models.function_search_response import FunctionSearchResponse
-from agentverse_client.search.aio.models.search_feedback_request import SearchFeedbackRequest
 
 from agentverse_client.search.aio.api_client import ApiClient, RequestSerialized
 from agentverse_client.search.aio.api_response import ApiResponse
@@ -54,7 +54,7 @@ class SearchApi:
     @validate_call
     async def feedback(
         self,
-        search_feedback_request: SearchFeedbackRequest,
+        agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -71,8 +71,8 @@ class SearchApi:
         """Feedback
 
 
-        :param search_feedback_request: (required)
-        :type search_feedback_request: SearchFeedbackRequest
+        :param agent_clicked_request: (required)
+        :type agent_clicked_request: AgentClickedRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -96,7 +96,7 @@ class SearchApi:
         """ # noqa: E501
 
         _param = self._feedback_serialize(
-            search_feedback_request=search_feedback_request,
+            agent_clicked_request=agent_clicked_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -121,7 +121,7 @@ class SearchApi:
     @validate_call
     async def feedback_with_http_info(
         self,
-        search_feedback_request: SearchFeedbackRequest,
+        agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -138,8 +138,8 @@ class SearchApi:
         """Feedback
 
 
-        :param search_feedback_request: (required)
-        :type search_feedback_request: SearchFeedbackRequest
+        :param agent_clicked_request: (required)
+        :type agent_clicked_request: AgentClickedRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -163,7 +163,7 @@ class SearchApi:
         """ # noqa: E501
 
         _param = self._feedback_serialize(
-            search_feedback_request=search_feedback_request,
+            agent_clicked_request=agent_clicked_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -188,7 +188,7 @@ class SearchApi:
     @validate_call
     async def feedback_without_preload_content(
         self,
-        search_feedback_request: SearchFeedbackRequest,
+        agent_clicked_request: AgentClickedRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -205,8 +205,8 @@ class SearchApi:
         """Feedback
 
 
-        :param search_feedback_request: (required)
-        :type search_feedback_request: SearchFeedbackRequest
+        :param agent_clicked_request: (required)
+        :type agent_clicked_request: AgentClickedRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -230,7 +230,7 @@ class SearchApi:
         """ # noqa: E501
 
         _param = self._feedback_serialize(
-            search_feedback_request=search_feedback_request,
+            agent_clicked_request=agent_clicked_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -250,7 +250,7 @@ class SearchApi:
 
     def _feedback_serialize(
         self,
-        search_feedback_request,
+        agent_clicked_request,
         _request_auth,
         _content_type,
         _headers,
@@ -276,8 +276,8 @@ class SearchApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if search_feedback_request is not None:
-            _body_params = search_feedback_request
+        if agent_clicked_request is not None:
+            _body_params = agent_clicked_request
 
 
         # set the HTTP header `Accept`
@@ -328,6 +328,7 @@ class SearchApi:
     async def get_agent_interactions_count(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
+        contract: Annotated[Optional[Any], Field(description="The Almanac contract where the agent is registered (testnet by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -347,6 +348,8 @@ class SearchApi:
 
         :param address: The address of the agent (required)
         :type address: str
+        :param contract: The Almanac contract where the agent is registered (testnet by default)
+        :type contract: AgentContract
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -371,6 +374,7 @@ class SearchApi:
 
         _param = self._get_agent_interactions_count_serialize(
             address=address,
+            contract=contract,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -396,6 +400,7 @@ class SearchApi:
     async def get_agent_interactions_count_with_http_info(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
+        contract: Annotated[Optional[Any], Field(description="The Almanac contract where the agent is registered (testnet by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -415,6 +420,8 @@ class SearchApi:
 
         :param address: The address of the agent (required)
         :type address: str
+        :param contract: The Almanac contract where the agent is registered (testnet by default)
+        :type contract: AgentContract
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -439,6 +446,7 @@ class SearchApi:
 
         _param = self._get_agent_interactions_count_serialize(
             address=address,
+            contract=contract,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -464,6 +472,7 @@ class SearchApi:
     async def get_agent_interactions_count_without_preload_content(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
+        contract: Annotated[Optional[Any], Field(description="The Almanac contract where the agent is registered (testnet by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -483,6 +492,8 @@ class SearchApi:
 
         :param address: The address of the agent (required)
         :type address: str
+        :param contract: The Almanac contract where the agent is registered (testnet by default)
+        :type contract: AgentContract
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -507,6 +518,7 @@ class SearchApi:
 
         _param = self._get_agent_interactions_count_serialize(
             address=address,
+            contract=contract,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -527,6 +539,7 @@ class SearchApi:
     def _get_agent_interactions_count_serialize(
         self,
         address,
+        contract,
         _request_auth,
         _content_type,
         _headers,
@@ -551,6 +564,10 @@ class SearchApi:
         if address is not None:
             _path_params['address'] = address
         # process the query parameters
+        if contract is not None:
+            
+            _query_params.append(('contract', contract.value))
+            
         # process the header parameters
         # process the form parameters
         # process the body parameter
