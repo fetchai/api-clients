@@ -16,7 +16,7 @@ Python 3.8+
 This python library package is generated without supporting files like setup.py or requirements files
 
 In this README.md we will cover the sync version of this client, in case you are looking for the asynchronous version,
-please, check the following [README.md](aio_search_README.md).
+please, check the following [README.md](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/aio_search_README.md).
 
 To be able to use it, you will need these dependencies in your own package that uses this library:
 
@@ -135,54 +135,54 @@ All URIs are relative to *https://agentverse.ai*
 
 Class | Method                                                                                                             | HTTP request | Description
 ------------ |--------------------------------------------------------------------------------------------------------------------| ------------- | -------------
-*SearchApi* | [**feedback**](./search/docs/SearchApi.md#feedback)                                               | **POST** /v1/search/agents/click | Feedback
-*SearchApi* | [**get_agent_interactions_count**](./search/docs/SearchApi.md#get_agent_interactions_count)        | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
-*SearchApi* | [**get_agent_search_terms_analytics**](./search/docs/SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
-*SearchApi* | [**get_agent_searches_analytics**](./search/docs/SearchApi.md#get_agent_searches_analytics)        | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
-*SearchApi* | [**get_function_interactions**](./search/docs/SearchApi.md#get_function_interactions)              | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
-*SearchApi* | [**search_agent_by_geolocation**](./search/docs/SearchApi.md#search_agent_by_geolocation)          | **POST** /v1/search/agents/geo | Search Agent By Geolocation
-*SearchApi* | [**search_agent_tags**](./search/docs/SearchApi.md#search_agent_tags)                              | **GET** /v1/search/agents/tags | Search Agent Tags
-*SearchApi* | [**search_agents**](./search/docs/SearchApi.md#search_agents)                                      | **POST** /v1/search/agents | Search Agents
-*SearchApi* | [**search_functions**](./search/docs/SearchApi.md#search_functions)                                | **POST** /v1/search/functions | Search Functions
+*SearchApi* | [**feedback**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#feedback)                                               | **POST** /v1/search/agents/click | Feedback
+*SearchApi* | [**get_agent_interactions_count**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#get_agent_interactions_count)        | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
+*SearchApi* | [**get_agent_search_terms_analytics**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
+*SearchApi* | [**get_agent_searches_analytics**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#get_agent_searches_analytics)        | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
+*SearchApi* | [**get_function_interactions**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#get_function_interactions)              | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
+*SearchApi* | [**search_agent_by_geolocation**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#search_agent_by_geolocation)          | **POST** /v1/search/agents/geo | Search Agent By Geolocation
+*SearchApi* | [**search_agent_tags**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#search_agent_tags)                              | **GET** /v1/search/agents/tags | Search Agent Tags
+*SearchApi* | [**search_agents**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#search_agents)                                      | **POST** /v1/search/agents | Search Agents
+*SearchApi* | [**search_functions**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchApi.md#search_functions)                                | **POST** /v1/search/functions | Search Functions
 
 
 ## Documentation For Models
 
- - [Agent](./search/docs/Agent.md)
- - [AgentAllTimeInteractionCounts](./search/docs/AgentAllTimeInteractionCounts.md)
- - [AgentCategory](./search/docs/AgentCategory.md)
- - [AgentSearchRequest](./search/docs/AgentSearchRequest.md)
- - [AgentFilters](./search/docs/AgentFilters.md)
- - [AgentGeoFilter](./search/docs/AgentGeoFilter.md)
- - [AgentGeoLocation](./search/docs/AgentGeoLocation.md)
- - [AgentGeoSearchRequest](./search/docs/AgentGeoSearchRequest.md)
- - [AgentInteractionCountsResponse](./search/docs/AgentInteractionCountsResponse.md)
- - [AgentSearchAnalyticsRequest](./search/docs/AgentSearchAnalyticsRequest.md)
- - [AgentSearchAnalyticsResponse](./search/docs/AgentSearchAnalyticsResponse.md)
- - [AgentSearchRequest](./search/docs/AgentSearchRequest.md)
- - [AgentSearchResponse](./search/docs/AgentSearchResponse.md)
- - [AgentSearchTermAnalyticsRequest](./search/docs/AgentSearchTermAnalyticsRequest.md)
- - [AgentSearchTermAnalyticsResponse](./search/docs/AgentSearchTermAnalyticsResponse.md)
- - [AgentTag](./search/docs/AgentTag.md)
- - [AgentTagSearchResponse](./search/docs/AgentTagSearchResponse.md)
- - [AgentType](./search/docs/AgentType.md)
- - [Direction](./search/docs/Direction.md)
- - [Function](./search/docs/Function.md)
- - [FunctionFilters](./search/docs/FunctionFilters.md)
- - [FunctionLast30daysInteractions](./search/docs/FunctionLast30daysInteractions.md)
- - [FunctionSearchRequest](./search/docs/FunctionSearchRequest.md)
- - [FunctionSearchResponse](./search/docs/FunctionSearchResponse.md)
- - [FunctionType](./search/docs/FunctionType.md)
- - [HTTPValidationError](./search/docs/HTTPValidationError.md)
- - [InteractionsThreshold](./search/docs/InteractionsThreshold.md)
- - [LocationInner](./search/docs/LocationInner.md)
- - [NetProtocol](./search/docs/NetProtocol.md)
- - [Protocol](./search/docs/Protocol.md)
- - [RelevancyCutoff](./search/docs/RelevancyCutoff.md)
- - [SearchTermPercentage](./search/docs/SearchTermPercentage.md)
- - [SortType](./search/docs/SortType.md)
- - [StatusType](./search/docs/StatusType.md)
- - [ValidationError](./search/docs/ValidationError.md)
+ - [Agent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/Agent.md)
+ - [AgentAllTimeInteractionCounts](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentAllTimeInteractionCounts.md)
+ - [AgentCategory](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentCategory.md)
+ - [AgentSearchRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentSearchRequest.md)
+ - [AgentFilters](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentFilters.md)
+ - [AgentGeoFilter](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentGeoFilter.md)
+ - [AgentGeoLocation](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentGeoLocation.md)
+ - [AgentGeoSearchRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentGeoSearchRequest.md)
+ - [AgentInteractionCountsResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentInteractionCountsResponse.md)
+ - [AgentSearchAnalyticsRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentSearchAnalyticsRequest.md)
+ - [AgentSearchAnalyticsResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentSearchAnalyticsResponse.md)
+ - [AgentSearchRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentSearchRequest.md)
+ - [AgentSearchResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentSearchResponse.md)
+ - [AgentSearchTermAnalyticsRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentSearchTermAnalyticsRequest.md)
+ - [AgentSearchTermAnalyticsResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentSearchTermAnalyticsResponse.md)
+ - [AgentTag](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentTag.md)
+ - [AgentTagSearchResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentTagSearchResponse.md)
+ - [AgentType](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/AgentType.md)
+ - [Direction](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/Direction.md)
+ - [Function](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/Function.md)
+ - [FunctionFilters](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/FunctionFilters.md)
+ - [FunctionLast30daysInteractions](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/FunctionLast30daysInteractions.md)
+ - [FunctionSearchRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/FunctionSearchRequest.md)
+ - [FunctionSearchResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/FunctionSearchResponse.md)
+ - [FunctionType](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/FunctionType.md)
+ - [HTTPValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/HTTPValidationError.md)
+ - [InteractionsThreshold](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/InteractionsThreshold.md)
+ - [LocationInner](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/LocationInner.md)
+ - [NetProtocol](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/NetProtocol.md)
+ - [Protocol](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/Protocol.md)
+ - [RelevancyCutoff](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/RelevancyCutoff.md)
+ - [SearchTermPercentage](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SearchTermPercentage.md)
+ - [SortType](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/SortType.md)
+ - [StatusType](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/StatusType.md)
+ - [ValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/docs/ValidationError.md)
 
 
 <a id="documentation-for-authorization"></a>
