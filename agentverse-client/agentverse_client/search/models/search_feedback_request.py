@@ -23,9 +23,9 @@ from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AgentClickedRequest(BaseModel):
+class SearchFeedbackRequest(BaseModel):
     """
-    AgentClickedRequest
+    SearchFeedbackRequest
     """ # noqa: E501
     search_id: StrictStr = Field(description="search id generated before (during search)")
     page_index: Annotated[int, Field(strict=True, ge=0)] = Field(description="page index (should start from 0)")
@@ -50,7 +50,7 @@ class AgentClickedRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AgentClickedRequest from a JSON string"""
+        """Create an instance of SearchFeedbackRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -75,7 +75,7 @@ class AgentClickedRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AgentClickedRequest from a dict"""
+        """Create an instance of SearchFeedbackRequest from a dict"""
         if obj is None:
             return None
 
