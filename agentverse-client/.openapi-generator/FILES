@@ -9,7 +9,6 @@ agentverse_client/search/docs/Agent.md
 agentverse_client/search/docs/AgentAllTimeInteractionCounts.md
 agentverse_client/search/docs/AgentCategory.md
 agentverse_client/search/docs/AgentClickedRequest.md
-agentverse_client/search/docs/AgentContract.md
 agentverse_client/search/docs/AgentFilters.md
 agentverse_client/search/docs/AgentGeoFilter.md
 agentverse_client/search/docs/AgentGeoLocation.md
@@ -48,7 +47,6 @@ agentverse_client/search/models/agent.py
 agentverse_client/search/models/agent_all_time_interaction_counts.py
 agentverse_client/search/models/agent_category.py
 agentverse_client/search/models/agent_clicked_request.py
-agentverse_client/search/models/agent_contract.py
 agentverse_client/search/models/agent_filters.py
 agentverse_client/search/models/agent_geo_filter.py
 agentverse_client/search/models/agent_geo_location.py

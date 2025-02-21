@@ -6,8 +6,7 @@ The agent search term analytics request object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** | The address of the agent | 
-**contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
+**address** | **str** | The address of the agent that we want to retrieve search term analytics for | 
 **top** | **int** | How many of the top mostly used search terms we want to retrieve analytics for | [optional] [default to 10]
 
 ## Example

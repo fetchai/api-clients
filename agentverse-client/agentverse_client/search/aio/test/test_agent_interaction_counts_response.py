@@ -35,8 +35,7 @@ class TestAgentInteractionCountsResponse(unittest.TestCase):
         model = AgentInteractionCountsResponse()
         if include_optional:
             return AgentInteractionCountsResponse(
-                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                contract = 'mainnet',
+                address = '',
                 interval = [
                     56
                     ],
@@ -53,7 +52,7 @@ class TestAgentInteractionCountsResponse(unittest.TestCase):
             )
         else:
             return AgentInteractionCountsResponse(
-                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                address = '',
                 interval = [
                     56
                     ],

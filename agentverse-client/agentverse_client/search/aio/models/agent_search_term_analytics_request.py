@@ -17,10 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,17 +27,9 @@ class AgentSearchTermAnalyticsRequest(BaseModel):
     """
     The agent search term analytics request object
     """ # noqa: E501
-    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
-    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
+    address: StrictStr = Field(description="The address of the agent that we want to retrieve search term analytics for")
     top: Optional[Annotated[int, Field(le=100, strict=True)]] = Field(default=10, description="How many of the top mostly used search terms we want to retrieve analytics for")
-    __properties: ClassVar[List[str]] = ["address", "contract", "top"]
-
-    @field_validator('address')
-    def address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
-        return value
+    __properties: ClassVar[List[str]] = ["address", "top"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -92,7 +83,6 @@ class AgentSearchTermAnalyticsRequest(BaseModel):
 
         _obj = cls.model_validate({
             "address": obj.get("address"),
-            "contract": obj.get("contract"),
             "top": obj.get("top") if obj.get("top") is not None else 10
         })
         return _obj
