@@ -19,7 +19,6 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictInt, StrictStr
 from typing import Any, Optional
 from typing_extensions import Annotated
-from agentverse_client.search.models.agent_clicked_request import AgentClickedRequest
 from agentverse_client.search.models.agent_geo_search_request import AgentGeoSearchRequest
 from agentverse_client.search.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 from agentverse_client.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
@@ -32,6 +31,7 @@ from agentverse_client.search.models.agent_tag_search_response import AgentTagSe
 from agentverse_client.search.models.function_last30days_interactions import FunctionLast30daysInteractions
 from agentverse_client.search.models.function_search_request import FunctionSearchRequest
 from agentverse_client.search.models.function_search_response import FunctionSearchResponse
+from agentverse_client.search.models.search_feedback_request import SearchFeedbackRequest
 
 from agentverse_client.search.api_client import ApiClient, RequestSerialized
 from agentverse_client.search.api_response import ApiResponse
@@ -54,7 +54,7 @@ class SearchApi:
     @validate_call
     def feedback(
         self,
-        agent_clicked_request: AgentClickedRequest,
+        search_feedback_request: SearchFeedbackRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -71,8 +71,8 @@ class SearchApi:
         """Feedback
 
 
-        :param agent_clicked_request: (required)
-        :type agent_clicked_request: AgentClickedRequest
+        :param search_feedback_request: (required)
+        :type search_feedback_request: SearchFeedbackRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -96,7 +96,7 @@ class SearchApi:
         """ # noqa: E501
 
         _param = self._feedback_serialize(
-            agent_clicked_request=agent_clicked_request,
+            search_feedback_request=search_feedback_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -121,7 +121,7 @@ class SearchApi:
     @validate_call
     def feedback_with_http_info(
         self,
-        agent_clicked_request: AgentClickedRequest,
+        search_feedback_request: SearchFeedbackRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -138,8 +138,8 @@ class SearchApi:
         """Feedback
 
 
-        :param agent_clicked_request: (required)
-        :type agent_clicked_request: AgentClickedRequest
+        :param search_feedback_request: (required)
+        :type search_feedback_request: SearchFeedbackRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -163,7 +163,7 @@ class SearchApi:
         """ # noqa: E501
 
         _param = self._feedback_serialize(
-            agent_clicked_request=agent_clicked_request,
+            search_feedback_request=search_feedback_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -188,7 +188,7 @@ class SearchApi:
     @validate_call
     def feedback_without_preload_content(
         self,
-        agent_clicked_request: AgentClickedRequest,
+        search_feedback_request: SearchFeedbackRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -205,8 +205,8 @@ class SearchApi:
         """Feedback
 
 
-        :param agent_clicked_request: (required)
-        :type agent_clicked_request: AgentClickedRequest
+        :param search_feedback_request: (required)
+        :type search_feedback_request: SearchFeedbackRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -230,7 +230,7 @@ class SearchApi:
         """ # noqa: E501
 
         _param = self._feedback_serialize(
-            agent_clicked_request=agent_clicked_request,
+            search_feedback_request=search_feedback_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -250,7 +250,7 @@ class SearchApi:
 
     def _feedback_serialize(
         self,
-        agent_clicked_request,
+        search_feedback_request,
         _request_auth,
         _content_type,
         _headers,
@@ -276,8 +276,8 @@ class SearchApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if agent_clicked_request is not None:
-            _body_params = agent_clicked_request
+        if search_feedback_request is not None:
+            _body_params = search_feedback_request
 
 
         # set the HTTP header `Accept`

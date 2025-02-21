@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **feedback**
-> object feedback(agent_clicked_request)
+> object feedback(search_feedback_request)
 
 Feedback
 
@@ -25,7 +25,7 @@ Feedback
 
 ```python
 import agentverse_client.search
-from agentverse_client.search.models.agent_clicked_request import AgentClickedRequest
+from agentverse_client.search.models.search_feedback_request import SearchFeedbackRequest
 from agentverse_client.search.rest import ApiException
 from pprint import pprint
 
@@ -40,11 +40,11 @@ configuration = agentverse_client.search.Configuration(
 with agentverse_client.search.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.SearchApi(api_client)
-    agent_clicked_request = agentverse_client.search.AgentClickedRequest() # AgentClickedRequest | 
+    search_feedback_request = agentverse_client.search.SearchFeedbackRequest() # SearchFeedbackRequest | 
 
     try:
         # Feedback
-        api_response = api_instance.feedback(agent_clicked_request)
+        api_response = api_instance.feedback(search_feedback_request)
         print("The response of SearchApi->feedback:\n")
         pprint(api_response)
     except Exception as e:
@@ -58,7 +58,7 @@ with agentverse_client.search.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_clicked_request** | [**AgentClickedRequest**](AgentClickedRequest.md)|  | 
+ **search_feedback_request** | [**SearchFeedbackRequest**](SearchFeedbackRequest.md)|  | 
 
 ### Return type
 

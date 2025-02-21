@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.agent_clicked_request import AgentClickedRequest
+from agentverse_client.search.aio.models.search_feedback_request import SearchFeedbackRequest
 
-class TestAgentClickedRequest(unittest.TestCase):
-    """AgentClickedRequest unit test stubs"""
+class TestSearchFeedbackRequest(unittest.TestCase):
+    """SearchFeedbackRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,30 +25,30 @@ class TestAgentClickedRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AgentClickedRequest:
-        """Test AgentClickedRequest
+    def make_instance(self, include_optional) -> SearchFeedbackRequest:
+        """Test SearchFeedbackRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AgentClickedRequest`
+        # uncomment below to create an instance of `SearchFeedbackRequest`
         """
-        model = AgentClickedRequest()
+        model = SearchFeedbackRequest()
         if include_optional:
-            return AgentClickedRequest(
+            return SearchFeedbackRequest(
                 search_id = '',
                 page_index = 0.0,
                 address = ''
             )
         else:
-            return AgentClickedRequest(
+            return SearchFeedbackRequest(
                 search_id = '',
                 page_index = 0.0,
                 address = '',
         )
         """
 
-    def testAgentClickedRequest(self):
-        """Test AgentClickedRequest"""
+    def testSearchFeedbackRequest(self):
+        """Test SearchFeedbackRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 
