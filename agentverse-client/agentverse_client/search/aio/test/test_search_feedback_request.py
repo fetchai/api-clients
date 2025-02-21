@@ -35,15 +35,16 @@ class TestSearchFeedbackRequest(unittest.TestCase):
         model = SearchFeedbackRequest()
         if include_optional:
             return SearchFeedbackRequest(
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                contract = 'mainnet',
                 search_id = '',
-                page_index = 0.0,
-                address = ''
+                page_index = 0.0
             )
         else:
             return SearchFeedbackRequest(
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 search_id = '',
                 page_index = 0.0,
-                address = '',
         )
         """
 
