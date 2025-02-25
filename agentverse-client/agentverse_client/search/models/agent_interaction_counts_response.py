@@ -17,11 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
 from agentverse_client.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
-from agentverse_client.search.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,20 +28,12 @@ class AgentInteractionCountsResponse(BaseModel):
     """
     AgentInteractionCountsResponse
     """ # noqa: E501
-    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
-    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
+    address: StrictStr = Field(description="the address of the agent")
     interval: Annotated[List[StrictInt], Field(min_length=30, max_length=30)] = Field(description="the number of on_interval interactions for each day")
     message: Annotated[List[StrictInt], Field(min_length=30, max_length=30)] = Field(description="the number of on_message interactions for each day")
     total: Annotated[List[StrictInt], Field(min_length=30, max_length=30)] = Field(description="the sum of on_interval and on_message interaction counts for each day")
     num_all_time_interactions: AgentAllTimeInteractionCounts = Field(description="number of on_interval, on_message and total (sum of on_interval and on_message) interactions")
-    __properties: ClassVar[List[str]] = ["address", "contract", "interval", "message", "total", "num_all_time_interactions"]
-
-    @field_validator('address')
-    def address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
-        return value
+    __properties: ClassVar[List[str]] = ["address", "interval", "message", "total", "num_all_time_interactions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -99,7 +90,6 @@ class AgentInteractionCountsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "address": obj.get("address"),
-            "contract": obj.get("contract"),
             "interval": obj.get("interval"),
             "message": obj.get("message"),
             "total": obj.get("total"),

@@ -35,8 +35,7 @@ class TestAgentSearchAnalyticsResponse(unittest.TestCase):
         model = AgentSearchAnalyticsResponse()
         if include_optional:
             return AgentSearchAnalyticsResponse(
-                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                contract = 'mainnet',
+                address = '',
                 num_searches = 56,
                 last_24h_num_searches = 56,
                 last_30d_num_searches = 56,
@@ -46,7 +45,7 @@ class TestAgentSearchAnalyticsResponse(unittest.TestCase):
             )
         else:
             return AgentSearchAnalyticsResponse(
-                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                address = '',
                 num_searches = 56,
                 last_24h_num_searches = 56,
                 last_30d_num_searches = 56,
