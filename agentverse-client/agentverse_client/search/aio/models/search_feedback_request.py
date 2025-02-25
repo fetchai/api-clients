@@ -17,9 +17,10 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,10 +28,18 @@ class SearchFeedbackRequest(BaseModel):
     """
     SearchFeedbackRequest
     """ # noqa: E501
+    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
+    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
     search_id: StrictStr = Field(description="search id generated before (during search)")
     page_index: Annotated[int, Field(strict=True, ge=0)] = Field(description="page index (should start from 0)")
-    address: StrictStr = Field(description="the address of the agent that was clicked on")
-    __properties: ClassVar[List[str]] = ["search_id", "page_index", "address"]
+    __properties: ClassVar[List[str]] = ["address", "contract", "search_id", "page_index"]
+
+    @field_validator('address')
+    def address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
+            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -83,9 +92,10 @@ class SearchFeedbackRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
+            "address": obj.get("address"),
+            "contract": obj.get("contract"),
             "search_id": obj.get("search_id"),
-            "page_index": obj.get("page_index"),
-            "address": obj.get("address")
+            "page_index": obj.get("page_index")
         })
         return _obj
 
