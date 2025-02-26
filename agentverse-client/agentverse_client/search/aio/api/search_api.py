@@ -328,7 +328,6 @@ class SearchApi:
     async def get_agent_interactions_count(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
-        contract: Annotated[Optional[Any], Field(description="The Almanac contract where the agent is registered (testnet by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -348,8 +347,6 @@ class SearchApi:
 
         :param address: The address of the agent (required)
         :type address: str
-        :param contract: The Almanac contract where the agent is registered (testnet by default)
-        :type contract: AgentContract
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -374,7 +371,6 @@ class SearchApi:
 
         _param = self._get_agent_interactions_count_serialize(
             address=address,
-            contract=contract,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -400,7 +396,6 @@ class SearchApi:
     async def get_agent_interactions_count_with_http_info(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
-        contract: Annotated[Optional[Any], Field(description="The Almanac contract where the agent is registered (testnet by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -420,8 +415,6 @@ class SearchApi:
 
         :param address: The address of the agent (required)
         :type address: str
-        :param contract: The Almanac contract where the agent is registered (testnet by default)
-        :type contract: AgentContract
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -446,7 +439,6 @@ class SearchApi:
 
         _param = self._get_agent_interactions_count_serialize(
             address=address,
-            contract=contract,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -472,7 +464,6 @@ class SearchApi:
     async def get_agent_interactions_count_without_preload_content(
         self,
         address: Annotated[StrictStr, Field(description="The address of the agent")],
-        contract: Annotated[Optional[Any], Field(description="The Almanac contract where the agent is registered (testnet by default)")] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -492,8 +483,6 @@ class SearchApi:
 
         :param address: The address of the agent (required)
         :type address: str
-        :param contract: The Almanac contract where the agent is registered (testnet by default)
-        :type contract: AgentContract
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -518,7 +507,6 @@ class SearchApi:
 
         _param = self._get_agent_interactions_count_serialize(
             address=address,
-            contract=contract,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -539,7 +527,6 @@ class SearchApi:
     def _get_agent_interactions_count_serialize(
         self,
         address,
-        contract,
         _request_auth,
         _content_type,
         _headers,
@@ -564,10 +551,6 @@ class SearchApi:
         if address is not None:
             _path_params['address'] = address
         # process the query parameters
-        if contract is not None:
-            
-            _query_params.append(('contract', contract.value))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter

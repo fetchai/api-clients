@@ -17,10 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List
 from typing_extensions import Annotated
-from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -28,20 +27,12 @@ class AgentSearchAnalyticsResponse(BaseModel):
     """
     The agent search analytics response object
     """ # noqa: E501
-    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
-    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
+    address: StrictStr = Field(description="The address of the agent that we are retrieving search analytics for")
     num_searches: StrictInt = Field(description="Total number of searches when this agent was retrieved")
     last_24h_num_searches: StrictInt = Field(description="Number of searches in the last 24 hours when this agent was retrieved")
     last_30d_num_searches: StrictInt = Field(description="Number of searches in the last 30 days when this agent was retrieved")
     last_30d_history: Annotated[List[StrictInt], Field(min_length=30, max_length=30)] = Field(description="Number of searches per day in the last 30 days when this agent was retrieved")
-    __properties: ClassVar[List[str]] = ["address", "contract", "num_searches", "last_24h_num_searches", "last_30d_num_searches", "last_30d_history"]
-
-    @field_validator('address')
-    def address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
-        return value
+    __properties: ClassVar[List[str]] = ["address", "num_searches", "last_24h_num_searches", "last_30d_num_searches", "last_30d_history"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -95,7 +86,6 @@ class AgentSearchAnalyticsResponse(BaseModel):
 
         _obj = cls.model_validate({
             "address": obj.get("address"),
-            "contract": obj.get("contract"),
             "num_searches": obj.get("num_searches"),
             "last_24h_num_searches": obj.get("last_24h_num_searches"),
             "last_30d_num_searches": obj.get("last_30d_num_searches"),

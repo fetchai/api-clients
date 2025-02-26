@@ -5,8 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** | The address of the agent | 
-**contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
+**address** | **str** | the address of the agent | 
 **interval** | **List[int]** | the number of on_interval interactions for each day | 
 **message** | **List[int]** | the number of on_message interactions for each day | 
 **total** | **List[int]** | the sum of on_interval and on_message interaction counts for each day | 
