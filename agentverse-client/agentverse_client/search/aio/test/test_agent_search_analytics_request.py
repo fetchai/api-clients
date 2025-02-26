@@ -35,11 +35,12 @@ class TestAgentSearchAnalyticsRequest(unittest.TestCase):
         model = AgentSearchAnalyticsRequest()
         if include_optional:
             return AgentSearchAnalyticsRequest(
-                address = ''
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                contract = 'mainnet'
             )
         else:
             return AgentSearchAnalyticsRequest(
-                address = '',
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
         )
         """
 

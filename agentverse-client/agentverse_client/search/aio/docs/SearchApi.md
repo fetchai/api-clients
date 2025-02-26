@@ -83,7 +83,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_agent_interactions_count**
-> AgentInteractionCountsResponse get_agent_interactions_count(address)
+> AgentInteractionCountsResponse get_agent_interactions_count(address, contract=contract)
 
 Get Interaction Counts Of Agent
 
@@ -110,10 +110,11 @@ async with agentverse_client.search.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.aio.SearchApi(api_client)
     address = 'address_example' # str | The address of the agent
+    contract = agentverse_client.search.aio.AgentContract() # AgentContract | The Almanac contract where the agent is registered (testnet by default) (optional)
 
     try:
         # Get Interaction Counts Of Agent
-        api_response = await api_instance.get_agent_interactions_count(address)
+        api_response = await api_instance.get_agent_interactions_count(address, contract=contract)
         print("The response of SearchApi->get_agent_interactions_count:\n")
         pprint(api_response)
     except Exception as e:
@@ -128,6 +129,7 @@ async with agentverse_client.search.aio.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **str**| The address of the agent | 
+ **contract** | [**AgentContract**](.md)| The Almanac contract where the agent is registered (testnet by default) | [optional] 
 
 ### Return type
 

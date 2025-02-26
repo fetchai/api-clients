@@ -6,7 +6,8 @@ The agent search term analytics response object
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** | The address of the agent that we are retrieving search analytics for | 
+**address** | **str** | The address of the agent | 
+**contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
 **term_percentages** | [**List[SearchTermPercentage]**](SearchTermPercentage.md) | Percentage of searches with different terms when this agent was retrieved | 
 
 ## Example

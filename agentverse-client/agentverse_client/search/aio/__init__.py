@@ -34,6 +34,7 @@ from agentverse_client.search.aio.exceptions import ApiException
 from agentverse_client.search.aio.models.agent import Agent
 from agentverse_client.search.aio.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
 from agentverse_client.search.aio.models.agent_category import AgentCategory
+from agentverse_client.search.aio.models.agent_contract import AgentContract
 from agentverse_client.search.aio.models.agent_filters import AgentFilters
 from agentverse_client.search.aio.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.aio.models.agent_geo_location import AgentGeoLocation

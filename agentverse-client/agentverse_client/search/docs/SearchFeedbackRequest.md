@@ -5,9 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**address** | **str** | The address of the agent | 
+**contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
 **search_id** | **str** | search id generated before (during search) | 
 **page_index** | **int** | page index (should start from 0) | 
-**address** | **str** | the address of the agent that was clicked on | 
 
 ## Example
 
