@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **address** | **str** | the address of the agent (this should be used as the id of the agent) | 
 **prefix** | [**NetProtocol**](NetProtocol.md) | In which net it is running (mainnet or test-net) | 
 **name** | **str** | the public name of the agent | 
+**description** | **str** | the short description of the agent | 
 **readme** | **str** | the contents of the readme file | 
 **protocols** | [**List[Protocol]**](Protocol.md) | the list of protocols supported by the agent | 
 **avatar_href** | **str** |  | [optional] 

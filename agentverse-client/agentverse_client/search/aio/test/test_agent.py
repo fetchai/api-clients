@@ -38,6 +38,7 @@ class TestAgent(unittest.TestCase):
                 address = '',
                 prefix = 'agent',
                 name = '',
+                description = '',
                 readme = '',
                 protocols = [
                     agentverse_client.search.aio.models.protocol.Protocol(
@@ -70,6 +71,7 @@ class TestAgent(unittest.TestCase):
                 address = '',
                 prefix = 'agent',
                 name = '',
+                description = '',
                 readme = '',
                 protocols = [
                     agentverse_client.search.aio.models.protocol.Protocol(
