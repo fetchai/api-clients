@@ -40,6 +40,7 @@ class TestAgentSearchResponse(unittest.TestCase):
                         address = '', 
                         prefix = null, 
                         name = '', 
+                        description = '', 
                         readme = '', 
                         protocols = [
                             agentverse_client.search.aio.models.protocol.Protocol(
