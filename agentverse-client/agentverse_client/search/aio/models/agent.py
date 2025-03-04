@@ -36,7 +36,6 @@ class Agent(BaseModel):
     address: StrictStr = Field(description="the address of the agent (this should be used as the id of the agent)")
     prefix: NetProtocol = Field(description="In which net it is running (mainnet or test-net)")
     name: StrictStr = Field(description="the public name of the agent")
-    description: StrictStr = Field(description="the short description of the agent")
     readme: StrictStr = Field(description="the contents of the readme file")
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")
     avatar_href: Optional[StrictStr] = None
@@ -53,7 +52,7 @@ class Agent(BaseModel):
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
     current_campaign_eligible: Optional[StrictBool] = False
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "last_updated", "created_at", "current_campaign_eligible"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "last_updated", "created_at", "current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -139,7 +138,6 @@ class Agent(BaseModel):
             "address": obj.get("address"),
             "prefix": obj.get("prefix"),
             "name": obj.get("name"),
-            "description": obj.get("description"),
             "readme": obj.get("readme"),
             "protocols": [Protocol.from_dict(_item) for _item in obj["protocols"]] if obj.get("protocols") is not None else None,
             "avatar_href": obj.get("avatar_href"),
