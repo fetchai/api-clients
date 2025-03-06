@@ -36,7 +36,7 @@ class Agent(BaseModel):
     address: StrictStr = Field(description="the address of the agent (this should be used as the id of the agent)")
     prefix: NetProtocol = Field(description="In which net it is running (mainnet or test-net)")
     name: StrictStr = Field(description="the public name of the agent")
-    description: StrictStr = Field(description="the short description of the agent")
+    description: StrictStr = Field(description="the short description of the agent", default="")
     readme: StrictStr = Field(description="the contents of the readme file")
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")
     avatar_href: Optional[StrictStr] = None
@@ -139,7 +139,7 @@ class Agent(BaseModel):
             "address": obj.get("address"),
             "prefix": obj.get("prefix"),
             "name": obj.get("name"),
-            "description": obj.get("description"),
+            "description": obj.get("description", ""),
             "readme": obj.get("readme"),
             "protocols": [Protocol.from_dict(_item) for _item in obj["protocols"]] if obj.get("protocols") is not None else None,
             "avatar_href": obj.get("avatar_href"),
