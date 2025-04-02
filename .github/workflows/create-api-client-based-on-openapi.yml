@@ -48,8 +48,8 @@ jobs:
 
       - name: Check registered apps and get client path
         run: |
-          app_key=${{ github.event.client_payload.app_name }}
-          registered_apps=${{ vars.APP_MAPPING }}
+          app_key="${{ github.event.client_payload.app_name }}"
+          registered_apps="${{ vars.APP_MAPPING }}"
           # decode
           registered_apps=$(echo $registered_apps | xxd -r -p)
           # get path from json
