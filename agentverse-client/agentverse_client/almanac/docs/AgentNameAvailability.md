@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name_prefix** | **str** |  | 
-**domain** | **str** |  | 
+**name_prefix** | **str** | Agent name prefix | 
+**domain** | **str** | Domain associated with the name | 
 **status** | [**AgentNameAvailabilityStatus**](AgentNameAvailabilityStatus.md) |  | 
 
 ## Example

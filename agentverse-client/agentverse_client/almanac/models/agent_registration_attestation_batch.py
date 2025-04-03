@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List
 from agentverse_client.almanac.models.agent_registration_attestation import AgentRegistrationAttestation
 from typing import Optional, Set
@@ -27,7 +27,7 @@ class AgentRegistrationAttestationBatch(BaseModel):
     """
     AgentRegistrationAttestationBatch
     """ # noqa: E501
-    attestations: List[AgentRegistrationAttestation]
+    attestations: List[AgentRegistrationAttestation] = Field(description="Batch of agent registration attestations")
     __properties: ClassVar[List[str]] = ["attestations"]
 
     model_config = ConfigDict(

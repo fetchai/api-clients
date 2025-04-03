@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **agent_identifier** | **str** |  | 
 **signature** | **str** |  | [optional] 
 **timestamp** | **int** |  | [optional] 
-**is_active** | **bool** |  | 
+**is_active** | **bool** | Indicates whether the agent is currently active | 
 
 ## Example
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from agentverse_client.almanac.aio.models.agent_endpoint import AgentEndpoint
 from agentverse_client.almanac.aio.models.agent_registration_attestation_metadata_value import AgentRegistrationAttestationMetadataValue
@@ -31,8 +31,8 @@ class AgentRegistrationAttestation(BaseModel):
     agent_identifier: StrictStr
     signature: Optional[StrictStr] = None
     timestamp: Optional[StrictInt] = None
-    protocols: List[StrictStr]
-    endpoints: List[AgentEndpoint]
+    protocols: List[StrictStr] = Field(description="List of supported protocol identifiers")
+    endpoints: List[AgentEndpoint] = Field(description="Declared service endpoints")
     metadata: Optional[Dict[str, AgentRegistrationAttestationMetadataValue]] = None
     __properties: ClassVar[List[str]] = ["agent_identifier", "signature", "timestamp", "protocols", "endpoints", "metadata"]
 

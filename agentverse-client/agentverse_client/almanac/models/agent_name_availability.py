@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from agentverse_client.almanac.models.agent_name_availability_status import AgentNameAvailabilityStatus
 from typing import Optional, Set
@@ -27,8 +27,8 @@ class AgentNameAvailability(BaseModel):
     """
     AgentNameAvailability
     """ # noqa: E501
-    name_prefix: StrictStr
-    domain: StrictStr
+    name_prefix: StrictStr = Field(description="Agent name prefix")
+    domain: StrictStr = Field(description="Domain associated with the name")
     status: AgentNameAvailabilityStatus
     __properties: ClassVar[List[str]] = ["name_prefix", "domain", "status"]
 

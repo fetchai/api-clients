@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**attestations** | [**List[AgentRegistrationAttestation]**](AgentRegistrationAttestation.md) |  | 
+**attestations** | [**List[AgentRegistrationAttestation]**](AgentRegistrationAttestation.md) | Batch of agent registration attestations | 
 
 ## Example
 

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
@@ -29,7 +29,7 @@ class AgentStatusUpdate(BaseModel):
     agent_identifier: StrictStr
     signature: Optional[StrictStr] = None
     timestamp: Optional[StrictInt] = None
-    is_active: StrictBool
+    is_active: StrictBool = Field(description="Indicates whether the agent is currently active")
     __properties: ClassVar[List[str]] = ["agent_identifier", "signature", "timestamp", "is_active"]
 
     model_config = ConfigDict(

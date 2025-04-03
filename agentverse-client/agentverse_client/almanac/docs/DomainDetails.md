@@ -5,11 +5,11 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**domain_name** | **str** |  | 
-**trnsx_height** | **int** |  | 
-**permissions** | **str** |  | 
-**account_address** | **str** |  | 
-**updated_by** | **str** |  | 
+**domain_name** | **str** | Registered domain name | 
+**trnsx_height** | **int** | Blockchain height of the last update | 
+**permissions** | **str** | Serialized permissions associated with the domain | 
+**account_address** | **str** | Address of the domain-owning account | 
+**updated_by** | **str** | Identifier of the last updater | 
 
 ## Example
 

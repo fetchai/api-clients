@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,11 +26,11 @@ class DomainDetails(BaseModel):
     """
     DomainDetails
     """ # noqa: E501
-    domain_name: StrictStr
-    trnsx_height: StrictInt
-    permissions: StrictStr
-    account_address: StrictStr
-    updated_by: StrictStr
+    domain_name: StrictStr = Field(description="Registered domain name")
+    trnsx_height: StrictInt = Field(description="Blockchain height of the last update")
+    permissions: StrictStr = Field(description="Serialized permissions associated with the domain")
+    account_address: StrictStr = Field(description="Address of the domain-owning account")
+    updated_by: StrictStr = Field(description="Identifier of the last updater")
     __properties: ClassVar[List[str]] = ["domain_name", "trnsx_height", "permissions", "account_address", "updated_by"]
 
     model_config = ConfigDict(
