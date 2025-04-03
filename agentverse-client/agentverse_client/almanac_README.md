@@ -36,25 +36,20 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.almanac.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
+configuration = agentverse_client.almanac.Configuration()
 
 # Enter a context with an instance of the API client
-with agentverse_client.almanac.ApiClient(configuration) as api_client:
+with (agentverse_client.almanac.ApiClient(configuration) as api_client):
     # Create an instance of the API class
     api_instance = agentverse_client.almanac.AlmanacApi(api_client)
-    agent_registration_attestation = agentverse_client.almanac.AgentRegistrationAttestation() # AgentRegistrationAttestation | 
 
     try:
         # Register Agent
-        api_response = api_instance.add_agent(agent_registration_attestation)
-        print("The response of AlmanacApi->add_agent:\n")
+        api_response = api_instance.get_recently_registered_agents()
+        print("The response of AlmanacApi->get_recently_registered_agents:\n")
         pprint(api_response)
     except ApiException as e:
-        print("Exception when calling AlmanacApi->add_agent: %s\n" % e)
+        print("Exception when calling AlmanacApi->get_recently_registered_agents: %s\n" % e)
 
 ```
 
@@ -64,54 +59,54 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AlmanacApi* | [**add_agent**](agentverse_client/almanac/docs/AlmanacApi.md#add_agent) | **POST** /v1/almanac/agents | Register Agent
-*AlmanacApi* | [**get_agent**](agentverse_client/almanac/docs/AlmanacApi.md#get_agent) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
-*AlmanacApi* | [**get_agents_by_domain**](agentverse_client/almanac/docs/AlmanacApi.md#get_agents_by_domain) | **GET** /v1/almanac/search/agents-by-domain/{domain_name} | Get Agents By Domain
-*AlmanacApi* | [**get_domain_details**](agentverse_client/almanac/docs/AlmanacApi.md#get_domain_details) | **GET** /v1/almanac/search/domain_details/{domain_name} | Get Domain Details
-*AlmanacApi* | [**get_domain_record**](agentverse_client/almanac/docs/AlmanacApi.md#get_domain_record) | **GET** /v1/almanac/domains/{domain} | Get Domain Record
-*AlmanacApi* | [**get_domains**](agentverse_client/almanac/docs/AlmanacApi.md#get_domains) | **GET** /v1/almanac/search/domains/{address} | Get Domains
-*AlmanacApi* | [**get_recently_registered_agents**](agentverse_client/almanac/docs/AlmanacApi.md#get_recently_registered_agents) | **GET** /v1/almanac/recent | Get Recently Registered Agents
-*AlmanacApi* | [**register_agents_batch_v1_almanac_agents_batch_post**](agentverse_client/almanac/docs/AlmanacApi.md#register_agents_batch_v1_almanac_agents_batch_post) | **POST** /v1/almanac/agents/batch | Register Agents Batch
-*AlmanacApi* | [**search_agents**](agentverse_client/almanac/docs/AlmanacApi.md#search_agents) | **POST** /v1/almanac/search | Search Agents
-*AlmanacApi* | [**search_available_agent_name**](agentverse_client/almanac/docs/AlmanacApi.md#search_available_agent_name) | **GET** /v1/almanac/search/available_name | Search Available Agent Name
-*AlmanacApi* | [**update_agent_status**](agentverse_client/almanac/docs/AlmanacApi.md#update_agent_status) | **POST** /v1/almanac/agents/{agent_address}/status | Update Agent Status
+*AlmanacApi* | [**add_agent**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#add_agent) | **POST** /v1/almanac/agents | Register Agent
+*AlmanacApi* | [**get_agent**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_agent) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
+*AlmanacApi* | [**get_agents_by_domain**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_agents_by_domain) | **GET** /v1/almanac/search/agents-by-domain/{domain_name} | Get Agents By Domain
+*AlmanacApi* | [**get_domain_details**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_domain_details) | **GET** /v1/almanac/search/domain_details/{domain_name} | Get Domain Details
+*AlmanacApi* | [**get_domain_record**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_domain_record) | **GET** /v1/almanac/domains/{domain} | Get Domain Record
+*AlmanacApi* | [**get_domains**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_domains) | **GET** /v1/almanac/search/domains/{address} | Get Domains
+*AlmanacApi* | [**get_recently_registered_agents**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_recently_registered_agents) | **GET** /v1/almanac/recent | Get Recently Registered Agents
+*AlmanacApi* | [**register_agents_batch_v1_almanac_agents_batch_post**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#register_agents_batch_v1_almanac_agents_batch_post) | **POST** /v1/almanac/agents/batch | Register Agents Batch
+*AlmanacApi* | [**search_agents**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#search_agents) | **POST** /v1/almanac/search | Search Agents
+*AlmanacApi* | [**search_available_agent_name**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#search_available_agent_name) | **GET** /v1/almanac/search/available_name | Search Available Agent Name
+*AlmanacApi* | [**update_agent_status**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#update_agent_status) | **POST** /v1/almanac/agents/{agent_address}/status | Update Agent Status
 
 
 ## Documentation For Models
 
- - [AddressPrefix](agentverse_client/almanac/docs/AddressPrefix.md)
- - [Agent](agentverse_client/almanac/docs/Agent.md)
- - [AgentEndpoint](agentverse_client/almanac/docs/AgentEndpoint.md)
- - [AgentNameAvailability](agentverse_client/almanac/docs/AgentNameAvailability.md)
- - [AgentNameAvailabilityStatus](agentverse_client/almanac/docs/AgentNameAvailabilityStatus.md)
- - [AgentNetwork](agentverse_client/almanac/docs/AgentNetwork.md)
- - [AgentRecord](agentverse_client/almanac/docs/AgentRecord.md)
- - [AgentRegistrationAttestation](agentverse_client/almanac/docs/AgentRegistrationAttestation.md)
- - [AgentRegistrationAttestationBatch](agentverse_client/almanac/docs/AgentRegistrationAttestationBatch.md)
- - [AgentRegistrationAttestationMetadataValue](agentverse_client/almanac/docs/AgentRegistrationAttestationMetadataValue.md)
- - [AgentSearch](agentverse_client/almanac/docs/AgentSearch.md)
- - [AgentStatus](agentverse_client/almanac/docs/AgentStatus.md)
- - [AgentStatusFilter](agentverse_client/almanac/docs/AgentStatusFilter.md)
- - [AgentStatusUpdate](agentverse_client/almanac/docs/AgentStatusUpdate.md)
- - [AgentType](agentverse_client/almanac/docs/AgentType.md)
- - [DeveloperCategory](agentverse_client/almanac/docs/DeveloperCategory.md)
- - [DomainDetails](agentverse_client/almanac/docs/DomainDetails.md)
- - [DomainRecord](agentverse_client/almanac/docs/DomainRecord.md)
- - [EndpointInput](agentverse_client/almanac/docs/EndpointInput.md)
- - [EndpointOutput](agentverse_client/almanac/docs/EndpointOutput.md)
- - [HTTPValidationError](agentverse_client/almanac/docs/HTTPValidationError.md)
- - [Interaction](agentverse_client/almanac/docs/Interaction.md)
- - [InteractionType](agentverse_client/almanac/docs/InteractionType.md)
- - [LocationInner](agentverse_client/almanac/docs/LocationInner.md)
- - [Manifest](agentverse_client/almanac/docs/Manifest.md)
- - [Metadata](agentverse_client/almanac/docs/Metadata.md)
- - [Model](agentverse_client/almanac/docs/Model.md)
- - [ResolvedProtocolDigest](agentverse_client/almanac/docs/ResolvedProtocolDigest.md)
- - [ResponseSearchAgents](agentverse_client/almanac/docs/ResponseSearchAgents.md)
- - [ServiceRecord](agentverse_client/almanac/docs/ServiceRecord.md)
- - [SortAgents](agentverse_client/almanac/docs/SortAgents.md)
- - [ValidationError](agentverse_client/almanac/docs/ValidationError.md)
- - [WithPaginationListAgent](agentverse_client/almanac/docs/WithPaginationListAgent.md)
+ - [AddressPrefix](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AddressPrefix.md)
+ - [Agent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/Agent.md)
+ - [AgentEndpoint](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentEndpoint.md)
+ - [AgentNameAvailability](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentNameAvailability.md)
+ - [AgentNameAvailabilityStatus](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentNameAvailabilityStatus.md)
+ - [AgentNetwork](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentNetwork.md)
+ - [AgentRecord](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentRecord.md)
+ - [AgentRegistrationAttestation](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentRegistrationAttestation.md)
+ - [AgentRegistrationAttestationBatch](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentRegistrationAttestationBatch.md)
+ - [AgentRegistrationAttestationMetadataValue](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentRegistrationAttestationMetadataValue.md)
+ - [AgentSearch](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentSearch.md)
+ - [AgentStatus](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentStatus.md)
+ - [AgentStatusFilter](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentStatusFilter.md)
+ - [AgentStatusUpdate](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentStatusUpdate.md)
+ - [AgentType](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AgentType.md)
+ - [DeveloperCategory](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/DeveloperCategory.md)
+ - [DomainDetails](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/DomainDetails.md)
+ - [DomainRecord](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/DomainRecord.md)
+ - [EndpointInput](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/EndpointInput.md)
+ - [EndpointOutput](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/EndpointOutput.md)
+ - [HTTPValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/HTTPValidationError.md)
+ - [Interaction](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/Interaction.md)
+ - [InteractionType](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/InteractionType.md)
+ - [LocationInner](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/LocationInner.md)
+ - [Manifest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/Manifest.md)
+ - [Metadata](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/Metadata.md)
+ - [Model](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/Model.md)
+ - [ResolvedProtocolDigest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/ResolvedProtocolDigest.md)
+ - [ResponseSearchAgents](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/ResponseSearchAgents.md)
+ - [ServiceRecord](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/ServiceRecord.md)
+ - [SortAgents](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/SortAgents.md)
+ - [ValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/ValidationError.md)
+ - [WithPaginationListAgent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/WithPaginationListAgent.md)
 
 
 <a id="documentation-for-authorization"></a>
