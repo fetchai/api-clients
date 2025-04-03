@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **type** | [**AgentType**](AgentType.md) |  | 
 **address** | **str** | Unique blockchain address of the agent | 
 **domain_name** | **str** |  | [optional] 
-**prefix** | **str** |  | [optional] 
+**prefix** | [**AddressPrefix**](AddressPrefix.md) |  | [optional] 
 **endpoints** | [**List[EndpointOutput]**](EndpointOutput.md) | List of agent&#39;s endpoints | 
 **metadata** | **Dict[str, object]** |  | [optional] 
 **protocols** | **List[str]** | Supported protocol identifiers | 

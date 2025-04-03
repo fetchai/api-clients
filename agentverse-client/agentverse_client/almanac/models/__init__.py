@@ -14,6 +14,7 @@
 
 
 # import models into model package
+from agentverse_client.almanac.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.models.agent import Agent
 from agentverse_client.almanac.models.agent_endpoint import AgentEndpoint
 from agentverse_client.almanac.models.agent_name_availability import AgentNameAvailability

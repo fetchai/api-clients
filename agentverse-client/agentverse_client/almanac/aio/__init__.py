@@ -31,6 +31,7 @@ from agentverse_client.almanac.aio.exceptions import ApiAttributeError
 from agentverse_client.almanac.aio.exceptions import ApiException
 
 # import models into sdk package
+from agentverse_client.almanac.aio.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.aio.models.agent import Agent
 from agentverse_client.almanac.aio.models.agent_endpoint import AgentEndpoint
 from agentverse_client.almanac.aio.models.agent_name_availability import AgentNameAvailability
