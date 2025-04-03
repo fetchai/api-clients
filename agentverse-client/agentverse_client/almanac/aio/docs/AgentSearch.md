@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**text** | **str** |  | 
+**text** | **str** | Free-text search query | 
 **protocols** | **List[str]** |  | [optional] 
 **types** | [**List[AgentType]**](AgentType.md) |  | [optional] 
 **status** | [**List[AgentStatusFilter]**](AgentStatusFilter.md) |  | [optional] 

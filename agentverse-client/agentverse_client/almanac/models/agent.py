@@ -18,7 +18,7 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from agentverse_client.almanac.models.agent_status import AgentStatus
 from agentverse_client.almanac.models.agent_type import AgentType
@@ -33,13 +33,13 @@ class Agent(BaseModel):
     """ # noqa: E501
     status: AgentStatus
     type: AgentType
-    address: StrictStr
+    address: StrictStr = Field(description="Unique blockchain address of the agent")
     domain_name: Optional[StrictStr] = None
     prefix: Optional[StrictStr] = None
-    endpoints: List[Endpoint]
+    endpoints: List[Endpoint] = Field(description="List of agent's endpoints")
     metadata: Optional[Dict[str, Any]] = None
-    protocols: List[StrictStr]
-    expiry: datetime
+    protocols: List[StrictStr] = Field(description="Supported protocol identifiers")
+    expiry: datetime = Field(description="Expiration timestamp of the agent")
     developer_category: Optional[DeveloperCategory] = None
     name: Optional[StrictStr] = None
     running: Optional[StrictBool] = None

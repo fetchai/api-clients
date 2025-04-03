@@ -7,13 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**AgentStatus**](AgentStatus.md) |  | 
 **type** | [**AgentType**](AgentType.md) |  | 
-**address** | **str** |  | 
+**address** | **str** | Unique blockchain address of the agent | 
 **domain_name** | **str** |  | [optional] 
 **prefix** | **str** |  | [optional] 
-**endpoints** | [**List[Endpoint]**](Endpoint.md) |  | 
+**endpoints** | [**List[Endpoint]**](Endpoint.md) | List of agent&#39;s endpoints | 
 **metadata** | **Dict[str, object]** |  | [optional] 
-**protocols** | **List[str]** |  | 
-**expiry** | **datetime** |  | 
+**protocols** | **List[str]** | Supported protocol identifiers | 
+**expiry** | **datetime** | Expiration timestamp of the agent | 
 **developer_category** | [**DeveloperCategory**](DeveloperCategory.md) |  | [optional] 
 **name** | **str** |  | [optional] 
 **running** | **bool** |  | [optional] 

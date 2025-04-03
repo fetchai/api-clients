@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from agentverse_client.almanac.aio.models.agent_network import AgentNetwork
 from agentverse_client.almanac.aio.models.agent_status_filter import AgentStatusFilter
@@ -31,7 +31,7 @@ class AgentSearch(BaseModel):
     """
     AgentSearch
     """ # noqa: E501
-    text: StrictStr
+    text: StrictStr = Field(description="Free-text search query")
     protocols: Optional[List[StrictStr]] = None
     types: Optional[List[AgentType]] = None
     status: Optional[List[AgentStatusFilter]] = None
