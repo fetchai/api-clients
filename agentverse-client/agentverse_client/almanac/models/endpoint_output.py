@@ -17,17 +17,17 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Endpoint(BaseModel):
+class EndpointOutput(BaseModel):
     """
-    Endpoint
+    EndpointOutput
     """ # noqa: E501
-    url: StrictStr
-    weight: StrictInt
+    url: StrictStr = Field(description="Endpoint URL")
+    weight: StrictInt = Field(description="Relative weight for load balancing or priority")
     __properties: ClassVar[List[str]] = ["url", "weight"]
 
     model_config = ConfigDict(
@@ -48,7 +48,7 @@ class Endpoint(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Endpoint from a JSON string"""
+        """Create an instance of EndpointOutput from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +73,7 @@ class Endpoint(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Endpoint from a dict"""
+        """Create an instance of EndpointOutput from a dict"""
         if obj is None:
             return None
 

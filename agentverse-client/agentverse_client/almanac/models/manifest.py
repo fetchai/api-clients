@@ -30,10 +30,10 @@ class Manifest(BaseModel):
     """
     Manifest
     """ # noqa: E501
-    version: Annotated[str, Field(strict=True)]
+    version: Annotated[str, Field(strict=True)] = Field(description="Semantic version of the manifest")
     metadata: Metadata
-    models: List[Model]
-    interactions: List[Interaction]
+    models: List[Model] = Field(description="List of included models")
+    interactions: List[Interaction] = Field(description="Defined interactions between models")
     nodes: Optional[List[Dict[str, Any]]] = None
     edges: Optional[List[Dict[str, Any]]] = None
     __properties: ClassVar[List[str]] = ["version", "metadata", "models", "interactions", "nodes", "edges"]

@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**version** | **str** |  | 
+**version** | **str** | Semantic version of the manifest | 
 **metadata** | [**Metadata**](Metadata.md) |  | 
-**models** | [**List[Model]**](Model.md) |  | 
-**interactions** | [**List[Interaction]**](Interaction.md) |  | 
+**models** | [**List[Model]**](Model.md) | List of included models | 
+**interactions** | [**List[Interaction]**](Interaction.md) | Defined interactions between models | 
 **nodes** | **List[Dict[str, object]]** |  | [optional] 
 **edges** | **List[Dict[str, object]]** |  | [optional] 
 

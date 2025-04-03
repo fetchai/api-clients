@@ -48,7 +48,8 @@ from agentverse_client.almanac.aio.models.agent_type import AgentType
 from agentverse_client.almanac.aio.models.developer_category import DeveloperCategory
 from agentverse_client.almanac.aio.models.domain_details import DomainDetails
 from agentverse_client.almanac.aio.models.domain_record import DomainRecord
-from agentverse_client.almanac.aio.models.endpoint import Endpoint
+from agentverse_client.almanac.aio.models.endpoint_input import EndpointInput
+from agentverse_client.almanac.aio.models.endpoint_output import EndpointOutput
 from agentverse_client.almanac.aio.models.http_validation_error import HTTPValidationError
 from agentverse_client.almanac.aio.models.interaction import Interaction
 from agentverse_client.almanac.aio.models.interaction_type import InteractionType

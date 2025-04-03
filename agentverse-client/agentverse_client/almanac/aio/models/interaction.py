@@ -29,8 +29,8 @@ class Interaction(BaseModel):
     Interaction
     """ # noqa: E501
     type: InteractionType
-    request: Annotated[str, Field(strict=True)]
-    responses: List[Annotated[str, Field(strict=True)]]
+    request: Annotated[str, Field(strict=True)] = Field(description="Model reference hash for the request")
+    responses: List[Annotated[str, Field(strict=True)]] = Field(description="List of model reference hashes for the responses")
     __properties: ClassVar[List[str]] = ["type", "request", "responses"]
 
     @field_validator('request')

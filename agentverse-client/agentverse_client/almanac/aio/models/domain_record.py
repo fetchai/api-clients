@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictStr
 from typing import Any, ClassVar, Dict, List
 from agentverse_client.almanac.aio.models.agent_record import AgentRecord
 from typing import Optional, Set
@@ -27,8 +27,8 @@ class DomainRecord(BaseModel):
     """
     DomainRecord
     """ # noqa: E501
-    name: StrictStr
-    agents: List[AgentRecord]
+    name: StrictStr = Field(description="Name of the domain")
+    agents: List[AgentRecord] = Field(description="List of agents associated with the domain")
     __properties: ClassVar[List[str]] = ["name", "agents"]
 
     model_config = ConfigDict(

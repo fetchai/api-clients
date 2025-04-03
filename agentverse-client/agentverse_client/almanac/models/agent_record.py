@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,8 +26,8 @@ class AgentRecord(BaseModel):
     """
     AgentRecord
     """ # noqa: E501
-    address: StrictStr
-    weight: Union[StrictFloat, StrictInt]
+    address: StrictStr = Field(description="Blockchain address of the agent")
+    weight: Union[StrictFloat, StrictInt] = Field(description="Weight assigned to the agent within the domain")
     __properties: ClassVar[List[str]] = ["address", "weight"]
 
     model_config = ConfigDict(

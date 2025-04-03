@@ -27,8 +27,8 @@ class Model(BaseModel):
     """
     Model
     """ # noqa: E501
-    digest: Annotated[str, Field(strict=True)]
-    var_schema: Optional[Any] = Field(default=None, alias="schema")
+    digest: Annotated[str, Field(strict=True)] = Field(description="Content-addressed hash of the model")
+    var_schema: Optional[Any] = Field(default=None, description="JSON schema definition of the model", alias="schema")
     __properties: ClassVar[List[str]] = ["digest", "schema"]
 
     @field_validator('digest')

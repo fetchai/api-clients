@@ -23,7 +23,8 @@ agentverse_client/almanac/docs/AlmanacApi.md
 agentverse_client/almanac/docs/DeveloperCategory.md
 agentverse_client/almanac/docs/DomainDetails.md
 agentverse_client/almanac/docs/DomainRecord.md
-agentverse_client/almanac/docs/Endpoint.md
+agentverse_client/almanac/docs/EndpointInput.md
+agentverse_client/almanac/docs/EndpointOutput.md
 agentverse_client/almanac/docs/HTTPValidationError.md
 agentverse_client/almanac/docs/Interaction.md
 agentverse_client/almanac/docs/InteractionType.md
@@ -56,7 +57,8 @@ agentverse_client/almanac/models/agent_type.py
 agentverse_client/almanac/models/developer_category.py
 agentverse_client/almanac/models/domain_details.py
 agentverse_client/almanac/models/domain_record.py
-agentverse_client/almanac/models/endpoint.py
+agentverse_client/almanac/models/endpoint_input.py
+agentverse_client/almanac/models/endpoint_output.py
 agentverse_client/almanac/models/http_validation_error.py
 agentverse_client/almanac/models/interaction.py
 agentverse_client/almanac/models/interaction_type.py
@@ -72,3 +74,5 @@ agentverse_client/almanac/models/validation_error.py
 agentverse_client/almanac/models/with_pagination_list_agent.py
 agentverse_client/almanac/rest.py
 agentverse_client/almanac/test/__init__.py
+agentverse_client/almanac/test/test_endpoint_input.py
+agentverse_client/almanac/test/test_endpoint_output.py

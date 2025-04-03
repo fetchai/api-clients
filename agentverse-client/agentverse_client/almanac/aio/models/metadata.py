@@ -27,10 +27,10 @@ class Metadata(BaseModel):
     """
     Metadata
     """ # noqa: E501
-    name: StrictStr
+    name: StrictStr = Field(description="Name of the model or package")
     description: Optional[StrictStr] = None
-    version: Annotated[str, Field(strict=True)]
-    digest: Annotated[str, Field(strict=True)]
+    version: Annotated[str, Field(strict=True)] = Field(description="Semantic version of the metadata")
+    digest: Annotated[str, Field(strict=True)] = Field(description="Content-addressed hash of the protocol definition")
     __properties: ClassVar[List[str]] = ["name", "description", "version", "digest"]
 
     @field_validator('version')

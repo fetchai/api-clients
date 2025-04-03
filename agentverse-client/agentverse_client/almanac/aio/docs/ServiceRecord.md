@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **agent_address** | **str** |  | 
 **protocols** | **List[str]** |  | 
-**endpoints** | [**List[Endpoint]**](Endpoint.md) |  | 
+**endpoints** | [**List[EndpointInput]**](EndpointInput.md) |  | 
 **expiry** | **datetime** |  | 
 
 ## Example

@@ -20,7 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, StrictStr
 from typing import Any, ClassVar, Dict, List
-from agentverse_client.almanac.aio.models.endpoint import Endpoint
+from agentverse_client.almanac.aio.models.endpoint_input import EndpointInput
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -30,7 +30,7 @@ class ServiceRecord(BaseModel):
     """ # noqa: E501
     agent_address: StrictStr
     protocols: List[StrictStr]
-    endpoints: List[Endpoint]
+    endpoints: List[EndpointInput]
     expiry: datetime
     __properties: ClassVar[List[str]] = ["agent_address", "protocols", "endpoints", "expiry"]
 
@@ -94,7 +94,7 @@ class ServiceRecord(BaseModel):
         _obj = cls.model_validate({
             "agent_address": obj.get("agent_address"),
             "protocols": obj.get("protocols"),
-            "endpoints": [Endpoint.from_dict(_item) for _item in obj["endpoints"]] if obj.get("endpoints") is not None else None,
+            "endpoints": [EndpointInput.from_dict(_item) for _item in obj["endpoints"]] if obj.get("endpoints") is not None else None,
             "expiry": obj.get("expiry")
         })
         return _obj

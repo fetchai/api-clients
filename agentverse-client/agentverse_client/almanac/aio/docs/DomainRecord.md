@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
-**agents** | [**List[AgentRecord]**](AgentRecord.md) |  | 
+**name** | **str** | Name of the domain | 
+**agents** | [**List[AgentRecord]**](AgentRecord.md) | List of agents associated with the domain | 
 
 ## Example
 

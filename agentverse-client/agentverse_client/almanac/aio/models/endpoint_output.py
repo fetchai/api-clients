@@ -17,28 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List
-from typing_extensions import Annotated
-from agentverse_client.almanac.models.interaction_type import InteractionType
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Interaction(BaseModel):
+class EndpointOutput(BaseModel):
     """
-    Interaction
+    EndpointOutput
     """ # noqa: E501
-    type: InteractionType
-    request: Annotated[str, Field(strict=True)] = Field(description="Model reference hash for the request")
-    responses: List[Annotated[str, Field(strict=True)]] = Field(description="List of model reference hashes for the responses")
-    __properties: ClassVar[List[str]] = ["type", "request", "responses"]
-
-    @field_validator('request')
-    def request_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^model:[0-9a-f]{64}$", value):
-            raise ValueError(r"must validate the regular expression /^model:[0-9a-f]{64}$/")
-        return value
+    url: StrictStr = Field(description="Endpoint URL")
+    weight: StrictInt = Field(description="Relative weight for load balancing or priority")
+    __properties: ClassVar[List[str]] = ["url", "weight"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,7 +48,7 @@ class Interaction(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Interaction from a JSON string"""
+        """Create an instance of EndpointOutput from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,7 +73,7 @@ class Interaction(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Interaction from a dict"""
+        """Create an instance of EndpointOutput from a dict"""
         if obj is None:
             return None
 
@@ -91,9 +81,8 @@ class Interaction(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "type": obj.get("type"),
-            "request": obj.get("request"),
-            "responses": obj.get("responses")
+            "url": obj.get("url"),
+            "weight": obj.get("weight")
         })
         return _obj
 

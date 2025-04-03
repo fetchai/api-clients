@@ -5,10 +5,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**name** | **str** |  | 
+**name** | **str** | Name of the model or package | 
 **description** | **str** |  | [optional] 
-**version** | **str** |  | 
-**digest** | **str** |  | 
+**version** | **str** | Semantic version of the metadata | 
+**digest** | **str** | Content-addressed hash of the protocol definition | 
 
 ## Example
 

@@ -6,8 +6,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **type** | [**InteractionType**](InteractionType.md) |  | 
-**request** | **str** |  | 
-**responses** | **List[str]** |  | 
+**request** | **str** | Model reference hash for the request | 
+**responses** | **List[str]** | List of model reference hashes for the responses | 
 
 ## Example
 

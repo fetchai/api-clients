@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**digest** | **str** |  | 
-**var_schema** | **object** |  | [optional] 
+**digest** | **str** | Content-addressed hash of the model | 
+**var_schema** | **object** | JSON schema definition of the model | [optional] 
 
 ## Example
 

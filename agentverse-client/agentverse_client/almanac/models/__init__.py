@@ -31,7 +31,8 @@ from agentverse_client.almanac.models.agent_type import AgentType
 from agentverse_client.almanac.models.developer_category import DeveloperCategory
 from agentverse_client.almanac.models.domain_details import DomainDetails
 from agentverse_client.almanac.models.domain_record import DomainRecord
-from agentverse_client.almanac.models.endpoint import Endpoint
+from agentverse_client.almanac.models.endpoint_input import EndpointInput
+from agentverse_client.almanac.models.endpoint_output import EndpointOutput
 from agentverse_client.almanac.models.http_validation_error import HTTPValidationError
 from agentverse_client.almanac.models.interaction import Interaction
 from agentverse_client.almanac.models.interaction_type import InteractionType

@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**address** | **str** |  | 
-**weight** | **float** |  | 
+**address** | **str** | Blockchain address of the agent | 
+**weight** | **float** | Weight assigned to the agent within the domain | 
 
 ## Example
 
