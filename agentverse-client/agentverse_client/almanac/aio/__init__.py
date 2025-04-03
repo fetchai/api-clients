@@ -57,7 +57,7 @@ from agentverse_client.almanac.aio.models.manifest import Manifest
 from agentverse_client.almanac.aio.models.metadata import Metadata
 from agentverse_client.almanac.aio.models.model import Model
 from agentverse_client.almanac.aio.models.resolved_protocol_digest import ResolvedProtocolDigest
-from agentverse_client.almanac.aio.models.response_search_agents_v1_almanac_search_post import ResponseSearchAgentsV1AlmanacSearchPost
+from agentverse_client.almanac.aio.models.response_search_agents import ResponseSearchAgents
 from agentverse_client.almanac.aio.models.service_record import ServiceRecord
 from agentverse_client.almanac.aio.models.sort_agents import SortAgents
 from agentverse_client.almanac.aio.models.validation_error import ValidationError

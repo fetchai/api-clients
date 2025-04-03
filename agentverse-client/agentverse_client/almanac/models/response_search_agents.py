@@ -19,17 +19,17 @@ import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
 from typing import List, Optional
-from agentverse_client.almanac.aio.models.agent import Agent
-from agentverse_client.almanac.aio.models.with_pagination_list_agent import WithPaginationListAgent
+from agentverse_client.almanac.models.agent import Agent
+from agentverse_client.almanac.models.with_pagination_list_agent import WithPaginationListAgent
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-RESPONSESEARCHAGENTSV1ALMANACSEARCHPOST_ANY_OF_SCHEMAS = ["List[Agent]", "WithPaginationListAgent"]
+RESPONSESEARCHAGENTS_ANY_OF_SCHEMAS = ["List[Agent]", "WithPaginationListAgent"]
 
-class ResponseSearchAgentsV1AlmanacSearchPost(BaseModel):
+class ResponseSearchAgents(BaseModel):
     """
-    ResponseSearchAgentsV1AlmanacSearchPost
+    ResponseSearchAgents
     """
 
     # data type: WithPaginationListAgent
@@ -59,7 +59,7 @@ class ResponseSearchAgentsV1AlmanacSearchPost(BaseModel):
 
     @field_validator('actual_instance')
     def actual_instance_must_validate_anyof(cls, v):
-        instance = ResponseSearchAgentsV1AlmanacSearchPost.model_construct()
+        instance = ResponseSearchAgents.model_construct()
         error_messages = []
         # validate data type: WithPaginationListAgent
         if not isinstance(v, WithPaginationListAgent):
@@ -75,7 +75,7 @@ class ResponseSearchAgentsV1AlmanacSearchPost(BaseModel):
             error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in ResponseSearchAgentsV1AlmanacSearchPost with anyOf schemas: List[Agent], WithPaginationListAgent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in ResponseSearchAgents with anyOf schemas: List[Agent], WithPaginationListAgent. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -106,7 +106,7 @@ class ResponseSearchAgentsV1AlmanacSearchPost(BaseModel):
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into ResponseSearchAgentsV1AlmanacSearchPost with anyOf schemas: List[Agent], WithPaginationListAgent. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into ResponseSearchAgents with anyOf schemas: List[Agent], WithPaginationListAgent. Details: " + ", ".join(error_messages))
         else:
             return instance
 

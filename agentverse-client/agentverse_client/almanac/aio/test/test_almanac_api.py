@@ -26,52 +26,52 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get(self) -> None:
-        """Test case for get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get
+    async def test_add_agent(self) -> None:
+        """Test case for add_agent
 
-        Get Agents By Domain
+        Register Agent
         """
         pass
 
-    async def test_get_domain_details_v1_almanac_search_domain_details_domain_name_get(self) -> None:
-        """Test case for get_domain_details_v1_almanac_search_domain_details_domain_name_get
-
-        Get Domain Details
-        """
-        pass
-
-    async def test_get_domain_record_v1_almanac_domains_domain_get(self) -> None:
-        """Test case for get_domain_record_v1_almanac_domains_domain_get
-
-        Get Domain Record
-        """
-        pass
-
-    async def test_get_domains_v1_almanac_search_domains_address_get(self) -> None:
-        """Test case for get_domains_v1_almanac_search_domains_address_get
-
-        Get Domains
-        """
-        pass
-
-    async def test_get_recently_registered_agents_v1_almanac_recent_get(self) -> None:
-        """Test case for get_recently_registered_agents_v1_almanac_recent_get
-
-        Get Recently Registered Agents
-        """
-        pass
-
-    async def test_get_specific_agent_v1_almanac_agents_address_get(self) -> None:
-        """Test case for get_specific_agent_v1_almanac_agents_address_get
+    async def test_get_agent(self) -> None:
+        """Test case for get_agent
 
         Get Specific Agent
         """
         pass
 
-    async def test_register_agent_v1_almanac_agents_post(self) -> None:
-        """Test case for register_agent_v1_almanac_agents_post
+    async def test_get_agents_by_domain(self) -> None:
+        """Test case for get_agents_by_domain
 
-        Register Agent
+        Get Agents By Domain
+        """
+        pass
+
+    async def test_get_domain_details(self) -> None:
+        """Test case for get_domain_details
+
+        Get Domain Details
+        """
+        pass
+
+    async def test_get_domain_record(self) -> None:
+        """Test case for get_domain_record
+
+        Get Domain Record
+        """
+        pass
+
+    async def test_get_domains(self) -> None:
+        """Test case for get_domains
+
+        Get Domains
+        """
+        pass
+
+    async def test_get_recently_registered_agents(self) -> None:
+        """Test case for get_recently_registered_agents
+
+        Get Recently Registered Agents
         """
         pass
 
@@ -82,22 +82,22 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_search_agents_v1_almanac_search_post(self) -> None:
-        """Test case for search_agents_v1_almanac_search_post
+    async def test_search_agents(self) -> None:
+        """Test case for search_agents
 
         Search Agents
         """
         pass
 
-    async def test_search_available_agent_name_v1_almanac_search_available_name_get(self) -> None:
-        """Test case for search_available_agent_name_v1_almanac_search_available_name_get
+    async def test_search_available_agent_name(self) -> None:
+        """Test case for search_available_agent_name
 
         Search Available Agent Name
         """
         pass
 
-    async def test_update_agent_status_v1_almanac_agents_agent_address_status_post(self) -> None:
-        """Test case for update_agent_status_v1_almanac_agents_agent_address_status_post
+    async def test_update_agent_status(self) -> None:
+        """Test case for update_agent_status
 
         Update Agent Status
         """

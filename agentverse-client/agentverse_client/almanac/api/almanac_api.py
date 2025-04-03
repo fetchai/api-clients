@@ -26,7 +26,7 @@ from agentverse_client.almanac.models.agent_search import AgentSearch
 from agentverse_client.almanac.models.agent_status_update import AgentStatusUpdate
 from agentverse_client.almanac.models.domain_details import DomainDetails
 from agentverse_client.almanac.models.domain_record import DomainRecord
-from agentverse_client.almanac.models.response_search_agents_v1_almanac_search_post import ResponseSearchAgentsV1AlmanacSearchPost
+from agentverse_client.almanac.models.response_search_agents import ResponseSearchAgents
 
 from agentverse_client.almanac.api_client import ApiClient, RequestSerialized
 from agentverse_client.almanac.api_response import ApiResponse
@@ -47,7 +47,540 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get(
+    def add_agent(
+        self,
+        agent_registration_attestation: AgentRegistrationAttestation,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> object:
+        """Register Agent
+
+
+        :param agent_registration_attestation: (required)
+        :type agent_registration_attestation: AgentRegistrationAttestation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_agent_serialize(
+            agent_registration_attestation=agent_registration_attestation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def add_agent_with_http_info(
+        self,
+        agent_registration_attestation: AgentRegistrationAttestation,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[object]:
+        """Register Agent
+
+
+        :param agent_registration_attestation: (required)
+        :type agent_registration_attestation: AgentRegistrationAttestation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_agent_serialize(
+            agent_registration_attestation=agent_registration_attestation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def add_agent_without_preload_content(
+        self,
+        agent_registration_attestation: AgentRegistrationAttestation,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Register Agent
+
+
+        :param agent_registration_attestation: (required)
+        :type agent_registration_attestation: AgentRegistrationAttestation
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._add_agent_serialize(
+            agent_registration_attestation=agent_registration_attestation,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _add_agent_serialize(
+        self,
+        agent_registration_attestation,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if agent_registration_attestation is not None:
+            _body_params = agent_registration_attestation
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v1/almanac/agents',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_agent(
+        self,
+        address: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> object:
+        """Get Specific Agent
+
+
+        :param address: (required)
+        :type address: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_agent_serialize(
+            address=address,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def get_agent_with_http_info(
+        self,
+        address: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[object]:
+        """Get Specific Agent
+
+
+        :param address: (required)
+        :type address: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_agent_serialize(
+            address=address,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def get_agent_without_preload_content(
+        self,
+        address: StrictStr,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Get Specific Agent
+
+
+        :param address: (required)
+        :type address: str
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._get_agent_serialize(
+            address=address,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "object",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _get_agent_serialize(
+        self,
+        address,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if address is not None:
+            _path_params['address'] = address
+        # process the query parameters
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='GET',
+            resource_path='/v1/almanac/agents/{address}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def get_agents_by_domain(
         self,
         domain_name: StrictStr,
         network: Optional[StrictStr] = None,
@@ -93,7 +626,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get_serialize(
+        _param = self._get_agents_by_domain_serialize(
             domain_name=domain_name,
             network=network,
             _request_auth=_request_auth,
@@ -118,7 +651,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get_with_http_info(
+    def get_agents_by_domain_with_http_info(
         self,
         domain_name: StrictStr,
         network: Optional[StrictStr] = None,
@@ -164,7 +697,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get_serialize(
+        _param = self._get_agents_by_domain_serialize(
             domain_name=domain_name,
             network=network,
             _request_auth=_request_auth,
@@ -189,7 +722,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get_without_preload_content(
+    def get_agents_by_domain_without_preload_content(
         self,
         domain_name: StrictStr,
         network: Optional[StrictStr] = None,
@@ -235,7 +768,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get_serialize(
+        _param = self._get_agents_by_domain_serialize(
             domain_name=domain_name,
             network=network,
             _request_auth=_request_auth,
@@ -255,7 +788,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get_serialize(
+    def _get_agents_by_domain_serialize(
         self,
         domain_name,
         network,
@@ -324,7 +857,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domain_details_v1_almanac_search_domain_details_domain_name_get(
+    def get_domain_details(
         self,
         domain_name: StrictStr,
         network: Optional[StrictStr] = None,
@@ -370,7 +903,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domain_details_v1_almanac_search_domain_details_domain_name_get_serialize(
+        _param = self._get_domain_details_serialize(
             domain_name=domain_name,
             network=network,
             _request_auth=_request_auth,
@@ -395,7 +928,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domain_details_v1_almanac_search_domain_details_domain_name_get_with_http_info(
+    def get_domain_details_with_http_info(
         self,
         domain_name: StrictStr,
         network: Optional[StrictStr] = None,
@@ -441,7 +974,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domain_details_v1_almanac_search_domain_details_domain_name_get_serialize(
+        _param = self._get_domain_details_serialize(
             domain_name=domain_name,
             network=network,
             _request_auth=_request_auth,
@@ -466,7 +999,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domain_details_v1_almanac_search_domain_details_domain_name_get_without_preload_content(
+    def get_domain_details_without_preload_content(
         self,
         domain_name: StrictStr,
         network: Optional[StrictStr] = None,
@@ -512,7 +1045,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domain_details_v1_almanac_search_domain_details_domain_name_get_serialize(
+        _param = self._get_domain_details_serialize(
             domain_name=domain_name,
             network=network,
             _request_auth=_request_auth,
@@ -532,7 +1065,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _get_domain_details_v1_almanac_search_domain_details_domain_name_get_serialize(
+    def _get_domain_details_serialize(
         self,
         domain_name,
         network,
@@ -601,7 +1134,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domain_record_v1_almanac_domains_domain_get(
+    def get_domain_record(
         self,
         domain: StrictStr,
         _request_timeout: Union[
@@ -644,7 +1177,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domain_record_v1_almanac_domains_domain_get_serialize(
+        _param = self._get_domain_record_serialize(
             domain=domain,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -668,7 +1201,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domain_record_v1_almanac_domains_domain_get_with_http_info(
+    def get_domain_record_with_http_info(
         self,
         domain: StrictStr,
         _request_timeout: Union[
@@ -711,7 +1244,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domain_record_v1_almanac_domains_domain_get_serialize(
+        _param = self._get_domain_record_serialize(
             domain=domain,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -735,7 +1268,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domain_record_v1_almanac_domains_domain_get_without_preload_content(
+    def get_domain_record_without_preload_content(
         self,
         domain: StrictStr,
         _request_timeout: Union[
@@ -778,7 +1311,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domain_record_v1_almanac_domains_domain_get_serialize(
+        _param = self._get_domain_record_serialize(
             domain=domain,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -797,7 +1330,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _get_domain_record_v1_almanac_domains_domain_get_serialize(
+    def _get_domain_record_serialize(
         self,
         domain,
         _request_auth,
@@ -861,7 +1394,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domains_v1_almanac_search_domains_address_get(
+    def get_domains(
         self,
         address: StrictStr,
         network: Optional[StrictStr] = None,
@@ -907,7 +1440,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domains_v1_almanac_search_domains_address_get_serialize(
+        _param = self._get_domains_serialize(
             address=address,
             network=network,
             _request_auth=_request_auth,
@@ -932,7 +1465,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domains_v1_almanac_search_domains_address_get_with_http_info(
+    def get_domains_with_http_info(
         self,
         address: StrictStr,
         network: Optional[StrictStr] = None,
@@ -978,7 +1511,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domains_v1_almanac_search_domains_address_get_serialize(
+        _param = self._get_domains_serialize(
             address=address,
             network=network,
             _request_auth=_request_auth,
@@ -1003,7 +1536,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_domains_v1_almanac_search_domains_address_get_without_preload_content(
+    def get_domains_without_preload_content(
         self,
         address: StrictStr,
         network: Optional[StrictStr] = None,
@@ -1049,7 +1582,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_domains_v1_almanac_search_domains_address_get_serialize(
+        _param = self._get_domains_serialize(
             address=address,
             network=network,
             _request_auth=_request_auth,
@@ -1069,7 +1602,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _get_domains_v1_almanac_search_domains_address_get_serialize(
+    def _get_domains_serialize(
         self,
         address,
         network,
@@ -1138,7 +1671,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_recently_registered_agents_v1_almanac_recent_get(
+    def get_recently_registered_agents(
         self,
         _request_timeout: Union[
             None,
@@ -1178,7 +1711,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_recently_registered_agents_v1_almanac_recent_get_serialize(
+        _param = self._get_recently_registered_agents_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1200,7 +1733,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_recently_registered_agents_v1_almanac_recent_get_with_http_info(
+    def get_recently_registered_agents_with_http_info(
         self,
         _request_timeout: Union[
             None,
@@ -1240,7 +1773,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_recently_registered_agents_v1_almanac_recent_get_serialize(
+        _param = self._get_recently_registered_agents_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1262,7 +1795,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def get_recently_registered_agents_v1_almanac_recent_get_without_preload_content(
+    def get_recently_registered_agents_without_preload_content(
         self,
         _request_timeout: Union[
             None,
@@ -1302,7 +1835,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._get_recently_registered_agents_v1_almanac_recent_get_serialize(
+        _param = self._get_recently_registered_agents_serialize(
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1319,7 +1852,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _get_recently_registered_agents_v1_almanac_recent_get_serialize(
+    def _get_recently_registered_agents_serialize(
         self,
         _request_auth,
         _content_type,
@@ -1364,539 +1897,6 @@ class AlmanacApi:
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/almanac/recent',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def get_specific_agent_v1_almanac_agents_address_get(
-        self,
-        address: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
-        """Get Specific Agent
-
-
-        :param address: (required)
-        :type address: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_specific_agent_v1_almanac_agents_address_get_serialize(
-            address=address,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def get_specific_agent_v1_almanac_agents_address_get_with_http_info(
-        self,
-        address: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
-        """Get Specific Agent
-
-
-        :param address: (required)
-        :type address: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_specific_agent_v1_almanac_agents_address_get_serialize(
-            address=address,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def get_specific_agent_v1_almanac_agents_address_get_without_preload_content(
-        self,
-        address: StrictStr,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Get Specific Agent
-
-
-        :param address: (required)
-        :type address: str
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_specific_agent_v1_almanac_agents_address_get_serialize(
-            address=address,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_specific_agent_v1_almanac_agents_address_get_serialize(
-        self,
-        address,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if address is not None:
-            _path_params['address'] = address
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v1/almanac/agents/{address}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    def register_agent_v1_almanac_agents_post(
-        self,
-        agent_registration_attestation: AgentRegistrationAttestation,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
-        """Register Agent
-
-
-        :param agent_registration_attestation: (required)
-        :type agent_registration_attestation: AgentRegistrationAttestation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_agent_v1_almanac_agents_post_serialize(
-            agent_registration_attestation=agent_registration_attestation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    def register_agent_v1_almanac_agents_post_with_http_info(
-        self,
-        agent_registration_attestation: AgentRegistrationAttestation,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
-        """Register Agent
-
-
-        :param agent_registration_attestation: (required)
-        :type agent_registration_attestation: AgentRegistrationAttestation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_agent_v1_almanac_agents_post_serialize(
-            agent_registration_attestation=agent_registration_attestation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    def register_agent_v1_almanac_agents_post_without_preload_content(
-        self,
-        agent_registration_attestation: AgentRegistrationAttestation,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Register Agent
-
-
-        :param agent_registration_attestation: (required)
-        :type agent_registration_attestation: AgentRegistrationAttestation
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_agent_v1_almanac_agents_post_serialize(
-            agent_registration_attestation=agent_registration_attestation,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _register_agent_v1_almanac_agents_post_serialize(
-        self,
-        agent_registration_attestation,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        # process the query parameters
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if agent_registration_attestation is not None:
-            _body_params = agent_registration_attestation
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v1/almanac/agents',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -2186,7 +2186,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def search_agents_v1_almanac_search_post(
+    def search_agents(
         self,
         agent_search: AgentSearch,
         page_num: Optional[StrictInt] = None,
@@ -2202,7 +2202,7 @@ class AlmanacApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ResponseSearchAgentsV1AlmanacSearchPost:
+    ) -> ResponseSearchAgents:
         """Search Agents
 
 
@@ -2232,7 +2232,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._search_agents_v1_almanac_search_post_serialize(
+        _param = self._search_agents_serialize(
             agent_search=agent_search,
             page_num=page_num,
             _request_auth=_request_auth,
@@ -2242,7 +2242,7 @@ class AlmanacApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseSearchAgentsV1AlmanacSearchPost",
+            '200': "ResponseSearchAgents",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2257,7 +2257,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def search_agents_v1_almanac_search_post_with_http_info(
+    def search_agents_with_http_info(
         self,
         agent_search: AgentSearch,
         page_num: Optional[StrictInt] = None,
@@ -2273,7 +2273,7 @@ class AlmanacApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[ResponseSearchAgentsV1AlmanacSearchPost]:
+    ) -> ApiResponse[ResponseSearchAgents]:
         """Search Agents
 
 
@@ -2303,7 +2303,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._search_agents_v1_almanac_search_post_serialize(
+        _param = self._search_agents_serialize(
             agent_search=agent_search,
             page_num=page_num,
             _request_auth=_request_auth,
@@ -2313,7 +2313,7 @@ class AlmanacApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseSearchAgentsV1AlmanacSearchPost",
+            '200': "ResponseSearchAgents",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2328,7 +2328,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def search_agents_v1_almanac_search_post_without_preload_content(
+    def search_agents_without_preload_content(
         self,
         agent_search: AgentSearch,
         page_num: Optional[StrictInt] = None,
@@ -2374,7 +2374,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._search_agents_v1_almanac_search_post_serialize(
+        _param = self._search_agents_serialize(
             agent_search=agent_search,
             page_num=page_num,
             _request_auth=_request_auth,
@@ -2384,7 +2384,7 @@ class AlmanacApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "ResponseSearchAgentsV1AlmanacSearchPost",
+            '200': "ResponseSearchAgents",
             '422': "HTTPValidationError",
         }
         response_data = self.api_client.call_api(
@@ -2394,7 +2394,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _search_agents_v1_almanac_search_post_serialize(
+    def _search_agents_serialize(
         self,
         agent_search,
         page_num,
@@ -2476,7 +2476,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def search_available_agent_name_v1_almanac_search_available_name_get(
+    def search_available_agent_name(
         self,
         name_prefix: StrictStr,
         network: Optional[StrictStr] = None,
@@ -2522,7 +2522,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._search_available_agent_name_v1_almanac_search_available_name_get_serialize(
+        _param = self._search_available_agent_name_serialize(
             name_prefix=name_prefix,
             network=network,
             _request_auth=_request_auth,
@@ -2547,7 +2547,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def search_available_agent_name_v1_almanac_search_available_name_get_with_http_info(
+    def search_available_agent_name_with_http_info(
         self,
         name_prefix: StrictStr,
         network: Optional[StrictStr] = None,
@@ -2593,7 +2593,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._search_available_agent_name_v1_almanac_search_available_name_get_serialize(
+        _param = self._search_available_agent_name_serialize(
             name_prefix=name_prefix,
             network=network,
             _request_auth=_request_auth,
@@ -2618,7 +2618,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def search_available_agent_name_v1_almanac_search_available_name_get_without_preload_content(
+    def search_available_agent_name_without_preload_content(
         self,
         name_prefix: StrictStr,
         network: Optional[StrictStr] = None,
@@ -2664,7 +2664,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._search_available_agent_name_v1_almanac_search_available_name_get_serialize(
+        _param = self._search_available_agent_name_serialize(
             name_prefix=name_prefix,
             network=network,
             _request_auth=_request_auth,
@@ -2684,7 +2684,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _search_available_agent_name_v1_almanac_search_available_name_get_serialize(
+    def _search_available_agent_name_serialize(
         self,
         name_prefix,
         network,
@@ -2755,7 +2755,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def update_agent_status_v1_almanac_agents_agent_address_status_post(
+    def update_agent_status(
         self,
         agent_address: StrictStr,
         agent_status_update: AgentStatusUpdate,
@@ -2801,7 +2801,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_agent_status_v1_almanac_agents_agent_address_status_post_serialize(
+        _param = self._update_agent_status_serialize(
             agent_address=agent_address,
             agent_status_update=agent_status_update,
             _request_auth=_request_auth,
@@ -2826,7 +2826,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def update_agent_status_v1_almanac_agents_agent_address_status_post_with_http_info(
+    def update_agent_status_with_http_info(
         self,
         agent_address: StrictStr,
         agent_status_update: AgentStatusUpdate,
@@ -2872,7 +2872,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_agent_status_v1_almanac_agents_agent_address_status_post_serialize(
+        _param = self._update_agent_status_serialize(
             agent_address=agent_address,
             agent_status_update=agent_status_update,
             _request_auth=_request_auth,
@@ -2897,7 +2897,7 @@ class AlmanacApi:
 
 
     @validate_call
-    def update_agent_status_v1_almanac_agents_agent_address_status_post_without_preload_content(
+    def update_agent_status_without_preload_content(
         self,
         agent_address: StrictStr,
         agent_status_update: AgentStatusUpdate,
@@ -2943,7 +2943,7 @@ class AlmanacApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_agent_status_v1_almanac_agents_agent_address_status_post_serialize(
+        _param = self._update_agent_status_serialize(
             agent_address=agent_address,
             agent_status_update=agent_status_update,
             _request_auth=_request_auth,
@@ -2963,7 +2963,7 @@ class AlmanacApi:
         return response_data.response
 
 
-    def _update_agent_status_v1_almanac_agents_agent_address_status_post_serialize(
+    def _update_agent_status_serialize(
         self,
         agent_address,
         agent_status_update,

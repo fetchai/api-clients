@@ -4,21 +4,154 @@ All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get**](AlmanacApi.md#get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get) | **GET** /v1/almanac/search/agents-by-domain/{domain_name} | Get Agents By Domain
-[**get_domain_details_v1_almanac_search_domain_details_domain_name_get**](AlmanacApi.md#get_domain_details_v1_almanac_search_domain_details_domain_name_get) | **GET** /v1/almanac/search/domain_details/{domain_name} | Get Domain Details
-[**get_domain_record_v1_almanac_domains_domain_get**](AlmanacApi.md#get_domain_record_v1_almanac_domains_domain_get) | **GET** /v1/almanac/domains/{domain} | Get Domain Record
-[**get_domains_v1_almanac_search_domains_address_get**](AlmanacApi.md#get_domains_v1_almanac_search_domains_address_get) | **GET** /v1/almanac/search/domains/{address} | Get Domains
-[**get_recently_registered_agents_v1_almanac_recent_get**](AlmanacApi.md#get_recently_registered_agents_v1_almanac_recent_get) | **GET** /v1/almanac/recent | Get Recently Registered Agents
-[**get_specific_agent_v1_almanac_agents_address_get**](AlmanacApi.md#get_specific_agent_v1_almanac_agents_address_get) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
-[**register_agent_v1_almanac_agents_post**](AlmanacApi.md#register_agent_v1_almanac_agents_post) | **POST** /v1/almanac/agents | Register Agent
+[**add_agent**](AlmanacApi.md#add_agent) | **POST** /v1/almanac/agents | Register Agent
+[**get_agent**](AlmanacApi.md#get_agent) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
+[**get_agents_by_domain**](AlmanacApi.md#get_agents_by_domain) | **GET** /v1/almanac/search/agents-by-domain/{domain_name} | Get Agents By Domain
+[**get_domain_details**](AlmanacApi.md#get_domain_details) | **GET** /v1/almanac/search/domain_details/{domain_name} | Get Domain Details
+[**get_domain_record**](AlmanacApi.md#get_domain_record) | **GET** /v1/almanac/domains/{domain} | Get Domain Record
+[**get_domains**](AlmanacApi.md#get_domains) | **GET** /v1/almanac/search/domains/{address} | Get Domains
+[**get_recently_registered_agents**](AlmanacApi.md#get_recently_registered_agents) | **GET** /v1/almanac/recent | Get Recently Registered Agents
 [**register_agents_batch_v1_almanac_agents_batch_post**](AlmanacApi.md#register_agents_batch_v1_almanac_agents_batch_post) | **POST** /v1/almanac/agents/batch | Register Agents Batch
-[**search_agents_v1_almanac_search_post**](AlmanacApi.md#search_agents_v1_almanac_search_post) | **POST** /v1/almanac/search | Search Agents
-[**search_available_agent_name_v1_almanac_search_available_name_get**](AlmanacApi.md#search_available_agent_name_v1_almanac_search_available_name_get) | **GET** /v1/almanac/search/available_name | Search Available Agent Name
-[**update_agent_status_v1_almanac_agents_agent_address_status_post**](AlmanacApi.md#update_agent_status_v1_almanac_agents_agent_address_status_post) | **POST** /v1/almanac/agents/{agent_address}/status | Update Agent Status
+[**search_agents**](AlmanacApi.md#search_agents) | **POST** /v1/almanac/search | Search Agents
+[**search_available_agent_name**](AlmanacApi.md#search_available_agent_name) | **GET** /v1/almanac/search/available_name | Search Available Agent Name
+[**update_agent_status**](AlmanacApi.md#update_agent_status) | **POST** /v1/almanac/agents/{agent_address}/status | Update Agent Status
 
 
-# **get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get**
-> List[Agent] get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get(domain_name, network=network)
+# **add_agent**
+> object add_agent(agent_registration_attestation)
+
+Register Agent
+
+### Example
+
+
+```python
+import agentverse_client.almanac.aio
+from agentverse_client.almanac.aio.models.agent_registration_attestation import AgentRegistrationAttestation
+from agentverse_client.almanac.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.almanac.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.almanac.aio.AlmanacApi(api_client)
+    agent_registration_attestation = agentverse_client.almanac.aio.AgentRegistrationAttestation() # AgentRegistrationAttestation | 
+
+    try:
+        # Register Agent
+        api_response = await api_instance.add_agent(agent_registration_attestation)
+        print("The response of AlmanacApi->add_agent:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AlmanacApi->add_agent: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_registration_attestation** | [**AgentRegistrationAttestation**](AgentRegistrationAttestation.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_agent**
+> object get_agent(address)
+
+Get Specific Agent
+
+### Example
+
+
+```python
+import agentverse_client.almanac.aio
+from agentverse_client.almanac.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.almanac.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.almanac.aio.AlmanacApi(api_client)
+    address = 'address_example' # str | 
+
+    try:
+        # Get Specific Agent
+        api_response = await api_instance.get_agent(address)
+        print("The response of AlmanacApi->get_agent:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AlmanacApi->get_agent: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_agents_by_domain**
+> List[Agent] get_agents_by_domain(domain_name, network=network)
 
 Get Agents By Domain
 
@@ -47,11 +180,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Agents By Domain
-        api_response = await api_instance.get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get(domain_name, network=network)
-        print("The response of AlmanacApi->get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get:\n")
+        api_response = await api_instance.get_agents_by_domain(domain_name, network=network)
+        print("The response of AlmanacApi->get_agents_by_domain:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->get_agents_by_domain_v1_almanac_search_agents_by_domain_domain_name_get: %s\n" % e)
+        print("Exception when calling AlmanacApi->get_agents_by_domain: %s\n" % e)
 ```
 
 
@@ -86,8 +219,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_domain_details_v1_almanac_search_domain_details_domain_name_get**
-> List[DomainDetails] get_domain_details_v1_almanac_search_domain_details_domain_name_get(domain_name, network=network)
+# **get_domain_details**
+> List[DomainDetails] get_domain_details(domain_name, network=network)
 
 Get Domain Details
 
@@ -116,11 +249,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Domain Details
-        api_response = await api_instance.get_domain_details_v1_almanac_search_domain_details_domain_name_get(domain_name, network=network)
-        print("The response of AlmanacApi->get_domain_details_v1_almanac_search_domain_details_domain_name_get:\n")
+        api_response = await api_instance.get_domain_details(domain_name, network=network)
+        print("The response of AlmanacApi->get_domain_details:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->get_domain_details_v1_almanac_search_domain_details_domain_name_get: %s\n" % e)
+        print("Exception when calling AlmanacApi->get_domain_details: %s\n" % e)
 ```
 
 
@@ -155,8 +288,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_domain_record_v1_almanac_domains_domain_get**
-> DomainRecord get_domain_record_v1_almanac_domains_domain_get(domain)
+# **get_domain_record**
+> DomainRecord get_domain_record(domain)
 
 Get Domain Record
 
@@ -184,11 +317,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Domain Record
-        api_response = await api_instance.get_domain_record_v1_almanac_domains_domain_get(domain)
-        print("The response of AlmanacApi->get_domain_record_v1_almanac_domains_domain_get:\n")
+        api_response = await api_instance.get_domain_record(domain)
+        print("The response of AlmanacApi->get_domain_record:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->get_domain_record_v1_almanac_domains_domain_get: %s\n" % e)
+        print("Exception when calling AlmanacApi->get_domain_record: %s\n" % e)
 ```
 
 
@@ -222,8 +355,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_domains_v1_almanac_search_domains_address_get**
-> List[DomainDetails] get_domains_v1_almanac_search_domains_address_get(address, network=network)
+# **get_domains**
+> List[DomainDetails] get_domains(address, network=network)
 
 Get Domains
 
@@ -252,11 +385,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Domains
-        api_response = await api_instance.get_domains_v1_almanac_search_domains_address_get(address, network=network)
-        print("The response of AlmanacApi->get_domains_v1_almanac_search_domains_address_get:\n")
+        api_response = await api_instance.get_domains(address, network=network)
+        print("The response of AlmanacApi->get_domains:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->get_domains_v1_almanac_search_domains_address_get: %s\n" % e)
+        print("Exception when calling AlmanacApi->get_domains: %s\n" % e)
 ```
 
 
@@ -291,8 +424,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_recently_registered_agents_v1_almanac_recent_get**
-> List[Agent] get_recently_registered_agents_v1_almanac_recent_get()
+# **get_recently_registered_agents**
+> List[Agent] get_recently_registered_agents()
 
 Get Recently Registered Agents
 
@@ -319,11 +452,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Recently Registered Agents
-        api_response = await api_instance.get_recently_registered_agents_v1_almanac_recent_get()
-        print("The response of AlmanacApi->get_recently_registered_agents_v1_almanac_recent_get:\n")
+        api_response = await api_instance.get_recently_registered_agents()
+        print("The response of AlmanacApi->get_recently_registered_agents:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->get_recently_registered_agents_v1_almanac_recent_get: %s\n" % e)
+        print("Exception when calling AlmanacApi->get_recently_registered_agents: %s\n" % e)
 ```
 
 
@@ -350,139 +483,6 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_specific_agent_v1_almanac_agents_address_get**
-> object get_specific_agent_v1_almanac_agents_address_get(address)
-
-Get Specific Agent
-
-### Example
-
-
-```python
-import agentverse_client.almanac.aio
-from agentverse_client.almanac.aio.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.almanac.aio.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.almanac.aio.AlmanacApi(api_client)
-    address = 'address_example' # str | 
-
-    try:
-        # Get Specific Agent
-        api_response = await api_instance.get_specific_agent_v1_almanac_agents_address_get(address)
-        print("The response of AlmanacApi->get_specific_agent_v1_almanac_agents_address_get:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AlmanacApi->get_specific_agent_v1_almanac_agents_address_get: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**|  | 
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **register_agent_v1_almanac_agents_post**
-> object register_agent_v1_almanac_agents_post(agent_registration_attestation)
-
-Register Agent
-
-### Example
-
-
-```python
-import agentverse_client.almanac.aio
-from agentverse_client.almanac.aio.models.agent_registration_attestation import AgentRegistrationAttestation
-from agentverse_client.almanac.aio.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.almanac.aio.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.almanac.aio.AlmanacApi(api_client)
-    agent_registration_attestation = agentverse_client.almanac.aio.AgentRegistrationAttestation() # AgentRegistrationAttestation | 
-
-    try:
-        # Register Agent
-        api_response = await api_instance.register_agent_v1_almanac_agents_post(agent_registration_attestation)
-        print("The response of AlmanacApi->register_agent_v1_almanac_agents_post:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AlmanacApi->register_agent_v1_almanac_agents_post: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **agent_registration_attestation** | [**AgentRegistrationAttestation**](AgentRegistrationAttestation.md)|  | 
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
@@ -553,8 +553,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **search_agents_v1_almanac_search_post**
-> ResponseSearchAgentsV1AlmanacSearchPost search_agents_v1_almanac_search_post(agent_search, page_num=page_num)
+# **search_agents**
+> ResponseSearchAgents search_agents(agent_search, page_num=page_num)
 
 Search Agents
 
@@ -564,7 +564,7 @@ Search Agents
 ```python
 import agentverse_client.almanac.aio
 from agentverse_client.almanac.aio.models.agent_search import AgentSearch
-from agentverse_client.almanac.aio.models.response_search_agents_v1_almanac_search_post import ResponseSearchAgentsV1AlmanacSearchPost
+from agentverse_client.almanac.aio.models.response_search_agents import ResponseSearchAgents
 from agentverse_client.almanac.aio.rest import ApiException
 from pprint import pprint
 
@@ -584,11 +584,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Search Agents
-        api_response = await api_instance.search_agents_v1_almanac_search_post(agent_search, page_num=page_num)
-        print("The response of AlmanacApi->search_agents_v1_almanac_search_post:\n")
+        api_response = await api_instance.search_agents(agent_search, page_num=page_num)
+        print("The response of AlmanacApi->search_agents:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->search_agents_v1_almanac_search_post: %s\n" % e)
+        print("Exception when calling AlmanacApi->search_agents: %s\n" % e)
 ```
 
 
@@ -603,7 +603,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**ResponseSearchAgentsV1AlmanacSearchPost**](ResponseSearchAgentsV1AlmanacSearchPost.md)
+[**ResponseSearchAgents**](ResponseSearchAgents.md)
 
 ### Authorization
 
@@ -623,8 +623,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **search_available_agent_name_v1_almanac_search_available_name_get**
-> List[AgentNameAvailability] search_available_agent_name_v1_almanac_search_available_name_get(name_prefix, network=network)
+# **search_available_agent_name**
+> List[AgentNameAvailability] search_available_agent_name(name_prefix, network=network)
 
 Search Available Agent Name
 
@@ -653,11 +653,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Search Available Agent Name
-        api_response = await api_instance.search_available_agent_name_v1_almanac_search_available_name_get(name_prefix, network=network)
-        print("The response of AlmanacApi->search_available_agent_name_v1_almanac_search_available_name_get:\n")
+        api_response = await api_instance.search_available_agent_name(name_prefix, network=network)
+        print("The response of AlmanacApi->search_available_agent_name:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->search_available_agent_name_v1_almanac_search_available_name_get: %s\n" % e)
+        print("Exception when calling AlmanacApi->search_available_agent_name: %s\n" % e)
 ```
 
 
@@ -692,8 +692,8 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_agent_status_v1_almanac_agents_agent_address_status_post**
-> object update_agent_status_v1_almanac_agents_agent_address_status_post(agent_address, agent_status_update)
+# **update_agent_status**
+> object update_agent_status(agent_address, agent_status_update)
 
 Update Agent Status
 
@@ -722,11 +722,11 @@ async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
 
     try:
         # Update Agent Status
-        api_response = await api_instance.update_agent_status_v1_almanac_agents_agent_address_status_post(agent_address, agent_status_update)
-        print("The response of AlmanacApi->update_agent_status_v1_almanac_agents_agent_address_status_post:\n")
+        api_response = await api_instance.update_agent_status(agent_address, agent_status_update)
+        print("The response of AlmanacApi->update_agent_status:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->update_agent_status_v1_almanac_agents_agent_address_status_post: %s\n" % e)
+        print("Exception when calling AlmanacApi->update_agent_status: %s\n" % e)
 ```
 
 

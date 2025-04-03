@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.almanac.aio.models.response_search_agents_v1_almanac_search_post import ResponseSearchAgentsV1AlmanacSearchPost
+from agentverse_client.almanac.models.response_search_agents import ResponseSearchAgents
 
-class TestResponseSearchAgentsV1AlmanacSearchPost(unittest.TestCase):
-    """ResponseSearchAgentsV1AlmanacSearchPost unit test stubs"""
+class TestResponseSearchAgents(unittest.TestCase):
+    """ResponseSearchAgents unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,25 +25,25 @@ class TestResponseSearchAgentsV1AlmanacSearchPost(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> ResponseSearchAgentsV1AlmanacSearchPost:
-        """Test ResponseSearchAgentsV1AlmanacSearchPost
+    def make_instance(self, include_optional) -> ResponseSearchAgents:
+        """Test ResponseSearchAgents
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `ResponseSearchAgentsV1AlmanacSearchPost`
+        # uncomment below to create an instance of `ResponseSearchAgents`
         """
-        model = ResponseSearchAgentsV1AlmanacSearchPost()
+        model = ResponseSearchAgents()
         if include_optional:
-            return ResponseSearchAgentsV1AlmanacSearchPost(
+            return ResponseSearchAgents(
                 objects = [
-                    agentverse_client.almanac.aio.models.agent.Agent(
+                    agentverse_client.almanac.models.agent.Agent(
                         status = 'active', 
                         type = 'Local', 
                         address = '', 
                         domain_name = '', 
                         prefix = 'agent', 
                         endpoints = [
-                            agentverse_client.almanac.aio.models.endpoint.Endpoint(
+                            agentverse_client.almanac.models.endpoint.Endpoint(
                                 url = '', 
                                 weight = 56, )
                             ], 
@@ -66,16 +66,16 @@ class TestResponseSearchAgentsV1AlmanacSearchPost(unittest.TestCase):
                 tracker_last_update = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
-            return ResponseSearchAgentsV1AlmanacSearchPost(
+            return ResponseSearchAgents(
                 objects = [
-                    agentverse_client.almanac.aio.models.agent.Agent(
+                    agentverse_client.almanac.models.agent.Agent(
                         status = 'active', 
                         type = 'Local', 
                         address = '', 
                         domain_name = '', 
                         prefix = 'agent', 
                         endpoints = [
-                            agentverse_client.almanac.aio.models.endpoint.Endpoint(
+                            agentverse_client.almanac.models.endpoint.Endpoint(
                                 url = '', 
                                 weight = 56, )
                             ], 
@@ -98,8 +98,8 @@ class TestResponseSearchAgentsV1AlmanacSearchPost(unittest.TestCase):
         )
         """
 
-    def testResponseSearchAgentsV1AlmanacSearchPost(self):
-        """Test ResponseSearchAgentsV1AlmanacSearchPost"""
+    def testResponseSearchAgents(self):
+        """Test ResponseSearchAgents"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

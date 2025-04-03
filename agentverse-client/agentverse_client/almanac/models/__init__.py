@@ -40,7 +40,7 @@ from agentverse_client.almanac.models.manifest import Manifest
 from agentverse_client.almanac.models.metadata import Metadata
 from agentverse_client.almanac.models.model import Model
 from agentverse_client.almanac.models.resolved_protocol_digest import ResolvedProtocolDigest
-from agentverse_client.almanac.models.response_search_agents_v1_almanac_search_post import ResponseSearchAgentsV1AlmanacSearchPost
+from agentverse_client.almanac.models.response_search_agents import ResponseSearchAgents
 from agentverse_client.almanac.models.service_record import ServiceRecord
 from agentverse_client.almanac.models.sort_agents import SortAgents
 from agentverse_client.almanac.models.validation_error import ValidationError
