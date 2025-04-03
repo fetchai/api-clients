@@ -76,3 +76,4 @@ agentverse_client/almanac/models/validation_error.py
 agentverse_client/almanac/models/with_pagination_list_agent.py
 agentverse_client/almanac/rest.py
 agentverse_client/almanac/test/__init__.py
+agentverse_client/almanac_README.md
