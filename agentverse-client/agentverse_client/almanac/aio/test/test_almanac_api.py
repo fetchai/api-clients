@@ -26,13 +26,6 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
-    async def test_add_agent(self) -> None:
-        """Test case for add_agent
-
-        Register Agent
-        """
-        pass
-
     async def test_get_agent(self) -> None:
         """Test case for get_agent
 
@@ -72,6 +65,13 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
         """Test case for get_recently_registered_agents
 
         Get Recently Registered Agents
+        """
+        pass
+
+    async def test_register_agent(self) -> None:
+        """Test case for register_agent
+
+        Register Agent
         """
         pass
 

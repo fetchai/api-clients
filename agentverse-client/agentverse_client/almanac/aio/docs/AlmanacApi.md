@@ -4,85 +4,18 @@ All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_agent**](AlmanacApi.md#add_agent) | **POST** /v1/almanac/agents | Register Agent
 [**get_agent**](AlmanacApi.md#get_agent) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
 [**get_agents_by_domain**](AlmanacApi.md#get_agents_by_domain) | **GET** /v1/almanac/search/agents-by-domain/{domain_name} | Get Agents By Domain
 [**get_domain_details**](AlmanacApi.md#get_domain_details) | **GET** /v1/almanac/search/domain_details/{domain_name} | Get Domain Details
 [**get_domain_record**](AlmanacApi.md#get_domain_record) | **GET** /v1/almanac/domains/{domain} | Get Domain Record
 [**get_domains**](AlmanacApi.md#get_domains) | **GET** /v1/almanac/search/domains/{address} | Get Domains
 [**get_recently_registered_agents**](AlmanacApi.md#get_recently_registered_agents) | **GET** /v1/almanac/recent | Get Recently Registered Agents
+[**register_agent**](AlmanacApi.md#register_agent) | **POST** /v1/almanac/agents | Register Agent
 [**register_agents_batch_v1_almanac_agents_batch_post**](AlmanacApi.md#register_agents_batch_v1_almanac_agents_batch_post) | **POST** /v1/almanac/agents/batch | Register Agents Batch
 [**search_agents**](AlmanacApi.md#search_agents) | **POST** /v1/almanac/search | Search Agents
 [**search_available_agent_name**](AlmanacApi.md#search_available_agent_name) | **GET** /v1/almanac/search/available_name | Search Available Agent Name
 [**update_agent_status**](AlmanacApi.md#update_agent_status) | **POST** /v1/almanac/agents/{agent_address}/status | Update Agent Status
 
-
-# **add_agent**
-> object add_agent(agent_registration_attestation)
-
-Register Agent
-
-### Example
-
-
-```python
-import agentverse_client.almanac.aio
-from agentverse_client.almanac.aio.models.agent_registration_attestation import AgentRegistrationAttestation
-from agentverse_client.almanac.aio.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.almanac.aio.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.almanac.aio.AlmanacApi(api_client)
-    agent_registration_attestation = agentverse_client.almanac.aio.AgentRegistrationAttestation() # AgentRegistrationAttestation | 
-
-    try:
-        # Register Agent
-        api_response = await api_instance.add_agent(agent_registration_attestation)
-        print("The response of AlmanacApi->add_agent:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AlmanacApi->add_agent: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **agent_registration_attestation** | [**AgentRegistrationAttestation**](AgentRegistrationAttestation.md)|  | 
-
-### Return type
-
-**object**
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_agent**
 > object get_agent(address)
@@ -483,6 +416,73 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **register_agent**
+> object register_agent(agent_registration_attestation)
+
+Register Agent
+
+### Example
+
+
+```python
+import agentverse_client.almanac.aio
+from agentverse_client.almanac.aio.models.agent_registration_attestation import AgentRegistrationAttestation
+from agentverse_client.almanac.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.almanac.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+async with agentverse_client.almanac.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.almanac.aio.AlmanacApi(api_client)
+    agent_registration_attestation = agentverse_client.almanac.aio.AgentRegistrationAttestation() # AgentRegistrationAttestation | 
+
+    try:
+        # Register Agent
+        api_response = await api_instance.register_agent(agent_registration_attestation)
+        print("The response of AlmanacApi->register_agent:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AlmanacApi->register_agent: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_registration_attestation** | [**AgentRegistrationAttestation**](AgentRegistrationAttestation.md)|  | 
+
+### Return type
+
+**object**
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
