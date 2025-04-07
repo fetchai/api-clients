@@ -1,7 +1,13 @@
 [project]
 name = "agentverse-client"
-version = "0.1.2"
-description = ""
+version = "0.1.3"
+description = """
+A set of API clients to easily integrate to Featch AI services.
+
+Current Clients:
+- Almanac API.
+- Search API.
+"""
 authors = [
     {name = "Xavier",email = "xavier.peiro@fetch.ai"}
 ]

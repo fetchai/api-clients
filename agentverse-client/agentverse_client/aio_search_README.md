@@ -91,8 +91,6 @@ if __name__ == "__main__":
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
-
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
 *SearchApi* | [**feedback**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/search/aio/docs/SearchApi.md#feedback) | **POST** /v1/search/agents/click | Feedback

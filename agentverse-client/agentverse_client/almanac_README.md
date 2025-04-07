@@ -55,11 +55,9 @@ with (agentverse_client.almanac.ApiClient(configuration) as api_client):
 
 ## Documentation for API Endpoints
 
-All URIs are relative to *http://localhost*
-
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*AlmanacApi* | [**add_agent**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#add_agent) | **POST** /v1/almanac/agents | Register Agent
+*AlmanacApi* | [**register_agent**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#register_agent) | **POST** /v1/almanac/agents | Register Agent
 *AlmanacApi* | [**get_agent**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_agent) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
 *AlmanacApi* | [**get_agents_by_domain**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_agents_by_domain) | **GET** /v1/almanac/search/agents-by-domain/{domain_name} | Get Agents By Domain
 *AlmanacApi* | [**get_domain_details**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/almanac/docs/AlmanacApi.md#get_domain_details) | **GET** /v1/almanac/search/domain_details/{domain_name} | Get Domain Details
