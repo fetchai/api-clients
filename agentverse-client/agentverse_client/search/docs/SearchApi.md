@@ -8,6 +8,7 @@ Method | HTTP request | Description
 [**get_agent_interactions_count**](SearchApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
 [**get_agent_search_terms_analytics**](SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
 [**get_agent_searches_analytics**](SearchApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
+[**get_analytics_summary**](SearchApi.md#get_analytics_summary) | **GET** /v1/search/analytics/summary | Get Analytics Summary
 [**get_function_interactions**](SearchApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
 [**search_agent_by_geolocation**](SearchApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
 [**search_agent_tags**](SearchApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
@@ -288,6 +289,68 @@ No authorization required
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
 **422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_analytics_summary**
+> AnalyticsSummary get_analytics_summary()
+
+Get Analytics Summary
+
+### Example
+
+
+```python
+import agentverse_client.search
+from agentverse_client.search.models.analytics_summary import AnalyticsSummary
+from agentverse_client.search.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.search.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+with agentverse_client.search.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.search.SearchApi(api_client)
+
+    try:
+        # Get Analytics Summary
+        api_response = api_instance.get_analytics_summary()
+        print("The response of SearchApi->get_analytics_summary:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SearchApi->get_analytics_summary: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**AnalyticsSummary**](AnalyticsSummary.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 

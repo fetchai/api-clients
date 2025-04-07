@@ -54,6 +54,13 @@ class TestSearchApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_get_analytics_summary(self) -> None:
+        """Test case for get_analytics_summary
+
+        Get Analytics Summary
+        """
+        pass
+
     async def test_get_function_interactions(self) -> None:
         """Test case for get_function_interactions
 

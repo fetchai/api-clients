@@ -32,6 +32,7 @@ from agentverse_client.search.aio.models.agent_search_term_analytics_response im
 from agentverse_client.search.aio.models.agent_tag import AgentTag
 from agentverse_client.search.aio.models.agent_tag_search_response import AgentTagSearchResponse
 from agentverse_client.search.aio.models.agent_type import AgentType
+from agentverse_client.search.aio.models.analytics_summary import AnalyticsSummary
 from agentverse_client.search.aio.models.direction import Direction
 from agentverse_client.search.aio.models.function import Function
 from agentverse_client.search.aio.models.function_filters import FunctionFilters
@@ -49,4 +50,5 @@ from agentverse_client.search.aio.models.search_feedback_request import SearchFe
 from agentverse_client.search.aio.models.search_term_percentage import SearchTermPercentage
 from agentverse_client.search.aio.models.sort_type import SortType
 from agentverse_client.search.aio.models.status_type import StatusType
+from agentverse_client.search.aio.models.trendy_data import TrendyData
 from agentverse_client.search.aio.models.validation_error import ValidationError
