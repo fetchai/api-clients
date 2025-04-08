@@ -35,27 +35,30 @@ you can run the following:
 
 ```python
 
-import agentverse_client.almanac
-from agentverse_client.almanac.rest import ApiException
+import asyncio
+from agentverse_client.almanac.aio import AlmanacApi, Configuration, ApiClient, ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.almanac.Configuration()
+async def main():
+    # Defining the host is optional and defaults to https://agentverse.ai
+    # See configuration.py for a list of all supported configuration parameters.
+    configuration = Configuration(host="https://staging.agentverse.ai")
 
-# Enter a context with an instance of the API client
-with (agentverse_client.almanac.ApiClient(configuration) as api_client):
-    # Create an instance of the API class
-    api_instance = agentverse_client.almanac.AlmanacApi(api_client)
+    # Enter a context with an instance of the API client
+    async with (ApiClient(configuration) as api_client):
+        # Create an instance of the API class
+        api_instance = AlmanacApi(api_client)
 
-    try:
-        # Register Agent
-        api_response = api_instance.get_recently_registered_agents()
-        print("The response of AlmanacApi->get_recently_registered_agents:\n")
-        pprint(api_response)
-    except ApiException as e:
-        print("Exception when calling AlmanacApi->get_recently_registered_agents: %s\n" % e)
+        try:
+            # Register Agent
+            api_response = await api_instance.get_recently_registered_agents()
+            print("The response of AlmanacApi->get_recently_registered_agents:\n")
+            pprint(api_response)
+        except ApiException as e:
+            print("Exception when calling AlmanacApi->get_recently_registered_agents: %s\n" % e)
 
+if __name__ == "__main__":
+    asyncio.run(main())
 ```
 
 ## Documentation for API Endpoints
