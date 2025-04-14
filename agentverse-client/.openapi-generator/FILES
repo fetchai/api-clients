@@ -14,6 +14,7 @@ agentverse_client/search/docs/AgentGeoFilter.md
 agentverse_client/search/docs/AgentGeoLocation.md
 agentverse_client/search/docs/AgentGeoSearchRequest.md
 agentverse_client/search/docs/AgentInteractionCountsResponse.md
+agentverse_client/search/docs/AgentMetadataValue.md
 agentverse_client/search/docs/AgentSearchAnalyticsRequest.md
 agentverse_client/search/docs/AgentSearchAnalyticsResponse.md
 agentverse_client/search/docs/AgentSearchRequest.md
@@ -55,6 +56,7 @@ agentverse_client/search/models/agent_geo_filter.py
 agentverse_client/search/models/agent_geo_location.py
 agentverse_client/search/models/agent_geo_search_request.py
 agentverse_client/search/models/agent_interaction_counts_response.py
+agentverse_client/search/models/agent_metadata_value.py
 agentverse_client/search/models/agent_search_analytics_request.py
 agentverse_client/search/models/agent_search_analytics_response.py
 agentverse_client/search/models/agent_search_request.py

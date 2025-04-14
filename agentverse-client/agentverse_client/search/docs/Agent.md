@@ -22,6 +22,7 @@ Name | Type | Description | Notes
 **system_wide_tags** | **List[str]** | the system-wide tags assigned to the agent | 
 **geo_location** | [**AgentGeoLocation**](AgentGeoLocation.md) |  | [optional] 
 **domain** | **str** |  | [optional] 
+**metadata** | [**Dict[str, AgentMetadataValue]**](AgentMetadataValue.md) |  | [optional] 
 **last_updated** | **datetime** | the time at which the agent was last updated at | 
 **created_at** | **datetime** | the time at which the agent was first visible or created | 
 **current_campaign_eligible** | **bool** |  | [optional] [default to False]
