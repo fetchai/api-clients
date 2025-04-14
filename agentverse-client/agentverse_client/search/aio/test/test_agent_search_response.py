@@ -64,9 +64,6 @@ class TestAgentSearchResponse(unittest.TestCase):
                             longitude = 1.337, 
                             radius = 1.337, ), 
                         domain = '', 
-                        metadata = {
-                            'key' : null
-                            }, 
                         last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), 
                         current_campaign_eligible = True, )
