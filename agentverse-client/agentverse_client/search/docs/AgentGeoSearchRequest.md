@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **direction** | [**Direction**](Direction.md) | The direction of the sorting, ascending or descending | [optional] 
 **cutoff** | [**RelevancyCutoff**](RelevancyCutoff.md) | Controls how strictly the search results should be filtered based on their relevancy | [optional] 
 **search_text** | **str** |  | [optional] 
+**semantic_search** | **bool** | Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead. | [optional] [default to False]
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
 **geo_filter** | [**AgentGeoFilter**](AgentGeoFilter.md) | The geo filter that can be applied to the search | 

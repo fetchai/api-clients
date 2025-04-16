@@ -35,12 +35,13 @@ class AgentSearchRequest(BaseModel):
     direction: Optional[Direction] = Field(default=None, description="The direction of the sorting, ascending or descending")
     cutoff: Optional[RelevancyCutoff] = Field(default=None, description="Controls how strictly the search results should be filtered based on their relevancy")
     search_text: Optional[StrictStr] = None
+    semantic_search: Optional[StrictBool] = Field(default=False, description="Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
     only_current_campaign_eligible: Optional[StrictBool] = Field(default=False, description="If True, only agents eligible for current campaign are shown")
-    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "offset", "limit", "search_id", "source", "only_current_campaign_eligible"]
+    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "offset", "limit", "search_id", "source", "only_current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -106,6 +107,7 @@ class AgentSearchRequest(BaseModel):
             "direction": obj.get("direction"),
             "cutoff": obj.get("cutoff"),
             "search_text": obj.get("search_text"),
+            "semantic_search": obj.get("semantic_search") if obj.get("semantic_search") is not None else False,
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
             "search_id": obj.get("search_id"),
