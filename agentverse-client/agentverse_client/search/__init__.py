@@ -31,6 +31,7 @@ from agentverse_client.search.exceptions import ApiAttributeError
 from agentverse_client.search.exceptions import ApiException
 
 # import models into sdk package
+from agentverse_client.search.models.asi1_execution_feedback_request import ASI1ExecutionFeedbackRequest
 from agentverse_client.search.models.agent import Agent
 from agentverse_client.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
 from agentverse_client.search.models.agent_category import AgentCategory

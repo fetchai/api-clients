@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **cutoff** | [**RelevancyCutoff**](RelevancyCutoff.md) | Controls how strictly the search results should be filtered based on their relevancy | [optional] 
 **search_text** | **str** |  | [optional] 
 **semantic_search** | **bool** | Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead. | [optional] [default to False]
+**use_asi1_agents** | **bool** | Whether to prioritize those agents that have been executed successfully by ASI1 recently recently. | [optional] [default to False]
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
 **geo_filter** | [**AgentGeoFilter**](AgentGeoFilter.md) | The geo filter that can be applied to the search | 

@@ -59,6 +59,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                 cutoff = 'none',
                 search_text = '',
                 semantic_search = True,
+                use_asi1_agents = True,
                 offset = 56,
                 limit = 56,
                 geo_filter = agentverse_client.search.aio.models.agent_geo_filter.AgentGeoFilter(
