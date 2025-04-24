@@ -37,13 +37,13 @@ class AgentGeoSearchRequest(BaseModel):
     cutoff: Optional[RelevancyCutoff] = Field(default=None, description="Controls how strictly the search results should be filtered based on their relevancy")
     search_text: Optional[StrictStr] = None
     semantic_search: Optional[StrictBool] = Field(default=False, description="Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead.")
-    use_asi1_agents: Optional[StrictBool] = Field(default=False, description="Whether to prioritize those agents that have been executed successfully by ASI1 recently.")
+    prioritise_asi1_agents: Optional[StrictBool] = Field(default=False, description="Whether to prioritize those agents that have been executed successfully by ASI1 recently.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     geo_filter: AgentGeoFilter = Field(description="The geo filter that can be applied to the search")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
-    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "use_asi1_agents", "offset", "limit", "geo_filter", "search_id", "source"]
+    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "prioritise_asi1_agents", "offset", "limit", "geo_filter", "search_id", "source"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -113,7 +113,7 @@ class AgentGeoSearchRequest(BaseModel):
             "cutoff": obj.get("cutoff"),
             "search_text": obj.get("search_text"),
             "semantic_search": obj.get("semantic_search") if obj.get("semantic_search") is not None else False,
-            "use_asi1_agents": obj.get("use_asi1_agents") if obj.get("use_asi1_agents") is not None else False,
+            "prioritise_asi1_agents": obj.get("prioritise_asi1_agents") if obj.get("prioritise_asi1_agents") is not None else False,
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
             "geo_filter": AgentGeoFilter.from_dict(obj["geo_filter"]) if obj.get("geo_filter") is not None else None,
