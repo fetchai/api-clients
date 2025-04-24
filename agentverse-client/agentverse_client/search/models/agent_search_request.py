@@ -36,7 +36,7 @@ class AgentSearchRequest(BaseModel):
     cutoff: Optional[RelevancyCutoff] = Field(default=None, description="Controls how strictly the search results should be filtered based on their relevancy")
     search_text: Optional[StrictStr] = None
     semantic_search: Optional[StrictBool] = Field(default=False, description="Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead.")
-    use_asi1_agents: Optional[StrictBool] = Field(default=False, description="Whether to prioritize those agents that have been executed successfully by ASI1 recently recently.")
+    use_asi1_agents: Optional[StrictBool] = Field(default=False, description="Whether to prioritize those agents that have been executed successfully by ASI1 recently.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
