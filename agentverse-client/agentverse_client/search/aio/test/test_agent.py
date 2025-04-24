@@ -67,7 +67,7 @@ class TestAgent(unittest.TestCase):
                     },
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                success_rate = 1.337,
+                recent_success_rate = 1.337,
                 current_campaign_eligible = True
             )
         else:

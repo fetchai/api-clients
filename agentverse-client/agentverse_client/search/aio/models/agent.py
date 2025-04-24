@@ -54,9 +54,9 @@ class Agent(BaseModel):
     metadata: Optional[Dict[str, AgentMetadataValue]] = None
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
-    success_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    recent_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
     current_campaign_eligible: Optional[StrictBool] = False
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "metadata", "last_updated", "created_at", "success_rate", "current_campaign_eligible"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -139,10 +139,10 @@ class Agent(BaseModel):
         if self.metadata is None and "metadata" in self.model_fields_set:
             _dict['metadata'] = None
 
-        # set to None if success_rate (nullable) is None
+        # set to None if recent_success_rate (nullable) is None
         # and model_fields_set contains the field
-        if self.success_rate is None and "success_rate" in self.model_fields_set:
-            _dict['success_rate'] = None
+        if self.recent_success_rate is None and "recent_success_rate" in self.model_fields_set:
+            _dict['recent_success_rate'] = None
 
         return _dict
 
@@ -181,7 +181,7 @@ class Agent(BaseModel):
             else None,
             "last_updated": obj.get("last_updated"),
             "created_at": obj.get("created_at"),
-            "success_rate": obj.get("success_rate"),
+            "recent_success_rate": obj.get("recent_success_rate"),
             "current_campaign_eligible": obj.get("current_campaign_eligible") if obj.get("current_campaign_eligible") is not None else False
         })
         return _obj
