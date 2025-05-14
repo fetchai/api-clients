@@ -1,6 +1,6 @@
 [project]
 name = "agentverse-client"
-version = "0.1.4"
+version = "0.1.5"
 description = """
 A set of API clients to easily integrate to Featch AI services.
 
