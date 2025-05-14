@@ -62,6 +62,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                 prioritise_asi1_agents = True,
                 offset = 56,
                 limit = 56,
+                exclude_geo_agents = True,
                 geo_filter = agentverse_client.search.aio.models.agent_geo_filter.AgentGeoFilter(
                     latitude = -90.0, 
                     longitude = -180.0, 

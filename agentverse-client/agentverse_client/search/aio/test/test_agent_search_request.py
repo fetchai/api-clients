@@ -62,6 +62,7 @@ class TestAgentSearchRequest(unittest.TestCase):
                 prioritise_asi1_agents = True,
                 offset = 56,
                 limit = 56,
+                exclude_geo_agents = True,
                 search_id = '',
                 source = '',
                 only_current_campaign_eligible = True
