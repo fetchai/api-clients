@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "api-clients"
-version = "0.0.2"
+version = "0.0.1"
 description = "API clients and Live Docs for Fetch AI's services' API"
 authors = ["Xavier <xavier.peiro@fetch.ai>"]
 readme = "README.md"
