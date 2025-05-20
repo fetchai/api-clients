@@ -15,7 +15,7 @@ Name | Type | Description | Notes
 **prioritise_asi1_agents** | **bool** | Whether to prioritize those agents that have been executed successfully by ASI1 recently. | [optional] [default to False]
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
-**exclude_geo_agents** | **bool** | Whether to exclude agents that have a geo location specified | [optional] [default to False]
+**exclude_geo_agents** | **bool** | Whether to exclude agents that have a geo location specified | [optional] [default to True]
 **search_id** | **str** | Unique identifier of the search in question (search id generated before (previous search)). | [optional] 
 **source** | **str** | The source where the request is sent from. Ideally should be one of the following: &#39;&#39;, &#39;agentverse&#39;, &#39;flockx&#39;, an agent address | [optional] [default to '']
 **only_current_campaign_eligible** | **bool** | If True, only agents eligible for current campaign are shown | [optional] [default to False]
