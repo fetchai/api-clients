@@ -39,7 +39,7 @@ class AgentSearchRequest(BaseModel):
     prioritise_asi1_agents: Optional[StrictBool] = Field(default=False, description="Whether to prioritize those agents that have been executed successfully by ASI1 recently.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
-    exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
+    exclude_geo_agents: Optional[StrictBool] = Field(default=False, description="Whether to exclude agents that have a geo location specified")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
     only_current_campaign_eligible: Optional[StrictBool] = Field(default=False, description="If True, only agents eligible for current campaign are shown")
@@ -113,7 +113,7 @@ class AgentSearchRequest(BaseModel):
             "prioritise_asi1_agents": obj.get("prioritise_asi1_agents") if obj.get("prioritise_asi1_agents") is not None else False,
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
-            "exclude_geo_agents": obj.get("exclude_geo_agents") if obj.get("exclude_geo_agents") is not None else True,
+            "exclude_geo_agents": obj.get("exclude_geo_agents") if obj.get("exclude_geo_agents") is not None else False,
             "search_id": obj.get("search_id"),
             "source": obj.get("source") if obj.get("source") is not None else '',
             "only_current_campaign_eligible": obj.get("only_current_campaign_eligible") if obj.get("only_current_campaign_eligible") is not None else False
