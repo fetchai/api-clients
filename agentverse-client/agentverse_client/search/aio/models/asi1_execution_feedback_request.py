@@ -31,7 +31,8 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
     success: StrictBool = Field(description="denotes if agent execution by ASI1 was successful or not")
-    __properties: ClassVar[List[str]] = ["address", "contract", "success"]
+    from_verifier: Optional[StrictBool] = Field(default=False, description="denotes if the feedback is coming from the interaction verifier agent")
+    __properties: ClassVar[List[str]] = ["address", "contract", "success", "from_verifier"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -93,7 +94,8 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
         _obj = cls.model_validate({
             "address": obj.get("address"),
             "contract": obj.get("contract"),
-            "success": obj.get("success")
+            "success": obj.get("success"),
+            "from_verifier": obj.get("from_verifier") if obj.get("from_verifier") is not None else False
         })
         return _obj
 

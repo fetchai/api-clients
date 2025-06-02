@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **address** | **str** | The address of the agent | 
 **contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
 **success** | **bool** | denotes if agent execution by ASI1 was successful or not | 
+**from_verifier** | **bool** | denotes if the feedback is coming from the interaction verifier agent | [optional] [default to False]
 
 ## Example
 

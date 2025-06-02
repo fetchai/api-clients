@@ -37,7 +37,8 @@ class TestASI1ExecutionFeedbackRequest(unittest.TestCase):
             return ASI1ExecutionFeedbackRequest(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 contract = 'mainnet',
-                success = True
+                success = True,
+                from_verifier = True
             )
         else:
             return ASI1ExecutionFeedbackRequest(
