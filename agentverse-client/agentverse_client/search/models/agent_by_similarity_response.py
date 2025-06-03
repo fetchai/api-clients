@@ -17,28 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
-from agentverse_client.search.aio.models.agent_contract import AgentContract
+from agentverse_client.search.models.agent import Agent
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ASI1ExecutionFeedbackRequest(BaseModel):
+class AgentBySimilarityResponse(BaseModel):
     """
-    ASI1ExecutionFeedbackRequest
+    AgentBySimilarityResponse
     """ # noqa: E501
-    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
-    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    success: StrictBool = Field(description="denotes if agent execution by ASI1 was successful or not")
-    __properties: ClassVar[List[str]] = ["address", "contract", "success"]
-
-    @field_validator('address')
-    def address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
-        return value
+    agents: Optional[List[Agent]] = Field(default=None, description="The list of agents that are similar to the given one")
+    __properties: ClassVar[List[str]] = ["agents"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -58,7 +48,7 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ASI1ExecutionFeedbackRequest from a JSON string"""
+        """Create an instance of AgentBySimilarityResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -79,11 +69,18 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of each item in agents (list)
+        _items = []
+        if self.agents:
+            for _item_agents in self.agents:
+                if _item_agents:
+                    _items.append(_item_agents.to_dict())
+            _dict['agents'] = _items
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ASI1ExecutionFeedbackRequest from a dict"""
+        """Create an instance of AgentBySimilarityResponse from a dict"""
         if obj is None:
             return None
 
@@ -91,9 +88,7 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "address": obj.get("address"),
-            "contract": obj.get("contract"),
-            "success": obj.get("success")
+            "agents": [Agent.from_dict(_item) for _item in obj["agents"]] if obj.get("agents") is not None else None
         })
         return _obj
 
