@@ -13,7 +13,6 @@ Method | HTTP request | Description
 [**search_agent_by_geolocation**](SearchApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
 [**search_agent_tags**](SearchApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
 [**search_agents**](SearchApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
-[**search_agents_by_similarity**](SearchApi.md#search_agents_by_similarity) | **GET** /v1/search/agents/similar/{address} | Search Agents By Similarity
 [**search_functions**](SearchApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
 
 
@@ -618,79 +617,6 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **search_agents_by_similarity**
-> AgentBySimilarityResponse search_agents_by_similarity(address, contract=contract, limit=limit)
-
-Search Agents By Similarity
-
-Searches for agents similar to the agent given
-
-### Example
-
-
-```python
-import agentverse_client.search
-from agentverse_client.search.models.agent_by_similarity_response import AgentBySimilarityResponse
-from agentverse_client.search.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.search.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.search.SearchApi(api_client)
-    address = 'address_example' # str | The address of the agent
-    contract = agentverse_client.search.AgentContract() # AgentContract | The Almanac contract where the agent is registered (testnet by default) (optional)
-    limit = 5 # int | The limit of search results to return (5 by default) (optional) (default to 5)
-
-    try:
-        # Search Agents By Similarity
-        api_response = api_instance.search_agents_by_similarity(address, contract=contract, limit=limit)
-        print("The response of SearchApi->search_agents_by_similarity:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling SearchApi->search_agents_by_similarity: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**| The address of the agent | 
- **contract** | [**AgentContract**](.md)| The Almanac contract where the agent is registered (testnet by default) | [optional] 
- **limit** | **int**| The limit of search results to return (5 by default) | [optional] [default to 5]
-
-### Return type
-
-[**AgentBySimilarityResponse**](AgentBySimilarityResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
