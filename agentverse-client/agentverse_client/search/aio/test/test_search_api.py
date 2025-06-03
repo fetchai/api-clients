@@ -89,6 +89,13 @@ class TestSearchApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_search_agents_by_similarity(self) -> None:
+        """Test case for search_agents_by_similarity
+
+        Search Agents By Similarity
+        """
+        pass
+
     async def test_search_functions(self) -> None:
         """Test case for search_functions
 
