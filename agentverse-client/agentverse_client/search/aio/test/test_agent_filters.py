@@ -49,7 +49,7 @@ class TestAgentFilters(unittest.TestCase):
                     ],
                 has_location = True,
                 has_readme = True,
-                n_interactions = '1k',
+                n_interactions = '10',
                 tags = [
                     ''
                     ]

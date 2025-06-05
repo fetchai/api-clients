@@ -42,9 +42,10 @@ class AgentGeoSearchRequest(BaseModel):
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
     geo_filter: AgentGeoFilter = Field(description="The geo filter that can be applied to the search")
+    ignore_distance: Optional[StrictBool] = Field(default=True, description="Whether the distance from the given coordinates should influence the ranking of the search results.")
     search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
-    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "prioritise_asi1_agents", "offset", "limit", "exclude_geo_agents", "geo_filter", "search_id", "source"]
+    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "prioritise_asi1_agents", "offset", "limit", "exclude_geo_agents", "geo_filter", "ignore_distance", "search_id", "source"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -119,6 +120,7 @@ class AgentGeoSearchRequest(BaseModel):
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
             "exclude_geo_agents": obj.get("exclude_geo_agents") if obj.get("exclude_geo_agents") is not None else True,
             "geo_filter": AgentGeoFilter.from_dict(obj["geo_filter"]) if obj.get("geo_filter") is not None else None,
+            "ignore_distance": obj.get("ignore_distance") if obj.get("ignore_distance") is not None else True,
             "search_id": obj.get("search_id"),
             "source": obj.get("source") if obj.get("source") is not None else ''
         })

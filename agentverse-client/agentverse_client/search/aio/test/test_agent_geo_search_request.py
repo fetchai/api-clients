@@ -50,7 +50,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                         ], 
                     has_location = True, 
                     has_readme = True, 
-                    n_interactions = '1k', 
+                    n_interactions = '10', 
                     tags = [
                         ''
                         ], ),
@@ -67,6 +67,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                     latitude = -90.0, 
                     longitude = -180.0, 
                     radius = 1.337, ),
+                ignore_distance = True,
                 search_id = '',
                 source = ''
             )

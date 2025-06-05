@@ -3,6 +3,10 @@
 
 ## Enum
 
+* `ENUM_10` (value: `'10'`)
+
+* `ENUM_100` (value: `'100'`)
+
 * `ENUM_1K` (value: `'1k'`)
 
 * `ENUM_10K` (value: `'10k'`)
