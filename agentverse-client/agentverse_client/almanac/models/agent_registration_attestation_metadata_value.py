@@ -18,12 +18,12 @@ import json
 import pprint
 import re  # noqa: F401
 from pydantic import BaseModel, ConfigDict, Field, StrictStr, ValidationError, field_validator
-from typing import Dict, Optional
+from typing import Dict, List, Optional
 from typing import Union, Any, List, Set, TYPE_CHECKING, Optional, Dict
 from typing_extensions import Literal, Self
 from pydantic import Field
 
-AGENTREGISTRATIONATTESTATIONMETADATAVALUE_ANY_OF_SCHEMAS = ["Dict[str, str]", "str"]
+AGENTREGISTRATIONATTESTATIONMETADATAVALUE_ANY_OF_SCHEMAS = ["Dict[str, str]", "List[str]", "str"]
 
 class AgentRegistrationAttestationMetadataValue(BaseModel):
     """
@@ -32,13 +32,15 @@ class AgentRegistrationAttestationMetadataValue(BaseModel):
 
     # data type: str
     anyof_schema_1_validator: Optional[StrictStr] = None
+    # data type: List[str]
+    anyof_schema_2_validator: Optional[List[StrictStr]] = None
     # data type: Dict[str, str]
-    anyof_schema_2_validator: Optional[Dict[str, StrictStr]] = None
+    anyof_schema_3_validator: Optional[Dict[str, StrictStr]] = None
     if TYPE_CHECKING:
-        actual_instance: Optional[Union[Dict[str, str], str]] = None
+        actual_instance: Optional[Union[Dict[str, str], List[str], str]] = None
     else:
         actual_instance: Any = None
-    any_of_schemas: Set[str] = { "Dict[str, str]", "str" }
+    any_of_schemas: Set[str] = { "Dict[str, str]", "List[str]", "str" }
 
     model_config = {
         "validate_assignment": True,
@@ -65,15 +67,21 @@ class AgentRegistrationAttestationMetadataValue(BaseModel):
             return v
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # validate data type: Dict[str, str]
+        # validate data type: List[str]
         try:
             instance.anyof_schema_2_validator = v
             return v
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # validate data type: Dict[str, str]
+        try:
+            instance.anyof_schema_3_validator = v
+            return v
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
         if error_messages:
             # no match
-            raise ValueError("No match found when setting the actual_instance in AgentRegistrationAttestationMetadataValue with anyOf schemas: Dict[str, str], str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when setting the actual_instance in AgentRegistrationAttestationMetadataValue with anyOf schemas: Dict[str, str], List[str], str. Details: " + ", ".join(error_messages))
         else:
             return v
 
@@ -95,7 +103,7 @@ class AgentRegistrationAttestationMetadataValue(BaseModel):
             return instance
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
-        # deserialize data into Dict[str, str]
+        # deserialize data into List[str]
         try:
             # validation
             instance.anyof_schema_2_validator = json.loads(json_str)
@@ -104,10 +112,19 @@ class AgentRegistrationAttestationMetadataValue(BaseModel):
             return instance
         except (ValidationError, ValueError) as e:
             error_messages.append(str(e))
+        # deserialize data into Dict[str, str]
+        try:
+            # validation
+            instance.anyof_schema_3_validator = json.loads(json_str)
+            # assign value to actual_instance
+            instance.actual_instance = instance.anyof_schema_3_validator
+            return instance
+        except (ValidationError, ValueError) as e:
+            error_messages.append(str(e))
 
         if error_messages:
             # no match
-            raise ValueError("No match found when deserializing the JSON string into AgentRegistrationAttestationMetadataValue with anyOf schemas: Dict[str, str], str. Details: " + ", ".join(error_messages))
+            raise ValueError("No match found when deserializing the JSON string into AgentRegistrationAttestationMetadataValue with anyOf schemas: Dict[str, str], List[str], str. Details: " + ", ".join(error_messages))
         else:
             return instance
 
@@ -121,7 +138,7 @@ class AgentRegistrationAttestationMetadataValue(BaseModel):
         else:
             return json.dumps(self.actual_instance)
 
-    def to_dict(self) -> Optional[Union[Dict[str, Any], Dict[str, str], str]]:
+    def to_dict(self) -> Optional[Union[Dict[str, Any], Dict[str, str], List[str], str]]:
         """Returns the dict representation of the actual instance"""
         if self.actual_instance is None:
             return None
