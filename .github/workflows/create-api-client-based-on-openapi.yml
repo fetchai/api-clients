@@ -199,4 +199,5 @@ jobs:
           git config --local user.email "fetchbot@fetch.ai"
           git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}
           git commit -m "Adding or updating docs and client for $APP_NAME" || echo "No changes to commit"
+          git pull --rebase origin main
           git push
