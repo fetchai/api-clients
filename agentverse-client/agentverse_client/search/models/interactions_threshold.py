@@ -26,8 +26,6 @@ class InteractionsThreshold(str, Enum):
     """
     allowed enum values
     """
-    ENUM_10 = '10'
-    ENUM_100 = '100'
     ENUM_1K = '1k'
     ENUM_10K = '10k'
     ENUM_100K = '100k'
