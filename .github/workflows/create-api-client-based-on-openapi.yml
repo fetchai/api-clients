@@ -87,7 +87,7 @@ jobs:
         env:
           CLIENT_ROOT_PROJECT_NAME: "agentverse_client"
           LIBRARY: urllib3
-          PACKAGE_NAME: agentverse_client.${{env.CLIENT_PATH}}
+          PACKAGE_NAME: ${{ env.CLIENT_PATH }}
         run: |
           config_file_path="./generator_config_file.yaml"
           
@@ -137,10 +137,11 @@ jobs:
           LIBRARY: asyncio
           ROOT_PACKAGE_NAME: agentverse_client
           ASYNC_CLIENT_DIR_NAME: aio
+          PACKAGE_NAME: ${{ env.CLIENT_PATH }}
         run: |
           echo "ROOT_PACKAGE_NAME=$ROOT_PACKAGE_NAME" >> $GITHUB_ENV
           echo "ASYNC_CLIENT_DIR_NAME=$ASYNC_CLIENT_DIR_NAME" >> $GITHUB_ENV
-          ASYNC_PACKAGE_NAME="$ROOT_PACKAGE_NAME".$CLIENT_PATH."$ASYNC_CLIENT_DIR_NAME"
+          ASYNC_PACKAGE_NAME="$PACKAGE_NAME.$ASYNC_CLIENT_DIR_NAME"
           config_file_path="./generator_config_file.yaml"
           
           # CONFIG FILE DEFINITION
