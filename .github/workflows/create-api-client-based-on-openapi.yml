@@ -198,6 +198,11 @@ jobs:
           git config --local user.name "fetchbot"
           git config --local user.email "fetchbot@fetch.ai"
 
+          # Pull before pushing changes to avoid conflicts
+          git stash
+          git pull
+          git stash pop
+
           git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}
           git commit -m "Adding or updating docs and client for $APP_NAME" || echo "No changes to commit"
           git push
