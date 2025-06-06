@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
 **exclude_geo_agents** | **bool** | Whether to exclude agents that have a geo location specified | [optional] [default to True]
 **geo_filter** | [**AgentGeoFilter**](AgentGeoFilter.md) | The geo filter that can be applied to the search | 
+**include_geo_in_relevancy** | **bool** | Whether the distance from the given coordinates should influence the ranking of the search results. | [optional] [default to False]
 **search_id** | **str** | Unique identifier of the search in question (search id generated before (previous search)). | [optional] 
 **source** | **str** | The source where the request is sent from. Ideally should be one of the following: &#39;&#39;, &#39;agentverse&#39;, &#39;flockx&#39;, an agent address | [optional] [default to '']
 

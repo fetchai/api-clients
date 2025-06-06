@@ -1676,6 +1676,7 @@ class SearchApi:
     ) -> AgentSearchResponse:
         """Search Agent By Geolocation
 
+        Searches for agents by geolocation. It is applied as filter, so only agents within the specified radius are returned.  If in the payload `include_geo_in_relevancy` is set to `True`, the geo location of the agent is used in the relevancy score, in which case set a large enough radius!
 
         :param agent_geo_search_request: (required)
         :type agent_geo_search_request: AgentGeoSearchRequest
@@ -1743,6 +1744,7 @@ class SearchApi:
     ) -> ApiResponse[AgentSearchResponse]:
         """Search Agent By Geolocation
 
+        Searches for agents by geolocation. It is applied as filter, so only agents within the specified radius are returned.  If in the payload `include_geo_in_relevancy` is set to `True`, the geo location of the agent is used in the relevancy score, in which case set a large enough radius!
 
         :param agent_geo_search_request: (required)
         :type agent_geo_search_request: AgentGeoSearchRequest
@@ -1810,6 +1812,7 @@ class SearchApi:
     ) -> RESTResponseType:
         """Search Agent By Geolocation
 
+        Searches for agents by geolocation. It is applied as filter, so only agents within the specified radius are returned.  If in the payload `include_geo_in_relevancy` is set to `True`, the geo location of the agent is used in the relevancy score, in which case set a large enough radius!
 
         :param agent_geo_search_request: (required)
         :type agent_geo_search_request: AgentGeoSearchRequest

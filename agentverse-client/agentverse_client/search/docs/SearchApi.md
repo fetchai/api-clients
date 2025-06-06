@@ -427,6 +427,8 @@ No authorization required
 
 Search Agent By Geolocation
 
+Searches for agents by geolocation. It is applied as filter, so only agents within the specified radius are returned.  If in the payload `include_geo_in_relevancy` is set to `True`, the geo location of the agent is used in the relevancy score, in which case set a large enough radius!
+
 ### Example
 
 
