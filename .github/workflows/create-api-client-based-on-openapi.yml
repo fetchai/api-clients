@@ -198,9 +198,9 @@ jobs:
           git config --local user.name "fetchbot"
           git config --local user.email "fetchbot@fetch.ai"
 
-          # Pull origin before pushing changes to avoid conflicts
+          # Pull before pushing changes to avoid conflicts
           git stash
-          git pull origin main
+          git pull
           git stash pop
 
           git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}
