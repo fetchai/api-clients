@@ -46,19 +46,19 @@ Class | Method | HTTP request | Description
 
 ## Documentation For Models
 
- - [Asset](agentverse_client/storage/docs/Asset.md)
- - [AssetContent](agentverse_client/storage/docs/AssetContent.md)
- - [AssetDownload](agentverse_client/storage/docs/AssetDownload.md)
- - [AssetsList](agentverse_client/storage/docs/AssetsList.md)
- - [HTTPValidationError](agentverse_client/storage/docs/HTTPValidationError.md)
- - [LocationInner](agentverse_client/storage/docs/LocationInner.md)
- - [NewAsset](agentverse_client/storage/docs/NewAsset.md)
- - [NewPermission](agentverse_client/storage/docs/NewPermission.md)
- - [Pagination](agentverse_client/storage/docs/Pagination.md)
- - [Permission](agentverse_client/storage/docs/Permission.md)
- - [PermissionList](agentverse_client/storage/docs/PermissionList.md)
- - [UploadAssetResponse](agentverse_client/storage/docs/UploadAssetResponse.md)
- - [ValidationError](agentverse_client/storage/docs/ValidationError.md)
+ - [Asset](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/Asset.md)
+ - [AssetContent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/AssetContent.md)
+ - [AssetDownload](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/AssetDownload.md)
+ - [AssetsList](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/AssetsList.md)
+ - [HTTPValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/HTTPValidationError.md)
+ - [LocationInner](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/LocationInner.md)
+ - [NewAsset](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/NewAsset.md)
+ - [NewPermission](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/NewPermission.md)
+ - [Pagination](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/Pagination.md)
+ - [Permission](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/Permission.md)
+ - [PermissionList](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/PermissionList.md)
+ - [UploadAssetResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/UploadAssetResponse.md)
+ - [ValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/storage/docs/ValidationError.md)
 
 
 <a id="documentation-for-authorization"></a>

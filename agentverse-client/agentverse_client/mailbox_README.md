@@ -64,43 +64,43 @@ All URIs are relative to *http://localhost*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*MailboxApi* | [**delete_all_mailbox_messages**](agentverse_client/mailbox/docs/MailboxApi.md#delete_all_mailbox_messages) | **DELETE** /v1/mailbox | Delete All Mailbox Messages
-*MailboxApi* | [**delete_specific_envelope**](agentverse_client/mailbox/docs/MailboxApi.md#delete_specific_envelope) | **DELETE** /v1/mailbox/{uuid} | Delete Specific Envelope
-*MailboxApi* | [**get_specific_envelope**](agentverse_client/mailbox/docs/MailboxApi.md#get_specific_envelope) | **GET** /v1/mailbox/{uuid} | Get Specific Envelope
-*MailboxApi* | [**list_mailbox_messages**](agentverse_client/mailbox/docs/MailboxApi.md#list_mailbox_messages) | **GET** /v1/mailbox | List Mailbox Messages
+*MailboxApi* | [**delete_all_mailbox_messages**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/MailboxApi.md#delete_all_mailbox_messages) | **DELETE** /v1/mailbox | Delete All Mailbox Messages
+*MailboxApi* | [**delete_specific_envelope**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/MailboxApi.md#delete_specific_envelope) | **DELETE** /v1/mailbox/{uuid} | Delete Specific Envelope
+*MailboxApi* | [**get_specific_envelope**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/MailboxApi.md#get_specific_envelope) | **GET** /v1/mailbox/{uuid} | Get Specific Envelope
+*MailboxApi* | [**list_mailbox_messages**](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/MailboxApi.md#list_mailbox_messages) | **GET** /v1/mailbox | List Mailbox Messages
 
 
 ## Documentation For Models
 
- - [Agent](agentverse_client/mailbox/docs/Agent.md)
- - [AgentUpdates](agentverse_client/mailbox/docs/AgentUpdates.md)
- - [ApiKeyUpdate](agentverse_client/mailbox/docs/ApiKeyUpdate.md)
- - [ChallengeRequest](agentverse_client/mailbox/docs/ChallengeRequest.md)
- - [ChallengeResponse](agentverse_client/mailbox/docs/ChallengeResponse.md)
- - [Envelope](agentverse_client/mailbox/docs/Envelope.md)
- - [Feedback](agentverse_client/mailbox/docs/Feedback.md)
- - [FeedbackAnon](agentverse_client/mailbox/docs/FeedbackAnon.md)
- - [HTTPValidationError](agentverse_client/mailbox/docs/HTTPValidationError.md)
- - [LocationInner](agentverse_client/mailbox/docs/LocationInner.md)
- - [MailboxQuotaSetEvent](agentverse_client/mailbox/docs/MailboxQuotaSetEvent.md)
- - [MailboxQuotaTopUpEvent](agentverse_client/mailbox/docs/MailboxQuotaTopUpEvent.md)
- - [MailboxQuotas](agentverse_client/mailbox/docs/MailboxQuotas.md)
- - [NewApiKey](agentverse_client/mailbox/docs/NewApiKey.md)
- - [PageAgent](agentverse_client/mailbox/docs/PageAgent.md)
- - [PageLeaf](agentverse_client/mailbox/docs/PageLeaf.md)
- - [PageStoredEnvelope](agentverse_client/mailbox/docs/PageStoredEnvelope.md)
- - [ProofRequest](agentverse_client/mailbox/docs/ProofRequest.md)
- - [ProofResponse](agentverse_client/mailbox/docs/ProofResponse.md)
- - [PublicAgent](agentverse_client/mailbox/docs/PublicAgent.md)
- - [RegistrationRequest](agentverse_client/mailbox/docs/RegistrationRequest.md)
- - [RegistrationResponse](agentverse_client/mailbox/docs/RegistrationResponse.md)
- - [StoredEnvelope](agentverse_client/mailbox/docs/StoredEnvelope.md)
- - [TortoiseContribPydanticCreatorRelayDbModelsDbApiKeyLeaf](agentverse_client/mailbox/docs/TortoiseContribPydanticCreatorRelayDbModelsDbApiKeyLeaf.md)
- - [TortoiseContribPydanticCreatorRelayDbModelsDbUserLeaf](agentverse_client/mailbox/docs/TortoiseContribPydanticCreatorRelayDbModelsDbUserLeaf.md)
- - [UserMailUpdate](agentverse_client/mailbox/docs/UserMailUpdate.md)
- - [UserUpdate](agentverse_client/mailbox/docs/UserUpdate.md)
- - [UserUsage](agentverse_client/mailbox/docs/UserUsage.md)
- - [ValidationError](agentverse_client/mailbox/docs/ValidationError.md)
+ - [Agent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/Agent.md)
+ - [AgentUpdates](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/AgentUpdates.md)
+ - [ApiKeyUpdate](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/ApiKeyUpdate.md)
+ - [ChallengeRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/ChallengeRequest.md)
+ - [ChallengeResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/ChallengeResponse.md)
+ - [Envelope](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/Envelope.md)
+ - [Feedback](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/Feedback.md)
+ - [FeedbackAnon](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/FeedbackAnon.md)
+ - [HTTPValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/HTTPValidationError.md)
+ - [LocationInner](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/LocationInner.md)
+ - [MailboxQuotaSetEvent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/MailboxQuotaSetEvent.md)
+ - [MailboxQuotaTopUpEvent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/MailboxQuotaTopUpEvent.md)
+ - [MailboxQuotas](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/MailboxQuotas.md)
+ - [NewApiKey](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/NewApiKey.md)
+ - [PageAgent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/PageAgent.md)
+ - [PageLeaf](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/PageLeaf.md)
+ - [PageStoredEnvelope](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/PageStoredEnvelope.md)
+ - [ProofRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/ProofRequest.md)
+ - [ProofResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/ProofResponse.md)
+ - [PublicAgent](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/PublicAgent.md)
+ - [RegistrationRequest](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/RegistrationRequest.md)
+ - [RegistrationResponse](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/RegistrationResponse.md)
+ - [StoredEnvelope](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/StoredEnvelope.md)
+ - [TortoiseContribPydanticCreatorRelayDbModelsDbApiKeyLeaf](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/TortoiseContribPydanticCreatorRelayDbModelsDbApiKeyLeaf.md)
+ - [TortoiseContribPydanticCreatorRelayDbModelsDbUserLeaf](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/TortoiseContribPydanticCreatorRelayDbModelsDbUserLeaf.md)
+ - [UserMailUpdate](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/UserMailUpdate.md)
+ - [UserUpdate](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/UserUpdate.md)
+ - [UserUsage](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/UserUsage.md)
+ - [ValidationError](https://github.com/fetchai/api-clients/blob/main/agentverse-client/agentverse_client/mailbox/docs/ValidationError.md)
 
 
 <a id="documentation-for-authorization"></a>
