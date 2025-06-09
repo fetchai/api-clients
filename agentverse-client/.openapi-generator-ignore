@@ -23,5 +23,8 @@
 **/aio_almanac_README.md
 **/search_README.md
 **/aio_search_README.md
+**/hosting_README.md
+**/mailbox_README.md
+**/storage_README.md
 # Then explicitly reverse the ignore rule for a single file:
 #!docs/README.md
