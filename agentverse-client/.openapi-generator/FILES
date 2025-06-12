@@ -94,4 +94,3 @@ agentverse_client/search/models/trendy_data.py
 agentverse_client/search/models/validation_error.py
 agentverse_client/search/rest.py
 agentverse_client/search/test/__init__.py
-agentverse_client/search/test/test_agent_insights_response.py
