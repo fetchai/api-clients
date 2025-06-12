@@ -41,6 +41,7 @@ from agentverse_client.search.aio.models.agent_filters import AgentFilters
 from agentverse_client.search.aio.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.aio.models.agent_geo_location import AgentGeoLocation
 from agentverse_client.search.aio.models.agent_geo_search_request import AgentGeoSearchRequest
+from agentverse_client.search.aio.models.agent_insights_response import AgentInsightsResponse
 from agentverse_client.search.aio.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 from agentverse_client.search.aio.models.agent_metadata_value import AgentMetadataValue
 from agentverse_client.search.aio.models.agent_search_analytics_request import AgentSearchAnalyticsRequest

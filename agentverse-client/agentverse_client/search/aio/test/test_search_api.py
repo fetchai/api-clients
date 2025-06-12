@@ -33,6 +33,13 @@ class TestSearchApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_get_agent_insights(self) -> None:
+        """Test case for get_agent_insights
+
+        Get Agent Insights
+        """
+        pass
+
     async def test_get_agent_interactions_count(self) -> None:
         """Test case for get_agent_interactions_count
 

@@ -5,6 +5,7 @@ All URIs are relative to *https://agentverse.ai*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**feedback**](SearchApi.md#feedback) | **POST** /v1/search/agents/click | Feedback
+[**get_agent_insights**](SearchApi.md#get_agent_insights) | **GET** /v1/search/analytics/insights/{address} | Get Agent Insights
 [**get_agent_interactions_count**](SearchApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
 [**get_agent_search_terms_analytics**](SearchApi.md#get_agent_search_terms_analytics) | **POST** /v1/search/analytics/agents/terms | Get Agent Search Term Analytics
 [**get_agent_searches_analytics**](SearchApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
@@ -73,6 +74,77 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **get_agent_insights**
+> AgentInsightsResponse get_agent_insights(address, contract=contract)
+
+Get Agent Insights
+
+Returns various insights for the agent given, related to search and interactions
+
+### Example
+
+
+```python
+import agentverse_client.search.aio
+from agentverse_client.search.aio.models.agent_insights_response import AgentInsightsResponse
+from agentverse_client.search.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.search.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+async with agentverse_client.search.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.search.aio.SearchApi(api_client)
+    address = 'address_example' # str | The address of the agent
+    contract = agentverse_client.search.aio.AgentContract() # AgentContract | The Almanac contract where the agent is registered (testnet by default) (optional)
+
+    try:
+        # Get Agent Insights
+        api_response = await api_instance.get_agent_insights(address, contract=contract)
+        print("The response of SearchApi->get_agent_insights:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling SearchApi->get_agent_insights: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**| The address of the agent | 
+ **contract** | [**AgentContract**](.md)| The Almanac contract where the agent is registered (testnet by default) | [optional] 
+
+### Return type
+
+[**AgentInsightsResponse**](AgentInsightsResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
