@@ -202,7 +202,13 @@ jobs:
           # Pull before pushing changes to avoid conflicts
           git stash
           git pull
-          git stash pop
+          if git stash list | grep -q 'stash@'; then
+            echo "Stash entries found, popping the latest one..."
+            git stash pop
+            echo "Stash popped successfully."
+          else
+            echo "No stash entries found, skipping stash pop."
+          fi
 
           echo "Git add"
           git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}
