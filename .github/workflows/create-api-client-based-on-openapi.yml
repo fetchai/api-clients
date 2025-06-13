@@ -203,11 +203,11 @@ jobs:
           git stash
           git pull
           if git stash list | grep -q 'stash@'; then
-            echo "Stash entries found, popping the latest one..."
+            echo "Stash entries found, popping the latest one"
             git stash pop
-            echo "Stash popped successfully."
+            echo "Stash popped successfully"
           else
-            echo "No stash entries found, skipping stash pop."
+            echo "No stash entries found, skipping stash pop"
           fi
 
           echo "Git add"
