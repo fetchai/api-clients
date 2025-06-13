@@ -102,7 +102,3 @@ agentverse_client/search/models/trendy_data.py
 agentverse_client/search/models/validation_error.py
 agentverse_client/search/rest.py
 agentverse_client/search/test/__init__.py
-agentverse_client/search/test/test_agents_api.py
-agentverse_client/search/test/test_analytics_api.py
-agentverse_client/search/test/test_functions_api.py
-agentverse_client/search/test/test_public_api.py
