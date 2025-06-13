@@ -204,6 +204,9 @@ jobs:
           git pull
           git stash pop
 
+          echo "Git add"
           git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}
+          echo "Git commit"
           git commit -m "Adding or updating docs and client for $APP_NAME" || echo "No changes to commit"
+          echo "Git push"
           git push
