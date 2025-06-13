@@ -196,6 +196,7 @@ jobs:
       - name: Persist changes with Git
         run: |
           echo "Commiting dir $API_ROOT_DIR/$APP_NAME, ${{ github.workspace }}/web/ and ${{ env.CLIENT_ROOT_DIR }}"
+
           git config --local user.name "fetchbot"
           git config --local user.email "fetchbot@fetch.ai"
 
@@ -210,9 +211,6 @@ jobs:
             echo "No stash entries found, skipping stash pop"
           fi
 
-          echo "Git add"
           git add $API_ROOT_DIR/$APP_NAME ${{ github.workspace }}/web/ ${{ env.CLIENT_ROOT_DIR }}
-          echo "Git commit"
           git commit -m "Adding or updating docs and client for $APP_NAME" || echo "No changes to commit"
-          echo "Git push"
           git push
