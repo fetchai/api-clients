@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_client.search.models.verifier_feedback_request import VerifierFeedbackRequest
+from agentverse_client.search.aio.models.verifier_feedback_request import VerifierFeedbackRequest
 
 # TODO update the JSON string below
 json = "{}"

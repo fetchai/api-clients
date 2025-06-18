@@ -17,36 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
-from typing import Any, ClassVar, Dict, List, Optional
-from typing_extensions import Annotated
-from agentverse_client.search.models.agent_contract import AgentContract
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VerifierFeedbackRequest(BaseModel):
+class VerifierFeedbackResponse(BaseModel):
     """
-    VerifierFeedbackRequest
+    VerifierFeedbackResponse
     """ # noqa: E501
-    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
-    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    verifier_address: Annotated[str, Field(strict=True)] = Field(description="The address of the verifier agent")
-    n: Optional[StrictInt] = Field(default=1, description="How many messages to send to the agent (default: 1)")
-    __properties: ClassVar[List[str]] = ["address", "contract", "verifier_address", "n"]
-
-    @field_validator('address')
-    def address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
-        return value
-
-    @field_validator('verifier_address')
-    def verifier_address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
-        return value
+    n_total: StrictInt = Field(description="How many interactions with the target agents were performed")
+    n_success: StrictInt = Field(description="How many interactions were considered a success")
+    __properties: ClassVar[List[str]] = ["n_total", "n_success"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -66,7 +48,7 @@ class VerifierFeedbackRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VerifierFeedbackRequest from a JSON string"""
+        """Create an instance of VerifierFeedbackResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -91,7 +73,7 @@ class VerifierFeedbackRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VerifierFeedbackRequest from a dict"""
+        """Create an instance of VerifierFeedbackResponse from a dict"""
         if obj is None:
             return None
 
@@ -99,10 +81,8 @@ class VerifierFeedbackRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "address": obj.get("address"),
-            "contract": obj.get("contract"),
-            "verifier_address": obj.get("verifier_address"),
-            "n": obj.get("n") if obj.get("n") is not None else 1
+            "n_total": obj.get("n_total"),
+            "n_success": obj.get("n_success")
         })
         return _obj
 

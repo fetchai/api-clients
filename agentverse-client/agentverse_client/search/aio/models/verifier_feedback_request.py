@@ -20,7 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from agentverse_client.search.models.agent_contract import AgentContract
+from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
