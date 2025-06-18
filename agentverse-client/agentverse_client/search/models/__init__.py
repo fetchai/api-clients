@@ -56,3 +56,5 @@ from agentverse_client.search.models.sort_type import SortType
 from agentverse_client.search.models.status_type import StatusType
 from agentverse_client.search.models.trendy_data import TrendyData
 from agentverse_client.search.models.validation_error import ValidationError
+from agentverse_client.search.models.verifier_feedback_request import VerifierFeedbackRequest
+from agentverse_client.search.models.verifier_feedback_response import VerifierFeedbackResponse
