@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **address** | **str** | The address of the agent | 
 **contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
 **verifier_address** | **str** | The address of the verifier agent | 
-**n** | **int** | How many messages to send to the agent (default: 1) | [optional] [default to 1]
+**num_messages** | **int** | How many messages to send to the agent (default: 1) | [optional] [default to 1]
 
 ## Example
 

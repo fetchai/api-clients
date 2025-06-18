@@ -31,8 +31,8 @@ class VerifierFeedbackRequest(BaseModel):
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
     verifier_address: Annotated[str, Field(strict=True)] = Field(description="The address of the verifier agent")
-    n: Optional[StrictInt] = Field(default=1, description="How many messages to send to the agent (default: 1)")
-    __properties: ClassVar[List[str]] = ["address", "contract", "verifier_address", "n"]
+    num_messages: Optional[StrictInt] = Field(default=1, description="How many messages to send to the agent (default: 1)")
+    __properties: ClassVar[List[str]] = ["address", "contract", "verifier_address", "num_messages"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -102,7 +102,7 @@ class VerifierFeedbackRequest(BaseModel):
             "address": obj.get("address"),
             "contract": obj.get("contract"),
             "verifier_address": obj.get("verifier_address"),
-            "n": obj.get("n") if obj.get("n") is not None else 1
+            "num_messages": obj.get("num_messages") if obj.get("num_messages") is not None else 1
         })
         return _obj
 
