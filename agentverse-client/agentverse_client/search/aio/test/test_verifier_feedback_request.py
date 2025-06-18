@@ -37,13 +37,11 @@ class TestVerifierFeedbackRequest(unittest.TestCase):
             return VerifierFeedbackRequest(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 contract = 'mainnet',
-                verifier_address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 num_messages = 56
             )
         else:
             return VerifierFeedbackRequest(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                verifier_address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
         )
         """
 

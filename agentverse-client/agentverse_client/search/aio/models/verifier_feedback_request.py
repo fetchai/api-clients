@@ -30,19 +30,11 @@ class VerifierFeedbackRequest(BaseModel):
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    verifier_address: Annotated[str, Field(strict=True)] = Field(description="The address of the verifier agent")
     num_messages: Optional[StrictInt] = Field(default=1, description="How many messages to send to the agent (default: 1)")
-    __properties: ClassVar[List[str]] = ["address", "contract", "verifier_address", "num_messages"]
+    __properties: ClassVar[List[str]] = ["address", "contract", "num_messages"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
-        """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
-        return value
-
-    @field_validator('verifier_address')
-    def verifier_address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
         if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
             raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
@@ -101,7 +93,6 @@ class VerifierFeedbackRequest(BaseModel):
         _obj = cls.model_validate({
             "address": obj.get("address"),
             "contract": obj.get("contract"),
-            "verifier_address": obj.get("verifier_address"),
             "num_messages": obj.get("num_messages") if obj.get("num_messages") is not None else 1
         })
         return _obj
