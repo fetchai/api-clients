@@ -28,7 +28,7 @@ class AgentGeoLocation(BaseModel):
     """ # noqa: E501
     latitude: Union[StrictFloat, StrictInt] = Field(description="the latitude of the agent")
     longitude: Union[StrictFloat, StrictInt] = Field(description="the longitude of the agent")
-    radius: Optional[Union[StrictFloat, StrictInt]] = Field(default=0, description="the radius in meters defining the area of effect of the agent")
+    radius: Optional[Union[StrictFloat, StrictInt]] = None
     __properties: ClassVar[List[str]] = ["latitude", "longitude", "radius"]
 
     model_config = ConfigDict(
@@ -70,6 +70,11 @@ class AgentGeoLocation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # set to None if radius (nullable) is None
+        # and model_fields_set contains the field
+        if self.radius is None and "radius" in self.model_fields_set:
+            _dict['radius'] = None
+
         return _dict
 
     @classmethod
@@ -84,7 +89,7 @@ class AgentGeoLocation(BaseModel):
         _obj = cls.model_validate({
             "latitude": obj.get("latitude"),
             "longitude": obj.get("longitude"),
-            "radius": obj.get("radius") if obj.get("radius") is not None else 0
+            "radius": obj.get("radius")
         })
         return _obj
 

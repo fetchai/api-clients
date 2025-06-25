@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **latitude** | **float** | the latitude of the agent | 
 **longitude** | **float** | the longitude of the agent | 
-**radius** | **float** | the radius in meters defining the area of effect of the agent | [optional] [default to 0]
+**radius** | **float** |  | [optional] 
 
 ## Example
 
