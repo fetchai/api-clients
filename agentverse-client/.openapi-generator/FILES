@@ -9,10 +9,8 @@ agentverse_client/search/api/search_api.py
 agentverse_client/search/api_client.py
 agentverse_client/search/api_response.py
 agentverse_client/search/configuration.py
-agentverse_client/search/docs/ASI1ExecutionFeedbackRequest.md
 agentverse_client/search/docs/Agent.md
 agentverse_client/search/docs/AgentAllTimeInteractionCounts.md
-agentverse_client/search/docs/AgentAsi1InteractionDetailed.md
 agentverse_client/search/docs/AgentBySimilarityResponse.md
 agentverse_client/search/docs/AgentCategory.md
 agentverse_client/search/docs/AgentContract.md
@@ -63,7 +61,6 @@ agentverse_client/search/exceptions.py
 agentverse_client/search/models/__init__.py
 agentverse_client/search/models/agent.py
 agentverse_client/search/models/agent_all_time_interaction_counts.py
-agentverse_client/search/models/agent_asi1_interaction_detailed.py
 agentverse_client/search/models/agent_by_similarity_response.py
 agentverse_client/search/models/agent_category.py
 agentverse_client/search/models/agent_contract.py
@@ -84,7 +81,6 @@ agentverse_client/search/models/agent_tag.py
 agentverse_client/search/models/agent_tag_search_response.py
 agentverse_client/search/models/agent_type.py
 agentverse_client/search/models/analytics_summary.py
-agentverse_client/search/models/asi1_execution_feedback_request.py
 agentverse_client/search/models/direction.py
 agentverse_client/search/models/function.py
 agentverse_client/search/models/function_filters.py
