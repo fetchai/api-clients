@@ -156,7 +156,7 @@ No authorization required
 
 Get Recent Agent Asi1 Interactions
 
-Returns recent interaction details of an agent
+Returns recent ASI1 interaction details of an agent
 
 ### Example
 

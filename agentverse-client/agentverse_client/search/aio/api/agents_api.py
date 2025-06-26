@@ -619,7 +619,7 @@ class AgentsApi:
     ) -> List[AgentAsi1InteractionDetailed]:
         """Get Recent Agent Asi1 Interactions
 
-        Returns recent interaction details of an agent
+        Returns recent ASI1 interaction details of an agent
 
         :param address: The address of the agent (required)
         :type address: str
@@ -691,7 +691,7 @@ class AgentsApi:
     ) -> ApiResponse[List[AgentAsi1InteractionDetailed]]:
         """Get Recent Agent Asi1 Interactions
 
-        Returns recent interaction details of an agent
+        Returns recent ASI1 interaction details of an agent
 
         :param address: The address of the agent (required)
         :type address: str
@@ -763,7 +763,7 @@ class AgentsApi:
     ) -> RESTResponseType:
         """Get Recent Agent Asi1 Interactions
 
-        Returns recent interaction details of an agent
+        Returns recent ASI1 interaction details of an agent
 
         :param address: The address of the agent (required)
         :type address: str

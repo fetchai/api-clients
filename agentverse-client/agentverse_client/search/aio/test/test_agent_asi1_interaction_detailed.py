@@ -35,19 +35,22 @@ class TestAgentAsi1InteractionDetailed(unittest.TestCase):
         model = AgentAsi1InteractionDetailed()
         if include_optional:
             return AgentAsi1InteractionDetailed(
-                agent_identifier = 'testnet_agent1z76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67wm',
-                from_verifier = True,
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                contract = 'mainnet',
+                success = True,
                 request = '',
                 response = '',
-                success = True,
+                from_verifier = True,
                 timestamp = ''
             )
         else:
             return AgentAsi1InteractionDetailed(
-                agent_identifier = 'testnet_agent1z76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67wm',
+                address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                success = True,
                 request = '',
                 response = '',
-                success = True,
+                from_verifier = True,
+                timestamp = '',
         )
         """
 

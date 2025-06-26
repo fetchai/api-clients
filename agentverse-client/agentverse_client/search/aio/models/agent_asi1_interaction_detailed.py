@@ -20,6 +20,7 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
+from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,19 +28,20 @@ class AgentAsi1InteractionDetailed(BaseModel):
     """
     AgentAsi1InteractionDetailed
     """ # noqa: E501
-    agent_identifier: Annotated[str, Field(strict=True)]
-    from_verifier: Optional[StrictBool] = False
-    request: StrictStr
-    response: StrictStr
-    success: StrictBool
-    timestamp: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["agent_identifier", "from_verifier", "request", "response", "success", "timestamp"]
+    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
+    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
+    success: StrictBool = Field(description="Denotes if agent execution by ASI1 was successful or not.")
+    request: StrictStr = Field(description="Message sent to the agent.")
+    response: StrictStr = Field(description="Response received from the agent.")
+    from_verifier: StrictBool = Field(description="Denotes if the interaction came from the verifier agent. By default it's False - means it is an actual ASI1-agent interaction.")
+    timestamp: StrictStr
+    __properties: ClassVar[List[str]] = ["address", "contract", "success", "request", "response", "from_verifier", "timestamp"]
 
-    @field_validator('agent_identifier')
-    def agent_identifier_validate_regular_expression(cls, value):
+    @field_validator('address')
+    def address_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^(mainnet|testnet)_agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^(mainnet|testnet)_agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
+        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
+            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
         return value
 
     model_config = ConfigDict(
@@ -93,11 +95,12 @@ class AgentAsi1InteractionDetailed(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "agent_identifier": obj.get("agent_identifier"),
-            "from_verifier": obj.get("from_verifier") if obj.get("from_verifier") is not None else False,
+            "address": obj.get("address"),
+            "contract": obj.get("contract"),
+            "success": obj.get("success"),
             "request": obj.get("request"),
             "response": obj.get("response"),
-            "success": obj.get("success"),
+            "from_verifier": obj.get("from_verifier"),
             "timestamp": obj.get("timestamp")
         })
         return _obj

@@ -5,12 +5,13 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_identifier** | **str** |  | 
-**from_verifier** | **bool** |  | [optional] [default to False]
-**request** | **str** |  | 
-**response** | **str** |  | 
-**success** | **bool** |  | 
-**timestamp** | **str** |  | [optional] 
+**address** | **str** | The address of the agent | 
+**contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
+**success** | **bool** | Denotes if agent execution by ASI1 was successful or not. | 
+**request** | **str** | Message sent to the agent. | 
+**response** | **str** | Response received from the agent. | 
+**from_verifier** | **bool** | Denotes if the interaction came from the verifier agent. By default it&#39;s False - means it is an actual ASI1-agent interaction. | 
+**timestamp** | **str** |  | 
 
 ## Example
 
