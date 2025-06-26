@@ -75,6 +75,13 @@ class TestPublicApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_get_recent_agent_interactions(self) -> None:
+        """Test case for get_recent_agent_interactions
+
+        Get Recent Agent Asi1 Interactions
+        """
+        pass
+
     async def test_search_agent_by_geolocation(self) -> None:
         """Test case for search_agent_by_geolocation
 

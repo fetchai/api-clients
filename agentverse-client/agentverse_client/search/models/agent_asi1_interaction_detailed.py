@@ -20,27 +20,26 @@ import json
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from agentverse_client.search.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
-class ASI1ExecutionFeedbackRequest(BaseModel):
+class AgentAsi1InteractionDetailed(BaseModel):
     """
-    ASI1ExecutionFeedbackRequest
+    AgentAsi1InteractionDetailed
     """ # noqa: E501
-    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
-    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    success: StrictBool = Field(description="denotes if agent execution by ASI1 was successful or not")
-    request: StrictStr = Field(description="message sent to the agent")
-    response: StrictStr = Field(description="response received from the agent")
-    from_verifier: Optional[StrictBool] = Field(default=False, description="denotes if the feedback is coming from the interaction verifier agent")
-    __properties: ClassVar[List[str]] = ["address", "contract", "success", "request", "response", "from_verifier"]
+    agent_identifier: Annotated[str, Field(strict=True)]
+    from_verifier: Optional[StrictBool] = False
+    request: StrictStr
+    response: StrictStr
+    success: StrictBool
+    timestamp: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["agent_identifier", "from_verifier", "request", "response", "success", "timestamp"]
 
-    @field_validator('address')
-    def address_validate_regular_expression(cls, value):
+    @field_validator('agent_identifier')
+    def agent_identifier_validate_regular_expression(cls, value):
         """Validates the regular expression"""
-        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
-            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
+        if not re.match(r"^(mainnet|testnet)_agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
+            raise ValueError(r"must validate the regular expression /^(mainnet|testnet)_agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
         return value
 
     model_config = ConfigDict(
@@ -61,7 +60,7 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of ASI1ExecutionFeedbackRequest from a JSON string"""
+        """Create an instance of AgentAsi1InteractionDetailed from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -86,7 +85,7 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of ASI1ExecutionFeedbackRequest from a dict"""
+        """Create an instance of AgentAsi1InteractionDetailed from a dict"""
         if obj is None:
             return None
 
@@ -94,12 +93,12 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "address": obj.get("address"),
-            "contract": obj.get("contract"),
-            "success": obj.get("success"),
+            "agent_identifier": obj.get("agent_identifier"),
+            "from_verifier": obj.get("from_verifier") if obj.get("from_verifier") is not None else False,
             "request": obj.get("request"),
             "response": obj.get("response"),
-            "from_verifier": obj.get("from_verifier") if obj.get("from_verifier") is not None else False
+            "success": obj.get("success"),
+            "timestamp": obj.get("timestamp")
         })
         return _obj
 

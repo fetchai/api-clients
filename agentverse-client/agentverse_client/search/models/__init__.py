@@ -17,6 +17,7 @@
 from agentverse_client.search.models.asi1_execution_feedback_request import ASI1ExecutionFeedbackRequest
 from agentverse_client.search.models.agent import Agent
 from agentverse_client.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
+from agentverse_client.search.models.agent_asi1_interaction_detailed import AgentAsi1InteractionDetailed
 from agentverse_client.search.models.agent_by_similarity_response import AgentBySimilarityResponse
 from agentverse_client.search.models.agent_category import AgentCategory
 from agentverse_client.search.models.agent_contract import AgentContract

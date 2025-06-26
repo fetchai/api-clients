@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from agentverse_client.search.aio.models.agent_contract import AgentContract
@@ -31,8 +31,10 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
     success: StrictBool = Field(description="denotes if agent execution by ASI1 was successful or not")
+    request: StrictStr = Field(description="message sent to the agent")
+    response: StrictStr = Field(description="response received from the agent")
     from_verifier: Optional[StrictBool] = Field(default=False, description="denotes if the feedback is coming from the interaction verifier agent")
-    __properties: ClassVar[List[str]] = ["address", "contract", "success", "from_verifier"]
+    __properties: ClassVar[List[str]] = ["address", "contract", "success", "request", "response", "from_verifier"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -95,6 +97,8 @@ class ASI1ExecutionFeedbackRequest(BaseModel):
             "address": obj.get("address"),
             "contract": obj.get("contract"),
             "success": obj.get("success"),
+            "request": obj.get("request"),
+            "response": obj.get("response"),
             "from_verifier": obj.get("from_verifier") if obj.get("from_verifier") is not None else False
         })
         return _obj
