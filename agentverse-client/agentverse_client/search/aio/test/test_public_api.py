@@ -110,13 +110,6 @@ class TestPublicApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_trigger_seo(self) -> None:
-        """Test case for trigger_seo
-
-        Verifier Feedback Request
-        """
-        pass
-
 
 if __name__ == '__main__':
     unittest.main()
