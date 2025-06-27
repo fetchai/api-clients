@@ -6,11 +6,11 @@ Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**feedback**](AgentsApi.md#feedback) | **POST** /v1/search/agents/click | Feedback
 [**get_agent_interactions_count**](AgentsApi.md#get_agent_interactions_count) | **GET** /v1/search/agents/interactions/{address} | Get Interaction Counts Of Agent
-[**get_recent_agent_interactions**](AgentsApi.md#get_recent_agent_interactions) | **GET** /v1/search/agents/interactions/asi1/recent/{address} | Get Recent Agent Asi1 Interactions
 [**search_agent_by_geolocation**](AgentsApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
 [**search_agent_tags**](AgentsApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
 [**search_agents**](AgentsApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
 [**search_agents_by_similarity**](AgentsApi.md#search_agents_by_similarity) | **GET** /v1/search/agents/similar/{address} | Search Agents By Similarity
+[**verify_agent_seo**](AgentsApi.md#verify_agent_seo) | **POST** /v1/search/agents/seo | Verifier Feedback Request
 
 
 # **feedback**
@@ -132,77 +132,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**AgentInteractionCountsResponse**](AgentInteractionCountsResponse.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_recent_agent_interactions**
-> List[AgentAsi1InteractionDetailed] get_recent_agent_interactions(address, contract=contract)
-
-Get Recent Agent Asi1 Interactions
-
-Returns recent ASI1 interaction details of an agent
-
-### Example
-
-
-```python
-import agentverse_client.search
-from agentverse_client.search.models.agent_asi1_interaction_detailed import AgentAsi1InteractionDetailed
-from agentverse_client.search.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.search.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.search.AgentsApi(api_client)
-    address = 'address_example' # str | The address of the agent
-    contract = agentverse_client.search.AgentContract() # AgentContract | The Almanac contract where the agent is registered (testnet by default) (optional)
-
-    try:
-        # Get Recent Agent Asi1 Interactions
-        api_response = api_instance.get_recent_agent_interactions(address, contract=contract)
-        print("The response of AgentsApi->get_recent_agent_interactions:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling AgentsApi->get_recent_agent_interactions: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**| The address of the agent | 
- **contract** | [**AgentContract**](.md)| The Almanac contract where the agent is registered (testnet by default) | [optional] 
-
-### Return type
-
-[**List[AgentAsi1InteractionDetailed]**](AgentAsi1InteractionDetailed.md)
 
 ### Authorization
 
@@ -493,6 +422,81 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **verify_agent_seo**
+> VerifierFeedbackResponse verify_agent_seo(verifier_feedback_request)
+
+Verifier Feedback Request
+
+### Example
+
+* OAuth Authentication (FaunaAuthorizationScheme):
+
+```python
+import agentverse_client.search
+from agentverse_client.search.models.verifier_feedback_request import VerifierFeedbackRequest
+from agentverse_client.search.models.verifier_feedback_response import VerifierFeedbackResponse
+from agentverse_client.search.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.search.Configuration(
+    host = "https://agentverse.ai"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+with agentverse_client.search.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.search.AgentsApi(api_client)
+    verifier_feedback_request = agentverse_client.search.VerifierFeedbackRequest() # VerifierFeedbackRequest | 
+
+    try:
+        # Verifier Feedback Request
+        api_response = api_instance.verify_agent_seo(verifier_feedback_request)
+        print("The response of AgentsApi->verify_agent_seo:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->verify_agent_seo: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **verifier_feedback_request** | [**VerifierFeedbackRequest**](VerifierFeedbackRequest.md)|  | 
+
+### Return type
+
+[**VerifierFeedbackResponse**](VerifierFeedbackResponse.md)
+
+### Authorization
+
+[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details
