@@ -33,52 +33,10 @@ class TestSearchApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_get_agent_insights(self) -> None:
-        """Test case for get_agent_insights
-
-        Get Agent Insights
-        """
-        pass
-
-    async def test_get_agent_search_terms_analytics(self) -> None:
-        """Test case for get_agent_search_terms_analytics
-
-        Get Agent Search Term Analytics
-        """
-        pass
-
-    async def test_get_agent_searches_analytics(self) -> None:
-        """Test case for get_agent_searches_analytics
-
-        Get Agent Search Analytics
-        """
-        pass
-
-    async def test_get_analytics_summary(self) -> None:
-        """Test case for get_analytics_summary
-
-        Get Analytics Summary
-        """
-        pass
-
-    async def test_get_function_interactions(self) -> None:
-        """Test case for get_function_interactions
-
-        Get Recent Interactions Of Function
-        """
-        pass
-
     async def test_search_agents(self) -> None:
         """Test case for search_agents
 
         Search Agents
-        """
-        pass
-
-    async def test_search_functions(self) -> None:
-        """Test case for search_functions
-
-        Search Functions
         """
         pass
 
