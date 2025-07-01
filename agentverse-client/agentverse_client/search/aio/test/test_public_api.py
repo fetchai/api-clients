@@ -82,13 +82,6 @@ class TestPublicApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_search_agent_by_geolocation(self) -> None:
-        """Test case for search_agent_by_geolocation
-
-        Search Agent By Geolocation
-        """
-        pass
-
     async def test_search_agent_tags(self) -> None:
         """Test case for search_agent_tags
 

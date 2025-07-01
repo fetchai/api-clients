@@ -26,7 +26,6 @@ Name | Type | Description | Notes
 **last_updated** | **datetime** | the time at which the agent was last updated at | 
 **created_at** | **datetime** | the time at which the agent was first visible or created | 
 **recent_success_rate** | **float** |  | [optional] 
-**current_campaign_eligible** | **bool** |  | [optional] [default to False]
 
 ## Example
 
