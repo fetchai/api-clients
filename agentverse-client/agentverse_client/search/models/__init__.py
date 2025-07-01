@@ -15,9 +15,6 @@
 
 # import models into model package
 from agentverse_client.search.models.agent import Agent
-from agentverse_client.search.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
-from agentverse_client.search.models.agent_asi1_interaction_detailed import AgentAsi1InteractionDetailed
-from agentverse_client.search.models.agent_by_similarity_response import AgentBySimilarityResponse
 from agentverse_client.search.models.agent_category import AgentCategory
 from agentverse_client.search.models.agent_contract import AgentContract
 from agentverse_client.search.models.agent_filters import AgentFilters
@@ -25,7 +22,6 @@ from agentverse_client.search.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.models.agent_geo_location import AgentGeoLocation
 from agentverse_client.search.models.agent_geo_search_request import AgentGeoSearchRequest
 from agentverse_client.search.models.agent_insights_response import AgentInsightsResponse
-from agentverse_client.search.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 from agentverse_client.search.models.agent_metadata_value import AgentMetadataValue
 from agentverse_client.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
 from agentverse_client.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
@@ -33,8 +29,6 @@ from agentverse_client.search.models.agent_search_request import AgentSearchRequ
 from agentverse_client.search.models.agent_search_response import AgentSearchResponse
 from agentverse_client.search.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
 from agentverse_client.search.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
-from agentverse_client.search.models.agent_tag import AgentTag
-from agentverse_client.search.models.agent_tag_search_response import AgentTagSearchResponse
 from agentverse_client.search.models.agent_type import AgentType
 from agentverse_client.search.models.analytics_summary import AnalyticsSummary
 from agentverse_client.search.models.direction import Direction
@@ -56,5 +50,3 @@ from agentverse_client.search.models.sort_type import SortType
 from agentverse_client.search.models.status_type import StatusType
 from agentverse_client.search.models.trendy_data import TrendyData
 from agentverse_client.search.models.validation_error import ValidationError
-from agentverse_client.search.models.verifier_feedback_request import VerifierFeedbackRequest
-from agentverse_client.search.models.verifier_feedback_response import VerifierFeedbackResponse
