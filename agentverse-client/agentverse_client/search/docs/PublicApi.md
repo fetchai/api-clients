@@ -11,7 +11,6 @@ Method | HTTP request | Description
 [**get_agent_searches_analytics**](PublicApi.md#get_agent_searches_analytics) | **POST** /v1/search/analytics/agents | Get Agent Search Analytics
 [**get_analytics_summary**](PublicApi.md#get_analytics_summary) | **GET** /v1/search/analytics/summary | Get Analytics Summary
 [**get_function_interactions**](PublicApi.md#get_function_interactions) | **GET** /v1/search/functions/interactions/{function_id} | Get Recent Interactions Of Function
-[**get_recent_agent_interactions**](PublicApi.md#get_recent_agent_interactions) | **GET** /v1/search/agents/interactions/asi1/recent/{address} | Get Recent Agent Asi1 Interactions
 [**search_agent_by_geolocation**](PublicApi.md#search_agent_by_geolocation) | **POST** /v1/search/agents/geo | Search Agent By Geolocation
 [**search_agent_tags**](PublicApi.md#search_agent_tags) | **GET** /v1/search/agents/tags | Search Agent Tags
 [**search_agents**](PublicApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
@@ -477,77 +476,6 @@ Name | Type | Description  | Notes
 ### Return type
 
 [**FunctionLast30daysInteractions**](FunctionLast30daysInteractions.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_recent_agent_interactions**
-> List[AgentAsi1InteractionDetailed] get_recent_agent_interactions(address, contract=contract)
-
-Get Recent Agent Asi1 Interactions
-
-Returns recent ASI1 interaction details of an agent
-
-### Example
-
-
-```python
-import agentverse_client.search
-from agentverse_client.search.models.agent_asi1_interaction_detailed import AgentAsi1InteractionDetailed
-from agentverse_client.search.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.search.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-with agentverse_client.search.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.search.PublicApi(api_client)
-    address = 'address_example' # str | The address of the agent
-    contract = agentverse_client.search.AgentContract() # AgentContract | The Almanac contract where the agent is registered (testnet by default) (optional)
-
-    try:
-        # Get Recent Agent Asi1 Interactions
-        api_response = api_instance.get_recent_agent_interactions(address, contract=contract)
-        print("The response of PublicApi->get_recent_agent_interactions:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling PublicApi->get_recent_agent_interactions: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**| The address of the agent | 
- **contract** | [**AgentContract**](.md)| The Almanac contract where the agent is registered (testnet by default) | [optional] 
-
-### Return type
-
-[**List[AgentAsi1InteractionDetailed]**](AgentAsi1InteractionDetailed.md)
 
 ### Authorization
 
