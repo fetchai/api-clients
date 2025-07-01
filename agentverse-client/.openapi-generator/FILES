@@ -11,6 +11,7 @@ agentverse_client/search/api_response.py
 agentverse_client/search/configuration.py
 agentverse_client/search/docs/Agent.md
 agentverse_client/search/docs/AgentAllTimeInteractionCounts.md
+agentverse_client/search/docs/AgentAsi1InteractionDetailed.md
 agentverse_client/search/docs/AgentBySimilarityResponse.md
 agentverse_client/search/docs/AgentCategory.md
 agentverse_client/search/docs/AgentContract.md
@@ -61,6 +62,7 @@ agentverse_client/search/exceptions.py
 agentverse_client/search/models/__init__.py
 agentverse_client/search/models/agent.py
 agentverse_client/search/models/agent_all_time_interaction_counts.py
+agentverse_client/search/models/agent_asi1_interaction_detailed.py
 agentverse_client/search/models/agent_by_similarity_response.py
 agentverse_client/search/models/agent_category.py
 agentverse_client/search/models/agent_contract.py
