@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | The address of the agent | 
 **contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
-**search_id** | **str** | search id generated before (during search) | 
+**search_id** | **str** | Search id generated before (during search) that identifies the search where the selected agent was retrieved. | 
 **page_index** | **int** | page index (should start from 0) | 
 
 ## Example

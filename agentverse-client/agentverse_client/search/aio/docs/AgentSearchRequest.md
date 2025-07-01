@@ -16,8 +16,8 @@ Name | Type | Description | Notes
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
 **exclude_geo_agents** | **bool** | Whether to exclude agents that have a geo location specified | [optional] [default to True]
-**search_id** | **str** | Unique identifier of the search in question (search id generated before (previous search)). | [optional] 
-**source** | **str** | The source where the request is sent from. Ideally should be one of the following: &#39;&#39;, &#39;agentverse&#39;, &#39;flockx&#39;, an agent address | [optional] [default to '']
+**search_id** | **str** | Search id of a previous search, will be generated if not passed.  This id can the be passed as the search_id prop of another search when we want to do more searches with different offsets (&#x3D; pagination)  and we want all of them to be identified by the same search_id.  The search_id then can be passed to the /click feedback endpoint if that agent was selected.  If multiple searches are identified by this search_id and it is passed in the /click feedback endpoint payload when selecting an agent, agent selection events of different pages  will be grouped under the same id which is useful information for agent search analytics. | [optional] 
+**source** | **str** | The source where the request is sent from. Ideally should be one of the following:   &#39;&#39;, &#39;agentverse&#39;, &#39;flockx&#39;, an agent address but technically can also be a domain or any arbitrary string. | [optional] [default to '']
 
 ## Example
 
