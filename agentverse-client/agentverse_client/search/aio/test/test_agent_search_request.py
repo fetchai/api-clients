@@ -64,7 +64,8 @@ class TestAgentSearchRequest(unittest.TestCase):
                 limit = 56,
                 exclude_geo_agents = True,
                 search_id = '',
-                source = ''
+                source = '',
+                only_current_campaign_eligible = True
             )
         else:
             return AgentSearchRequest(
