@@ -17,18 +17,28 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
+from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
+from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VerifierFeedbackResponse(BaseModel):
+class AgentSEOEvaluationResponse(BaseModel):
     """
-    VerifierFeedbackResponse
+    AgentSEOEvaluationResponse
     """ # noqa: E501
-    n_total: StrictInt = Field(description="How many interactions with the target agents were performed")
-    n_success: StrictInt = Field(description="How many interactions were considered a success")
-    __properties: ClassVar[List[str]] = ["n_total", "n_success"]
+    address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
+    contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
+    eval_id: StrictStr = Field(description="Id generated for the current SEO evaluation run")
+    __properties: ClassVar[List[str]] = ["address", "contract", "eval_id"]
+
+    @field_validator('address')
+    def address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
+            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +58,7 @@ class VerifierFeedbackResponse(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VerifierFeedbackResponse from a JSON string"""
+        """Create an instance of AgentSEOEvaluationResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +83,7 @@ class VerifierFeedbackResponse(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VerifierFeedbackResponse from a dict"""
+        """Create an instance of AgentSEOEvaluationResponse from a dict"""
         if obj is None:
             return None
 
@@ -81,8 +91,9 @@ class VerifierFeedbackResponse(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "n_total": obj.get("n_total"),
-            "n_success": obj.get("n_success")
+            "address": obj.get("address"),
+            "contract": obj.get("contract"),
+            "eval_id": obj.get("eval_id")
         })
         return _obj
 

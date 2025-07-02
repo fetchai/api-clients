@@ -20,6 +20,7 @@ from agentverse_client.search.models.agent_asi1_interaction_detailed import Agen
 from agentverse_client.search.models.agent_by_similarity_response import AgentBySimilarityResponse
 from agentverse_client.search.models.agent_category import AgentCategory
 from agentverse_client.search.models.agent_contract import AgentContract
+from agentverse_client.search.models.agent_eval_status import AgentEvalStatus
 from agentverse_client.search.models.agent_filters import AgentFilters
 from agentverse_client.search.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.models.agent_geo_location import AgentGeoLocation
@@ -27,6 +28,8 @@ from agentverse_client.search.models.agent_geo_search_request import AgentGeoSea
 from agentverse_client.search.models.agent_insights_response import AgentInsightsResponse
 from agentverse_client.search.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 from agentverse_client.search.models.agent_metadata_value import AgentMetadataValue
+from agentverse_client.search.models.agent_seo_evaluation_request import AgentSEOEvaluationRequest
+from agentverse_client.search.models.agent_seo_evaluation_response import AgentSEOEvaluationResponse
 from agentverse_client.search.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
 from agentverse_client.search.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
 from agentverse_client.search.models.agent_search_request import AgentSearchRequest
@@ -56,5 +59,3 @@ from agentverse_client.search.models.sort_type import SortType
 from agentverse_client.search.models.status_type import StatusType
 from agentverse_client.search.models.trendy_data import TrendyData
 from agentverse_client.search.models.validation_error import ValidationError
-from agentverse_client.search.models.verifier_feedback_request import VerifierFeedbackRequest
-from agentverse_client.search.models.verifier_feedback_response import VerifierFeedbackResponse

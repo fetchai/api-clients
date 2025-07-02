@@ -17,21 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from agentverse_client.search.aio.models.agent_contract import AgentContract
+from agentverse_client.search.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
-class VerifierFeedbackRequest(BaseModel):
+class AgentSEOEvaluationResponse(BaseModel):
     """
-    VerifierFeedbackRequest
+    AgentSEOEvaluationResponse
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    num_messages: Optional[StrictInt] = Field(default=1, description="How many messages to send to the agent (default: 1)")
-    __properties: ClassVar[List[str]] = ["address", "contract", "num_messages"]
+    eval_id: StrictStr = Field(description="Id generated for the current SEO evaluation run")
+    __properties: ClassVar[List[str]] = ["address", "contract", "eval_id"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -58,7 +58,7 @@ class VerifierFeedbackRequest(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of VerifierFeedbackRequest from a JSON string"""
+        """Create an instance of AgentSEOEvaluationResponse from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -83,7 +83,7 @@ class VerifierFeedbackRequest(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of VerifierFeedbackRequest from a dict"""
+        """Create an instance of AgentSEOEvaluationResponse from a dict"""
         if obj is None:
             return None
 
@@ -93,7 +93,7 @@ class VerifierFeedbackRequest(BaseModel):
         _obj = cls.model_validate({
             "address": obj.get("address"),
             "contract": obj.get("contract"),
-            "num_messages": obj.get("num_messages") if obj.get("num_messages") is not None else 1
+            "eval_id": obj.get("eval_id")
         })
         return _obj
 

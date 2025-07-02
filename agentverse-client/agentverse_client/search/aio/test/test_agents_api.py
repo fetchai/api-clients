@@ -75,10 +75,10 @@ class TestAgentsApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_verify_agent_seo(self) -> None:
-        """Test case for verify_agent_seo
+    async def test_start_seo_eval(self) -> None:
+        """Test case for start_seo_eval
 
-        Verifier Feedback Request
+        Start Seo Eval
         """
         pass
 

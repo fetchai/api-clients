@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.agent_asi1_interaction_detailed import AgentAsi1InteractionDetailed
+from agentverse_client.search.aio.models.agent_seo_evaluation_response import AgentSEOEvaluationResponse
 
-class TestAgentAsi1InteractionDetailed(unittest.TestCase):
-    """AgentAsi1InteractionDetailed unit test stubs"""
+class TestAgentSEOEvaluationResponse(unittest.TestCase):
+    """AgentSEOEvaluationResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,39 +25,29 @@ class TestAgentAsi1InteractionDetailed(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AgentAsi1InteractionDetailed:
-        """Test AgentAsi1InteractionDetailed
+    def make_instance(self, include_optional) -> AgentSEOEvaluationResponse:
+        """Test AgentSEOEvaluationResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AgentAsi1InteractionDetailed`
+        # uncomment below to create an instance of `AgentSEOEvaluationResponse`
         """
-        model = AgentAsi1InteractionDetailed()
+        model = AgentSEOEvaluationResponse()
         if include_optional:
-            return AgentAsi1InteractionDetailed(
+            return AgentSEOEvaluationResponse(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 contract = 'mainnet',
-                status = 'started',
-                success = True,
-                request = '',
-                response = '',
-                from_verifier = True,
-                timestamp = ''
+                eval_id = ''
             )
         else:
-            return AgentAsi1InteractionDetailed(
+            return AgentSEOEvaluationResponse(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                status = 'started',
-                success = True,
-                request = '',
-                response = '',
-                from_verifier = True,
-                timestamp = '',
+                eval_id = '',
         )
         """
 
-    def testAgentAsi1InteractionDetailed(self):
-        """Test AgentAsi1InteractionDetailed"""
+    def testAgentSEOEvaluationResponse(self):
+        """Test AgentSEOEvaluationResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

@@ -17,7 +17,7 @@ Method | HTTP request | Description
 [**search_agents**](PublicApi.md#search_agents) | **POST** /v1/search/agents | Search Agents
 [**search_agents_by_similarity**](PublicApi.md#search_agents_by_similarity) | **GET** /v1/search/agents/similar/{address} | Search Agents By Similarity
 [**search_functions**](PublicApi.md#search_functions) | **POST** /v1/search/functions | Search Functions
-[**verify_agent_seo**](PublicApi.md#verify_agent_seo) | **POST** /v1/search/agents/seo | Verifier Feedback Request
+[**start_seo_eval**](PublicApi.md#start_seo_eval) | **POST** /v1/search/agents/seo | Start Seo Eval
 
 
 # **feedback**
@@ -917,10 +917,10 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **verify_agent_seo**
-> VerifierFeedbackResponse verify_agent_seo(verifier_feedback_request)
+# **start_seo_eval**
+> AgentSEOEvaluationResponse start_seo_eval(agent_seo_evaluation_request)
 
-Verifier Feedback Request
+Start Seo Eval
 
 ### Example
 
@@ -928,8 +928,8 @@ Verifier Feedback Request
 
 ```python
 import agentverse_client.search.aio
-from agentverse_client.search.aio.models.verifier_feedback_request import VerifierFeedbackRequest
-from agentverse_client.search.aio.models.verifier_feedback_response import VerifierFeedbackResponse
+from agentverse_client.search.aio.models.agent_seo_evaluation_request import AgentSEOEvaluationRequest
+from agentverse_client.search.aio.models.agent_seo_evaluation_response import AgentSEOEvaluationResponse
 from agentverse_client.search.aio.rest import ApiException
 from pprint import pprint
 
@@ -950,15 +950,15 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 async with agentverse_client.search.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.search.aio.PublicApi(api_client)
-    verifier_feedback_request = agentverse_client.search.aio.VerifierFeedbackRequest() # VerifierFeedbackRequest | 
+    agent_seo_evaluation_request = agentverse_client.search.aio.AgentSEOEvaluationRequest() # AgentSEOEvaluationRequest | 
 
     try:
-        # Verifier Feedback Request
-        api_response = await api_instance.verify_agent_seo(verifier_feedback_request)
-        print("The response of PublicApi->verify_agent_seo:\n")
+        # Start Seo Eval
+        api_response = await api_instance.start_seo_eval(agent_seo_evaluation_request)
+        print("The response of PublicApi->start_seo_eval:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling PublicApi->verify_agent_seo: %s\n" % e)
+        print("Exception when calling PublicApi->start_seo_eval: %s\n" % e)
 ```
 
 
@@ -968,11 +968,11 @@ async with agentverse_client.search.aio.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **verifier_feedback_request** | [**VerifierFeedbackRequest**](VerifierFeedbackRequest.md)|  | 
+ **agent_seo_evaluation_request** | [**AgentSEOEvaluationRequest**](AgentSEOEvaluationRequest.md)|  | 
 
 ### Return type
 
-[**VerifierFeedbackResponse**](VerifierFeedbackResponse.md)
+[**AgentSEOEvaluationResponse**](AgentSEOEvaluationResponse.md)
 
 ### Authorization
 

@@ -17,27 +17,21 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
+from pydantic import BaseModel, ConfigDict, Field, StrictInt, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
-from agentverse_client.search.models.agent_contract import AgentContract
-from agentverse_client.search.models.agent_eval_status import AgentEvalStatus
+from agentverse_client.search.aio.models.agent_contract import AgentContract
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AgentAsi1InteractionDetailed(BaseModel):
+class AgentSEOEvaluationRequest(BaseModel):
     """
-    AgentAsi1InteractionDetailed
+    AgentSEOEvaluationRequest
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    status: AgentEvalStatus = Field(description="Denotes the SEO evaluation status.")
-    success: StrictBool = Field(description="Denotes if agent execution by ASI1 was successful or not.")
-    request: StrictStr = Field(description="Message sent to the agent.")
-    response: StrictStr = Field(description="Response received from the agent.")
-    from_verifier: StrictBool = Field(description="Denotes if the interaction came from the verifier agent. By default it's False - means it is an actual ASI1-agent interaction.")
-    timestamp: StrictStr
-    __properties: ClassVar[List[str]] = ["address", "contract", "status", "success", "request", "response", "from_verifier", "timestamp"]
+    num_messages: Optional[StrictInt] = Field(default=1, description="How many messages to send to the agent (default: 1)")
+    __properties: ClassVar[List[str]] = ["address", "contract", "num_messages"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -64,7 +58,7 @@ class AgentAsi1InteractionDetailed(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AgentAsi1InteractionDetailed from a JSON string"""
+        """Create an instance of AgentSEOEvaluationRequest from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -89,7 +83,7 @@ class AgentAsi1InteractionDetailed(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AgentAsi1InteractionDetailed from a dict"""
+        """Create an instance of AgentSEOEvaluationRequest from a dict"""
         if obj is None:
             return None
 
@@ -99,12 +93,7 @@ class AgentAsi1InteractionDetailed(BaseModel):
         _obj = cls.model_validate({
             "address": obj.get("address"),
             "contract": obj.get("contract"),
-            "status": obj.get("status"),
-            "success": obj.get("success"),
-            "request": obj.get("request"),
-            "response": obj.get("response"),
-            "from_verifier": obj.get("from_verifier"),
-            "timestamp": obj.get("timestamp")
+            "num_messages": obj.get("num_messages") if obj.get("num_messages") is not None else 1
         })
         return _obj
 

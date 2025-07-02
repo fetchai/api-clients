@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.verifier_feedback_request import VerifierFeedbackRequest
+from agentverse_client.search.models.agent_seo_evaluation_response import AgentSEOEvaluationResponse
 
-class TestVerifierFeedbackRequest(unittest.TestCase):
-    """VerifierFeedbackRequest unit test stubs"""
+class TestAgentSEOEvaluationResponse(unittest.TestCase):
+    """AgentSEOEvaluationResponse unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,28 +25,29 @@ class TestVerifierFeedbackRequest(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> VerifierFeedbackRequest:
-        """Test VerifierFeedbackRequest
+    def make_instance(self, include_optional) -> AgentSEOEvaluationResponse:
+        """Test AgentSEOEvaluationResponse
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `VerifierFeedbackRequest`
+        # uncomment below to create an instance of `AgentSEOEvaluationResponse`
         """
-        model = VerifierFeedbackRequest()
+        model = AgentSEOEvaluationResponse()
         if include_optional:
-            return VerifierFeedbackRequest(
+            return AgentSEOEvaluationResponse(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 contract = 'mainnet',
-                num_messages = 56
+                eval_id = ''
             )
         else:
-            return VerifierFeedbackRequest(
+            return AgentSEOEvaluationResponse(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
+                eval_id = '',
         )
         """
 
-    def testVerifierFeedbackRequest(self):
-        """Test VerifierFeedbackRequest"""
+    def testAgentSEOEvaluationResponse(self):
+        """Test AgentSEOEvaluationResponse"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

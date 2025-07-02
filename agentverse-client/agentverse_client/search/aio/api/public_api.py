@@ -24,6 +24,8 @@ from agentverse_client.search.aio.models.agent_by_similarity_response import Age
 from agentverse_client.search.aio.models.agent_geo_search_request import AgentGeoSearchRequest
 from agentverse_client.search.aio.models.agent_insights_response import AgentInsightsResponse
 from agentverse_client.search.aio.models.agent_interaction_counts_response import AgentInteractionCountsResponse
+from agentverse_client.search.aio.models.agent_seo_evaluation_request import AgentSEOEvaluationRequest
+from agentverse_client.search.aio.models.agent_seo_evaluation_response import AgentSEOEvaluationResponse
 from agentverse_client.search.aio.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
 from agentverse_client.search.aio.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
 from agentverse_client.search.aio.models.agent_search_request import AgentSearchRequest
@@ -36,8 +38,6 @@ from agentverse_client.search.aio.models.function_last30days_interactions import
 from agentverse_client.search.aio.models.function_search_request import FunctionSearchRequest
 from agentverse_client.search.aio.models.function_search_response import FunctionSearchResponse
 from agentverse_client.search.aio.models.search_feedback_request import SearchFeedbackRequest
-from agentverse_client.search.aio.models.verifier_feedback_request import VerifierFeedbackRequest
-from agentverse_client.search.aio.models.verifier_feedback_response import VerifierFeedbackResponse
 
 from agentverse_client.search.aio.api_client import ApiClient, RequestSerialized
 from agentverse_client.search.aio.api_response import ApiResponse
@@ -3623,9 +3623,9 @@ class PublicApi:
 
 
     @validate_call
-    async def verify_agent_seo(
+    async def start_seo_eval(
         self,
-        verifier_feedback_request: VerifierFeedbackRequest,
+        agent_seo_evaluation_request: AgentSEOEvaluationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3638,12 +3638,12 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> VerifierFeedbackResponse:
-        """Verifier Feedback Request
+    ) -> AgentSEOEvaluationResponse:
+        """Start Seo Eval
 
 
-        :param verifier_feedback_request: (required)
-        :type verifier_feedback_request: VerifierFeedbackRequest
+        :param agent_seo_evaluation_request: (required)
+        :type agent_seo_evaluation_request: AgentSEOEvaluationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3666,8 +3666,8 @@ class PublicApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_agent_seo_serialize(
-            verifier_feedback_request=verifier_feedback_request,
+        _param = self._start_seo_eval_serialize(
+            agent_seo_evaluation_request=agent_seo_evaluation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3675,7 +3675,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VerifierFeedbackResponse",
+            '200': "AgentSEOEvaluationResponse",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -3690,9 +3690,9 @@ class PublicApi:
 
 
     @validate_call
-    async def verify_agent_seo_with_http_info(
+    async def start_seo_eval_with_http_info(
         self,
-        verifier_feedback_request: VerifierFeedbackRequest,
+        agent_seo_evaluation_request: AgentSEOEvaluationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3705,12 +3705,12 @@ class PublicApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[VerifierFeedbackResponse]:
-        """Verifier Feedback Request
+    ) -> ApiResponse[AgentSEOEvaluationResponse]:
+        """Start Seo Eval
 
 
-        :param verifier_feedback_request: (required)
-        :type verifier_feedback_request: VerifierFeedbackRequest
+        :param agent_seo_evaluation_request: (required)
+        :type agent_seo_evaluation_request: AgentSEOEvaluationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3733,8 +3733,8 @@ class PublicApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_agent_seo_serialize(
-            verifier_feedback_request=verifier_feedback_request,
+        _param = self._start_seo_eval_serialize(
+            agent_seo_evaluation_request=agent_seo_evaluation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3742,7 +3742,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VerifierFeedbackResponse",
+            '200': "AgentSEOEvaluationResponse",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -3757,9 +3757,9 @@ class PublicApi:
 
 
     @validate_call
-    async def verify_agent_seo_without_preload_content(
+    async def start_seo_eval_without_preload_content(
         self,
-        verifier_feedback_request: VerifierFeedbackRequest,
+        agent_seo_evaluation_request: AgentSEOEvaluationRequest,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -3773,11 +3773,11 @@ class PublicApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Verifier Feedback Request
+        """Start Seo Eval
 
 
-        :param verifier_feedback_request: (required)
-        :type verifier_feedback_request: VerifierFeedbackRequest
+        :param agent_seo_evaluation_request: (required)
+        :type agent_seo_evaluation_request: AgentSEOEvaluationRequest
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -3800,8 +3800,8 @@ class PublicApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._verify_agent_seo_serialize(
-            verifier_feedback_request=verifier_feedback_request,
+        _param = self._start_seo_eval_serialize(
+            agent_seo_evaluation_request=agent_seo_evaluation_request,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -3809,7 +3809,7 @@ class PublicApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "VerifierFeedbackResponse",
+            '200': "AgentSEOEvaluationResponse",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -3819,9 +3819,9 @@ class PublicApi:
         return response_data.response
 
 
-    def _verify_agent_seo_serialize(
+    def _start_seo_eval_serialize(
         self,
-        verifier_feedback_request,
+        agent_seo_evaluation_request,
         _request_auth,
         _content_type,
         _headers,
@@ -3847,8 +3847,8 @@ class PublicApi:
         # process the header parameters
         # process the form parameters
         # process the body parameter
-        if verifier_feedback_request is not None:
-            _body_params = verifier_feedback_request
+        if agent_seo_evaluation_request is not None:
+            _body_params = agent_seo_evaluation_request
 
 
         # set the HTTP header `Accept`
