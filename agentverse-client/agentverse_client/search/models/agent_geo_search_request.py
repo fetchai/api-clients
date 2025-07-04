@@ -43,8 +43,8 @@ class AgentGeoSearchRequest(BaseModel):
     exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
     geo_filter: AgentGeoFilter = Field(description="The geo filter that can be applied to the search")
     include_geo_in_relevancy: Optional[StrictBool] = Field(default=False, description="Whether the distance from the given coordinates should influence the ranking of the search results.")
-    search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
-    source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
+    search_id: Optional[StrictStr] = Field(default=None, description="Search id of a previous search, will be generated if not passed.  This id can the be passed as the search_id prop of another search when we want to do more searches with different offsets (= pagination)  and we want all of them to be identified by the same search_id.  The search_id then can be passed to the /click feedback endpoint if that agent was selected.  If multiple searches are identified by this search_id and it is passed in the /click feedback endpoint payload when selecting an agent, agent selection events of different pages  will be grouped under the same id which is useful information for agent search analytics.")
+    source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following:   '', 'agentverse', 'flockx', an agent address but technically can also be a domain or any arbitrary string.")
     __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "prioritise_asi1_agents", "offset", "limit", "exclude_geo_agents", "geo_filter", "include_geo_in_relevancy", "search_id", "source"]
 
     model_config = ConfigDict(

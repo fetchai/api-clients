@@ -18,8 +18,6 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from agentverse_client.search.aio.api.agents_api import AgentsApi
-from agentverse_client.search.aio.api.analytics_api import AnalyticsApi
-from agentverse_client.search.aio.api.functions_api import FunctionsApi
 from agentverse_client.search.aio.api.public_api import PublicApi
 from agentverse_client.search.aio.api.search_api import SearchApi
 
@@ -36,35 +34,17 @@ from agentverse_client.search.aio.exceptions import ApiException
 
 # import models into sdk package
 from agentverse_client.search.aio.models.agent import Agent
-from agentverse_client.search.aio.models.agent_all_time_interaction_counts import AgentAllTimeInteractionCounts
-from agentverse_client.search.aio.models.agent_asi1_interaction_detailed import AgentAsi1InteractionDetailed
-from agentverse_client.search.aio.models.agent_by_similarity_response import AgentBySimilarityResponse
 from agentverse_client.search.aio.models.agent_category import AgentCategory
 from agentverse_client.search.aio.models.agent_contract import AgentContract
 from agentverse_client.search.aio.models.agent_filters import AgentFilters
 from agentverse_client.search.aio.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.aio.models.agent_geo_location import AgentGeoLocation
 from agentverse_client.search.aio.models.agent_geo_search_request import AgentGeoSearchRequest
-from agentverse_client.search.aio.models.agent_insights_response import AgentInsightsResponse
-from agentverse_client.search.aio.models.agent_interaction_counts_response import AgentInteractionCountsResponse
 from agentverse_client.search.aio.models.agent_metadata_value import AgentMetadataValue
-from agentverse_client.search.aio.models.agent_search_analytics_request import AgentSearchAnalyticsRequest
-from agentverse_client.search.aio.models.agent_search_analytics_response import AgentSearchAnalyticsResponse
 from agentverse_client.search.aio.models.agent_search_request import AgentSearchRequest
 from agentverse_client.search.aio.models.agent_search_response import AgentSearchResponse
-from agentverse_client.search.aio.models.agent_search_term_analytics_request import AgentSearchTermAnalyticsRequest
-from agentverse_client.search.aio.models.agent_search_term_analytics_response import AgentSearchTermAnalyticsResponse
-from agentverse_client.search.aio.models.agent_tag import AgentTag
-from agentverse_client.search.aio.models.agent_tag_search_response import AgentTagSearchResponse
 from agentverse_client.search.aio.models.agent_type import AgentType
-from agentverse_client.search.aio.models.analytics_summary import AnalyticsSummary
 from agentverse_client.search.aio.models.direction import Direction
-from agentverse_client.search.aio.models.function import Function
-from agentverse_client.search.aio.models.function_filters import FunctionFilters
-from agentverse_client.search.aio.models.function_last30days_interactions import FunctionLast30daysInteractions
-from agentverse_client.search.aio.models.function_search_request import FunctionSearchRequest
-from agentverse_client.search.aio.models.function_search_response import FunctionSearchResponse
-from agentverse_client.search.aio.models.function_type import FunctionType
 from agentverse_client.search.aio.models.http_validation_error import HTTPValidationError
 from agentverse_client.search.aio.models.interactions_threshold import InteractionsThreshold
 from agentverse_client.search.aio.models.location_inner import LocationInner
@@ -72,10 +52,6 @@ from agentverse_client.search.aio.models.net_protocol import NetProtocol
 from agentverse_client.search.aio.models.protocol import Protocol
 from agentverse_client.search.aio.models.relevancy_cutoff import RelevancyCutoff
 from agentverse_client.search.aio.models.search_feedback_request import SearchFeedbackRequest
-from agentverse_client.search.aio.models.search_term_percentage import SearchTermPercentage
 from agentverse_client.search.aio.models.sort_type import SortType
 from agentverse_client.search.aio.models.status_type import StatusType
-from agentverse_client.search.aio.models.trendy_data import TrendyData
 from agentverse_client.search.aio.models.validation_error import ValidationError
-from agentverse_client.search.aio.models.verifier_feedback_request import VerifierFeedbackRequest
-from agentverse_client.search.aio.models.verifier_feedback_response import VerifierFeedbackResponse
