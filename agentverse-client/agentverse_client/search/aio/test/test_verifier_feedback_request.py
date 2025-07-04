@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.agent_seo_evaluation_response import AgentSEOEvaluationResponse
+from agentverse_client.search.aio.models.verifier_feedback_request import VerifierFeedbackRequest
 
-class TestAgentSEOEvaluationResponse(unittest.TestCase):
-    """AgentSEOEvaluationResponse unit test stubs"""
+class TestVerifierFeedbackRequest(unittest.TestCase):
+    """VerifierFeedbackRequest unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,29 +25,28 @@ class TestAgentSEOEvaluationResponse(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AgentSEOEvaluationResponse:
-        """Test AgentSEOEvaluationResponse
+    def make_instance(self, include_optional) -> VerifierFeedbackRequest:
+        """Test VerifierFeedbackRequest
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AgentSEOEvaluationResponse`
+        # uncomment below to create an instance of `VerifierFeedbackRequest`
         """
-        model = AgentSEOEvaluationResponse()
+        model = VerifierFeedbackRequest()
         if include_optional:
-            return AgentSEOEvaluationResponse(
+            return VerifierFeedbackRequest(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 contract = 'mainnet',
-                eval_id = ''
+                num_messages = 56
             )
         else:
-            return AgentSEOEvaluationResponse(
+            return VerifierFeedbackRequest(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                eval_id = '',
         )
         """
 
-    def testAgentSEOEvaluationResponse(self):
-        """Test AgentSEOEvaluationResponse"""
+    def testVerifierFeedbackRequest(self):
+        """Test VerifierFeedbackRequest"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

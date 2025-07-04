@@ -37,7 +37,6 @@ class TestAgentAsi1InteractionDetailed(unittest.TestCase):
             return AgentAsi1InteractionDetailed(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
                 contract = 'mainnet',
-                status = 'started',
                 success = True,
                 request = '',
                 response = '',
@@ -47,7 +46,6 @@ class TestAgentAsi1InteractionDetailed(unittest.TestCase):
         else:
             return AgentAsi1InteractionDetailed(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                status = 'started',
                 success = True,
                 request = '',
                 response = '',

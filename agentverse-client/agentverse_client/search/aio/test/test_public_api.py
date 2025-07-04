@@ -117,10 +117,10 @@ class TestPublicApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_start_seo_eval(self) -> None:
-        """Test case for start_seo_eval
+    async def test_verify_agent_seo(self) -> None:
+        """Test case for verify_agent_seo
 
-        Start Seo Eval
+        Verifier Feedback Request
         """
         pass
 
