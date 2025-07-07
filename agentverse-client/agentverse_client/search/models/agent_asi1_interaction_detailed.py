@@ -21,7 +21,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_
 from typing import Any, ClassVar, Dict, List, Optional
 from typing_extensions import Annotated
 from agentverse_client.search.models.agent_contract import AgentContract
-from agentverse_client.search.models.agent_eval_status import AgentEvalStatus
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -31,13 +30,12 @@ class AgentAsi1InteractionDetailed(BaseModel):
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    status: AgentEvalStatus = Field(description="Denotes the SEO evaluation status.")
     success: StrictBool = Field(description="Denotes if agent execution by ASI1 was successful or not.")
     request: StrictStr = Field(description="Message sent to the agent.")
     response: StrictStr = Field(description="Response received from the agent.")
     from_verifier: StrictBool = Field(description="Denotes if the interaction came from the verifier agent. By default it's False - means it is an actual ASI1-agent interaction.")
     timestamp: StrictStr
-    __properties: ClassVar[List[str]] = ["address", "contract", "status", "success", "request", "response", "from_verifier", "timestamp"]
+    __properties: ClassVar[List[str]] = ["address", "contract", "success", "request", "response", "from_verifier", "timestamp"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -99,7 +97,6 @@ class AgentAsi1InteractionDetailed(BaseModel):
         _obj = cls.model_validate({
             "address": obj.get("address"),
             "contract": obj.get("contract"),
-            "status": obj.get("status"),
             "success": obj.get("success"),
             "request": obj.get("request"),
             "response": obj.get("response"),

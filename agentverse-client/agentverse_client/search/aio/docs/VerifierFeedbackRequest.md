@@ -1,4 +1,4 @@
-# AgentSEOEvaluationRequest
+# VerifierFeedbackRequest
 
 
 ## Properties
@@ -12,19 +12,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_client.search.aio.models.agent_seo_evaluation_request import AgentSEOEvaluationRequest
+from agentverse_client.search.aio.models.verifier_feedback_request import VerifierFeedbackRequest
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of AgentSEOEvaluationRequest from a JSON string
-agent_seo_evaluation_request_instance = AgentSEOEvaluationRequest.from_json(json)
+# create an instance of VerifierFeedbackRequest from a JSON string
+verifier_feedback_request_instance = VerifierFeedbackRequest.from_json(json)
 # print the JSON string representation of the object
-print(AgentSEOEvaluationRequest.to_json())
+print(VerifierFeedbackRequest.to_json())
 
 # convert the object into a dict
-agent_seo_evaluation_request_dict = agent_seo_evaluation_request_instance.to_dict()
-# create an instance of AgentSEOEvaluationRequest from a dict
-agent_seo_evaluation_request_from_dict = AgentSEOEvaluationRequest.from_dict(agent_seo_evaluation_request_dict)
+verifier_feedback_request_dict = verifier_feedback_request_instance.to_dict()
+# create an instance of VerifierFeedbackRequest from a dict
+verifier_feedback_request_from_dict = VerifierFeedbackRequest.from_dict(verifier_feedback_request_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

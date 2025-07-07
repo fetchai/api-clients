@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | The address of the agent | 
 **contract** | [**AgentContract**](AgentContract.md) | The Almanac contract where the agent is registered | [optional] 
-**status** | [**AgentEvalStatus**](AgentEvalStatus.md) | Denotes the SEO evaluation status. | 
 **success** | **bool** | Denotes if agent execution by ASI1 was successful or not. | 
 **request** | **str** | Message sent to the agent. | 
 **response** | **str** | Response received from the agent. | 
