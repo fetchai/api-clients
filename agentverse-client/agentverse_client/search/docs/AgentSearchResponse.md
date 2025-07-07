@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **limit** | **int** | The limit of the search results | 
 **num_hits** | **int** | The number of hits might be smaller than the total number of hits (&#x60;total&#x60;) when using offset and limit | 
 **total** | **int** | The total number of hits might be bigger than the actual number of hits (&#x60;num_hits&#x60;)&#x60; when using offset and limit | 
-**search_id** | **str** | Id passed to the search in the request payload / generated for the search (if not passed in the payload).  This id can the be passed as the search_id prop of another search when we want to do more searches with different offsets (&#x3D; pagination)  and we want all of them to be identified by the same search_id.  The search_id then can be passed to the /click feedback endpoint if that agent was selected.  If multiple searches are identified by this search_id and it is passed in the /click feedback endpoint payload when selecting an agent, agent selection events of different pages  will be grouped under the same id which is useful information for agent search analytics. | 
+**search_id** | **str** | search id passed to the search in the request / generated for the search | 
 
 ## Example
 

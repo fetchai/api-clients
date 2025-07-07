@@ -30,7 +30,7 @@ class SearchFeedbackRequest(BaseModel):
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent")
     contract: Optional[AgentContract] = Field(default=None, description="The Almanac contract where the agent is registered")
-    search_id: StrictStr = Field(description="Search id generated before (during search) that identifies the search where the selected agent was retrieved.")
+    search_id: StrictStr = Field(description="search id generated before (during search)")
     page_index: Annotated[int, Field(strict=True, ge=0)] = Field(description="page index (should start from 0)")
     __properties: ClassVar[List[str]] = ["address", "contract", "search_id", "page_index"]
 

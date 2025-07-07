@@ -40,9 +40,10 @@ class AgentSearchRequest(BaseModel):
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
-    search_id: Optional[StrictStr] = Field(default=None, description="Search id of a previous search, will be generated if not passed.  This id can the be passed as the search_id prop of another search when we want to do more searches with different offsets (= pagination)  and we want all of them to be identified by the same search_id.  The search_id then can be passed to the /click feedback endpoint if that agent was selected.  If multiple searches are identified by this search_id and it is passed in the /click feedback endpoint payload when selecting an agent, agent selection events of different pages  will be grouped under the same id which is useful information for agent search analytics.")
-    source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following:   '', 'agentverse', 'flockx', an agent address but technically can also be a domain or any arbitrary string.")
-    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "prioritise_asi1_agents", "offset", "limit", "exclude_geo_agents", "search_id", "source"]
+    search_id: Optional[StrictStr] = Field(default=None, description="Unique identifier of the search in question (search id generated before (previous search)).")
+    source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following: '', 'agentverse', 'flockx', an agent address")
+    only_current_campaign_eligible: Optional[StrictBool] = Field(default=False, description="If True, only agents eligible for current campaign are shown")
+    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "prioritise_asi1_agents", "offset", "limit", "exclude_geo_agents", "search_id", "source", "only_current_campaign_eligible"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -114,7 +115,8 @@ class AgentSearchRequest(BaseModel):
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
             "exclude_geo_agents": obj.get("exclude_geo_agents") if obj.get("exclude_geo_agents") is not None else True,
             "search_id": obj.get("search_id"),
-            "source": obj.get("source") if obj.get("source") is not None else ''
+            "source": obj.get("source") if obj.get("source") is not None else '',
+            "only_current_campaign_eligible": obj.get("only_current_campaign_eligible") if obj.get("only_current_campaign_eligible") is not None else False
         })
         return _obj
 
