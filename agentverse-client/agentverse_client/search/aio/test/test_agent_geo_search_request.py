@@ -59,7 +59,6 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                 cutoff = 'none',
                 search_text = '',
                 semantic_search = True,
-                prioritise_asi1_agents = True,
                 offset = 56,
                 limit = 56,
                 exclude_geo_agents = True,
