@@ -40,6 +40,13 @@ class TestPublicApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_start_multi_seo_eval(self) -> None:
+        """Test case for start_multi_seo_eval
+
+        Start Multi Seo Eval
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

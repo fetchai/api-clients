@@ -48,6 +48,7 @@ from agentverse_client.search.models.direction import Direction
 from agentverse_client.search.models.http_validation_error import HTTPValidationError
 from agentverse_client.search.models.interactions_threshold import InteractionsThreshold
 from agentverse_client.search.models.location_inner import LocationInner
+from agentverse_client.search.models.multi_seo_evaluation_request import MultiSEOEvaluationRequest
 from agentverse_client.search.models.net_protocol import NetProtocol
 from agentverse_client.search.models.protocol import Protocol
 from agentverse_client.search.models.relevancy_cutoff import RelevancyCutoff
