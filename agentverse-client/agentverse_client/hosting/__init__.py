@@ -45,9 +45,6 @@ from agentverse_client.hosting.models.agent_summary import AgentSummary
 from agentverse_client.hosting.models.envelope import Envelope
 from agentverse_client.hosting.models.http_validation_error import HTTPValidationError
 from agentverse_client.hosting.models.historical_interactions import HistoricalInteractions
-from agentverse_client.hosting.models.hosting_quota_set_event import HostingQuotaSetEvent
-from agentverse_client.hosting.models.hosting_quota_top_up_event import HostingQuotaTopUpEvent
-from agentverse_client.hosting.models.hosting_quotas import HostingQuotas
 from agentverse_client.hosting.models.interaction_period import InteractionPeriod
 from agentverse_client.hosting.models.location_inner import LocationInner
 from agentverse_client.hosting.models.log_level import LogLevel
