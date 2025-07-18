@@ -14,14 +14,14 @@
 
 import unittest
 
-from agentverse_client.storage.aio.api.default_api import DefaultApi
+from agentverse_client.storage.aio.api.storage_api import StorageApi
 
 
-class TestDefaultApi(unittest.IsolatedAsyncioTestCase):
-    """DefaultApi unit test stubs"""
+class TestStorageApi(unittest.IsolatedAsyncioTestCase):
+    """StorageApi unit test stubs"""
 
     async def asyncSetUp(self) -> None:
-        self.api = DefaultApi()
+        self.api = StorageApi()
 
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()

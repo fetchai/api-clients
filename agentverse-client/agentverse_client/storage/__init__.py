@@ -17,7 +17,7 @@
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from agentverse_client.storage.api.default_api import DefaultApi
+from agentverse_client.storage.api.storage_api import StorageApi
 
 # import ApiClient
 from agentverse_client.storage.api_response import ApiResponse

@@ -1,18 +1,18 @@
-# agentverse_client.storage.aio.DefaultApi
+# agentverse_client.storage.aio.StorageApi
 
 All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**add_asset_permission**](DefaultApi.md#add_asset_permission) | **PUT** /v1/storage/assets/{asset_id}/permissions/ | Add Permission
-[**create_asset_metadata**](DefaultApi.md#create_asset_metadata) | **POST** /v1/storage/assets/ | Create Asset Metadata
-[**delete_asset**](DefaultApi.md#delete_asset) | **DELETE** /v1/storage/assets/{asset_id}/ | Delete Asset
-[**delete_asset_permission**](DefaultApi.md#delete_asset_permission) | **DELETE** /v1/storage/assets/{asset_id}/permissions/ | Delete Asset Permission For An Agent
-[**download_asset_contents**](DefaultApi.md#download_asset_contents) | **GET** /v1/storage/assets/{asset_id}/contents/ | Download Asset
-[**get_asset_metadata**](DefaultApi.md#get_asset_metadata) | **GET** /v1/storage/assets/{identifier}/ | Retrieve Asset
-[**list_asset_permissions**](DefaultApi.md#list_asset_permissions) | **GET** /v1/storage/assets/{asset_id}/permissions/ | List Asset Permissions
-[**list_user_assets**](DefaultApi.md#list_user_assets) | **GET** /v1/storage/assets/ | List Assets
-[**upload_asset_contents**](DefaultApi.md#upload_asset_contents) | **PUT** /v1/storage/assets/{asset_id}/contents/ | Upload Asset Contents
+[**add_asset_permission**](StorageApi.md#add_asset_permission) | **PUT** /v1/storage/assets/{asset_id}/permissions/ | Add Permission
+[**create_asset_metadata**](StorageApi.md#create_asset_metadata) | **POST** /v1/storage/assets/ | Create Asset Metadata
+[**delete_asset**](StorageApi.md#delete_asset) | **DELETE** /v1/storage/assets/{asset_id}/ | Delete Asset
+[**delete_asset_permission**](StorageApi.md#delete_asset_permission) | **DELETE** /v1/storage/assets/{asset_id}/permissions/ | Delete Asset Permission For An Agent
+[**download_asset_contents**](StorageApi.md#download_asset_contents) | **GET** /v1/storage/assets/{asset_id}/contents/ | Download Asset
+[**get_asset_metadata**](StorageApi.md#get_asset_metadata) | **GET** /v1/storage/assets/{identifier}/ | Retrieve Asset
+[**list_asset_permissions**](StorageApi.md#list_asset_permissions) | **GET** /v1/storage/assets/{asset_id}/permissions/ | List Asset Permissions
+[**list_user_assets**](StorageApi.md#list_user_assets) | **GET** /v1/storage/assets/ | List Assets
+[**upload_asset_contents**](StorageApi.md#upload_asset_contents) | **PUT** /v1/storage/assets/{asset_id}/contents/ | Upload Asset Contents
 
 
 # **add_asset_permission**
@@ -47,17 +47,17 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
     new_permission = agentverse_client.storage.aio.NewPermission() # NewPermission | 
 
     try:
         # Add Permission
         api_response = await api_instance.add_asset_permission(asset_id, new_permission)
-        print("The response of DefaultApi->add_asset_permission:\n")
+        print("The response of StorageApi->add_asset_permission:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->add_asset_permission: %s\n" % e)
+        print("Exception when calling StorageApi->add_asset_permission: %s\n" % e)
 ```
 
 
@@ -126,16 +126,16 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     new_asset = agentverse_client.storage.aio.NewAsset() # NewAsset | 
 
     try:
         # Create Asset Metadata
         api_response = await api_instance.create_asset_metadata(new_asset)
-        print("The response of DefaultApi->create_asset_metadata:\n")
+        print("The response of StorageApi->create_asset_metadata:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->create_asset_metadata: %s\n" % e)
+        print("Exception when calling StorageApi->create_asset_metadata: %s\n" % e)
 ```
 
 
@@ -201,14 +201,14 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
 
     try:
         # Delete Asset
         await api_instance.delete_asset(asset_id)
     except Exception as e:
-        print("Exception when calling DefaultApi->delete_asset: %s\n" % e)
+        print("Exception when calling StorageApi->delete_asset: %s\n" % e)
 ```
 
 
@@ -272,7 +272,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
     agent_address = 'agent_address_example' # str | The agent's address (optional)
 
@@ -280,7 +280,7 @@ async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
         # Delete Asset Permission For An Agent
         await api_instance.delete_asset_permission(asset_id, agent_address=agent_address)
     except Exception as e:
-        print("Exception when calling DefaultApi->delete_asset_permission: %s\n" % e)
+        print("Exception when calling StorageApi->delete_asset_permission: %s\n" % e)
 ```
 
 
@@ -341,16 +341,16 @@ configuration = agentverse_client.storage.aio.Configuration(
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
 
     try:
         # Download Asset
         api_response = await api_instance.download_asset_contents(asset_id)
-        print("The response of DefaultApi->download_asset_contents:\n")
+        print("The response of StorageApi->download_asset_contents:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->download_asset_contents: %s\n" % e)
+        print("Exception when calling StorageApi->download_asset_contents: %s\n" % e)
 ```
 
 
@@ -417,16 +417,16 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     identifier = 'identifier_example' # str | 
 
     try:
         # Retrieve Asset
         api_response = await api_instance.get_asset_metadata(identifier)
-        print("The response of DefaultApi->get_asset_metadata:\n")
+        print("The response of StorageApi->get_asset_metadata:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->get_asset_metadata: %s\n" % e)
+        print("Exception when calling StorageApi->get_asset_metadata: %s\n" % e)
 ```
 
 
@@ -491,7 +491,7 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
     agent_address = 'agent_address_example' # str |  (optional)
     offset = 0 # int |  (optional) (default to 0)
@@ -500,10 +500,10 @@ async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     try:
         # List Asset Permissions
         api_response = await api_instance.list_asset_permissions(asset_id, agent_address=agent_address, offset=offset, limit=limit)
-        print("The response of DefaultApi->list_asset_permissions:\n")
+        print("The response of StorageApi->list_asset_permissions:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->list_asset_permissions: %s\n" % e)
+        print("Exception when calling StorageApi->list_asset_permissions: %s\n" % e)
 ```
 
 
@@ -573,17 +573,17 @@ configuration.access_token = os.environ["ACCESS_TOKEN"]
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     offset = 0 # int |  (optional) (default to 0)
     limit = 100 # int |  (optional) (default to 100)
 
     try:
         # List Assets
         api_response = await api_instance.list_user_assets(offset=offset, limit=limit)
-        print("The response of DefaultApi->list_user_assets:\n")
+        print("The response of StorageApi->list_user_assets:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->list_user_assets: %s\n" % e)
+        print("Exception when calling StorageApi->list_user_assets: %s\n" % e)
 ```
 
 
@@ -645,17 +645,17 @@ configuration = agentverse_client.storage.aio.Configuration(
 # Enter a context with an instance of the API client
 async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.storage.aio.DefaultApi(api_client)
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
     asset_content = agentverse_client.storage.aio.AssetContent() # AssetContent | 
 
     try:
         # Upload Asset Contents
         api_response = await api_instance.upload_asset_contents(asset_id, asset_content)
-        print("The response of DefaultApi->upload_asset_contents:\n")
+        print("The response of StorageApi->upload_asset_contents:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling DefaultApi->upload_asset_contents: %s\n" % e)
+        print("Exception when calling StorageApi->upload_asset_contents: %s\n" % e)
 ```
 
 
