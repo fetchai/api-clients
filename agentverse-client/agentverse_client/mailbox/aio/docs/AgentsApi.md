@@ -11,6 +11,7 @@ Method | HTTP request | Description
 [**get_user_agent**](AgentsApi.md#get_user_agent) | **GET** /v1/agents/{address} | Get Specific User Agent
 [**list_team_agents**](AgentsApi.md#list_team_agents) | **GET** /v1/mailroom/teams/{slug}/agents | List Team Agents
 [**list_user_agents**](AgentsApi.md#list_user_agents) | **GET** /v1/agents | List User Agents
+[**register_agent**](AgentsApi.md#register_agent) | **POST** /v1/agents | Register
 [**update_team_agent**](AgentsApi.md#update_team_agent) | **PUT** /v1/mailroom/teams/{slug}/agents/{address} | Update Specific Team Agent
 [**update_user_agent**](AgentsApi.md#update_user_agent) | **PUT** /v1/agents/{address} | Update Specific User Agent
 
@@ -523,6 +524,81 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **register_agent**
+> RegistrationResponse register_agent(registration_request)
+
+Register
+
+### Example
+
+* OAuth Authentication (FaunaAuthorizationScheme):
+
+```python
+import agentverse_client.mailbox.aio
+from agentverse_client.mailbox.aio.models.registration_request import RegistrationRequest
+from agentverse_client.mailbox.aio.models.registration_response import RegistrationResponse
+from agentverse_client.mailbox.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.mailbox.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
+
+# Enter a context with an instance of the API client
+async with agentverse_client.mailbox.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.mailbox.aio.AgentsApi(api_client)
+    registration_request = agentverse_client.mailbox.aio.RegistrationRequest() # RegistrationRequest | 
+
+    try:
+        # Register
+        api_response = await api_instance.register_agent(registration_request)
+        print("The response of AgentsApi->register_agent:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling AgentsApi->register_agent: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **registration_request** | [**RegistrationRequest**](RegistrationRequest.md)|  | 
+
+### Return type
+
+[**RegistrationResponse**](RegistrationResponse.md)
+
+### Authorization
+
+[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

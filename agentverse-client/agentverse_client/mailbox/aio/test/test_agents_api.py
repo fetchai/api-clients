@@ -75,6 +75,13 @@ class TestAgentsApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_register_agent(self) -> None:
+        """Test case for register_agent
+
+        Register
+        """
+        pass
+
     async def test_update_team_agent(self) -> None:
         """Test case for update_team_agent
 
