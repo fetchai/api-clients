@@ -21,6 +21,7 @@ from agentverse_client.mailbox.api.agents_api import AgentsApi
 from agentverse_client.mailbox.api.exchange_api import ExchangeApi
 from agentverse_client.mailbox.api.feedback_api import FeedbackApi
 from agentverse_client.mailbox.api.mailbox_api import MailboxApi
+from agentverse_client.mailbox.api.proxy_api import ProxyApi
 
 # import ApiClient
 from agentverse_client.mailbox.api_response import ApiResponse
