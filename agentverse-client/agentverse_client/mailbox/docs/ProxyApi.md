@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **get_proxy_agent_endpoint**
-> str get_proxy_agent_endpoint(agent_address)
+> AgentEndpoint get_proxy_agent_endpoint(agent_address)
 
 Get Proxy Agent Endpoint
 
@@ -19,6 +19,7 @@ Get the endpoint for a proxy agent by its address.
 
 ```python
 import agentverse_client.mailbox
+from agentverse_client.mailbox.models.agent_endpoint import AgentEndpoint
 from agentverse_client.mailbox.rest import ApiException
 from pprint import pprint
 
@@ -55,7 +56,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**str**
+[**AgentEndpoint**](AgentEndpoint.md)
 
 ### Authorization
 

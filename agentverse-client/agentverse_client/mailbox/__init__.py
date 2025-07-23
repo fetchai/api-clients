@@ -36,6 +36,7 @@ from agentverse_client.mailbox.exceptions import ApiException
 
 # import models into sdk package
 from agentverse_client.mailbox.models.agent import Agent
+from agentverse_client.mailbox.models.agent_endpoint import AgentEndpoint
 from agentverse_client.mailbox.models.agent_updates import AgentUpdates
 from agentverse_client.mailbox.models.envelope import Envelope
 from agentverse_client.mailbox.models.feedback import Feedback

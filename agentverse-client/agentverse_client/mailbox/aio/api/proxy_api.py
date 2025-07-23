@@ -17,6 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import StrictStr
+from agentverse_client.mailbox.aio.models.agent_endpoint import AgentEndpoint
 
 from agentverse_client.mailbox.aio.api_client import ApiClient, RequestSerialized
 from agentverse_client.mailbox.aio.api_response import ApiResponse
@@ -52,7 +53,7 @@ class ProxyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> str:
+    ) -> AgentEndpoint:
         """Get Proxy Agent Endpoint
 
         Get the endpoint for a proxy agent by its address.
@@ -90,7 +91,7 @@ class ProxyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "AgentEndpoint",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -120,7 +121,7 @@ class ProxyApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[str]:
+    ) -> ApiResponse[AgentEndpoint]:
         """Get Proxy Agent Endpoint
 
         Get the endpoint for a proxy agent by its address.
@@ -158,7 +159,7 @@ class ProxyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "AgentEndpoint",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -226,7 +227,7 @@ class ProxyApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "str",
+            '200': "AgentEndpoint",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
