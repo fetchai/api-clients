@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.almanac.aio.models.endpoint_output import EndpointOutput
+from agentverse_client.almanac.aio.models.endpoint import Endpoint
 
-class TestEndpointOutput(unittest.TestCase):
-    """EndpointOutput unit test stubs"""
+class TestEndpoint(unittest.TestCase):
+    """Endpoint unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,28 +25,28 @@ class TestEndpointOutput(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> EndpointOutput:
-        """Test EndpointOutput
+    def make_instance(self, include_optional) -> Endpoint:
+        """Test Endpoint
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `EndpointOutput`
+        # uncomment below to create an instance of `Endpoint`
         """
-        model = EndpointOutput()
+        model = Endpoint()
         if include_optional:
-            return EndpointOutput(
+            return Endpoint(
                 url = '',
                 weight = 56
             )
         else:
-            return EndpointOutput(
+            return Endpoint(
                 url = '',
                 weight = 56,
         )
         """
 
-    def testEndpointOutput(self):
-        """Test EndpointOutput"""
+    def testEndpoint(self):
+        """Test Endpoint"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

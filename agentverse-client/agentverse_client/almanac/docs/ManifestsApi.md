@@ -1,28 +1,27 @@
-# agentverse_client.almanac.AlmanacApi
+# agentverse_client.almanac.ManifestsApi
 
 All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**get_agent**](AlmanacApi.md#get_agent) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
-[**get_recently_registered_agents**](AlmanacApi.md#get_recently_registered_agents) | **GET** /v1/almanac/recent | Get Recently Registered Agents
-[**register_agent**](AlmanacApi.md#register_agent) | **POST** /v1/almanac/agents | Register Agent
-[**register_agents_batch_v1_almanac_agents_batch_post**](AlmanacApi.md#register_agents_batch_v1_almanac_agents_batch_post) | **POST** /v1/almanac/agents/batch | Register Agents Batch
-[**update_agent_status**](AlmanacApi.md#update_agent_status) | **POST** /v1/almanac/agents/{agent_address}/status | Update Agent Status
+[**get_manifest**](ManifestsApi.md#get_manifest) | **GET** /v1/almanac/manifests/protocols/{protocol_digest} | Get Protocol Manifest
+[**get_protocol_models**](ManifestsApi.md#get_protocol_models) | **GET** /v1/almanac/manifests/models/{model_digest} | Get Protocol Models
+[**list_manifests**](ManifestsApi.md#list_manifests) | **POST** /v1/almanac/manifests | Upload Manifest
+[**resolve_protocol_digest**](ManifestsApi.md#resolve_protocol_digest) | **GET** /v1/almanac/manifests/digests/ | Resolve Procotol Digests
+[**search_protocol_digests**](ManifestsApi.md#search_protocol_digests) | **GET** /v1/almanac/manifests/digests/search/ | Search Procotol Digests
 
 
-# **get_agent**
-> Agent get_agent(address, prefix=prefix)
+# **get_manifest**
+> Manifest get_manifest(protocol_digest)
 
-Get Specific Agent
+Get Protocol Manifest
 
 ### Example
 
 
 ```python
 import agentverse_client.almanac
-from agentverse_client.almanac.models.address_prefix import AddressPrefix
-from agentverse_client.almanac.models.agent import Agent
+from agentverse_client.almanac.models.manifest import Manifest
 from agentverse_client.almanac.rest import ApiException
 from pprint import pprint
 
@@ -36,17 +35,16 @@ configuration = agentverse_client.almanac.Configuration(
 # Enter a context with an instance of the API client
 with agentverse_client.almanac.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.almanac.AlmanacApi(api_client)
-    address = 'address_example' # str | 
-    prefix = agentverse_client.almanac.AddressPrefix() # AddressPrefix |  (optional)
+    api_instance = agentverse_client.almanac.ManifestsApi(api_client)
+    protocol_digest = 'protocol_digest_example' # str | 
 
     try:
-        # Get Specific Agent
-        api_response = api_instance.get_agent(address, prefix=prefix)
-        print("The response of AlmanacApi->get_agent:\n")
+        # Get Protocol Manifest
+        api_response = api_instance.get_manifest(protocol_digest)
+        print("The response of ManifestsApi->get_manifest:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->get_agent: %s\n" % e)
+        print("Exception when calling ManifestsApi->get_manifest: %s\n" % e)
 ```
 
 
@@ -56,12 +54,11 @@ with agentverse_client.almanac.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **address** | **str**|  | 
- **prefix** | [**AddressPrefix**](.md)|  | [optional] 
+ **protocol_digest** | **str**|  | 
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**Manifest**](Manifest.md)
 
 ### Authorization
 
@@ -81,17 +78,16 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_recently_registered_agents**
-> List[Agent] get_recently_registered_agents()
+# **get_protocol_models**
+> object get_protocol_models(model_digest)
 
-Get Recently Registered Agents
+Get Protocol Models
 
 ### Example
 
 
 ```python
 import agentverse_client.almanac
-from agentverse_client.almanac.models.agent import Agent
 from agentverse_client.almanac.rest import ApiException
 from pprint import pprint
 
@@ -105,26 +101,30 @@ configuration = agentverse_client.almanac.Configuration(
 # Enter a context with an instance of the API client
 with agentverse_client.almanac.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.almanac.AlmanacApi(api_client)
+    api_instance = agentverse_client.almanac.ManifestsApi(api_client)
+    model_digest = 'model_digest_example' # str | 
 
     try:
-        # Get Recently Registered Agents
-        api_response = api_instance.get_recently_registered_agents()
-        print("The response of AlmanacApi->get_recently_registered_agents:\n")
+        # Get Protocol Models
+        api_response = api_instance.get_protocol_models(model_digest)
+        print("The response of ManifestsApi->get_protocol_models:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->get_recently_registered_agents: %s\n" % e)
+        print("Exception when calling ManifestsApi->get_protocol_models: %s\n" % e)
 ```
 
 
 
 ### Parameters
 
-This endpoint does not need any parameter.
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **model_digest** | **str**|  | 
 
 ### Return type
 
-[**List[Agent]**](Agent.md)
+**object**
 
 ### Authorization
 
@@ -140,20 +140,20 @@ No authorization required
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **register_agent**
-> object register_agent(agent_registration_attestation)
+# **list_manifests**
+> object list_manifests(body)
 
-Register Agent
+Upload Manifest
 
 ### Example
 
 
 ```python
 import agentverse_client.almanac
-from agentverse_client.almanac.models.agent_registration_attestation import AgentRegistrationAttestation
 from agentverse_client.almanac.rest import ApiException
 from pprint import pprint
 
@@ -167,16 +167,16 @@ configuration = agentverse_client.almanac.Configuration(
 # Enter a context with an instance of the API client
 with agentverse_client.almanac.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.almanac.AlmanacApi(api_client)
-    agent_registration_attestation = agentverse_client.almanac.AgentRegistrationAttestation() # AgentRegistrationAttestation | 
+    api_instance = agentverse_client.almanac.ManifestsApi(api_client)
+    body = None # object | 
 
     try:
-        # Register Agent
-        api_response = api_instance.register_agent(agent_registration_attestation)
-        print("The response of AlmanacApi->register_agent:\n")
+        # Upload Manifest
+        api_response = api_instance.list_manifests(body)
+        print("The response of ManifestsApi->list_manifests:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->register_agent: %s\n" % e)
+        print("Exception when calling ManifestsApi->list_manifests: %s\n" % e)
 ```
 
 
@@ -186,7 +186,7 @@ with agentverse_client.almanac.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_registration_attestation** | [**AgentRegistrationAttestation**](AgentRegistrationAttestation.md)|  | 
+ **body** | **object**|  | 
 
 ### Return type
 
@@ -210,17 +210,17 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **register_agents_batch_v1_almanac_agents_batch_post**
-> object register_agents_batch_v1_almanac_agents_batch_post(agent_registration_attestation_batch)
+# **resolve_protocol_digest**
+> List[ResolvedProtocolDigest] resolve_protocol_digest(protocol_digest=protocol_digest)
 
-Register Agents Batch
+Resolve Procotol Digests
 
 ### Example
 
 
 ```python
 import agentverse_client.almanac
-from agentverse_client.almanac.models.agent_registration_attestation_batch import AgentRegistrationAttestationBatch
+from agentverse_client.almanac.models.resolved_protocol_digest import ResolvedProtocolDigest
 from agentverse_client.almanac.rest import ApiException
 from pprint import pprint
 
@@ -234,16 +234,16 @@ configuration = agentverse_client.almanac.Configuration(
 # Enter a context with an instance of the API client
 with agentverse_client.almanac.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.almanac.AlmanacApi(api_client)
-    agent_registration_attestation_batch = agentverse_client.almanac.AgentRegistrationAttestationBatch() # AgentRegistrationAttestationBatch | 
+    api_instance = agentverse_client.almanac.ManifestsApi(api_client)
+    protocol_digest = ['protocol_digest_example'] # List[str] |  (optional)
 
     try:
-        # Register Agents Batch
-        api_response = api_instance.register_agents_batch_v1_almanac_agents_batch_post(agent_registration_attestation_batch)
-        print("The response of AlmanacApi->register_agents_batch_v1_almanac_agents_batch_post:\n")
+        # Resolve Procotol Digests
+        api_response = api_instance.resolve_protocol_digest(protocol_digest=protocol_digest)
+        print("The response of ManifestsApi->resolve_protocol_digest:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->register_agents_batch_v1_almanac_agents_batch_post: %s\n" % e)
+        print("Exception when calling ManifestsApi->resolve_protocol_digest: %s\n" % e)
 ```
 
 
@@ -253,11 +253,11 @@ with agentverse_client.almanac.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_registration_attestation_batch** | [**AgentRegistrationAttestationBatch**](AgentRegistrationAttestationBatch.md)|  | 
+ **protocol_digest** | [**List[str]**](str.md)|  | [optional] 
 
 ### Return type
 
-**object**
+[**List[ResolvedProtocolDigest]**](ResolvedProtocolDigest.md)
 
 ### Authorization
 
@@ -265,7 +265,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
@@ -277,17 +277,17 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_agent_status**
-> object update_agent_status(agent_address, agent_status_update)
+# **search_protocol_digests**
+> List[ResolvedProtocolDigest] search_protocol_digests(name=name)
 
-Update Agent Status
+Search Procotol Digests
 
 ### Example
 
 
 ```python
 import agentverse_client.almanac
-from agentverse_client.almanac.models.agent_status_update import AgentStatusUpdate
+from agentverse_client.almanac.models.resolved_protocol_digest import ResolvedProtocolDigest
 from agentverse_client.almanac.rest import ApiException
 from pprint import pprint
 
@@ -301,17 +301,16 @@ configuration = agentverse_client.almanac.Configuration(
 # Enter a context with an instance of the API client
 with agentverse_client.almanac.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.almanac.AlmanacApi(api_client)
-    agent_address = 'agent_address_example' # str | 
-    agent_status_update = agentverse_client.almanac.AgentStatusUpdate() # AgentStatusUpdate | 
+    api_instance = agentverse_client.almanac.ManifestsApi(api_client)
+    name = 'name_example' # str |  (optional)
 
     try:
-        # Update Agent Status
-        api_response = api_instance.update_agent_status(agent_address, agent_status_update)
-        print("The response of AlmanacApi->update_agent_status:\n")
+        # Search Procotol Digests
+        api_response = api_instance.search_protocol_digests(name=name)
+        print("The response of ManifestsApi->search_protocol_digests:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling AlmanacApi->update_agent_status: %s\n" % e)
+        print("Exception when calling ManifestsApi->search_protocol_digests: %s\n" % e)
 ```
 
 
@@ -321,12 +320,11 @@ with agentverse_client.almanac.ApiClient(configuration) as api_client:
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **agent_address** | **str**|  | 
- **agent_status_update** | [**AgentStatusUpdate**](AgentStatusUpdate.md)|  | 
+ **name** | **str**|  | [optional] 
 
 ### Return type
 
-**object**
+[**List[ResolvedProtocolDigest]**](ResolvedProtocolDigest.md)
 
 ### Authorization
 
@@ -334,7 +332,7 @@ No authorization required
 
 ### HTTP request headers
 
- - **Content-Type**: application/json
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details

@@ -33,20 +33,6 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_get_agents_by_domain(self) -> None:
-        """Test case for get_agents_by_domain
-
-        Get Agents By Domain
-        """
-        pass
-
-    async def test_get_domain_record(self) -> None:
-        """Test case for get_domain_record
-
-        Get Domain Record
-        """
-        pass
-
     async def test_get_recently_registered_agents(self) -> None:
         """Test case for get_recently_registered_agents
 
@@ -65,13 +51,6 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
         """Test case for register_agents_batch_v1_almanac_agents_batch_post
 
         Register Agents Batch
-        """
-        pass
-
-    async def test_search_available_agent_name(self) -> None:
-        """Test case for search_available_agent_name
-
-        Search Available Agent Name
         """
         pass
 

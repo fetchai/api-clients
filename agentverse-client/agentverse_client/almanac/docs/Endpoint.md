@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**url** | **str** |  | 
-**weight** | **int** |  | 
+**url** | **str** | Endpoint URL | 
+**weight** | **int** | Relative weight for load balancing or priority | 
 
 ## Example
 

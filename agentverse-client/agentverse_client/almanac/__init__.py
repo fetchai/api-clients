@@ -18,6 +18,7 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from agentverse_client.almanac.api.almanac_api import AlmanacApi
+from agentverse_client.almanac.api.manifests_api import ManifestsApi
 
 # import ApiClient
 from agentverse_client.almanac.api_response import ApiResponse
@@ -34,9 +35,6 @@ from agentverse_client.almanac.exceptions import ApiException
 from agentverse_client.almanac.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.models.agent import Agent
 from agentverse_client.almanac.models.agent_endpoint import AgentEndpoint
-from agentverse_client.almanac.models.agent_name_availability import AgentNameAvailability
-from agentverse_client.almanac.models.agent_name_availability_status import AgentNameAvailabilityStatus
-from agentverse_client.almanac.models.agent_record import AgentRecord
 from agentverse_client.almanac.models.agent_registration_attestation import AgentRegistrationAttestation
 from agentverse_client.almanac.models.agent_registration_attestation_batch import AgentRegistrationAttestationBatch
 from agentverse_client.almanac.models.agent_registration_attestation_metadata_value import AgentRegistrationAttestationMetadataValue
@@ -44,9 +42,7 @@ from agentverse_client.almanac.models.agent_status import AgentStatus
 from agentverse_client.almanac.models.agent_status_update import AgentStatusUpdate
 from agentverse_client.almanac.models.agent_type import AgentType
 from agentverse_client.almanac.models.developer_category import DeveloperCategory
-from agentverse_client.almanac.models.domain_record import DomainRecord
-from agentverse_client.almanac.models.endpoint_input import EndpointInput
-from agentverse_client.almanac.models.endpoint_output import EndpointOutput
+from agentverse_client.almanac.models.endpoint import Endpoint
 from agentverse_client.almanac.models.http_validation_error import HTTPValidationError
 from agentverse_client.almanac.models.interaction import Interaction
 from agentverse_client.almanac.models.interaction_type import InteractionType
@@ -55,5 +51,4 @@ from agentverse_client.almanac.models.manifest import Manifest
 from agentverse_client.almanac.models.metadata import Metadata
 from agentverse_client.almanac.models.model import Model
 from agentverse_client.almanac.models.resolved_protocol_digest import ResolvedProtocolDigest
-from agentverse_client.almanac.models.service_record import ServiceRecord
 from agentverse_client.almanac.models.validation_error import ValidationError

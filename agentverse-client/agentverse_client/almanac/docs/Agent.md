@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **address** | **str** | Unique blockchain address of the agent | 
 **domain_name** | **str** |  | [optional] 
 **prefix** | [**AddressPrefix**](AddressPrefix.md) |  | [optional] 
-**endpoints** | [**List[EndpointOutput]**](EndpointOutput.md) | List of agent&#39;s endpoints | 
+**endpoints** | [**List[Endpoint]**](Endpoint.md) | List of agent&#39;s endpoints | 
 **metadata** | **Dict[str, object]** |  | [optional] 
 **protocols** | **List[str]** | Supported protocol identifiers | 
 **expiry** | **datetime** | Expiration timestamp of the agent | 

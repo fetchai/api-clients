@@ -24,7 +24,7 @@ from agentverse_client.almanac.aio.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.aio.models.agent_status import AgentStatus
 from agentverse_client.almanac.aio.models.agent_type import AgentType
 from agentverse_client.almanac.aio.models.developer_category import DeveloperCategory
-from agentverse_client.almanac.aio.models.endpoint_output import EndpointOutput
+from agentverse_client.almanac.aio.models.endpoint import Endpoint
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -37,7 +37,7 @@ class Agent(BaseModel):
     address: StrictStr = Field(description="Unique blockchain address of the agent")
     domain_name: Optional[StrictStr] = None
     prefix: Optional[AddressPrefix] = None
-    endpoints: List[EndpointOutput] = Field(description="List of agent's endpoints")
+    endpoints: List[Endpoint] = Field(description="List of agent's endpoints")
     metadata: Optional[Dict[str, Any]] = None
     protocols: List[StrictStr] = Field(description="Supported protocol identifiers")
     expiry: datetime = Field(description="Expiration timestamp of the agent")
@@ -169,7 +169,7 @@ class Agent(BaseModel):
             "address": obj.get("address"),
             "domain_name": obj.get("domain_name"),
             "prefix": obj.get("prefix"),
-            "endpoints": [EndpointOutput.from_dict(_item) for _item in obj["endpoints"]] if obj.get("endpoints") is not None else None,
+            "endpoints": [Endpoint.from_dict(_item) for _item in obj["endpoints"]] if obj.get("endpoints") is not None else None,
             "metadata": obj.get("metadata"),
             "protocols": obj.get("protocols"),
             "expiry": obj.get("expiry"),
