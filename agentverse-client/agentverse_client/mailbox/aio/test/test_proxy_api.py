@@ -33,6 +33,20 @@ class TestProxyApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_proxy_agent_readiness_probe(self) -> None:
+        """Test case for proxy_agent_readiness_probe
+
+        Agent Readiness Probe
+        """
+        pass
+
+    async def test_submit_proxy_message_envelope(self) -> None:
+        """Test case for submit_proxy_message_envelope
+
+        Submit Message Envelope
+        """
+        pass
+
 
 if __name__ == '__main__':
     unittest.main()

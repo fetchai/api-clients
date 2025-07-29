@@ -26,6 +26,13 @@ class TestMailboxApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
+    async def test_agent_readiness_probe(self) -> None:
+        """Test case for agent_readiness_probe
+
+        Agent Readiness Probe
+        """
+        pass
+
     async def test_delete_all_mailbox_messages(self) -> None:
         """Test case for delete_all_mailbox_messages
 
@@ -51,6 +58,13 @@ class TestMailboxApi(unittest.IsolatedAsyncioTestCase):
         """Test case for list_mailbox_messages
 
         List Mailbox Messages
+        """
+        pass
+
+    async def test_submit_message_envelope(self) -> None:
+        """Test case for submit_message_envelope
+
+        Submit Message Envelope
         """
         pass
 

@@ -18,8 +18,6 @@ from agentverse_client.mailbox.aio.models.agent import Agent
 from agentverse_client.mailbox.aio.models.agent_endpoint import AgentEndpoint
 from agentverse_client.mailbox.aio.models.agent_updates import AgentUpdates
 from agentverse_client.mailbox.aio.models.envelope import Envelope
-from agentverse_client.mailbox.aio.models.feedback import Feedback
-from agentverse_client.mailbox.aio.models.feedback_anon import FeedbackAnon
 from agentverse_client.mailbox.aio.models.http_validation_error import HTTPValidationError
 from agentverse_client.mailbox.aio.models.location_inner import LocationInner
 from agentverse_client.mailbox.aio.models.page_agent import PageAgent

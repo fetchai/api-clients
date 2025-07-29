@@ -18,8 +18,6 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from agentverse_client.mailbox.api.agents_api import AgentsApi
-from agentverse_client.mailbox.api.exchange_api import ExchangeApi
-from agentverse_client.mailbox.api.feedback_api import FeedbackApi
 from agentverse_client.mailbox.api.mailbox_api import MailboxApi
 from agentverse_client.mailbox.api.proxy_api import ProxyApi
 
@@ -39,8 +37,6 @@ from agentverse_client.mailbox.models.agent import Agent
 from agentverse_client.mailbox.models.agent_endpoint import AgentEndpoint
 from agentverse_client.mailbox.models.agent_updates import AgentUpdates
 from agentverse_client.mailbox.models.envelope import Envelope
-from agentverse_client.mailbox.models.feedback import Feedback
-from agentverse_client.mailbox.models.feedback_anon import FeedbackAnon
 from agentverse_client.mailbox.models.http_validation_error import HTTPValidationError
 from agentverse_client.mailbox.models.location_inner import LocationInner
 from agentverse_client.mailbox.models.page_agent import PageAgent
