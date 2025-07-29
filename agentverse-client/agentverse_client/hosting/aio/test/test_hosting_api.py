@@ -26,6 +26,13 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
+    async def test_agent_readiness_probe(self) -> None:
+        """Test case for agent_readiness_probe
+
+        Agent Readiness Probe
+        """
+        pass
+
     async def test_create_team_agent(self) -> None:
         """Test case for create_team_agent
 
@@ -51,20 +58,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """Test case for create_user_agent_secret
 
         Create User Secret
-        """
-        pass
-
-    async def test_delete_all_team_data(self) -> None:
-        """Test case for delete_all_team_data
-
-        Delete All Team Data
-        """
-        pass
-
-    async def test_delete_all_user_data(self) -> None:
-        """Test case for delete_all_user_data
-
-        Delete All User Data
         """
         pass
 
@@ -99,7 +92,7 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
     async def test_delete_team_secret(self) -> None:
         """Test case for delete_team_secret
 
-        Delete User Secret
+        Delete Team Secret
         """
         pass
 
@@ -152,20 +145,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_get_new_achievements(self) -> None:
-        """Test case for get_new_achievements
-
-        Get New Achievements
-        """
-        pass
-
-    async def test_get_supported_packages(self) -> None:
-        """Test case for get_supported_packages
-
-        Get Supported Packages
-        """
-        pass
-
     async def test_get_team_agent_code(self) -> None:
         """Test case for get_team_agent_code
 
@@ -184,13 +163,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """Test case for get_team_agent_interactions
 
         Get Agent Team Interactions
-        """
-        pass
-
-    async def test_get_team_agent_metadata(self) -> None:
-        """Test case for get_team_agent_metadata
-
-        Get Team Agent Metadata
         """
         pass
 
@@ -222,10 +194,10 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_get_unlocked_achievements(self) -> None:
-        """Test case for get_unlocked_achievements
+    async def test_get_team_secret(self) -> None:
+        """Test case for get_team_secret
 
-        Get Unlocked Achievements
+        Get Team Secret
         """
         pass
 
@@ -247,13 +219,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """Test case for get_user_agent_interactions
 
         Get Agent User Interactions
-        """
-        pass
-
-    async def test_get_user_agent_metadata(self) -> None:
-        """Test case for get_user_agent_metadata
-
-        Get User Agent Metadata
         """
         pass
 
@@ -282,13 +247,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """Test case for get_user_agent_storage_by_key
 
         Get User Agent Storage By Key
-        """
-        pass
-
-    async def test_get_user_secret(self) -> None:
-        """Test case for get_user_secret
-
-        Get User Secret
         """
         pass
 
@@ -355,6 +313,13 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_submit_message_envelope(self) -> None:
+        """Test case for submit_message_envelope
+
+        Submit Message Envelope
+        """
+        pass
+
     async def test_update_team_agent(self) -> None:
         """Test case for update_team_agent
 
@@ -366,13 +331,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """Test case for update_team_agent_code
 
         Update Team Agent Code
-        """
-        pass
-
-    async def test_update_team_agent_metadata(self) -> None:
-        """Test case for update_team_agent_metadata
-
-        Update Team Agent Metadata
         """
         pass
 
@@ -401,13 +359,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """Test case for update_user_agent_code
 
         Update User Agent Code
-        """
-        pass
-
-    async def test_update_user_agent_metadata(self) -> None:
-        """Test case for update_user_agent_metadata
-
-        Update User Agent Metadata
         """
         pass
 

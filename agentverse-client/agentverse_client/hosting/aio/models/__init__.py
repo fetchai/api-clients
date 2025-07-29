@@ -18,8 +18,6 @@ from agentverse_client.hosting.aio.models.agent import Agent
 from agentverse_client.hosting.aio.models.agent_code import AgentCode
 from agentverse_client.hosting.aio.models.agent_code_digest import AgentCodeDigest
 from agentverse_client.hosting.aio.models.agent_log import AgentLog
-from agentverse_client.hosting.aio.models.agent_metadata import AgentMetadata
-from agentverse_client.hosting.aio.models.agent_metadata_updates import AgentMetadataUpdates
 from agentverse_client.hosting.aio.models.agent_network import AgentNetwork
 from agentverse_client.hosting.aio.models.agent_summary import AgentSummary
 from agentverse_client.hosting.aio.models.envelope import Envelope
@@ -31,7 +29,6 @@ from agentverse_client.hosting.aio.models.log_level import LogLevel
 from agentverse_client.hosting.aio.models.log_type import LogType
 from agentverse_client.hosting.aio.models.new_agent import NewAgent
 from agentverse_client.hosting.aio.models.new_domain_name import NewDomainName
-from agentverse_client.hosting.aio.models.packages import Packages
 from agentverse_client.hosting.aio.models.public_agent import PublicAgent
 from agentverse_client.hosting.aio.models.response_submit_message_envelope import ResponseSubmitMessageEnvelope
 from agentverse_client.hosting.aio.models.secret import Secret
@@ -39,8 +36,6 @@ from agentverse_client.hosting.aio.models.secret_create import SecretCreate
 from agentverse_client.hosting.aio.models.secret_list import SecretList
 from agentverse_client.hosting.aio.models.storage_item import StorageItem
 from agentverse_client.hosting.aio.models.storage_item_update import StorageItemUpdate
-from agentverse_client.hosting.aio.models.subscription_response import SubscriptionResponse
-from agentverse_client.hosting.aio.models.supported_package import SupportedPackage
 from agentverse_client.hosting.aio.models.update_agent import UpdateAgent
 from agentverse_client.hosting.aio.models.update_agent_code import UpdateAgentCode
 from agentverse_client.hosting.aio.models.update_agent_network import UpdateAgentNetwork

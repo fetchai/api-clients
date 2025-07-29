@@ -17,10 +17,7 @@
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from agentverse_client.hosting.api.exchange_api import ExchangeApi
 from agentverse_client.hosting.api.hosting_api import HostingApi
-from agentverse_client.hosting.api.mailing_api import MailingApi
-from agentverse_client.hosting.api.usage_api import UsageApi
 
 # import ApiClient
 from agentverse_client.hosting.api_response import ApiResponse
@@ -38,8 +35,6 @@ from agentverse_client.hosting.models.agent import Agent
 from agentverse_client.hosting.models.agent_code import AgentCode
 from agentverse_client.hosting.models.agent_code_digest import AgentCodeDigest
 from agentverse_client.hosting.models.agent_log import AgentLog
-from agentverse_client.hosting.models.agent_metadata import AgentMetadata
-from agentverse_client.hosting.models.agent_metadata_updates import AgentMetadataUpdates
 from agentverse_client.hosting.models.agent_network import AgentNetwork
 from agentverse_client.hosting.models.agent_summary import AgentSummary
 from agentverse_client.hosting.models.envelope import Envelope
@@ -51,7 +46,6 @@ from agentverse_client.hosting.models.log_level import LogLevel
 from agentverse_client.hosting.models.log_type import LogType
 from agentverse_client.hosting.models.new_agent import NewAgent
 from agentverse_client.hosting.models.new_domain_name import NewDomainName
-from agentverse_client.hosting.models.packages import Packages
 from agentverse_client.hosting.models.public_agent import PublicAgent
 from agentverse_client.hosting.models.response_submit_message_envelope import ResponseSubmitMessageEnvelope
 from agentverse_client.hosting.models.secret import Secret
@@ -59,8 +53,6 @@ from agentverse_client.hosting.models.secret_create import SecretCreate
 from agentverse_client.hosting.models.secret_list import SecretList
 from agentverse_client.hosting.models.storage_item import StorageItem
 from agentverse_client.hosting.models.storage_item_update import StorageItemUpdate
-from agentverse_client.hosting.models.subscription_response import SubscriptionResponse
-from agentverse_client.hosting.models.supported_package import SupportedPackage
 from agentverse_client.hosting.models.update_agent import UpdateAgent
 from agentverse_client.hosting.models.update_agent_code import UpdateAgentCode
 from agentverse_client.hosting.models.update_agent_network import UpdateAgentNetwork
