@@ -20,8 +20,7 @@ Name | Type | Description | Notes
 **revision** | **int** | Revision number of the agent. | 
 **readme** | **str** |  | [optional] 
 **short_description** | **str** |  | [optional] 
-**wallet_messaging_enabled** | **bool** |  | [optional] 
-**fire_hosting_enabled** | **bool** |  | [optional] 
+**metadata** | [**AgentMetadata**](AgentMetadata.md) |  | [optional] 
 **total_interactions** | **int** |  | [optional] 
 
 ## Example

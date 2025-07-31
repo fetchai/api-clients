@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from agentverse_client.hosting.models.agent_metadata import AgentMetadata
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -42,10 +43,9 @@ class Agent(BaseModel):
     revision: StrictInt = Field(description="Revision number of the agent.")
     readme: Optional[StrictStr] = None
     short_description: Optional[StrictStr] = None
-    wallet_messaging_enabled: Optional[StrictBool] = None
-    fire_hosting_enabled: Optional[StrictBool] = None
+    metadata: Optional[AgentMetadata] = None
     total_interactions: Optional[StrictInt] = None
-    __properties: ClassVar[List[str]] = ["name", "address", "domain", "prefix", "running", "compiled", "code_digest", "wallet_address", "code_update_timestamp", "creation_timestamp", "avatar_url", "maintainer_id", "revision", "readme", "short_description", "wallet_messaging_enabled", "fire_hosting_enabled", "total_interactions"]
+    __properties: ClassVar[List[str]] = ["name", "address", "domain", "prefix", "running", "compiled", "code_digest", "wallet_address", "code_update_timestamp", "creation_timestamp", "avatar_url", "maintainer_id", "revision", "readme", "short_description", "metadata", "total_interactions"]
 
     @field_validator('prefix')
     def prefix_validate_enum(cls, value):
@@ -96,6 +96,9 @@ class Agent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['metadata'] = self.metadata.to_dict()
         # set to None if domain (nullable) is None
         # and model_fields_set contains the field
         if self.domain is None and "domain" in self.model_fields_set:
@@ -151,15 +154,10 @@ class Agent(BaseModel):
         if self.short_description is None and "short_description" in self.model_fields_set:
             _dict['short_description'] = None
 
-        # set to None if wallet_messaging_enabled (nullable) is None
+        # set to None if metadata (nullable) is None
         # and model_fields_set contains the field
-        if self.wallet_messaging_enabled is None and "wallet_messaging_enabled" in self.model_fields_set:
-            _dict['wallet_messaging_enabled'] = None
-
-        # set to None if fire_hosting_enabled (nullable) is None
-        # and model_fields_set contains the field
-        if self.fire_hosting_enabled is None and "fire_hosting_enabled" in self.model_fields_set:
-            _dict['fire_hosting_enabled'] = None
+        if self.metadata is None and "metadata" in self.model_fields_set:
+            _dict['metadata'] = None
 
         # set to None if total_interactions (nullable) is None
         # and model_fields_set contains the field
@@ -193,8 +191,7 @@ class Agent(BaseModel):
             "revision": obj.get("revision"),
             "readme": obj.get("readme"),
             "short_description": obj.get("short_description"),
-            "wallet_messaging_enabled": obj.get("wallet_messaging_enabled"),
-            "fire_hosting_enabled": obj.get("fire_hosting_enabled"),
+            "metadata": AgentMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None,
             "total_interactions": obj.get("total_interactions")
         })
         return _obj

@@ -17,19 +17,20 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict
-from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_client.hosting.models.agent_geolocation import AgentGeolocation
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional, Union
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
-class AgentMetadata(BaseModel):
+class AgentGeolocation(BaseModel):
     """
-    Model used to validate metadata for an agent.  Framework specific fields will be added here to ensure valid serialization. Additional fields will simply be passed through.
+    AgentGeolocation
     """ # noqa: E501
-    geolocation: Optional[AgentGeolocation] = None
-    additional_properties: Dict[str, Any] = {}
-    __properties: ClassVar[List[str]] = ["geolocation"]
+    latitude: Union[Annotated[float, Field(le=90.0, strict=True, ge=-90.0)], Annotated[int, Field(le=90, strict=True, ge=-90)]]
+    longitude: Union[Annotated[float, Field(le=180.0, strict=True, ge=-180.0)], Annotated[int, Field(le=180, strict=True, ge=-180)]]
+    radius: Optional[Union[StrictFloat, StrictInt]] = 0.5
+    __properties: ClassVar[List[str]] = ["latitude", "longitude", "radius"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -49,7 +50,7 @@ class AgentMetadata(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of AgentMetadata from a JSON string"""
+        """Create an instance of AgentGeolocation from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -61,10 +62,8 @@ class AgentMetadata(BaseModel):
         * `None` is only added to the output dict for nullable fields that
           were set at model initialization. Other fields with value `None`
           are ignored.
-        * Fields in `self.additional_properties` are added to the output dict.
         """
         excluded_fields: Set[str] = set([
-            "additional_properties",
         ])
 
         _dict = self.model_dump(
@@ -72,24 +71,11 @@ class AgentMetadata(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of geolocation
-        if self.geolocation:
-            _dict['geolocation'] = self.geolocation.to_dict()
-        # puts key-value pairs in additional_properties in the top level
-        if self.additional_properties is not None:
-            for _key, _value in self.additional_properties.items():
-                _dict[_key] = _value
-
-        # set to None if geolocation (nullable) is None
-        # and model_fields_set contains the field
-        if self.geolocation is None and "geolocation" in self.model_fields_set:
-            _dict['geolocation'] = None
-
         return _dict
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of AgentMetadata from a dict"""
+        """Create an instance of AgentGeolocation from a dict"""
         if obj is None:
             return None
 
@@ -97,13 +83,10 @@ class AgentMetadata(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "geolocation": AgentGeolocation.from_dict(obj["geolocation"]) if obj.get("geolocation") is not None else None
+            "latitude": obj.get("latitude"),
+            "longitude": obj.get("longitude"),
+            "radius": obj.get("radius") if obj.get("radius") is not None else 0.5
         })
-        # store additional fields in additional_properties
-        for _key in obj.keys():
-            if _key not in cls.__properties:
-                _obj.additional_properties[_key] = obj.get(_key)
-
         return _obj
 
 

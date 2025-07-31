@@ -20,6 +20,7 @@ import json
 from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from agentverse_client.hosting.models.agent_metadata import AgentMetadata
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -40,7 +41,8 @@ class PublicAgent(BaseModel):
     created_at: datetime = Field(description="Timestamp when the agent was created.")
     maintainer_id: Optional[StrictStr] = None
     avatar_url: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "author_username", "address", "domain", "prefix", "running", "readme", "short_description", "total_interactions", "last_updated_at", "created_at", "maintainer_id", "avatar_url"]
+    metadata: Optional[AgentMetadata] = None
+    __properties: ClassVar[List[str]] = ["name", "author_username", "address", "domain", "prefix", "running", "readme", "short_description", "total_interactions", "last_updated_at", "created_at", "maintainer_id", "avatar_url", "metadata"]
 
     @field_validator('prefix')
     def prefix_validate_enum(cls, value):
@@ -91,6 +93,9 @@ class PublicAgent(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
+        # override the default output from pydantic by calling `to_dict()` of metadata
+        if self.metadata:
+            _dict['metadata'] = self.metadata.to_dict()
         # set to None if domain (nullable) is None
         # and model_fields_set contains the field
         if self.domain is None and "domain" in self.model_fields_set:
@@ -121,6 +126,11 @@ class PublicAgent(BaseModel):
         if self.avatar_url is None and "avatar_url" in self.model_fields_set:
             _dict['avatar_url'] = None
 
+        # set to None if metadata (nullable) is None
+        # and model_fields_set contains the field
+        if self.metadata is None and "metadata" in self.model_fields_set:
+            _dict['metadata'] = None
+
         return _dict
 
     @classmethod
@@ -145,7 +155,8 @@ class PublicAgent(BaseModel):
             "last_updated_at": obj.get("last_updated_at"),
             "created_at": obj.get("created_at"),
             "maintainer_id": obj.get("maintainer_id"),
-            "avatar_url": obj.get("avatar_url")
+            "avatar_url": obj.get("avatar_url"),
+            "metadata": AgentMetadata.from_dict(obj["metadata"]) if obj.get("metadata") is not None else None
         })
         return _obj
 

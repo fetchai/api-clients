@@ -50,8 +50,7 @@ class TestAgent(unittest.TestCase):
                 revision = 56,
                 readme = '',
                 short_description = '',
-                wallet_messaging_enabled = True,
-                fire_hosting_enabled = True,
+                metadata = { },
                 total_interactions = 56
             )
         else:

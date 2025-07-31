@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_client.hosting.models.agent_geolocation import AgentGeolocation
+from agentverse_client.hosting.aio.models.agent_geolocation import AgentGeolocation
 from typing import Optional, Set
 from typing_extensions import Self
 

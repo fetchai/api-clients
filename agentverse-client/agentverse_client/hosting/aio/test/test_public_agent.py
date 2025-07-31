@@ -47,7 +47,8 @@ class TestPublicAgent(unittest.TestCase):
                 last_updated_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 maintainer_id = '',
-                avatar_url = ''
+                avatar_url = '',
+                metadata = { }
             )
         else:
             return PublicAgent(

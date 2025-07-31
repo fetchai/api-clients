@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_client.hosting.models.agent_metadata import AgentMetadata
+from agentverse_client.hosting.aio.models.agent_metadata import AgentMetadata
 
 # TODO update the JSON string below
 json = "{}"

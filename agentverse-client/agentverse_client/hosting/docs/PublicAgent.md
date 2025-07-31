@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **created_at** | **datetime** | Timestamp when the agent was created. | 
 **maintainer_id** | **str** |  | [optional] 
 **avatar_url** | **str** |  | [optional] 
+**metadata** | [**AgentMetadata**](AgentMetadata.md) |  | [optional] 
 
 ## Example
 
