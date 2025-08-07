@@ -37,7 +37,7 @@ class TestAgentGeolocation(unittest.TestCase):
             return AgentGeolocation(
                 latitude = -90.0,
                 longitude = -180.0,
-                radius = 1.337
+                radius = 0.0
             )
         else:
             return AgentGeolocation(

@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
+from pydantic import BaseModel, ConfigDict, Field
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing_extensions import Annotated
 from typing import Optional, Set
@@ -29,7 +29,7 @@ class AgentGeolocation(BaseModel):
     """ # noqa: E501
     latitude: Union[Annotated[float, Field(le=90.0, strict=True, ge=-90.0)], Annotated[int, Field(le=90, strict=True, ge=-90)]]
     longitude: Union[Annotated[float, Field(le=180.0, strict=True, ge=-180.0)], Annotated[int, Field(le=180, strict=True, ge=-180)]]
-    radius: Optional[Union[StrictFloat, StrictInt]] = 0.5
+    radius: Optional[Union[Annotated[float, Field(strict=True, ge=0.0)], Annotated[int, Field(strict=True, ge=0)]]] = 0
     __properties: ClassVar[List[str]] = ["latitude", "longitude", "radius"]
 
     model_config = ConfigDict(
@@ -85,7 +85,7 @@ class AgentGeolocation(BaseModel):
         _obj = cls.model_validate({
             "latitude": obj.get("latitude"),
             "longitude": obj.get("longitude"),
-            "radius": obj.get("radius") if obj.get("radius") is not None else 0.5
+            "radius": obj.get("radius") if obj.get("radius") is not None else 0
         })
         return _obj
 

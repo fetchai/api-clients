@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **latitude** | **float** |  | 
 **longitude** | **float** |  | 
-**radius** | **float** |  | [optional] [default to 0.5]
+**radius** | **float** |  | [optional] [default to 0]
 
 ## Example
 
