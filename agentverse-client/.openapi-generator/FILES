@@ -11,8 +11,10 @@ agentverse_client/search/docs/Agent.md
 agentverse_client/search/docs/AgentCategory.md
 agentverse_client/search/docs/AgentContract.md
 agentverse_client/search/docs/AgentFilters.md
+agentverse_client/search/docs/AgentGeoCoordinates.md
 agentverse_client/search/docs/AgentGeoFilter.md
 agentverse_client/search/docs/AgentGeoLocation.md
+agentverse_client/search/docs/AgentGeoLocationDetails.md
 agentverse_client/search/docs/AgentGeoSearchRequest.md
 agentverse_client/search/docs/AgentMetadataValue.md
 agentverse_client/search/docs/AgentSearchRequest.md
@@ -38,8 +40,10 @@ agentverse_client/search/models/agent.py
 agentverse_client/search/models/agent_category.py
 agentverse_client/search/models/agent_contract.py
 agentverse_client/search/models/agent_filters.py
+agentverse_client/search/models/agent_geo_coordinates.py
 agentverse_client/search/models/agent_geo_filter.py
 agentverse_client/search/models/agent_geo_location.py
+agentverse_client/search/models/agent_geo_location_details.py
 agentverse_client/search/models/agent_geo_search_request.py
 agentverse_client/search/models/agent_metadata_value.py
 agentverse_client/search/models/agent_search_request.py
