@@ -22,7 +22,6 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, Stri
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from agentverse_client.search.models.agent_category import AgentCategory
 from agentverse_client.search.models.agent_geo_location import AgentGeoLocation
-from agentverse_client.search.models.agent_geo_location_details import AgentGeoLocationDetails
 from agentverse_client.search.models.agent_metadata_value import AgentMetadataValue
 from agentverse_client.search.models.agent_type import AgentType
 from agentverse_client.search.models.net_protocol import NetProtocol
@@ -51,13 +50,12 @@ class Agent(BaseModel):
     category: AgentCategory = Field(description="the creator of the agent")
     system_wide_tags: List[StrictStr] = Field(description="the system-wide tags assigned to the agent")
     geo_location: Optional[AgentGeoLocation] = None
-    geo_location_details: Optional[AgentGeoLocationDetails] = None
     domain: Optional[StrictStr] = None
     metadata: Optional[Dict[str, AgentMetadataValue]] = None
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
     recent_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "geo_location_details", "domain", "metadata", "last_updated", "created_at", "recent_success_rate"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "metadata", "last_updated", "created_at", "recent_success_rate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -108,9 +106,6 @@ class Agent(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of geo_location
         if self.geo_location:
             _dict['geo_location'] = self.geo_location.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of geo_location_details
-        if self.geo_location_details:
-            _dict['geo_location_details'] = self.geo_location_details.to_dict()
         # override the default output from pydantic by calling `to_dict()` of each value in metadata (dict)
         _field_dict = {}
         if self.metadata:
@@ -132,11 +127,6 @@ class Agent(BaseModel):
         # and model_fields_set contains the field
         if self.geo_location is None and "geo_location" in self.model_fields_set:
             _dict['geo_location'] = None
-
-        # set to None if geo_location_details (nullable) is None
-        # and model_fields_set contains the field
-        if self.geo_location_details is None and "geo_location_details" in self.model_fields_set:
-            _dict['geo_location_details'] = None
 
         # set to None if domain (nullable) is None
         # and model_fields_set contains the field
@@ -181,7 +171,6 @@ class Agent(BaseModel):
             "category": obj.get("category"),
             "system_wide_tags": obj.get("system_wide_tags"),
             "geo_location": AgentGeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
-            "geo_location_details": AgentGeoLocationDetails.from_dict(obj["geo_location_details"]) if obj.get("geo_location_details") is not None else None,
             "domain": obj.get("domain"),
             "metadata": dict(
                 (_k, AgentMetadataValue.from_dict(_v))
