@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **category** | [**AgentCategory**](AgentCategory.md) | the creator of the agent | 
 **system_wide_tags** | **List[str]** | the system-wide tags assigned to the agent | 
 **geo_location** | [**AgentGeoLocation**](AgentGeoLocation.md) |  | [optional] 
+**geo_location_details** | [**AgentGeoLocationDetails**](AgentGeoLocationDetails.md) |  | [optional] 
 **domain** | **str** |  | [optional] 
 **metadata** | [**Dict[str, AgentMetadataValue]**](AgentMetadataValue.md) |  | [optional] 
 **last_updated** | **datetime** | the time at which the agent was last updated at | 
