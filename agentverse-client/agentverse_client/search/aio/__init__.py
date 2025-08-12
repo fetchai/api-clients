@@ -37,7 +37,6 @@ from agentverse_client.search.aio.models.agent import Agent
 from agentverse_client.search.aio.models.agent_category import AgentCategory
 from agentverse_client.search.aio.models.agent_contract import AgentContract
 from agentverse_client.search.aio.models.agent_filters import AgentFilters
-from agentverse_client.search.aio.models.agent_geo_coordinates import AgentGeoCoordinates
 from agentverse_client.search.aio.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.aio.models.agent_geo_location import AgentGeoLocation
 from agentverse_client.search.aio.models.agent_geo_location_details import AgentGeoLocationDetails
@@ -47,6 +46,7 @@ from agentverse_client.search.aio.models.agent_search_request import AgentSearch
 from agentverse_client.search.aio.models.agent_search_response import AgentSearchResponse
 from agentverse_client.search.aio.models.agent_type import AgentType
 from agentverse_client.search.aio.models.direction import Direction
+from agentverse_client.search.aio.models.geo_location import GeoLocation
 from agentverse_client.search.aio.models.http_validation_error import HTTPValidationError
 from agentverse_client.search.aio.models.interactions_threshold import InteractionsThreshold
 from agentverse_client.search.aio.models.location_inner import LocationInner

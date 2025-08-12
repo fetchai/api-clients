@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.agent_geo_coordinates import AgentGeoCoordinates
+from agentverse_client.search.models.geo_location import GeoLocation
 
-class TestAgentGeoCoordinates(unittest.TestCase):
-    """AgentGeoCoordinates unit test stubs"""
+class TestGeoLocation(unittest.TestCase):
+    """GeoLocation unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,28 +25,38 @@ class TestAgentGeoCoordinates(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AgentGeoCoordinates:
-        """Test AgentGeoCoordinates
+    def make_instance(self, include_optional) -> GeoLocation:
+        """Test GeoLocation
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AgentGeoCoordinates`
+        # uncomment below to create an instance of `GeoLocation`
         """
-        model = AgentGeoCoordinates()
+        model = GeoLocation()
         if include_optional:
-            return AgentGeoCoordinates(
+            return GeoLocation(
                 latitude = 1.337,
-                longitude = 1.337
+                longitude = 1.337,
+                radius = 1.337,
+                name = '',
+                description = '',
+                street = '',
+                city = '',
+                state = '',
+                postal_code = '',
+                country = '',
+                url = '',
+                image_url = ''
             )
         else:
-            return AgentGeoCoordinates(
+            return GeoLocation(
                 latitude = 1.337,
                 longitude = 1.337,
         )
         """
 
-    def testAgentGeoCoordinates(self):
-        """Test AgentGeoCoordinates"""
+    def testGeoLocation(self):
+        """Test GeoLocation"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

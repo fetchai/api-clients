@@ -17,9 +17,8 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
-from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_client.search.models.agent_geo_coordinates import AgentGeoCoordinates
+from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -29,7 +28,8 @@ class AgentGeoLocationDetails(BaseModel):
     """ # noqa: E501
     name: Optional[StrictStr] = None
     description: Optional[StrictStr] = None
-    coordinates: Optional[AgentGeoCoordinates] = None
+    latitude: Optional[Union[StrictFloat, StrictInt]] = None
+    longitude: Optional[Union[StrictFloat, StrictInt]] = None
     street: Optional[StrictStr] = None
     city: Optional[StrictStr] = None
     state: Optional[StrictStr] = None
@@ -37,7 +37,7 @@ class AgentGeoLocationDetails(BaseModel):
     country: Optional[StrictStr] = None
     url: Optional[StrictStr] = None
     image_url: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "description", "coordinates", "street", "city", "state", "postal_code", "country", "url", "image_url"]
+    __properties: ClassVar[List[str]] = ["name", "description", "latitude", "longitude", "street", "city", "state", "postal_code", "country", "url", "image_url"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -78,9 +78,6 @@ class AgentGeoLocationDetails(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of coordinates
-        if self.coordinates:
-            _dict['coordinates'] = self.coordinates.to_dict()
         # set to None if name (nullable) is None
         # and model_fields_set contains the field
         if self.name is None and "name" in self.model_fields_set:
@@ -91,10 +88,15 @@ class AgentGeoLocationDetails(BaseModel):
         if self.description is None and "description" in self.model_fields_set:
             _dict['description'] = None
 
-        # set to None if coordinates (nullable) is None
+        # set to None if latitude (nullable) is None
         # and model_fields_set contains the field
-        if self.coordinates is None and "coordinates" in self.model_fields_set:
-            _dict['coordinates'] = None
+        if self.latitude is None and "latitude" in self.model_fields_set:
+            _dict['latitude'] = None
+
+        # set to None if longitude (nullable) is None
+        # and model_fields_set contains the field
+        if self.longitude is None and "longitude" in self.model_fields_set:
+            _dict['longitude'] = None
 
         # set to None if street (nullable) is None
         # and model_fields_set contains the field
@@ -145,7 +147,8 @@ class AgentGeoLocationDetails(BaseModel):
         _obj = cls.model_validate({
             "name": obj.get("name"),
             "description": obj.get("description"),
-            "coordinates": AgentGeoCoordinates.from_dict(obj["coordinates"]) if obj.get("coordinates") is not None else None,
+            "latitude": obj.get("latitude"),
+            "longitude": obj.get("longitude"),
             "street": obj.get("street"),
             "city": obj.get("city"),
             "state": obj.get("state"),

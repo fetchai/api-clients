@@ -1,14 +1,16 @@
-# AgentGeoLocationDetails
+# GeoLocation
 
+the geolocation of the agent
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**latitude** | **float** |  | 
+**longitude** | **float** |  | 
+**radius** | **float** |  | [optional] 
 **name** | **str** |  | [optional] 
 **description** | **str** |  | [optional] 
-**latitude** | **float** |  | [optional] 
-**longitude** | **float** |  | [optional] 
 **street** | **str** |  | [optional] 
 **city** | **str** |  | [optional] 
 **state** | **str** |  | [optional] 
@@ -20,19 +22,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from agentverse_client.search.aio.models.agent_geo_location_details import AgentGeoLocationDetails
+from agentverse_client.search.aio.models.geo_location import GeoLocation
 
 # TODO update the JSON string below
 json = "{}"
-# create an instance of AgentGeoLocationDetails from a JSON string
-agent_geo_location_details_instance = AgentGeoLocationDetails.from_json(json)
+# create an instance of GeoLocation from a JSON string
+geo_location_instance = GeoLocation.from_json(json)
 # print the JSON string representation of the object
-print(AgentGeoLocationDetails.to_json())
+print(GeoLocation.to_json())
 
 # convert the object into a dict
-agent_geo_location_details_dict = agent_geo_location_details_instance.to_dict()
-# create an instance of AgentGeoLocationDetails from a dict
-agent_geo_location_details_from_dict = AgentGeoLocationDetails.from_dict(agent_geo_location_details_dict)
+geo_location_dict = geo_location_instance.to_dict()
+# create an instance of GeoLocation from a dict
+geo_location_from_dict = GeoLocation.from_dict(geo_location_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

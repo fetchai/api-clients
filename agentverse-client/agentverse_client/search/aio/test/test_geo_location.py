@@ -14,10 +14,10 @@
 
 import unittest
 
-from agentverse_client.search.aio.models.agent_geo_location_details import AgentGeoLocationDetails
+from agentverse_client.search.aio.models.geo_location import GeoLocation
 
-class TestAgentGeoLocationDetails(unittest.TestCase):
-    """AgentGeoLocationDetails unit test stubs"""
+class TestGeoLocation(unittest.TestCase):
+    """GeoLocation unit test stubs"""
 
     def setUp(self):
         pass
@@ -25,20 +25,21 @@ class TestAgentGeoLocationDetails(unittest.TestCase):
     def tearDown(self):
         pass
 
-    def make_instance(self, include_optional) -> AgentGeoLocationDetails:
-        """Test AgentGeoLocationDetails
+    def make_instance(self, include_optional) -> GeoLocation:
+        """Test GeoLocation
             include_optional is a boolean, when False only required
             params are included, when True both required and
             optional params are included """
-        # uncomment below to create an instance of `AgentGeoLocationDetails`
+        # uncomment below to create an instance of `GeoLocation`
         """
-        model = AgentGeoLocationDetails()
+        model = GeoLocation()
         if include_optional:
-            return AgentGeoLocationDetails(
-                name = '',
-                description = '',
+            return GeoLocation(
                 latitude = 1.337,
                 longitude = 1.337,
+                radius = 1.337,
+                name = '',
+                description = '',
                 street = '',
                 city = '',
                 state = '',
@@ -48,12 +49,14 @@ class TestAgentGeoLocationDetails(unittest.TestCase):
                 image_url = ''
             )
         else:
-            return AgentGeoLocationDetails(
+            return GeoLocation(
+                latitude = 1.337,
+                longitude = 1.337,
         )
         """
 
-    def testAgentGeoLocationDetails(self):
-        """Test AgentGeoLocationDetails"""
+    def testGeoLocation(self):
+        """Test GeoLocation"""
         # inst_req_only = self.make_instance(include_optional=False)
         # inst_req_and_optional = self.make_instance(include_optional=True)
 

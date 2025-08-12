@@ -59,23 +59,7 @@ class TestAgentSearchResponse(unittest.TestCase):
                         system_wide_tags = [
                             ''
                             ], 
-                        geo_location = agentverse_client.search.aio.models.agent_geo_location.AgentGeoLocation(
-                            latitude = 1.337, 
-                            longitude = 1.337, 
-                            radius = 1.337, ), 
-                        geo_location_details = agentverse_client.search.aio.models.agent_geo_location_details.AgentGeoLocationDetails(
-                            name = '', 
-                            description = '', 
-                            coordinates = agentverse_client.search.aio.models.agent_geo_coordinates.AgentGeoCoordinates(
-                                latitude = 1.337, 
-                                longitude = 1.337, ), 
-                            street = '', 
-                            city = '', 
-                            state = '', 
-                            postal_code = '', 
-                            country = '', 
-                            url = '', 
-                            image_url = '', ), 
+                        geo_location = null, 
                         domain = '', 
                         metadata = {
                             'key' : null
