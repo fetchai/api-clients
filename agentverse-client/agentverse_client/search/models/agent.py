@@ -21,9 +21,9 @@ from datetime import datetime
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from agentverse_client.search.models.agent_category import AgentCategory
+from agentverse_client.search.models.agent_geo_location import AgentGeoLocation
 from agentverse_client.search.models.agent_metadata_value import AgentMetadataValue
 from agentverse_client.search.models.agent_type import AgentType
-from agentverse_client.search.models.geo_location import GeoLocation
 from agentverse_client.search.models.net_protocol import NetProtocol
 from agentverse_client.search.models.protocol import Protocol
 from agentverse_client.search.models.status_type import StatusType
@@ -49,7 +49,7 @@ class Agent(BaseModel):
     featured: Optional[StrictBool] = Field(default=False, description="signaled if the agent is featured or not")
     category: AgentCategory = Field(description="the creator of the agent")
     system_wide_tags: List[StrictStr] = Field(description="the system-wide tags assigned to the agent")
-    geo_location: Optional[GeoLocation] = None
+    geo_location: Optional[AgentGeoLocation] = None
     domain: Optional[StrictStr] = None
     metadata: Optional[Dict[str, AgentMetadataValue]] = None
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
@@ -170,7 +170,7 @@ class Agent(BaseModel):
             "featured": obj.get("featured") if obj.get("featured") is not None else False,
             "category": obj.get("category"),
             "system_wide_tags": obj.get("system_wide_tags"),
-            "geo_location": GeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
+            "geo_location": AgentGeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
             "domain": obj.get("domain"),
             "metadata": dict(
                 (_k, AgentMetadataValue.from_dict(_v))

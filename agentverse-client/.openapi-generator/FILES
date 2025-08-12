@@ -13,7 +13,6 @@ agentverse_client/search/docs/AgentContract.md
 agentverse_client/search/docs/AgentFilters.md
 agentverse_client/search/docs/AgentGeoFilter.md
 agentverse_client/search/docs/AgentGeoLocation.md
-agentverse_client/search/docs/AgentGeoLocationDetails.md
 agentverse_client/search/docs/AgentGeoSearchRequest.md
 agentverse_client/search/docs/AgentMetadataValue.md
 agentverse_client/search/docs/AgentSearchRequest.md
@@ -21,7 +20,6 @@ agentverse_client/search/docs/AgentSearchResponse.md
 agentverse_client/search/docs/AgentType.md
 agentverse_client/search/docs/AgentsApi.md
 agentverse_client/search/docs/Direction.md
-agentverse_client/search/docs/GeoLocation.md
 agentverse_client/search/docs/HTTPValidationError.md
 agentverse_client/search/docs/InteractionsThreshold.md
 agentverse_client/search/docs/LocationInner.md
@@ -42,14 +40,12 @@ agentverse_client/search/models/agent_contract.py
 agentverse_client/search/models/agent_filters.py
 agentverse_client/search/models/agent_geo_filter.py
 agentverse_client/search/models/agent_geo_location.py
-agentverse_client/search/models/agent_geo_location_details.py
 agentverse_client/search/models/agent_geo_search_request.py
 agentverse_client/search/models/agent_metadata_value.py
 agentverse_client/search/models/agent_search_request.py
 agentverse_client/search/models/agent_search_response.py
 agentverse_client/search/models/agent_type.py
 agentverse_client/search/models/direction.py
-agentverse_client/search/models/geo_location.py
 agentverse_client/search/models/http_validation_error.py
 agentverse_client/search/models/interactions_threshold.py
 agentverse_client/search/models/location_inner.py
