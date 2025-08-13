@@ -20,12 +20,14 @@ from agentverse_client.search.models.agent_contract import AgentContract
 from agentverse_client.search.models.agent_filters import AgentFilters
 from agentverse_client.search.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.models.agent_geo_location import AgentGeoLocation
+from agentverse_client.search.models.agent_geo_location_details import AgentGeoLocationDetails
 from agentverse_client.search.models.agent_geo_search_request import AgentGeoSearchRequest
 from agentverse_client.search.models.agent_metadata_value import AgentMetadataValue
 from agentverse_client.search.models.agent_search_request import AgentSearchRequest
 from agentverse_client.search.models.agent_search_response import AgentSearchResponse
 from agentverse_client.search.models.agent_type import AgentType
 from agentverse_client.search.models.direction import Direction
+from agentverse_client.search.models.geo_location import GeoLocation
 from agentverse_client.search.models.http_validation_error import HTTPValidationError
 from agentverse_client.search.models.interactions_threshold import InteractionsThreshold
 from agentverse_client.search.models.location_inner import LocationInner
