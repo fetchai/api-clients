@@ -17,7 +17,7 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictFloat, StrictInt
 from typing import Any, ClassVar, Dict, List, Optional, Union
 from typing import Optional, Set
 from typing_extensions import Self
@@ -26,19 +26,10 @@ class AgentGeoLocation(BaseModel):
     """
     AgentGeoLocation
     """ # noqa: E501
-    name: Optional[StrictStr] = None
-    description: Optional[StrictStr] = None
-    latitude: Optional[Union[StrictFloat, StrictInt]] = None
-    longitude: Optional[Union[StrictFloat, StrictInt]] = None
+    latitude: Union[StrictFloat, StrictInt] = Field(description="the latitude of the agent")
+    longitude: Union[StrictFloat, StrictInt] = Field(description="the longitude of the agent")
     radius: Optional[Union[StrictFloat, StrictInt]] = None
-    street: Optional[StrictStr] = None
-    city: Optional[StrictStr] = None
-    state: Optional[StrictStr] = None
-    postal_code: Optional[StrictStr] = None
-    country: Optional[StrictStr] = None
-    url: Optional[StrictStr] = None
-    image_url: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["name", "description", "latitude", "longitude", "radius", "street", "city", "state", "postal_code", "country", "url", "image_url"]
+    __properties: ClassVar[List[str]] = ["latitude", "longitude", "radius"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -79,65 +70,10 @@ class AgentGeoLocation(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # set to None if name (nullable) is None
-        # and model_fields_set contains the field
-        if self.name is None and "name" in self.model_fields_set:
-            _dict['name'] = None
-
-        # set to None if description (nullable) is None
-        # and model_fields_set contains the field
-        if self.description is None and "description" in self.model_fields_set:
-            _dict['description'] = None
-
-        # set to None if latitude (nullable) is None
-        # and model_fields_set contains the field
-        if self.latitude is None and "latitude" in self.model_fields_set:
-            _dict['latitude'] = None
-
-        # set to None if longitude (nullable) is None
-        # and model_fields_set contains the field
-        if self.longitude is None and "longitude" in self.model_fields_set:
-            _dict['longitude'] = None
-
         # set to None if radius (nullable) is None
         # and model_fields_set contains the field
         if self.radius is None and "radius" in self.model_fields_set:
             _dict['radius'] = None
-
-        # set to None if street (nullable) is None
-        # and model_fields_set contains the field
-        if self.street is None and "street" in self.model_fields_set:
-            _dict['street'] = None
-
-        # set to None if city (nullable) is None
-        # and model_fields_set contains the field
-        if self.city is None and "city" in self.model_fields_set:
-            _dict['city'] = None
-
-        # set to None if state (nullable) is None
-        # and model_fields_set contains the field
-        if self.state is None and "state" in self.model_fields_set:
-            _dict['state'] = None
-
-        # set to None if postal_code (nullable) is None
-        # and model_fields_set contains the field
-        if self.postal_code is None and "postal_code" in self.model_fields_set:
-            _dict['postal_code'] = None
-
-        # set to None if country (nullable) is None
-        # and model_fields_set contains the field
-        if self.country is None and "country" in self.model_fields_set:
-            _dict['country'] = None
-
-        # set to None if url (nullable) is None
-        # and model_fields_set contains the field
-        if self.url is None and "url" in self.model_fields_set:
-            _dict['url'] = None
-
-        # set to None if image_url (nullable) is None
-        # and model_fields_set contains the field
-        if self.image_url is None and "image_url" in self.model_fields_set:
-            _dict['image_url'] = None
 
         return _dict
 
@@ -151,18 +87,9 @@ class AgentGeoLocation(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "name": obj.get("name"),
-            "description": obj.get("description"),
             "latitude": obj.get("latitude"),
             "longitude": obj.get("longitude"),
-            "radius": obj.get("radius"),
-            "street": obj.get("street"),
-            "city": obj.get("city"),
-            "state": obj.get("state"),
-            "postal_code": obj.get("postal_code"),
-            "country": obj.get("country"),
-            "url": obj.get("url"),
-            "image_url": obj.get("image_url")
+            "radius": obj.get("radius")
         })
         return _obj
 

@@ -60,18 +60,9 @@ class TestAgentSearchResponse(unittest.TestCase):
                             ''
                             ], 
                         geo_location = agentverse_client.search.aio.models.agent_geo_location.AgentGeoLocation(
-                            name = '', 
-                            description = '', 
                             latitude = 1.337, 
                             longitude = 1.337, 
-                            radius = 1.337, 
-                            street = '', 
-                            city = '', 
-                            state = '', 
-                            postal_code = '', 
-                            country = '', 
-                            url = '', 
-                            image_url = '', ), 
+                            radius = 1.337, ), 
                         domain = '', 
                         metadata = {
                             'key' : null
