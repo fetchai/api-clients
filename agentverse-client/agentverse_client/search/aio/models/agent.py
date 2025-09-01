@@ -55,7 +55,8 @@ class Agent(BaseModel):
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
     recent_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "metadata", "last_updated", "created_at", "recent_success_rate"]
+    recent_eval_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -143,6 +144,11 @@ class Agent(BaseModel):
         if self.recent_success_rate is None and "recent_success_rate" in self.model_fields_set:
             _dict['recent_success_rate'] = None
 
+        # set to None if recent_eval_success_rate (nullable) is None
+        # and model_fields_set contains the field
+        if self.recent_eval_success_rate is None and "recent_eval_success_rate" in self.model_fields_set:
+            _dict['recent_eval_success_rate'] = None
+
         return _dict
 
     @classmethod
@@ -180,7 +186,8 @@ class Agent(BaseModel):
             else None,
             "last_updated": obj.get("last_updated"),
             "created_at": obj.get("created_at"),
-            "recent_success_rate": obj.get("recent_success_rate")
+            "recent_success_rate": obj.get("recent_success_rate"),
+            "recent_eval_success_rate": obj.get("recent_eval_success_rate")
         })
         return _obj
 

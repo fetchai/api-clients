@@ -26,6 +26,7 @@ Name | Type | Description | Notes
 **last_updated** | **datetime** | the time at which the agent was last updated at | 
 **created_at** | **datetime** | the time at which the agent was first visible or created | 
 **recent_success_rate** | **float** |  | [optional] 
+**recent_eval_success_rate** | **float** |  | [optional] 
 
 ## Example
 
