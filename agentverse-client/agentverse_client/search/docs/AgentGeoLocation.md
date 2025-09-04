@@ -5,9 +5,18 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**latitude** | **float** | the latitude of the agent | 
-**longitude** | **float** | the longitude of the agent | 
+**name** | **str** |  | [optional] 
+**description** | **str** |  | [optional] 
+**latitude** | **float** |  | [optional] 
+**longitude** | **float** |  | [optional] 
 **radius** | **float** |  | [optional] 
+**street** | **str** |  | [optional] 
+**city** | **str** |  | [optional] 
+**state** | **str** |  | [optional] 
+**postal_code** | **str** |  | [optional] 
+**country** | **str** |  | [optional] 
+**url** | **str** |  | [optional] 
+**image_url** | **str** |  | [optional] 
 
 ## Example
 
