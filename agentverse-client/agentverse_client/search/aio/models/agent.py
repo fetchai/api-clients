@@ -50,13 +50,14 @@ class Agent(BaseModel):
     category: AgentCategory = Field(description="the creator of the agent")
     system_wide_tags: List[StrictStr] = Field(description="the system-wide tags assigned to the agent")
     geo_location: Optional[AgentGeoLocation] = None
+    handle: Optional[StrictStr] = None
     domain: Optional[StrictStr] = None
     metadata: Optional[Dict[str, AgentMetadataValue]] = None
     last_updated: datetime = Field(description="the time at which the agent was last updated at")
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
     recent_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
     recent_eval_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -129,6 +130,11 @@ class Agent(BaseModel):
         if self.geo_location is None and "geo_location" in self.model_fields_set:
             _dict['geo_location'] = None
 
+        # set to None if handle (nullable) is None
+        # and model_fields_set contains the field
+        if self.handle is None and "handle" in self.model_fields_set:
+            _dict['handle'] = None
+
         # set to None if domain (nullable) is None
         # and model_fields_set contains the field
         if self.domain is None and "domain" in self.model_fields_set:
@@ -177,6 +183,7 @@ class Agent(BaseModel):
             "category": obj.get("category"),
             "system_wide_tags": obj.get("system_wide_tags"),
             "geo_location": AgentGeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
+            "handle": obj.get("handle"),
             "domain": obj.get("domain"),
             "metadata": dict(
                 (_k, AgentMetadataValue.from_dict(_v))

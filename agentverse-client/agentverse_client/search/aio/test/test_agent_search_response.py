@@ -72,6 +72,7 @@ class TestAgentSearchResponse(unittest.TestCase):
                             country = '', 
                             url = '', 
                             image_url = '', ), 
+                        handle = '', 
                         domain = '', 
                         metadata = {
                             'key' : null
