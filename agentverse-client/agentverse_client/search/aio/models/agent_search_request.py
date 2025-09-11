@@ -35,13 +35,14 @@ class AgentSearchRequest(BaseModel):
     direction: Optional[Direction] = Field(default=None, description="The direction of the sorting, ascending or descending")
     cutoff: Optional[RelevancyCutoff] = Field(default=None, description="Controls how strictly the search results should be filtered based on their relevancy")
     search_text: Optional[StrictStr] = None
+    exact_match: Optional[StrictBool] = Field(default=False, description="Whether to perform exact keyword match only instead of doing both exact and fuzzy match.")
     semantic_search: Optional[StrictBool] = Field(default=False, description="Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
     exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
     search_id: Optional[StrictStr] = Field(default=None, description="Search id of a previous search, will be generated if not passed.  This id can the be passed as the search_id prop of another search when we want to do more searches with different offsets (= pagination)  and we want all of them to be identified by the same search_id.  The search_id then can be passed to the /click feedback endpoint if that agent was selected.  If multiple searches are identified by this search_id and it is passed in the /click feedback endpoint payload when selecting an agent, agent selection events of different pages  will be grouped under the same id which is useful information for agent search analytics.")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Ideally should be one of the following:   '', 'agentverse', 'flockx', an agent address but technically can also be a domain or any arbitrary string.")
-    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "semantic_search", "offset", "limit", "exclude_geo_agents", "search_id", "source"]
+    __properties: ClassVar[List[str]] = ["filters", "sort", "direction", "cutoff", "search_text", "exact_match", "semantic_search", "offset", "limit", "exclude_geo_agents", "search_id", "source"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -107,6 +108,7 @@ class AgentSearchRequest(BaseModel):
             "direction": obj.get("direction"),
             "cutoff": obj.get("cutoff"),
             "search_text": obj.get("search_text"),
+            "exact_match": obj.get("exact_match") if obj.get("exact_match") is not None else False,
             "semantic_search": obj.get("semantic_search") if obj.get("semantic_search") is not None else False,
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,

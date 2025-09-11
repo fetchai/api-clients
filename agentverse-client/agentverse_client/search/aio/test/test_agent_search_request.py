@@ -58,6 +58,7 @@ class TestAgentSearchRequest(unittest.TestCase):
                 direction = 'asc',
                 cutoff = 'none',
                 search_text = '',
+                exact_match = True,
                 semantic_search = True,
                 offset = 56,
                 limit = 56,
