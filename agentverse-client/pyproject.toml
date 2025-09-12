@@ -1,6 +1,6 @@
 [project]
 name = "agentverse-client"
-version = "0.1.8"
+version = "0.1.9"
 description = "A set of API clients to easily integrate to Featch AI services."
 authors = [
     {name = "Xavier",email = "xavier.peiro@fetch.ai"}
