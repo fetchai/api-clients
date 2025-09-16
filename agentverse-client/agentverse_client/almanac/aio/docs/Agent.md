@@ -6,10 +6,10 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **status** | [**AgentStatus**](AgentStatus.md) |  | 
-**type** | [**AgentType**](AgentType.md) |  | 
+**type** | **str** | Type/category of the agent | 
 **address** | **str** | Unique blockchain address of the agent | 
 **domain_name** | **str** |  | [optional] 
-**prefix** | [**AddressPrefix**](AddressPrefix.md) |  | [optional] 
+**prefix** | **str** |  | [optional] 
 **endpoints** | [**List[Endpoint]**](Endpoint.md) | List of agent&#39;s endpoints | 
 **metadata** | **Dict[str, object]** |  | [optional] 
 **protocols** | **List[str]** | Supported protocol identifiers | 

@@ -36,7 +36,7 @@ class TestAgent(unittest.TestCase):
         if include_optional:
             return Agent(
                 status = 'active',
-                type = 'Local',
+                type = 'hosted',
                 address = '',
                 domain_name = '',
                 prefix = 'agent',
@@ -62,7 +62,7 @@ class TestAgent(unittest.TestCase):
         else:
             return Agent(
                 status = 'active',
-                type = 'Local',
+                type = 'hosted',
                 address = '',
                 endpoints = [
                     agentverse_client.almanac.aio.models.endpoint.Endpoint(

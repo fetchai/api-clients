@@ -16,9 +16,8 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr
+from pydantic import StrictStr, field_validator
 from typing import Any, List, Optional
-from agentverse_client.almanac.aio.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.aio.models.agent import Agent
 from agentverse_client.almanac.aio.models.agent_registration_attestation import AgentRegistrationAttestation
 from agentverse_client.almanac.aio.models.agent_registration_attestation_batch import AgentRegistrationAttestationBatch
@@ -46,7 +45,7 @@ class AlmanacApi:
     async def get_agent(
         self,
         address: StrictStr,
-        prefix: Optional[AddressPrefix] = None,
+        prefix: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -66,7 +65,7 @@ class AlmanacApi:
         :param address: (required)
         :type address: str
         :param prefix:
-        :type prefix: AddressPrefix
+        :type prefix: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -117,7 +116,7 @@ class AlmanacApi:
     async def get_agent_with_http_info(
         self,
         address: StrictStr,
-        prefix: Optional[AddressPrefix] = None,
+        prefix: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -137,7 +136,7 @@ class AlmanacApi:
         :param address: (required)
         :type address: str
         :param prefix:
-        :type prefix: AddressPrefix
+        :type prefix: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -188,7 +187,7 @@ class AlmanacApi:
     async def get_agent_without_preload_content(
         self,
         address: StrictStr,
-        prefix: Optional[AddressPrefix] = None,
+        prefix: Optional[StrictStr] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -208,7 +207,7 @@ class AlmanacApi:
         :param address: (required)
         :type address: str
         :param prefix:
-        :type prefix: AddressPrefix
+        :type prefix: str
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -281,7 +280,7 @@ class AlmanacApi:
         # process the query parameters
         if prefix is not None:
             
-            _query_params.append(('prefix', prefix.value))
+            _query_params.append(('prefix', prefix))
             
         # process the header parameters
         # process the form parameters

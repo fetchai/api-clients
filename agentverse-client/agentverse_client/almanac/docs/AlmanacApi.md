@@ -21,7 +21,6 @@ Get Specific Agent
 
 ```python
 import agentverse_client.almanac
-from agentverse_client.almanac.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.models.agent import Agent
 from agentverse_client.almanac.rest import ApiException
 from pprint import pprint
@@ -38,7 +37,7 @@ with agentverse_client.almanac.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.almanac.AlmanacApi(api_client)
     address = 'address_example' # str | 
-    prefix = agentverse_client.almanac.AddressPrefix() # AddressPrefix |  (optional)
+    prefix = 'prefix_example' # str |  (optional)
 
     try:
         # Get Specific Agent
@@ -57,7 +56,7 @@ with agentverse_client.almanac.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **str**|  | 
- **prefix** | [**AddressPrefix**](.md)|  | [optional] 
+ **prefix** | **str**|  | [optional] 
 
 ### Return type
 

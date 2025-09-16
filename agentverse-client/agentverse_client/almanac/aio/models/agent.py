@@ -18,11 +18,9 @@ import re  # noqa: F401
 import json
 
 from datetime import datetime
-from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictFloat, StrictInt, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional, Union
-from agentverse_client.almanac.aio.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.aio.models.agent_status import AgentStatus
-from agentverse_client.almanac.aio.models.agent_type import AgentType
 from agentverse_client.almanac.aio.models.developer_category import DeveloperCategory
 from agentverse_client.almanac.aio.models.endpoint import Endpoint
 from typing import Optional, Set
@@ -33,10 +31,10 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     status: AgentStatus
-    type: AgentType
+    type: StrictStr = Field(description="Type/category of the agent")
     address: StrictStr = Field(description="Unique blockchain address of the agent")
     domain_name: Optional[StrictStr] = None
-    prefix: Optional[AddressPrefix] = None
+    prefix: Optional[StrictStr] = None
     endpoints: List[Endpoint] = Field(description="List of agent's endpoints")
     metadata: Optional[Dict[str, Any]] = None
     protocols: List[StrictStr] = Field(description="Supported protocol identifiers")
@@ -50,6 +48,23 @@ class Agent(BaseModel):
     total_interactions: Optional[StrictInt] = None
     trust_score: Optional[Union[StrictFloat, StrictInt]] = None
     __properties: ClassVar[List[str]] = ["status", "type", "address", "domain_name", "prefix", "endpoints", "metadata", "protocols", "expiry", "developer_category", "name", "running", "maintainer_id", "username", "code_update_timestamp", "total_interactions", "trust_score"]
+
+    @field_validator('type')
+    def type_validate_enum(cls, value):
+        """Validates the enum"""
+        if value not in set(['hosted', 'local', 'mailbox', 'proxy', 'custom']):
+            raise ValueError("must be one of enum values ('hosted', 'local', 'mailbox', 'proxy', 'custom')")
+        return value
+
+    @field_validator('prefix')
+    def prefix_validate_enum(cls, value):
+        """Validates the enum"""
+        if value is None:
+            return value
+
+        if value not in set(['agent', 'test-agent']):
+            raise ValueError("must be one of enum values ('agent', 'test-agent')")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

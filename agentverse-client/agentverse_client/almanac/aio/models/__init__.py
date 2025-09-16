@@ -14,7 +14,6 @@
 
 
 # import models into model package
-from agentverse_client.almanac.aio.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.aio.models.agent import Agent
 from agentverse_client.almanac.aio.models.agent_endpoint import AgentEndpoint
 from agentverse_client.almanac.aio.models.agent_registration_attestation import AgentRegistrationAttestation
@@ -22,7 +21,6 @@ from agentverse_client.almanac.aio.models.agent_registration_attestation_batch i
 from agentverse_client.almanac.aio.models.agent_registration_attestation_metadata_value import AgentRegistrationAttestationMetadataValue
 from agentverse_client.almanac.aio.models.agent_status import AgentStatus
 from agentverse_client.almanac.aio.models.agent_status_update import AgentStatusUpdate
-from agentverse_client.almanac.aio.models.agent_type import AgentType
 from agentverse_client.almanac.aio.models.developer_category import DeveloperCategory
 from agentverse_client.almanac.aio.models.endpoint import Endpoint
 from agentverse_client.almanac.aio.models.http_validation_error import HTTPValidationError

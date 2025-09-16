@@ -32,7 +32,6 @@ from agentverse_client.almanac.exceptions import ApiAttributeError
 from agentverse_client.almanac.exceptions import ApiException
 
 # import models into sdk package
-from agentverse_client.almanac.models.address_prefix import AddressPrefix
 from agentverse_client.almanac.models.agent import Agent
 from agentverse_client.almanac.models.agent_endpoint import AgentEndpoint
 from agentverse_client.almanac.models.agent_registration_attestation import AgentRegistrationAttestation
@@ -40,7 +39,6 @@ from agentverse_client.almanac.models.agent_registration_attestation_batch impor
 from agentverse_client.almanac.models.agent_registration_attestation_metadata_value import AgentRegistrationAttestationMetadataValue
 from agentverse_client.almanac.models.agent_status import AgentStatus
 from agentverse_client.almanac.models.agent_status_update import AgentStatusUpdate
-from agentverse_client.almanac.models.agent_type import AgentType
 from agentverse_client.almanac.models.developer_category import DeveloperCategory
 from agentverse_client.almanac.models.endpoint import Endpoint
 from agentverse_client.almanac.models.http_validation_error import HTTPValidationError
