@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **agent_identifier** | **str** |  | 
 **signature** | **str** |  | [optional] 
 **timestamp** | **int** |  | [optional] 
-**protocols** | **List[str]** | List of supported protocol identifiers | 
+**protocols** | **List[str]** | list of supported protocol identifiers | 
 **endpoints** | [**List[AgentEndpoint]**](AgentEndpoint.md) | Declared service endpoints | 
 **metadata** | [**Dict[str, AgentRegistrationAttestationMetadataValue]**](AgentRegistrationAttestationMetadataValue.md) |  | [optional] 
 

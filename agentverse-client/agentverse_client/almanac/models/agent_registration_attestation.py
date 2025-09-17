@@ -31,7 +31,7 @@ class AgentRegistrationAttestation(BaseModel):
     agent_identifier: StrictStr
     signature: Optional[StrictStr] = None
     timestamp: Optional[StrictInt] = None
-    protocols: List[StrictStr] = Field(description="List of supported protocol identifiers")
+    protocols: List[StrictStr] = Field(description="list of supported protocol identifiers")
     endpoints: List[AgentEndpoint] = Field(description="Declared service endpoints")
     metadata: Optional[Dict[str, AgentRegistrationAttestationMetadataValue]] = None
     __properties: ClassVar[List[str]] = ["agent_identifier", "signature", "timestamp", "protocols", "endpoints", "metadata"]
