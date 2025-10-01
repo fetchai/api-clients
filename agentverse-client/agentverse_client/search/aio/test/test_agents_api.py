@@ -33,6 +33,13 @@ class TestAgentsApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_get_agent(self) -> None:
+        """Test case for get_agent
+
+        Get Agent
+        """
+        pass
+
     async def test_search_agent_by_geolocation(self) -> None:
         """Test case for search_agent_by_geolocation
 
