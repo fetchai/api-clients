@@ -62,7 +62,7 @@ class AlmanacApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> HandleAvailabilityResponse:
-        """Generate Unique Handle
+        """Check Agent Handle Availability
 
 
         :param handle_availability_request: (required)
@@ -129,7 +129,7 @@ class AlmanacApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> ApiResponse[HandleAvailabilityResponse]:
-        """Generate Unique Handle
+        """Check Agent Handle Availability
 
 
         :param handle_availability_request: (required)
@@ -196,7 +196,7 @@ class AlmanacApi:
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
     ) -> RESTResponseType:
-        """Generate Unique Handle
+        """Check Agent Handle Availability
 
 
         :param handle_availability_request: (required)

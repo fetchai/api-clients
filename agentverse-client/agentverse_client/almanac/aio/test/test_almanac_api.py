@@ -29,7 +29,7 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
     async def test_check_agent_handle_availability(self) -> None:
         """Test case for check_agent_handle_availability
 
-        Generate Unique Handle
+        Check Agent Handle Availability
         """
         pass
 

@@ -4,7 +4,7 @@ All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**check_agent_handle_availability**](AlmanacApi.md#check_agent_handle_availability) | **POST** /v1/almanac/handles/available | Generate Unique Handle
+[**check_agent_handle_availability**](AlmanacApi.md#check_agent_handle_availability) | **POST** /v1/almanac/handles/available | Check Agent Handle Availability
 [**create_agent_handle**](AlmanacApi.md#create_agent_handle) | **POST** /v1/almanac/handles | Create Agent Handle
 [**delete_agent_handle**](AlmanacApi.md#delete_agent_handle) | **DELETE** /v1/almanac/handles/{handle} | Delete Agent Handle
 [**get_agent**](AlmanacApi.md#get_agent) | **GET** /v1/almanac/agents/{address} | Get Specific Agent
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 # **check_agent_handle_availability**
 > HandleAvailabilityResponse check_agent_handle_availability(handle_availability_request)
 
-Generate Unique Handle
+Check Agent Handle Availability
 
 ### Example
 
@@ -44,7 +44,7 @@ with agentverse_client.almanac.ApiClient(configuration) as api_client:
     handle_availability_request = agentverse_client.almanac.HandleAvailabilityRequest() # HandleAvailabilityRequest | 
 
     try:
-        # Generate Unique Handle
+        # Check Agent Handle Availability
         api_response = api_instance.check_agent_handle_availability(handle_availability_request)
         print("The response of AlmanacApi->check_agent_handle_availability:\n")
         pprint(api_response)
