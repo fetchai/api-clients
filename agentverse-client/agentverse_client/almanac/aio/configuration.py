@@ -112,6 +112,7 @@ HTTPSignatureAuthSetting = TypedDict(
 AuthSettings = TypedDict(
     "AuthSettings",
     {
+        "FaunaAuthorizationScheme": OAuth2AuthSetting,
     },
     total=False,
 )
@@ -160,6 +161,7 @@ class Configuration:
       in PEM format.
     :param retries: Number of retries for API requests.
 
+    :Example:
     """
 
     _default: ClassVar[Optional[Self]] = None
@@ -479,6 +481,13 @@ class Configuration:
         :return: The Auth Settings information dict.
         """
         auth: AuthSettings = {}
+        if self.access_token is not None:
+            auth['FaunaAuthorizationScheme'] = {
+                'type': 'oauth2',
+                'in': 'header',
+                'key': 'Authorization',
+                'value': 'Bearer ' + self.access_token
+            }
         return auth
 
     def to_debug_report(self) -> str:

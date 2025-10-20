@@ -42,11 +42,15 @@ from agentverse_client.almanac.models.agent_status_update import AgentStatusUpda
 from agentverse_client.almanac.models.developer_category import DeveloperCategory
 from agentverse_client.almanac.models.endpoint import Endpoint
 from agentverse_client.almanac.models.http_validation_error import HTTPValidationError
+from agentverse_client.almanac.models.handle_availability_request import HandleAvailabilityRequest
+from agentverse_client.almanac.models.handle_availability_response import HandleAvailabilityResponse
+from agentverse_client.almanac.models.handle_response import HandleResponse
 from agentverse_client.almanac.models.interaction import Interaction
 from agentverse_client.almanac.models.interaction_type import InteractionType
 from agentverse_client.almanac.models.location_inner import LocationInner
 from agentverse_client.almanac.models.manifest import Manifest
 from agentverse_client.almanac.models.metadata import Metadata
 from agentverse_client.almanac.models.model import Model
+from agentverse_client.almanac.models.new_handle_request import NewHandleRequest
 from agentverse_client.almanac.models.resolved_protocol_digest import ResolvedProtocolDigest
 from agentverse_client.almanac.models.validation_error import ValidationError

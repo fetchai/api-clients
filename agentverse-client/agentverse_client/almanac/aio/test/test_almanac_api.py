@@ -26,6 +26,27 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
     async def asyncTearDown(self) -> None:
         await self.api.api_client.close()
 
+    async def test_check_agent_handle_availability(self) -> None:
+        """Test case for check_agent_handle_availability
+
+        Generate Unique Handle
+        """
+        pass
+
+    async def test_create_agent_handle(self) -> None:
+        """Test case for create_agent_handle
+
+        Create Agent Handle
+        """
+        pass
+
+    async def test_delete_agent_handle(self) -> None:
+        """Test case for delete_agent_handle
+
+        Delete Agent Handle
+        """
+        pass
+
     async def test_get_agent(self) -> None:
         """Test case for get_agent
 
@@ -51,6 +72,13 @@ class TestAlmanacApi(unittest.IsolatedAsyncioTestCase):
         """Test case for register_agents_batch_v1_almanac_agents_batch_post
 
         Register Agents Batch
+        """
+        pass
+
+    async def test_resolve_agent_handle_to_address(self) -> None:
+        """Test case for resolve_agent_handle_to_address
+
+        Get Agent Handle
         """
         pass
 
