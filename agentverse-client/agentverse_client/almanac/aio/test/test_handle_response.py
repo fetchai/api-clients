@@ -35,11 +35,11 @@ class TestHandleResponse(unittest.TestCase):
         model = HandleResponse()
         if include_optional:
             return HandleResponse(
-                agent_address = ''
+                agent_address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w'
             )
         else:
             return HandleResponse(
-                agent_address = '',
+                agent_address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
         )
         """
 

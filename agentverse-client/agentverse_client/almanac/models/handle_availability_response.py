@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictBool, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr, field_validator
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,9 +28,16 @@ class HandleAvailabilityResponse(BaseModel):
     HandleAvailabilityResponse
     """ # noqa: E501
     available: StrictBool
-    handle: StrictStr
+    handle: Annotated[str, Field(strict=True)] = Field(description="The handle to be used for the agent.")
     alternative: Optional[StrictStr] = None
     __properties: ClassVar[List[str]] = ["available", "handle", "alternative"]
+
+    @field_validator('handle')
+    def handle_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[a-z0-9]+(-[a-z0-9]+)*$", value):
+            raise ValueError(r"must validate the regular expression /^[a-z0-9]+(-[a-z0-9]+)*$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

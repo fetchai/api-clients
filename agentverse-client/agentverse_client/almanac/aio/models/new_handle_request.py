@@ -17,8 +17,9 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, StrictStr
+from pydantic import BaseModel, ConfigDict, Field, field_validator
 from typing import Any, ClassVar, Dict, List
+from typing_extensions import Annotated
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -26,9 +27,23 @@ class NewHandleRequest(BaseModel):
     """
     NewHandleRequest
     """ # noqa: E501
-    agent_address: StrictStr
-    handle: StrictStr
+    agent_address: Annotated[str, Field(strict=True)] = Field(description="The address of the agent.")
+    handle: Annotated[str, Field(strict=True)] = Field(description="The handle to be used for the agent.")
     __properties: ClassVar[List[str]] = ["agent_address", "handle"]
+
+    @field_validator('agent_address')
+    def agent_address_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$", value):
+            raise ValueError(r"must validate the regular expression /^agent1[qpzry9x8gf2tvdw0s3jn54khce6mua7l]{59}$/")
+        return value
+
+    @field_validator('handle')
+    def handle_validate_regular_expression(cls, value):
+        """Validates the regular expression"""
+        if not re.match(r"^[a-z0-9]+(-[a-z0-9]+)*$", value):
+            raise ValueError(r"must validate the regular expression /^[a-z0-9]+(-[a-z0-9]+)*$/")
+        return value
 
     model_config = ConfigDict(
         populate_by_name=True,

@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_address** | **str** |  | 
+**agent_address** | **str** | The address of the agent. | 
 
 ## Example
 

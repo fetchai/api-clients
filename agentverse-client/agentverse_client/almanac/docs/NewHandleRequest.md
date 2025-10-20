@@ -5,8 +5,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**agent_address** | **str** |  | 
-**handle** | **str** |  | 
+**agent_address** | **str** | The address of the agent. | 
+**handle** | **str** | The handle to be used for the agent. | 
 
 ## Example
 

@@ -6,7 +6,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **available** | **bool** |  | 
-**handle** | **str** |  | 
+**handle** | **str** | The handle to be used for the agent. | 
 **alternative** | **str** |  | [optional] 
 
 ## Example
