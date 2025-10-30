@@ -28,7 +28,6 @@ class Agent(BaseModel):
     Agent
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="Bech32 address of the agent")
-    prefix: Annotated[str, Field(strict=True, max_length=16)] = Field(description="Prefix to distinguish agent's environment (e.g., 'test-agent')")
     name: Annotated[str, Field(min_length=0, strict=True, max_length=80)] = Field(description="Name of the agent")
     pending_messages: StrictInt = Field(description="Number of pending messages for the agent")
     bytes_transferred: StrictInt = Field(description="Total bytes transferred for this agent")
@@ -37,7 +36,7 @@ class Agent(BaseModel):
     avatar_url: Optional[Annotated[str, Field(strict=True, max_length=4000)]] = None
     short_description: Optional[Annotated[str, Field(strict=True, max_length=300)]] = None
     agent_type: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "pending_messages", "bytes_transferred", "previous_bytes_transferred", "readme", "avatar_url", "short_description", "agent_type"]
+    __properties: ClassVar[List[str]] = ["address", "name", "pending_messages", "bytes_transferred", "previous_bytes_transferred", "readme", "avatar_url", "short_description", "agent_type"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -128,7 +127,6 @@ class Agent(BaseModel):
 
         _obj = cls.model_validate({
             "address": obj.get("address"),
-            "prefix": obj.get("prefix"),
             "name": obj.get("name"),
             "pending_messages": obj.get("pending_messages"),
             "bytes_transferred": obj.get("bytes_transferred"),

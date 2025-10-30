@@ -6,7 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | Bech32 address of the public agent. | 
-**prefix** | **str** | Environment prefix, typically &#39;test-agent&#39;. | [optional] [default to 'test-agent']
 **name** | **str** | Name of the public agent. | 
 **readme** | **str** |  | [optional] 
 **avatar_url** | **str** |  | [optional] 

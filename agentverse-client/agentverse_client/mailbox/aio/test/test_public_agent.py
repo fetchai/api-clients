@@ -36,7 +36,6 @@ class TestPublicAgent(unittest.TestCase):
         if include_optional:
             return PublicAgent(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                prefix = 'test-agent',
                 name = '0',
                 readme = '',
                 avatar_url = '',

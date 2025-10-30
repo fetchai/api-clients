@@ -6,7 +6,6 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **address** | **str** | Bech32 address of the agent | 
-**prefix** | **str** | Prefix to distinguish agent&#39;s environment (e.g., &#39;test-agent&#39;) | 
 **name** | **str** | Name of the agent | 
 **pending_messages** | **int** | Number of pending messages for the agent | 
 **bytes_transferred** | **int** | Total bytes transferred for this agent | 

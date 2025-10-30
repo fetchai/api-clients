@@ -36,7 +36,6 @@ class TestAgent(unittest.TestCase):
         if include_optional:
             return Agent(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                prefix = '',
                 name = '',
                 pending_messages = 56,
                 bytes_transferred = 56,
@@ -49,7 +48,6 @@ class TestAgent(unittest.TestCase):
         else:
             return Agent(
                 address = 'agent1rz76d8hdx282zstqn20l3h74hscgagg7422rz28rczse3ajf5kewcfaq67w',
-                prefix = '',
                 name = '',
                 pending_messages = 56,
                 bytes_transferred = 56,

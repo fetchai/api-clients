@@ -28,12 +28,11 @@ class PublicAgent(BaseModel):
     PublicAgent
     """ # noqa: E501
     address: Annotated[str, Field(strict=True)] = Field(description="Bech32 address of the public agent.")
-    prefix: Optional[Annotated[str, Field(strict=True, max_length=16)]] = Field(default='test-agent', description="Environment prefix, typically 'test-agent'.")
     name: Annotated[str, Field(min_length=1, strict=True, max_length=80)] = Field(description="Name of the public agent.")
     readme: Optional[Annotated[str, Field(strict=True, max_length=80000)]] = None
     avatar_url: Optional[Annotated[str, Field(strict=True, max_length=4000)]] = None
     short_description: Optional[Annotated[str, Field(strict=True, max_length=300)]] = None
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "readme", "avatar_url", "short_description"]
+    __properties: ClassVar[List[str]] = ["address", "name", "readme", "avatar_url", "short_description"]
 
     @field_validator('address')
     def address_validate_regular_expression(cls, value):
@@ -109,7 +108,6 @@ class PublicAgent(BaseModel):
 
         _obj = cls.model_validate({
             "address": obj.get("address"),
-            "prefix": obj.get("prefix") if obj.get("prefix") is not None else 'test-agent',
             "name": obj.get("name"),
             "readme": obj.get("readme"),
             "avatar_url": obj.get("avatar_url"),
