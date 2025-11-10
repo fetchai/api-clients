@@ -560,7 +560,6 @@ class AgentsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -1357,7 +1356,6 @@ class AgentsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -1932,7 +1930,6 @@ class AgentsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -2206,7 +2203,6 @@ class AgentsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -2799,7 +2795,6 @@ class AgentsApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(

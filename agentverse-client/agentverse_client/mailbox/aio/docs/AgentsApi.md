@@ -98,7 +98,6 @@ Delete Specific User Agent
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.mailbox.aio
@@ -111,12 +110,6 @@ configuration = agentverse_client.mailbox.aio.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 async with agentverse_client.mailbox.aio.ApiClient(configuration) as api_client:
@@ -148,7 +141,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -314,7 +307,6 @@ Get Specific User Agent
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.mailbox.aio
@@ -328,12 +320,6 @@ configuration = agentverse_client.mailbox.aio.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 async with agentverse_client.mailbox.aio.ApiClient(configuration) as api_client:
@@ -365,7 +351,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -466,7 +452,6 @@ List User Agents
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.mailbox.aio
@@ -480,12 +465,6 @@ configuration = agentverse_client.mailbox.aio.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 async with agentverse_client.mailbox.aio.ApiClient(configuration) as api_client:
@@ -519,7 +498,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -542,7 +521,6 @@ Register
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.mailbox.aio
@@ -557,12 +535,6 @@ configuration = agentverse_client.mailbox.aio.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 async with agentverse_client.mailbox.aio.ApiClient(configuration) as api_client:
@@ -594,7 +566,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -696,7 +668,6 @@ Update Specific User Agent
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.mailbox.aio
@@ -711,12 +682,6 @@ configuration = agentverse_client.mailbox.aio.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 async with agentverse_client.mailbox.aio.ApiClient(configuration) as api_client:
@@ -750,7 +715,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
