@@ -78,8 +78,7 @@ class TestAgent(unittest.TestCase):
                 last_updated = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 created_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
                 recent_success_rate = 1.337,
-                recent_eval_success_rate = 1.337,
-                owner = ''
+                recent_eval_success_rate = 1.337
             )
         else:
             return Agent(
