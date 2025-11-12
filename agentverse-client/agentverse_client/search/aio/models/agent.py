@@ -57,7 +57,8 @@ class Agent(BaseModel):
     created_at: datetime = Field(description="the time at which the agent was first visible or created")
     recent_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
     recent_eval_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate"]
+    owner: Optional[StrictStr] = None
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -155,6 +156,11 @@ class Agent(BaseModel):
         if self.recent_eval_success_rate is None and "recent_eval_success_rate" in self.model_fields_set:
             _dict['recent_eval_success_rate'] = None
 
+        # set to None if owner (nullable) is None
+        # and model_fields_set contains the field
+        if self.owner is None and "owner" in self.model_fields_set:
+            _dict['owner'] = None
+
         return _dict
 
     @classmethod
@@ -194,7 +200,8 @@ class Agent(BaseModel):
             "last_updated": obj.get("last_updated"),
             "created_at": obj.get("created_at"),
             "recent_success_rate": obj.get("recent_success_rate"),
-            "recent_eval_success_rate": obj.get("recent_eval_success_rate")
+            "recent_eval_success_rate": obj.get("recent_eval_success_rate"),
+            "owner": obj.get("owner")
         })
         return _obj
 
