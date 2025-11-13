@@ -20,7 +20,6 @@ Name | Type | Description | Notes
 **featured** | **bool** | signaled if the agent is featured or not | [optional] [default to False]
 **category** | [**AgentCategory**](AgentCategory.md) | the creator of the agent | 
 **system_wide_tags** | **List[str]** | the system-wide tags assigned to the agent | 
-**target_keywords** | **List[str]** | Per-agent keywords used for search/filters | [optional] 
 **geo_location** | [**AgentGeoLocation**](AgentGeoLocation.md) |  | [optional] 
 **handle** | **str** |  | [optional] 
 **domain** | **str** |  | [optional] 

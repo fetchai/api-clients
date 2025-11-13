@@ -49,7 +49,6 @@ class Agent(BaseModel):
     featured: Optional[StrictBool] = Field(default=False, description="signaled if the agent is featured or not")
     category: AgentCategory = Field(description="the creator of the agent")
     system_wide_tags: List[StrictStr] = Field(description="the system-wide tags assigned to the agent")
-    target_keywords: Optional[List[StrictStr]] = Field(default=None, description="Per-agent keywords used for search/filters")
     geo_location: Optional[AgentGeoLocation] = None
     handle: Optional[StrictStr] = None
     domain: Optional[StrictStr] = None
@@ -59,7 +58,7 @@ class Agent(BaseModel):
     recent_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
     recent_eval_success_rate: Optional[Union[StrictFloat, StrictInt]] = None
     owner: Optional[StrictStr] = None
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "target_keywords", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -189,7 +188,6 @@ class Agent(BaseModel):
             "featured": obj.get("featured") if obj.get("featured") is not None else False,
             "category": obj.get("category"),
             "system_wide_tags": obj.get("system_wide_tags"),
-            "target_keywords": obj.get("target_keywords"),
             "geo_location": AgentGeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
             "handle": obj.get("handle"),
             "domain": obj.get("domain"),
