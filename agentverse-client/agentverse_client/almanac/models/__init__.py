@@ -21,8 +21,7 @@ from agentverse_client.almanac.models.agent_registration_attestation_batch impor
 from agentverse_client.almanac.models.agent_registration_attestation_metadata_value import AgentRegistrationAttestationMetadataValue
 from agentverse_client.almanac.models.agent_status import AgentStatus
 from agentverse_client.almanac.models.agent_status_update import AgentStatusUpdate
-from agentverse_client.almanac.models.developer_category import DeveloperCategory
-from agentverse_client.almanac.models.endpoint import Endpoint
+from agentverse_client.almanac.models.almanac_usage import AlmanacUsage
 from agentverse_client.almanac.models.http_validation_error import HTTPValidationError
 from agentverse_client.almanac.models.handle_availability_request import HandleAvailabilityRequest
 from agentverse_client.almanac.models.handle_availability_response import HandleAvailabilityResponse

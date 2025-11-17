@@ -14,20 +14,25 @@
 
 import unittest
 
-from agentverse_client.almanac.aio.models.developer_category import DeveloperCategory
+from agentverse_client.almanac.api.usage_api import UsageApi
 
-class TestDeveloperCategory(unittest.TestCase):
-    """DeveloperCategory unit test stubs"""
 
-    def setUp(self):
+class TestUsageApi(unittest.TestCase):
+    """UsageApi unit test stubs"""
+
+    def setUp(self) -> None:
+        self.api = UsageApi()
+
+    def tearDown(self) -> None:
         pass
 
-    def tearDown(self):
+    def test_get_user_usage(self) -> None:
+        """Test case for get_user_usage
+
+        Get User Usage
+        """
         pass
 
-    def testDeveloperCategory(self):
-        """Test DeveloperCategory"""
-        # inst = DeveloperCategory()
 
 if __name__ == '__main__':
     unittest.main()

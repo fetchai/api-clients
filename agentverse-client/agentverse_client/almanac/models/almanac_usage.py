@@ -17,18 +17,18 @@ import pprint
 import re  # noqa: F401
 import json
 
-from pydantic import BaseModel, ConfigDict, Field, StrictInt, StrictStr
-from typing import Any, ClassVar, Dict, List
+from pydantic import BaseModel, ConfigDict, Field, StrictInt
+from typing import Any, ClassVar, Dict, List, Optional
 from typing import Optional, Set
 from typing_extensions import Self
 
-class Endpoint(BaseModel):
+class AlmanacUsage(BaseModel):
     """
-    Endpoint
+    AlmanacUsage
     """ # noqa: E501
-    url: StrictStr = Field(description="Endpoint URL")
-    weight: StrictInt = Field(description="Relative weight for load balancing or priority")
-    __properties: ClassVar[List[str]] = ["url", "weight"]
+    num_domains: Optional[StrictInt] = Field(default=0, description="Number of domains registered by the user")
+    max_domains: Optional[StrictInt] = Field(default=0, description="Max allowed domains for the user")
+    __properties: ClassVar[List[str]] = ["num_domains", "max_domains"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -48,7 +48,7 @@ class Endpoint(BaseModel):
 
     @classmethod
     def from_json(cls, json_str: str) -> Optional[Self]:
-        """Create an instance of Endpoint from a JSON string"""
+        """Create an instance of AlmanacUsage from a JSON string"""
         return cls.from_dict(json.loads(json_str))
 
     def to_dict(self) -> Dict[str, Any]:
@@ -73,7 +73,7 @@ class Endpoint(BaseModel):
 
     @classmethod
     def from_dict(cls, obj: Optional[Dict[str, Any]]) -> Optional[Self]:
-        """Create an instance of Endpoint from a dict"""
+        """Create an instance of AlmanacUsage from a dict"""
         if obj is None:
             return None
 
@@ -81,8 +81,8 @@ class Endpoint(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "url": obj.get("url"),
-            "weight": obj.get("weight")
+            "num_domains": obj.get("num_domains") if obj.get("num_domains") is not None else 0,
+            "max_domains": obj.get("max_domains") if obj.get("max_domains") is not None else 0
         })
         return _obj
 

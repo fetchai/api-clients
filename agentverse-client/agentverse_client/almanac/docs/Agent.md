@@ -9,19 +9,10 @@ Name | Type | Description | Notes
 **type** | **str** | Type/category of the agent | 
 **address** | **str** | Unique blockchain address of the agent | 
 **domain_name** | **str** |  | [optional] 
-**prefix** | **str** |  | [optional] 
-**endpoints** | [**List[Endpoint]**](Endpoint.md) | List of agent&#39;s endpoints | 
+**endpoints** | [**List[AgentEndpoint]**](AgentEndpoint.md) | List of agent&#39;s endpoints | 
 **metadata** | **Dict[str, object]** |  | [optional] 
 **protocols** | **List[str]** | Supported protocol identifiers | 
 **expiry** | **datetime** | Expiration timestamp of the agent | 
-**developer_category** | [**DeveloperCategory**](DeveloperCategory.md) |  | [optional] 
-**name** | **str** |  | [optional] 
-**running** | **bool** |  | [optional] 
-**maintainer_id** | **str** |  | [optional] 
-**username** | **str** |  | [optional] 
-**code_update_timestamp** | **datetime** |  | [optional] 
-**total_interactions** | **int** |  | [optional] 
-**trust_score** | **float** |  | [optional] 
 
 ## Example
 

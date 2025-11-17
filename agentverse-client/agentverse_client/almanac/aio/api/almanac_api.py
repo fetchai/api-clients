@@ -16,7 +16,7 @@ from pydantic import validate_call, Field, StrictFloat, StrictStr, StrictInt
 from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
-from pydantic import StrictStr, field_validator
+from pydantic import StrictStr
 from typing import Any, List, Optional
 from agentverse_client.almanac.aio.models.agent import Agent
 from agentverse_client.almanac.aio.models.agent_registration_attestation import AgentRegistrationAttestation

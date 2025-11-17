@@ -39,9 +39,8 @@ class TestAgent(unittest.TestCase):
                 type = 'hosted',
                 address = '',
                 domain_name = '',
-                prefix = 'agent',
                 endpoints = [
-                    agentverse_client.almanac.aio.models.endpoint.Endpoint(
+                    agentverse_client.almanac.aio.models.agent_endpoint.AgentEndpoint(
                         url = '', 
                         weight = 56, )
                     ],
@@ -49,15 +48,7 @@ class TestAgent(unittest.TestCase):
                 protocols = [
                     ''
                     ],
-                expiry = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                developer_category = 'Community',
-                name = '',
-                running = True,
-                maintainer_id = '',
-                username = '',
-                code_update_timestamp = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'),
-                total_interactions = 56,
-                trust_score = 1.337
+                expiry = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f')
             )
         else:
             return Agent(
@@ -65,7 +56,7 @@ class TestAgent(unittest.TestCase):
                 type = 'hosted',
                 address = '',
                 endpoints = [
-                    agentverse_client.almanac.aio.models.endpoint.Endpoint(
+                    agentverse_client.almanac.aio.models.agent_endpoint.AgentEndpoint(
                         url = '', 
                         weight = 56, )
                     ],

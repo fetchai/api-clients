@@ -19,6 +19,7 @@ __version__ = "1.0.0"
 # import apis into sdk package
 from agentverse_client.almanac.aio.api.almanac_api import AlmanacApi
 from agentverse_client.almanac.aio.api.manifests_api import ManifestsApi
+from agentverse_client.almanac.aio.api.usage_api import UsageApi
 
 # import ApiClient
 from agentverse_client.almanac.aio.api_response import ApiResponse
@@ -39,8 +40,7 @@ from agentverse_client.almanac.aio.models.agent_registration_attestation_batch i
 from agentverse_client.almanac.aio.models.agent_registration_attestation_metadata_value import AgentRegistrationAttestationMetadataValue
 from agentverse_client.almanac.aio.models.agent_status import AgentStatus
 from agentverse_client.almanac.aio.models.agent_status_update import AgentStatusUpdate
-from agentverse_client.almanac.aio.models.developer_category import DeveloperCategory
-from agentverse_client.almanac.aio.models.endpoint import Endpoint
+from agentverse_client.almanac.aio.models.almanac_usage import AlmanacUsage
 from agentverse_client.almanac.aio.models.http_validation_error import HTTPValidationError
 from agentverse_client.almanac.aio.models.handle_availability_request import HandleAvailabilityRequest
 from agentverse_client.almanac.aio.models.handle_availability_response import HandleAvailabilityResponse
