@@ -56,5 +56,3 @@ agentverse_client/almanac/models/resolved_protocol_digest.py
 agentverse_client/almanac/models/validation_error.py
 agentverse_client/almanac/rest.py
 agentverse_client/almanac/test/__init__.py
-agentverse_client/almanac/test/test_almanac_usage.py
-agentverse_client/almanac/test/test_usage_api.py
