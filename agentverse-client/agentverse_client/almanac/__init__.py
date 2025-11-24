@@ -18,6 +18,7 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from agentverse_client.almanac.api.almanac_api import AlmanacApi
+from agentverse_client.almanac.api.almanac_v2_api import AlmanacV2Api
 from agentverse_client.almanac.api.manifests_api import ManifestsApi
 from agentverse_client.almanac.api.usage_api import UsageApi
 
@@ -44,6 +45,7 @@ from agentverse_client.almanac.models.almanac_usage import AlmanacUsage
 from agentverse_client.almanac.models.http_validation_error import HTTPValidationError
 from agentverse_client.almanac.models.handle_availability_request import HandleAvailabilityRequest
 from agentverse_client.almanac.models.handle_availability_response import HandleAvailabilityResponse
+from agentverse_client.almanac.models.handle_generate_response import HandleGenerateResponse
 from agentverse_client.almanac.models.handle_response import HandleResponse
 from agentverse_client.almanac.models.interaction import Interaction
 from agentverse_client.almanac.models.interaction_type import InteractionType

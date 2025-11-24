@@ -25,6 +25,7 @@ from agentverse_client.almanac.aio.models.almanac_usage import AlmanacUsage
 from agentverse_client.almanac.aio.models.http_validation_error import HTTPValidationError
 from agentverse_client.almanac.aio.models.handle_availability_request import HandleAvailabilityRequest
 from agentverse_client.almanac.aio.models.handle_availability_response import HandleAvailabilityResponse
+from agentverse_client.almanac.aio.models.handle_generate_response import HandleGenerateResponse
 from agentverse_client.almanac.aio.models.handle_response import HandleResponse
 from agentverse_client.almanac.aio.models.interaction import Interaction
 from agentverse_client.almanac.aio.models.interaction_type import InteractionType
