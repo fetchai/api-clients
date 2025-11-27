@@ -16,7 +16,7 @@ Method | HTTP request | Description
 
 
 # **add_asset_permission**
-> Permission add_asset_permission(asset_id, new_permission, requirement_pattern=requirement_pattern)
+> Permission add_asset_permission(asset_id, new_permission)
 
 Add Permission
 
@@ -43,11 +43,10 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
     api_instance = agentverse_client.storage.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
     new_permission = agentverse_client.storage.NewPermission() # NewPermission | 
-    requirement_pattern = None # object |  (optional)
 
     try:
         # Add Permission
-        api_response = api_instance.add_asset_permission(asset_id, new_permission, requirement_pattern=requirement_pattern)
+        api_response = api_instance.add_asset_permission(asset_id, new_permission)
         print("The response of StorageApi->add_asset_permission:\n")
         pprint(api_response)
     except Exception as e:
@@ -63,7 +62,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  | 
  **new_permission** | [**NewPermission**](NewPermission.md)|  | 
- **requirement_pattern** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -88,7 +86,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_asset_metadata**
-> Asset create_asset_metadata(new_asset, requirement_pattern=requirement_pattern)
+> Asset create_asset_metadata(new_asset)
 
 Create Asset Metadata
 
@@ -116,11 +114,10 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.storage.StorageApi(api_client)
     new_asset = agentverse_client.storage.NewAsset() # NewAsset | 
-    requirement_pattern = None # object |  (optional)
 
     try:
         # Create Asset Metadata
-        api_response = api_instance.create_asset_metadata(new_asset, requirement_pattern=requirement_pattern)
+        api_response = api_instance.create_asset_metadata(new_asset)
         print("The response of StorageApi->create_asset_metadata:\n")
         pprint(api_response)
     except Exception as e:
@@ -135,7 +132,6 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **new_asset** | [**NewAsset**](NewAsset.md)|  | 
- **requirement_pattern** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -160,7 +156,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_asset**
-> delete_asset(asset_id, requirement_pattern=requirement_pattern)
+> delete_asset(asset_id)
 
 Delete Asset
 
@@ -186,11 +182,10 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.storage.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
-    requirement_pattern = None # object |  (optional)
 
     try:
         # Delete Asset
-        api_instance.delete_asset(asset_id, requirement_pattern=requirement_pattern)
+        api_instance.delete_asset(asset_id)
     except Exception as e:
         print("Exception when calling StorageApi->delete_asset: %s\n" % e)
 ```
@@ -203,7 +198,6 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  | 
- **requirement_pattern** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -228,7 +222,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **delete_asset_permission**
-> delete_asset_permission(asset_id, requirement_pattern=requirement_pattern, agent_address=agent_address)
+> delete_asset_permission(asset_id, agent_address=agent_address)
 
 Delete Asset Permission For An Agent
 
@@ -252,12 +246,11 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.storage.StorageApi(api_client)
     asset_id = 'asset_id_example' # str | 
-    requirement_pattern = None # object |  (optional)
     agent_address = 'agent_address_example' # str | The agent's address (optional)
 
     try:
         # Delete Asset Permission For An Agent
-        api_instance.delete_asset_permission(asset_id, requirement_pattern=requirement_pattern, agent_address=agent_address)
+        api_instance.delete_asset_permission(asset_id, agent_address=agent_address)
     except Exception as e:
         print("Exception when calling StorageApi->delete_asset_permission: %s\n" % e)
 ```
@@ -270,7 +263,6 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  | 
- **requirement_pattern** | [**object**](.md)|  | [optional] 
  **agent_address** | **str**| The agent&#39;s address | [optional] 
 
 ### Return type
@@ -365,7 +357,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_asset_metadata**
-> Asset get_asset_metadata(identifier, requirement_pattern=requirement_pattern)
+> Asset get_asset_metadata(identifier)
 
 Retrieve Asset
 
@@ -392,11 +384,10 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = agentverse_client.storage.StorageApi(api_client)
     identifier = 'identifier_example' # str | 
-    requirement_pattern = None # object |  (optional)
 
     try:
         # Retrieve Asset
-        api_response = api_instance.get_asset_metadata(identifier, requirement_pattern=requirement_pattern)
+        api_response = api_instance.get_asset_metadata(identifier)
         print("The response of StorageApi->get_asset_metadata:\n")
         pprint(api_response)
     except Exception as e:
@@ -411,7 +402,6 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **identifier** | **str**|  | 
- **requirement_pattern** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -436,7 +426,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_asset_permissions**
-> PermissionList list_asset_permissions(asset_id, agent_address=agent_address, offset=offset, limit=limit, requirement_pattern=requirement_pattern)
+> PermissionList list_asset_permissions(asset_id, agent_address=agent_address, offset=offset, limit=limit)
 
 List Asset Permissions
 
@@ -464,11 +454,10 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
     agent_address = 'agent_address_example' # str |  (optional)
     offset = 0 # int |  (optional) (default to 0)
     limit = 100 # int |  (optional) (default to 100)
-    requirement_pattern = None # object |  (optional)
 
     try:
         # List Asset Permissions
-        api_response = api_instance.list_asset_permissions(asset_id, agent_address=agent_address, offset=offset, limit=limit, requirement_pattern=requirement_pattern)
+        api_response = api_instance.list_asset_permissions(asset_id, agent_address=agent_address, offset=offset, limit=limit)
         print("The response of StorageApi->list_asset_permissions:\n")
         pprint(api_response)
     except Exception as e:
@@ -486,7 +475,6 @@ Name | Type | Description  | Notes
  **agent_address** | **str**|  | [optional] 
  **offset** | **int**|  | [optional] [default to 0]
  **limit** | **int**|  | [optional] [default to 100]
- **requirement_pattern** | [**object**](.md)|  | [optional] 
 
 ### Return type
 
@@ -511,7 +499,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_user_assets**
-> AssetsList list_user_assets(offset=offset, limit=limit, requirement_pattern=requirement_pattern)
+> AssetsList list_user_assets(offset=offset, limit=limit)
 
 List Assets
 
@@ -539,11 +527,10 @@ with agentverse_client.storage.ApiClient(configuration) as api_client:
     api_instance = agentverse_client.storage.StorageApi(api_client)
     offset = 0 # int |  (optional) (default to 0)
     limit = 100 # int |  (optional) (default to 100)
-    requirement_pattern = None # object |  (optional)
 
     try:
         # List Assets
-        api_response = api_instance.list_user_assets(offset=offset, limit=limit, requirement_pattern=requirement_pattern)
+        api_response = api_instance.list_user_assets(offset=offset, limit=limit)
         print("The response of StorageApi->list_user_assets:\n")
         pprint(api_response)
     except Exception as e:
@@ -559,7 +546,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **offset** | **int**|  | [optional] [default to 0]
  **limit** | **int**|  | [optional] [default to 100]
- **requirement_pattern** | [**object**](.md)|  | [optional] 
 
 ### Return type
 

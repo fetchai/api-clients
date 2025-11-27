@@ -17,7 +17,7 @@ from typing import Any, Dict, List, Optional, Tuple, Union
 from typing_extensions import Annotated
 
 from pydantic import Field, StrictInt, StrictStr
-from typing import Any, Optional
+from typing import Optional
 from typing_extensions import Annotated
 from agentverse_client.storage.models.asset import Asset
 from agentverse_client.storage.models.asset_content import AssetContent
@@ -52,7 +52,6 @@ class StorageApi:
         self,
         asset_id: StrictStr,
         new_permission: NewPermission,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -73,8 +72,6 @@ class StorageApi:
         :type asset_id: str
         :param new_permission: (required)
         :type new_permission: NewPermission
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -100,7 +97,6 @@ class StorageApi:
         _param = self._add_asset_permission_serialize(
             asset_id=asset_id,
             new_permission=new_permission,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -127,7 +123,6 @@ class StorageApi:
         self,
         asset_id: StrictStr,
         new_permission: NewPermission,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -148,8 +143,6 @@ class StorageApi:
         :type asset_id: str
         :param new_permission: (required)
         :type new_permission: NewPermission
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -175,7 +168,6 @@ class StorageApi:
         _param = self._add_asset_permission_serialize(
             asset_id=asset_id,
             new_permission=new_permission,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -202,7 +194,6 @@ class StorageApi:
         self,
         asset_id: StrictStr,
         new_permission: NewPermission,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -223,8 +214,6 @@ class StorageApi:
         :type asset_id: str
         :param new_permission: (required)
         :type new_permission: NewPermission
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -250,7 +239,6 @@ class StorageApi:
         _param = self._add_asset_permission_serialize(
             asset_id=asset_id,
             new_permission=new_permission,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -272,7 +260,6 @@ class StorageApi:
         self,
         asset_id,
         new_permission,
-        requirement_pattern,
         _request_auth,
         _content_type,
         _headers,
@@ -297,10 +284,6 @@ class StorageApi:
         if asset_id is not None:
             _path_params['asset_id'] = asset_id
         # process the query parameters
-        if requirement_pattern is not None:
-            
-            _query_params.append(('requirement_pattern', requirement_pattern))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -356,7 +339,6 @@ class StorageApi:
     def create_asset_metadata(
         self,
         new_asset: NewAsset,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -376,8 +358,6 @@ class StorageApi:
 
         :param new_asset: (required)
         :type new_asset: NewAsset
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -402,7 +382,6 @@ class StorageApi:
 
         _param = self._create_asset_metadata_serialize(
             new_asset=new_asset,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -428,7 +407,6 @@ class StorageApi:
     def create_asset_metadata_with_http_info(
         self,
         new_asset: NewAsset,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -448,8 +426,6 @@ class StorageApi:
 
         :param new_asset: (required)
         :type new_asset: NewAsset
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -474,7 +450,6 @@ class StorageApi:
 
         _param = self._create_asset_metadata_serialize(
             new_asset=new_asset,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -500,7 +475,6 @@ class StorageApi:
     def create_asset_metadata_without_preload_content(
         self,
         new_asset: NewAsset,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -520,8 +494,6 @@ class StorageApi:
 
         :param new_asset: (required)
         :type new_asset: NewAsset
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -546,7 +518,6 @@ class StorageApi:
 
         _param = self._create_asset_metadata_serialize(
             new_asset=new_asset,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -567,7 +538,6 @@ class StorageApi:
     def _create_asset_metadata_serialize(
         self,
         new_asset,
-        requirement_pattern,
         _request_auth,
         _content_type,
         _headers,
@@ -590,10 +560,6 @@ class StorageApi:
 
         # process the path parameters
         # process the query parameters
-        if requirement_pattern is not None:
-            
-            _query_params.append(('requirement_pattern', requirement_pattern))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -649,7 +615,6 @@ class StorageApi:
     def delete_asset(
         self,
         asset_id: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -669,8 +634,6 @@ class StorageApi:
 
         :param asset_id: (required)
         :type asset_id: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -695,7 +658,6 @@ class StorageApi:
 
         _param = self._delete_asset_serialize(
             asset_id=asset_id,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -721,7 +683,6 @@ class StorageApi:
     def delete_asset_with_http_info(
         self,
         asset_id: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -741,8 +702,6 @@ class StorageApi:
 
         :param asset_id: (required)
         :type asset_id: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -767,7 +726,6 @@ class StorageApi:
 
         _param = self._delete_asset_serialize(
             asset_id=asset_id,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -793,7 +751,6 @@ class StorageApi:
     def delete_asset_without_preload_content(
         self,
         asset_id: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -813,8 +770,6 @@ class StorageApi:
 
         :param asset_id: (required)
         :type asset_id: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -839,7 +794,6 @@ class StorageApi:
 
         _param = self._delete_asset_serialize(
             asset_id=asset_id,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -860,7 +814,6 @@ class StorageApi:
     def _delete_asset_serialize(
         self,
         asset_id,
-        requirement_pattern,
         _request_auth,
         _content_type,
         _headers,
@@ -885,10 +838,6 @@ class StorageApi:
         if asset_id is not None:
             _path_params['asset_id'] = asset_id
         # process the query parameters
-        if requirement_pattern is not None:
-            
-            _query_params.append(('requirement_pattern', requirement_pattern))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -929,7 +878,6 @@ class StorageApi:
     def delete_asset_permission(
         self,
         asset_id: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         agent_address: Annotated[Optional[StrictStr], Field(description="The agent's address")] = None,
         _request_timeout: Union[
             None,
@@ -949,8 +897,6 @@ class StorageApi:
 
         :param asset_id: (required)
         :type asset_id: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param agent_address: The agent's address
         :type agent_address: str
         :param _request_timeout: timeout setting for this request. If one
@@ -977,7 +923,6 @@ class StorageApi:
 
         _param = self._delete_asset_permission_serialize(
             asset_id=asset_id,
-            requirement_pattern=requirement_pattern,
             agent_address=agent_address,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1004,7 +949,6 @@ class StorageApi:
     def delete_asset_permission_with_http_info(
         self,
         asset_id: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         agent_address: Annotated[Optional[StrictStr], Field(description="The agent's address")] = None,
         _request_timeout: Union[
             None,
@@ -1024,8 +968,6 @@ class StorageApi:
 
         :param asset_id: (required)
         :type asset_id: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param agent_address: The agent's address
         :type agent_address: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1052,7 +994,6 @@ class StorageApi:
 
         _param = self._delete_asset_permission_serialize(
             asset_id=asset_id,
-            requirement_pattern=requirement_pattern,
             agent_address=agent_address,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1079,7 +1020,6 @@ class StorageApi:
     def delete_asset_permission_without_preload_content(
         self,
         asset_id: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         agent_address: Annotated[Optional[StrictStr], Field(description="The agent's address")] = None,
         _request_timeout: Union[
             None,
@@ -1099,8 +1039,6 @@ class StorageApi:
 
         :param asset_id: (required)
         :type asset_id: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param agent_address: The agent's address
         :type agent_address: str
         :param _request_timeout: timeout setting for this request. If one
@@ -1127,7 +1065,6 @@ class StorageApi:
 
         _param = self._delete_asset_permission_serialize(
             asset_id=asset_id,
-            requirement_pattern=requirement_pattern,
             agent_address=agent_address,
             _request_auth=_request_auth,
             _content_type=_content_type,
@@ -1149,7 +1086,6 @@ class StorageApi:
     def _delete_asset_permission_serialize(
         self,
         asset_id,
-        requirement_pattern,
         agent_address,
         _request_auth,
         _content_type,
@@ -1175,10 +1111,6 @@ class StorageApi:
         if asset_id is not None:
             _path_params['asset_id'] = asset_id
         # process the query parameters
-        if requirement_pattern is not None:
-            
-            _query_params.append(('requirement_pattern', requirement_pattern))
-            
         if agent_address is not None:
             
             _query_params.append(('agent_address', agent_address))
@@ -1486,7 +1418,6 @@ class StorageApi:
     def get_asset_metadata(
         self,
         identifier: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1506,8 +1437,6 @@ class StorageApi:
 
         :param identifier: (required)
         :type identifier: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1532,7 +1461,6 @@ class StorageApi:
 
         _param = self._get_asset_metadata_serialize(
             identifier=identifier,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1558,7 +1486,6 @@ class StorageApi:
     def get_asset_metadata_with_http_info(
         self,
         identifier: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1578,8 +1505,6 @@ class StorageApi:
 
         :param identifier: (required)
         :type identifier: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1604,7 +1529,6 @@ class StorageApi:
 
         _param = self._get_asset_metadata_serialize(
             identifier=identifier,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1630,7 +1554,6 @@ class StorageApi:
     def get_asset_metadata_without_preload_content(
         self,
         identifier: StrictStr,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1650,8 +1573,6 @@ class StorageApi:
 
         :param identifier: (required)
         :type identifier: str
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1676,7 +1597,6 @@ class StorageApi:
 
         _param = self._get_asset_metadata_serialize(
             identifier=identifier,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1697,7 +1617,6 @@ class StorageApi:
     def _get_asset_metadata_serialize(
         self,
         identifier,
-        requirement_pattern,
         _request_auth,
         _content_type,
         _headers,
@@ -1722,10 +1641,6 @@ class StorageApi:
         if identifier is not None:
             _path_params['identifier'] = identifier
         # process the query parameters
-        if requirement_pattern is not None:
-            
-            _query_params.append(('requirement_pattern', requirement_pattern))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -1769,7 +1684,6 @@ class StorageApi:
         agent_address: Optional[StrictStr] = None,
         offset: Optional[StrictInt] = None,
         limit: Optional[StrictInt] = None,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1794,8 +1708,6 @@ class StorageApi:
         :type offset: int
         :param limit:
         :type limit: int
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1823,7 +1735,6 @@ class StorageApi:
             agent_address=agent_address,
             offset=offset,
             limit=limit,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1852,7 +1763,6 @@ class StorageApi:
         agent_address: Optional[StrictStr] = None,
         offset: Optional[StrictInt] = None,
         limit: Optional[StrictInt] = None,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1877,8 +1787,6 @@ class StorageApi:
         :type offset: int
         :param limit:
         :type limit: int
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1906,7 +1814,6 @@ class StorageApi:
             agent_address=agent_address,
             offset=offset,
             limit=limit,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -1935,7 +1842,6 @@ class StorageApi:
         agent_address: Optional[StrictStr] = None,
         offset: Optional[StrictInt] = None,
         limit: Optional[StrictInt] = None,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -1960,8 +1866,6 @@ class StorageApi:
         :type offset: int
         :param limit:
         :type limit: int
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -1989,7 +1893,6 @@ class StorageApi:
             agent_address=agent_address,
             offset=offset,
             limit=limit,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2013,7 +1916,6 @@ class StorageApi:
         agent_address,
         offset,
         limit,
-        requirement_pattern,
         _request_auth,
         _content_type,
         _headers,
@@ -2049,10 +1951,6 @@ class StorageApi:
         if limit is not None:
             
             _query_params.append(('limit', limit))
-            
-        if requirement_pattern is not None:
-            
-            _query_params.append(('requirement_pattern', requirement_pattern))
             
         # process the header parameters
         # process the form parameters
@@ -2095,7 +1993,6 @@ class StorageApi:
         self,
         offset: Optional[StrictInt] = None,
         limit: Optional[StrictInt] = None,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2117,8 +2014,6 @@ class StorageApi:
         :type offset: int
         :param limit:
         :type limit: int
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2144,7 +2039,6 @@ class StorageApi:
         _param = self._list_user_assets_serialize(
             offset=offset,
             limit=limit,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2171,7 +2065,6 @@ class StorageApi:
         self,
         offset: Optional[StrictInt] = None,
         limit: Optional[StrictInt] = None,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2193,8 +2086,6 @@ class StorageApi:
         :type offset: int
         :param limit:
         :type limit: int
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2220,7 +2111,6 @@ class StorageApi:
         _param = self._list_user_assets_serialize(
             offset=offset,
             limit=limit,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2247,7 +2137,6 @@ class StorageApi:
         self,
         offset: Optional[StrictInt] = None,
         limit: Optional[StrictInt] = None,
-        requirement_pattern: Optional[Any] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -2269,8 +2158,6 @@ class StorageApi:
         :type offset: int
         :param limit:
         :type limit: int
-        :param requirement_pattern:
-        :type requirement_pattern: object
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -2296,7 +2183,6 @@ class StorageApi:
         _param = self._list_user_assets_serialize(
             offset=offset,
             limit=limit,
-            requirement_pattern=requirement_pattern,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -2318,7 +2204,6 @@ class StorageApi:
         self,
         offset,
         limit,
-        requirement_pattern,
         _request_auth,
         _content_type,
         _headers,
@@ -2348,10 +2233,6 @@ class StorageApi:
         if limit is not None:
             
             _query_params.append(('limit', limit))
-            
-        if requirement_pattern is not None:
-            
-            _query_params.append(('requirement_pattern', requirement_pattern))
             
         # process the header parameters
         # process the form parameters
