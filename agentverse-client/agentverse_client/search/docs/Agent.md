@@ -29,6 +29,8 @@ Name | Type | Description | Notes
 **recent_success_rate** | **float** |  | [optional] 
 **recent_eval_success_rate** | **float** |  | [optional] 
 **owner** | **str** |  | [optional] 
+**recent_verified_interactions** | **int** | the number of recent interactions of this agent coming from a verified source like ASI:One, QA agent etc. | 
+**recent_success_verified_interactions** | **int** | the number of recent successful interactions of this agent coming from a verified source like ASI:One, QA agent etc. | 
 
 ## Example
 
