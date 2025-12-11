@@ -31,7 +31,6 @@ Name | Type | Description | Notes
 **owner** | **str** |  | [optional] 
 **recent_verified_interactions** | **int** | the number of recent interactions of this agent coming from a verified source like ASI:One or the QA Agent | 
 **recent_success_verified_interactions** | **int** | the number of recent successful interactions of this agent coming from a verified source like ASI:One or the QA Agent | 
-**last_success_exec_at** | **datetime** |  | [optional] 
 
 ## Example
 
