@@ -83,7 +83,8 @@ class TestAgentSearchResponse(unittest.TestCase):
                         recent_eval_success_rate = 1.337, 
                         owner = '', 
                         recent_verified_interactions = 56, 
-                        recent_success_verified_interactions = 56, )
+                        recent_success_verified_interactions = 56, 
+                        last_success_exec_at = datetime.datetime.strptime('2013-10-20 19:20:30.00', '%Y-%m-%d %H:%M:%S.%f'), )
                     ],
                 offset = 56,
                 limit = 56,

@@ -60,7 +60,8 @@ class Agent(BaseModel):
     owner: Optional[StrictStr] = None
     recent_verified_interactions: StrictInt = Field(description="the number of recent interactions of this agent coming from a verified source like ASI:One or the QA Agent")
     recent_success_verified_interactions: StrictInt = Field(description="the number of recent successful interactions of this agent coming from a verified source like ASI:One or the QA Agent")
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions"]
+    last_success_exec_at: Optional[datetime] = None
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions", "last_success_exec_at"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -163,6 +164,11 @@ class Agent(BaseModel):
         if self.owner is None and "owner" in self.model_fields_set:
             _dict['owner'] = None
 
+        # set to None if last_success_exec_at (nullable) is None
+        # and model_fields_set contains the field
+        if self.last_success_exec_at is None and "last_success_exec_at" in self.model_fields_set:
+            _dict['last_success_exec_at'] = None
+
         return _dict
 
     @classmethod
@@ -205,7 +211,8 @@ class Agent(BaseModel):
             "recent_eval_success_rate": obj.get("recent_eval_success_rate"),
             "owner": obj.get("owner"),
             "recent_verified_interactions": obj.get("recent_verified_interactions"),
-            "recent_success_verified_interactions": obj.get("recent_success_verified_interactions")
+            "recent_success_verified_interactions": obj.get("recent_success_verified_interactions"),
+            "last_success_exec_at": obj.get("last_success_exec_at")
         })
         return _obj
 
