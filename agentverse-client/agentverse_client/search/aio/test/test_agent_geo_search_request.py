@@ -50,7 +50,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                         ], 
                     has_location = True, 
                     has_readme = True, 
-                    n_interactions = '10', 
+                    n_interactions = null, 
                     tags = [
                         ''
                         ], ),
