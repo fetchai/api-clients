@@ -50,7 +50,7 @@ class TestAgentSearchRequest(unittest.TestCase):
                         ], 
                     has_location = True, 
                     has_readme = True, 
-                    n_interactions = null, 
+                    n_interactions = '10', 
                     tags = [
                         ''
                         ], ),

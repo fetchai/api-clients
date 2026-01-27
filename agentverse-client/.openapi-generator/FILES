@@ -23,7 +23,6 @@ agentverse_client/search/docs/Direction.md
 agentverse_client/search/docs/HTTPValidationError.md
 agentverse_client/search/docs/InteractionsThreshold.md
 agentverse_client/search/docs/LocationInner.md
-agentverse_client/search/docs/NInteractions.md
 agentverse_client/search/docs/NetProtocol.md
 agentverse_client/search/docs/Protocol.md
 agentverse_client/search/docs/PublicApi.md
@@ -50,7 +49,6 @@ agentverse_client/search/models/direction.py
 agentverse_client/search/models/http_validation_error.py
 agentverse_client/search/models/interactions_threshold.py
 agentverse_client/search/models/location_inner.py
-agentverse_client/search/models/n_interactions.py
 agentverse_client/search/models/net_protocol.py
 agentverse_client/search/models/protocol.py
 agentverse_client/search/models/relevancy_cutoff.py
@@ -60,4 +58,3 @@ agentverse_client/search/models/status_type.py
 agentverse_client/search/models/validation_error.py
 agentverse_client/search/rest.py
 agentverse_client/search/test/__init__.py
-agentverse_client/search/test/test_n_interactions.py

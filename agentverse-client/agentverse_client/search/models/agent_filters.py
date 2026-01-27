@@ -21,7 +21,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
 from agentverse_client.search.models.agent_category import AgentCategory
 from agentverse_client.search.models.agent_type import AgentType
-from agentverse_client.search.models.n_interactions import NInteractions
+from agentverse_client.search.models.interactions_threshold import InteractionsThreshold
 from agentverse_client.search.models.status_type import StatusType
 from typing import Optional, Set
 from typing_extensions import Self
@@ -36,7 +36,7 @@ class AgentFilters(BaseModel):
     protocol_digest: Optional[List[StrictStr]] = Field(default=None, description="The digest(s) of the protocol(s) that belong(s) to the agent")
     has_location: Optional[StrictBool] = Field(default=False, description="If set to True, it will filter for agents that have a geo location specified")
     has_readme: Optional[StrictBool] = Field(default=False, description="If set to True, it will filter for agents that have a non-empty readme")
-    n_interactions: Optional[NInteractions] = None
+    n_interactions: Optional[InteractionsThreshold] = None
     tags: Optional[List[StrictStr]] = Field(default=None, description="The tag(s) associated to the agent")
     __properties: ClassVar[List[str]] = ["state", "category", "agent_type", "protocol_digest", "has_location", "has_readme", "n_interactions", "tags"]
 
@@ -79,9 +79,6 @@ class AgentFilters(BaseModel):
             exclude=excluded_fields,
             exclude_none=True,
         )
-        # override the default output from pydantic by calling `to_dict()` of n_interactions
-        if self.n_interactions:
-            _dict['n_interactions'] = self.n_interactions.to_dict()
         # set to None if n_interactions (nullable) is None
         # and model_fields_set contains the field
         if self.n_interactions is None and "n_interactions" in self.model_fields_set:
@@ -105,7 +102,7 @@ class AgentFilters(BaseModel):
             "protocol_digest": obj.get("protocol_digest"),
             "has_location": obj.get("has_location") if obj.get("has_location") is not None else False,
             "has_readme": obj.get("has_readme") if obj.get("has_readme") is not None else False,
-            "n_interactions": NInteractions.from_dict(obj["n_interactions"]) if obj.get("n_interactions") is not None else None,
+            "n_interactions": obj.get("n_interactions"),
             "tags": obj.get("tags")
         })
         return _obj
