@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **protocol_digest** | **List[str]** | The digest(s) of the protocol(s) that belong(s) to the agent | [optional] 
 **has_location** | **bool** | If set to True, it will filter for agents that have a geo location specified | [optional] [default to False]
 **has_readme** | **bool** | If set to True, it will filter for agents that have a non-empty readme | [optional] [default to False]
-**n_interactions** | [**InteractionsThreshold**](InteractionsThreshold.md) |  | [optional] 
+**n_interactions** | [**NInteractions**](NInteractions.md) |  | [optional] 
 **tags** | **List[str]** | The tag(s) associated to the agent | [optional] 
 
 ## Example
