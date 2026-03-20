@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class AgentCodeDigest(BaseModel):
     """
-    AgentCodeDigest
+    Model for code digest response.
     """ # noqa: E501
     digest: StrictStr = Field(description="SHA256 digest of the agent's updated code.")
     __properties: ClassVar[List[str]] = ["digest"]

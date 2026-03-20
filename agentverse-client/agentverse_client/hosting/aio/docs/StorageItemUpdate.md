@@ -1,5 +1,6 @@
 # StorageItemUpdate
 
+Model for updating storage item.
 
 ## Properties
 

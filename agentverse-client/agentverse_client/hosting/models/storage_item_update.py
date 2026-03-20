@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class StorageItemUpdate(BaseModel):
     """
-    StorageItemUpdate
+    Model for updating storage item.
     """ # noqa: E501
     value: StrictStr = Field(description="The new value to update for the specified storage key.")
     __properties: ClassVar[List[str]] = ["value"]

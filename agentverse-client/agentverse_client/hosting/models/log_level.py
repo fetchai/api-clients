@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class LogLevel(str, Enum):
     """
-    LogLevel
+    Log level for agent log entries.
     """
 
     """

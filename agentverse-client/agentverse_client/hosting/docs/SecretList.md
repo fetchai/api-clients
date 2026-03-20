@@ -1,5 +1,6 @@
 # SecretList
 
+List of secrets.
 
 ## Properties
 

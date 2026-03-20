@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class UpdateAgentCode(BaseModel):
     """
-    UpdateAgentCode
+    Model for updating agent code.
     """ # noqa: E501
     code: StrictStr = Field(description="The updated source code for the agent, formatted as a JSON string containing files and content.")
     __properties: ClassVar[List[str]] = ["code"]

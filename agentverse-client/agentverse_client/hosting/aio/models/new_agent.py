@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class NewAgent(BaseModel):
     """
-    NewAgent
+    Request model for creating a new agent.
     """ # noqa: E501
     name: StrictStr = Field(description="Name of the new agent.")
     readme: Optional[StrictStr] = None

@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class StorageItem(BaseModel):
     """
-    StorageItem
+    Storage item model.
     """ # noqa: E501
     key: StrictStr = Field(description="The key identifying the storage item.")
     value: StrictStr = Field(description="The stored value corresponding to the key.")

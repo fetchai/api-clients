@@ -1,5 +1,6 @@
 # Secret
 
+Secret model.
 
 ## Properties
 

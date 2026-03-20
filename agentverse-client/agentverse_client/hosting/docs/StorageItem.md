@@ -1,5 +1,6 @@
 # StorageItem
 
+Storage item model.
 
 ## Properties
 

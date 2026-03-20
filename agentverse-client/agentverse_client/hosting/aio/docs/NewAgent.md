@@ -1,5 +1,6 @@
 # NewAgent
 
+Request model for creating a new agent.
 
 ## Properties
 

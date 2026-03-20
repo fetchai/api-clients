@@ -23,7 +23,6 @@ Method | HTTP request | Description
 [**get_latest_logs_for_user_agent**](HostingApi.md#get_latest_logs_for_user_agent) | **GET** /v1/hosting/agents/{address}/logs/latest | Get Latest Logs For User Agent
 [**get_team_agent_code**](HostingApi.md#get_team_agent_code) | **GET** /v1/hosting/teams/{slug}/agents/{address}/code | Get Team Agent Code
 [**get_team_agent_details**](HostingApi.md#get_team_agent_details) | **GET** /v1/hosting/teams/{slug}/agents/{address} | Get Specific Teams Agent
-[**get_team_agent_interactions**](HostingApi.md#get_team_agent_interactions) | **GET** /v1/hosting/teams/{slug}/agents/{address}/interactions | Get Agent Team Interactions
 [**get_team_agent_profile**](HostingApi.md#get_team_agent_profile) | **GET** /v1/hosting/teams/{slug}/agents/{address}/profile | Get Team Agent Public Profile
 [**get_team_agent_secrets**](HostingApi.md#get_team_agent_secrets) | **GET** /v1/hosting/teams/{slug}/{address}/secrets | Get Team Agent Secrets
 [**get_team_agent_storage**](HostingApi.md#get_team_agent_storage) | **GET** /v1/hosting/teams/{slug}/agents/{address}/storage | Get Team Agent Storage
@@ -31,7 +30,6 @@ Method | HTTP request | Description
 [**get_team_secret**](HostingApi.md#get_team_secret) | **GET** /v1/hosting/teams/{slug}/secrets | Get Team Secret
 [**get_user_agent_code**](HostingApi.md#get_user_agent_code) | **GET** /v1/hosting/agents/{address}/code | Get User Agent Code
 [**get_user_agent_details**](HostingApi.md#get_user_agent_details) | **GET** /v1/hosting/agents/{address} | Get Specific User Agent
-[**get_user_agent_interactions**](HostingApi.md#get_user_agent_interactions) | **GET** /v1/hosting/agents/{address}/interactions | Get Agent User Interactions
 [**get_user_agent_profile**](HostingApi.md#get_user_agent_profile) | **GET** /v1/hosting/agents/{address}/profile | Get User Agent Public Profile
 [**get_user_agent_secrets**](HostingApi.md#get_user_agent_secrets) | **GET** /v1/hosting/{address}/secrets | Get User Agent Secrets
 [**get_user_agent_storage**](HostingApi.md#get_user_agent_storage) | **GET** /v1/hosting/agents/{address}/storage | Get User Agent Storage
@@ -39,8 +37,6 @@ Method | HTTP request | Description
 [**get_user_secrets**](HostingApi.md#get_user_secrets) | **GET** /v1/hosting/secrets | Get User Secret
 [**list_team_agents**](HostingApi.md#list_team_agents) | **GET** /v1/hosting/teams/{slug}/agents | Get Team Agents
 [**list_user_agents**](HostingApi.md#list_user_agents) | **GET** /v1/hosting/agents | Get User Agents
-[**register_new_team_domain_name**](HostingApi.md#register_new_team_domain_name) | **POST** /v1/hosting/teams/{slug}/agents/{address}/domains/register | Register New Team Domain Name
-[**register_new_user_domain_name**](HostingApi.md#register_new_user_domain_name) | **POST** /v1/hosting/agents/{address}/domains/register | Register New User Domain Name
 [**start_specific_team_agent**](HostingApi.md#start_specific_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/start | Start Specific Team Agent
 [**start_specific_user_agent**](HostingApi.md#start_specific_user_agent) | **POST** /v1/hosting/agents/{address}/start | Start Specific User Agent
 [**stop_specific_team_agent**](HostingApi.md#stop_specific_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/stop | Stop Specific Team Agent
@@ -48,11 +44,11 @@ Method | HTTP request | Description
 [**submit_message_envelope**](HostingApi.md#submit_message_envelope) | **POST** /v1/hosting/submit | Submit Message Envelope
 [**update_team_agent**](HostingApi.md#update_team_agent) | **PUT** /v1/hosting/teams/{slug}/agents/{address} | Update Specific Team Agent
 [**update_team_agent_code**](HostingApi.md#update_team_agent_code) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/code | Update Team Agent Code
-[**update_team_agent_network**](HostingApi.md#update_team_agent_network) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/network | Update Team Agent Network
+[**update_team_agent_network_deprecated**](HostingApi.md#update_team_agent_network_deprecated) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/network | Update Team Agent Network
 [**update_team_agent_storage**](HostingApi.md#update_team_agent_storage) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/storage/{key} | Update Team Agent Storage
 [**update_user_agent**](HostingApi.md#update_user_agent) | **PUT** /v1/hosting/agents/{address} | Update Specific User Agent
 [**update_user_agent_code**](HostingApi.md#update_user_agent_code) | **PUT** /v1/hosting/agents/{address}/code | Update User Agent Code
-[**update_user_agent_network**](HostingApi.md#update_user_agent_network) | **PUT** /v1/hosting/agents/{address}/network | Update User Agent Network
+[**update_user_agent_network_deprecated**](HostingApi.md#update_user_agent_network_deprecated) | **PUT** /v1/hosting/agents/{address}/network | Update User Agent Network
 [**update_user_agent_storage**](HostingApi.md#update_user_agent_storage) | **PUT** /v1/hosting/agents/{address}/storage/{key} | Update User Agent Storage
 
 
@@ -60,6 +56,8 @@ Method | HTTP request | Description
 > object agent_readiness_probe(no_cache=no_cache)
 
 Agent Readiness Probe
+
+Check if an agent is ready to receive messages.
 
 ### Example
 
@@ -123,7 +121,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_team_agent**
-> Agent create_team_agent(slug, new_agent, no_cache=no_cache)
+> AgentV1 create_team_agent(slug, new_agent, no_cache=no_cache)
 
 Create New Team Agent
 
@@ -133,7 +131,7 @@ Create New Team Agent
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.models.new_agent import NewAgent
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
@@ -181,7 +179,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
@@ -283,17 +281,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **create_user_agent**
-> Agent create_user_agent(new_agent, no_cache=no_cache)
+> AgentV1 create_user_agent(new_agent, no_cache=no_cache)
 
 Create New User Agent
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.models.new_agent import NewAgent
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
@@ -304,12 +301,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -339,11 +330,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -368,7 +359,6 @@ Creates a new secret for the given agent.
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -383,12 +373,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -422,7 +406,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -526,7 +510,6 @@ Deletes all the logs for a specific agent, identified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -539,12 +522,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -578,7 +555,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -844,7 +821,6 @@ Deletes a specific agent, by address from the platform
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -857,12 +833,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -896,7 +866,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -921,7 +891,6 @@ Updates the storage for a specific agent, identified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -934,12 +903,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -975,7 +938,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -1000,7 +963,6 @@ Deletes a secret for the given address and name.
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -1013,12 +975,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -1054,7 +1010,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -1071,7 +1027,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **duplicate_team_agent**
-> Agent duplicate_team_agent(slug, address, new_agent, no_cache=no_cache)
+> AgentV1 duplicate_team_agent(slug, address, new_agent, no_cache=no_cache)
 
 Duplicate Specific Team Agent
 
@@ -1081,7 +1037,7 @@ Duplicate Specific Team Agent
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.models.new_agent import NewAgent
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
@@ -1131,7 +1087,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
@@ -1152,17 +1108,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **duplicate_user_agent**
-> Agent duplicate_user_agent(address, new_agent, no_cache=no_cache)
+> AgentV1 duplicate_user_agent(address, new_agent, no_cache=no_cache)
 
 Duplicate Specific User Agent
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.models.new_agent import NewAgent
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
@@ -1173,12 +1128,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -1210,11 +1159,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -1319,7 +1268,6 @@ Gets the latest logs for a specific agent, identified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -1333,12 +1281,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -1372,7 +1314,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -1469,7 +1411,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_team_agent_details**
-> Agent get_team_agent_details(slug, address, no_cache=no_cache)
+> AgentV1 get_team_agent_details(slug, address, no_cache=no_cache)
 
 Get Specific Teams Agent
 
@@ -1481,7 +1423,7 @@ Looks up a specific agent by address on the hosting platform
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -1528,7 +1470,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
@@ -1548,82 +1490,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **get_team_agent_interactions**
-> HistoricalInteractions get_team_agent_interactions(slug, address, period=period, no_cache=no_cache)
-
-Get Agent Team Interactions
-
-### Example
-
-
-```python
-import agentverse_client.hosting
-from agentverse_client.hosting.models.historical_interactions import HistoricalInteractions
-from agentverse_client.hosting.models.interaction_period import InteractionPeriod
-from agentverse_client.hosting.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-with agentverse_client.hosting.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.hosting.HostingApi(api_client)
-    slug = 'slug_example' # str | 
-    address = 'address_example' # str | 
-    period = agentverse_client.hosting.InteractionPeriod() # InteractionPeriod |  (optional)
-    no_cache = False # bool |  (optional) (default to False)
-
-    try:
-        # Get Agent Team Interactions
-        api_response = api_instance.get_team_agent_interactions(slug, address, period=period, no_cache=no_cache)
-        print("The response of HostingApi->get_team_agent_interactions:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling HostingApi->get_team_agent_interactions: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **str**|  | 
- **address** | **str**|  | 
- **period** | [**InteractionPeriod**](.md)|  | [optional] 
- **no_cache** | **bool**|  | [optional] [default to False]
-
-### Return type
-
-[**HistoricalInteractions**](HistoricalInteractions.md)
-
-### Authorization
-
-No authorization required
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **get_team_agent_profile**
-> PublicAgent get_team_agent_profile(slug, address, no_cache=no_cache)
+> PublicAgentV1 get_team_agent_profile(slug, address, no_cache=no_cache)
 
 Get Team Agent Public Profile
 
@@ -1632,7 +1500,7 @@ Get Team Agent Public Profile
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.public_agent import PublicAgent
+from agentverse_client.hosting.models.public_agent_v1 import PublicAgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -1673,7 +1541,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAgent**](PublicAgent.md)
+[**PublicAgentV1**](PublicAgentV1.md)
 
 ### Authorization
 
@@ -2022,7 +1890,6 @@ Gets the current code for an agent, specified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -2036,12 +1903,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -2075,7 +1936,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -2092,7 +1953,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_agent_details**
-> Agent get_user_agent_details(address, no_cache=no_cache)
+> AgentV1 get_user_agent_details(address, no_cache=no_cache)
 
 Get Specific User Agent
 
@@ -2100,11 +1961,10 @@ Looks up a specific agent by address on the hosting platform
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -2114,12 +1974,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -2149,79 +2003,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
-
-### Authorization
-
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
-
-### HTTP request headers
-
- - **Content-Type**: Not defined
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **get_user_agent_interactions**
-> HistoricalInteractions get_user_agent_interactions(address, period=period, no_cache=no_cache)
-
-Get Agent User Interactions
-
-### Example
-
-
-```python
-import agentverse_client.hosting
-from agentverse_client.hosting.models.historical_interactions import HistoricalInteractions
-from agentverse_client.hosting.models.interaction_period import InteractionPeriod
-from agentverse_client.hosting.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.Configuration(
-    host = "https://agentverse.ai"
-)
-
-
-# Enter a context with an instance of the API client
-with agentverse_client.hosting.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.hosting.HostingApi(api_client)
-    address = 'address_example' # str | 
-    period = agentverse_client.hosting.InteractionPeriod() # InteractionPeriod |  (optional)
-    no_cache = False # bool |  (optional) (default to False)
-
-    try:
-        # Get Agent User Interactions
-        api_response = api_instance.get_user_agent_interactions(address, period=period, no_cache=no_cache)
-        print("The response of HostingApi->get_user_agent_interactions:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling HostingApi->get_user_agent_interactions: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**|  | 
- **period** | [**InteractionPeriod**](.md)|  | [optional] 
- **no_cache** | **bool**|  | [optional] [default to False]
-
-### Return type
-
-[**HistoricalInteractions**](HistoricalInteractions.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
@@ -2242,7 +2024,7 @@ No authorization required
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **get_user_agent_profile**
-> PublicAgent get_user_agent_profile(address, no_cache=no_cache)
+> PublicAgentV1 get_user_agent_profile(address, no_cache=no_cache)
 
 Get User Agent Public Profile
 
@@ -2251,7 +2033,7 @@ Get User Agent Public Profile
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.public_agent import PublicAgent
+from agentverse_client.hosting.models.public_agent_v1 import PublicAgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -2290,7 +2072,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**PublicAgent**](PublicAgent.md)
+[**PublicAgentV1**](PublicAgentV1.md)
 
 ### Authorization
 
@@ -2319,7 +2101,6 @@ Returns all secrets for the given agent address.
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -2333,12 +2114,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -2372,7 +2147,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -2397,7 +2172,6 @@ Gets the storage for an agent, specified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -2411,12 +2185,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -2452,7 +2220,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -2475,7 +2243,6 @@ Get User Agent Storage By Key
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -2489,12 +2256,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -2530,7 +2291,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -2555,7 +2316,6 @@ Returns all secrets for the given user.
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -2569,12 +2329,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -2606,7 +2360,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -2623,7 +2377,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_team_agents**
-> WithPaginationAgentSummary list_team_agents(slug, cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
+> WithPaginationAgentSummaryV1 list_team_agents(slug, cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
 
 Get Team Agents
 
@@ -2633,7 +2387,7 @@ Get Team Agents
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.with_pagination_agent_summary import WithPaginationAgentSummary
+from agentverse_client.hosting.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -2686,7 +2440,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WithPaginationAgentSummary**](WithPaginationAgentSummary.md)
+[**WithPaginationAgentSummaryV1**](WithPaginationAgentSummaryV1.md)
 
 ### Authorization
 
@@ -2707,17 +2461,16 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **list_user_agents**
-> WithPaginationAgentSummary list_user_agents(cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
+> WithPaginationAgentSummaryV1 list_user_agents(cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
 
 Get User Agents
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.with_pagination_agent_summary import WithPaginationAgentSummary
+from agentverse_client.hosting.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -2727,12 +2480,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -2768,11 +2515,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**WithPaginationAgentSummary**](WithPaginationAgentSummary.md)
+[**WithPaginationAgentSummaryV1**](WithPaginationAgentSummaryV1.md)
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -2788,170 +2535,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **register_new_team_domain_name**
-> object register_new_team_domain_name(slug, address, new_domain_name, no_cache=no_cache)
-
-Register New Team Domain Name
-
-Register agent name on name service contract
-
-### Example
-
-* OAuth Authentication (FaunaAuthorizationScheme):
-
-```python
-import agentverse_client.hosting
-from agentverse_client.hosting.models.new_domain_name import NewDomainName
-from agentverse_client.hosting.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.Configuration(
-    host = "https://agentverse.ai"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with agentverse_client.hosting.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.hosting.HostingApi(api_client)
-    slug = 'slug_example' # str | 
-    address = 'address_example' # str | 
-    new_domain_name = agentverse_client.hosting.NewDomainName() # NewDomainName | 
-    no_cache = False # bool |  (optional) (default to False)
-
-    try:
-        # Register New Team Domain Name
-        api_response = api_instance.register_new_team_domain_name(slug, address, new_domain_name, no_cache=no_cache)
-        print("The response of HostingApi->register_new_team_domain_name:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling HostingApi->register_new_team_domain_name: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **slug** | **str**|  | 
- **address** | **str**|  | 
- **new_domain_name** | [**NewDomainName**](NewDomainName.md)|  | 
- **no_cache** | **bool**|  | [optional] [default to False]
-
-### Return type
-
-**object**
-
-### Authorization
-
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
-# **register_new_user_domain_name**
-> object register_new_user_domain_name(address, new_domain_name, no_cache=no_cache)
-
-Register New User Domain Name
-
-Register agent name on name service contract
-
-### Example
-
-* OAuth Authentication (FaunaAuthorizationScheme):
-
-```python
-import agentverse_client.hosting
-from agentverse_client.hosting.models.new_domain_name import NewDomainName
-from agentverse_client.hosting.rest import ApiException
-from pprint import pprint
-
-# Defining the host is optional and defaults to https://agentverse.ai
-# See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.Configuration(
-    host = "https://agentverse.ai"
-)
-
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
-
-# Enter a context with an instance of the API client
-with agentverse_client.hosting.ApiClient(configuration) as api_client:
-    # Create an instance of the API class
-    api_instance = agentverse_client.hosting.HostingApi(api_client)
-    address = 'address_example' # str | 
-    new_domain_name = agentverse_client.hosting.NewDomainName() # NewDomainName | 
-    no_cache = False # bool |  (optional) (default to False)
-
-    try:
-        # Register New User Domain Name
-        api_response = api_instance.register_new_user_domain_name(address, new_domain_name, no_cache=no_cache)
-        print("The response of HostingApi->register_new_user_domain_name:\n")
-        pprint(api_response)
-    except Exception as e:
-        print("Exception when calling HostingApi->register_new_user_domain_name: %s\n" % e)
-```
-
-
-
-### Parameters
-
-
-Name | Type | Description  | Notes
-------------- | ------------- | ------------- | -------------
- **address** | **str**|  | 
- **new_domain_name** | [**NewDomainName**](NewDomainName.md)|  | 
- **no_cache** | **bool**|  | [optional] [default to False]
-
-### Return type
-
-**object**
-
-### Authorization
-
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
-
-### HTTP request headers
-
- - **Content-Type**: application/json
- - **Accept**: application/json
-
-### HTTP response details
-
-| Status code | Description | Response headers |
-|-------------|-------------|------------------|
-**200** | Successful Response |  -  |
-**422** | Validation Error |  -  |
-
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
-
 # **start_specific_team_agent**
-> Agent start_specific_team_agent(slug, address, no_cache=no_cache)
+> AgentV1 start_specific_team_agent(slug, address, no_cache=no_cache)
 
 Start Specific Team Agent
 
@@ -2963,7 +2548,7 @@ Starts a specific agent, identified by address
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -3010,7 +2595,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
@@ -3031,7 +2616,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **start_specific_user_agent**
-> Agent start_specific_user_agent(address, no_cache=no_cache)
+> AgentV1 start_specific_user_agent(address, no_cache=no_cache)
 
 Start Specific User Agent
 
@@ -3039,11 +2624,10 @@ Starts a specific agent, identified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -3053,12 +2637,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -3088,11 +2666,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -3109,7 +2687,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_specific_team_agent**
-> Agent stop_specific_team_agent(slug, address, no_cache=no_cache)
+> AgentV1 stop_specific_team_agent(slug, address, no_cache=no_cache)
 
 Stop Specific Team Agent
 
@@ -3121,7 +2699,7 @@ Stops a specific agent, identified by address
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -3168,7 +2746,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
@@ -3189,7 +2767,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **stop_specific_user_agent**
-> Agent stop_specific_user_agent(address, no_cache=no_cache)
+> AgentV1 stop_specific_user_agent(address, no_cache=no_cache)
 
 Stop Specific User Agent
 
@@ -3197,11 +2775,10 @@ Stops a specific agent, identified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
-from agentverse_client.hosting.models.agent import Agent
+from agentverse_client.hosting.models.agent_v1 import AgentV1
 from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
@@ -3211,12 +2788,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -3246,11 +2817,11 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-[**Agent**](Agent.md)
+[**AgentV1**](AgentV1.md)
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -3270,6 +2841,8 @@ Name | Type | Description  | Notes
 > ResponseSubmitMessageEnvelope submit_message_envelope(envelope, no_cache=no_cache)
 
 Submit Message Envelope
+
+Submit a message envelope to a hosted agent.
 
 ### Example
 
@@ -3501,14 +3074,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_team_agent_network**
-> object update_team_agent_network(slug, address, update_agent_network, no_cache=no_cache)
+# **update_team_agent_network_deprecated**
+> object update_team_agent_network_deprecated(slug, address, update_agent_network)
 
 Update Team Agent Network
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -3522,12 +3094,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -3536,15 +3102,14 @@ with agentverse_client.hosting.ApiClient(configuration) as api_client:
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     update_agent_network = agentverse_client.hosting.UpdateAgentNetwork() # UpdateAgentNetwork | 
-    no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update Team Agent Network
-        api_response = api_instance.update_team_agent_network(slug, address, update_agent_network, no_cache=no_cache)
-        print("The response of HostingApi->update_team_agent_network:\n")
+        api_response = api_instance.update_team_agent_network_deprecated(slug, address, update_agent_network)
+        print("The response of HostingApi->update_team_agent_network_deprecated:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_team_agent_network: %s\n" % e)
+        print("Exception when calling HostingApi->update_team_agent_network_deprecated: %s\n" % e)
 ```
 
 
@@ -3557,7 +3122,6 @@ Name | Type | Description  | Notes
  **slug** | **str**|  | 
  **address** | **str**|  | 
  **update_agent_network** | [**UpdateAgentNetwork**](UpdateAgentNetwork.md)|  | 
- **no_cache** | **bool**|  | [optional] [default to False]
 
 ### Return type
 
@@ -3565,7 +3129,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -3674,7 +3238,6 @@ Updates a specific agent, by address from the platform
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -3688,12 +3251,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -3729,7 +3286,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -3754,7 +3311,6 @@ Updates the code for a specific agent, identified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -3769,12 +3325,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -3810,7 +3360,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -3826,14 +3376,13 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **update_user_agent_network**
-> object update_user_agent_network(address, update_agent_network, no_cache=no_cache)
+# **update_user_agent_network_deprecated**
+> object update_user_agent_network_deprecated(address, update_agent_network)
 
 Update User Agent Network
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -3847,12 +3396,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -3860,15 +3403,14 @@ with agentverse_client.hosting.ApiClient(configuration) as api_client:
     api_instance = agentverse_client.hosting.HostingApi(api_client)
     address = 'address_example' # str | 
     update_agent_network = agentverse_client.hosting.UpdateAgentNetwork() # UpdateAgentNetwork | 
-    no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update User Agent Network
-        api_response = api_instance.update_user_agent_network(address, update_agent_network, no_cache=no_cache)
-        print("The response of HostingApi->update_user_agent_network:\n")
+        api_response = api_instance.update_user_agent_network_deprecated(address, update_agent_network)
+        print("The response of HostingApi->update_user_agent_network_deprecated:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_user_agent_network: %s\n" % e)
+        print("Exception when calling HostingApi->update_user_agent_network_deprecated: %s\n" % e)
 ```
 
 
@@ -3880,7 +3422,6 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **address** | **str**|  | 
  **update_agent_network** | [**UpdateAgentNetwork**](UpdateAgentNetwork.md)|  | 
- **no_cache** | **bool**|  | [optional] [default to False]
 
 ### Return type
 
@@ -3888,7 +3429,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 
@@ -3913,7 +3454,6 @@ Updates the storage for a specific agent, identified by address
 
 ### Example
 
-* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -3927,12 +3467,6 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
-# The client must configure the authentication and authorization parameters
-# in accordance with the API server security policy.
-# Examples for each auth method are provided below, use the example that
-# satisfies your auth use case.
-
-configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -3970,7 +3504,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
+No authorization required
 
 ### HTTP request headers
 

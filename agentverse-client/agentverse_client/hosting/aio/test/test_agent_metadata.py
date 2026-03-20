@@ -35,10 +35,7 @@ class TestAgentMetadata(unittest.TestCase):
         model = AgentMetadata()
         if include_optional:
             return AgentMetadata(
-                geolocation = agentverse_client.hosting.aio.models.agent_geolocation.AgentGeolocation(
-                    latitude = -90.0, 
-                    longitude = -180.0, 
-                    radius = 0.0, )
+                geolocation = None
             )
         else:
             return AgentMetadata(

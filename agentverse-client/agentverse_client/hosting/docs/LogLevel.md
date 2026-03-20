@@ -1,5 +1,6 @@
 # LogLevel
 
+Log level for agent log entries.
 
 ## Enum
 

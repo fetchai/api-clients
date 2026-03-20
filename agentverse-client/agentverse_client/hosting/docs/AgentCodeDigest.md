@@ -1,5 +1,6 @@
 # AgentCodeDigest
 
+Model for code digest response.
 
 ## Properties
 

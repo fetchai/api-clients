@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class AgentNetwork(str, Enum):
     """
-    AgentNetwork
+    Agent network selection.
     """
 
     """

@@ -19,16 +19,13 @@ from typing_extensions import Annotated
 from pydantic import Field, StrictBool, StrictStr, field_validator
 from typing import Any, Dict, List, Optional
 from typing_extensions import Annotated
-from agentverse_client.hosting.aio.models.agent import Agent
 from agentverse_client.hosting.aio.models.agent_code import AgentCode
 from agentverse_client.hosting.aio.models.agent_code_digest import AgentCodeDigest
 from agentverse_client.hosting.aio.models.agent_log import AgentLog
+from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
 from agentverse_client.hosting.aio.models.envelope import Envelope
-from agentverse_client.hosting.aio.models.historical_interactions import HistoricalInteractions
-from agentverse_client.hosting.aio.models.interaction_period import InteractionPeriod
 from agentverse_client.hosting.aio.models.new_agent import NewAgent
-from agentverse_client.hosting.aio.models.new_domain_name import NewDomainName
-from agentverse_client.hosting.aio.models.public_agent import PublicAgent
+from agentverse_client.hosting.aio.models.public_agent_v1 import PublicAgentV1
 from agentverse_client.hosting.aio.models.response_submit_message_envelope import ResponseSubmitMessageEnvelope
 from agentverse_client.hosting.aio.models.secret import Secret
 from agentverse_client.hosting.aio.models.secret_create import SecretCreate
@@ -38,7 +35,7 @@ from agentverse_client.hosting.aio.models.storage_item_update import StorageItem
 from agentverse_client.hosting.aio.models.update_agent import UpdateAgent
 from agentverse_client.hosting.aio.models.update_agent_code import UpdateAgentCode
 from agentverse_client.hosting.aio.models.update_agent_network import UpdateAgentNetwork
-from agentverse_client.hosting.aio.models.with_pagination_agent_summary import WithPaginationAgentSummary
+from agentverse_client.hosting.aio.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
 from agentverse_client.hosting.aio.models.with_pagination_storage_item import WithPaginationStorageItem
 
 from agentverse_client.hosting.aio.api_client import ApiClient, RequestSerialized
@@ -78,6 +75,7 @@ class HostingApi:
     ) -> object:
         """Agent Readiness Probe
 
+        Check if an agent is ready to receive messages.
 
         :param no_cache:
         :type no_cache: bool
@@ -145,6 +143,7 @@ class HostingApi:
     ) -> ApiResponse[object]:
         """Agent Readiness Probe
 
+        Check if an agent is ready to receive messages.
 
         :param no_cache:
         :type no_cache: bool
@@ -212,6 +211,7 @@ class HostingApi:
     ) -> RESTResponseType:
         """Agent Readiness Probe
 
+        Check if an agent is ready to receive messages.
 
         :param no_cache:
         :type no_cache: bool
@@ -339,7 +339,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Create New Team Agent
 
 
@@ -382,7 +382,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -414,7 +414,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Create New Team Agent
 
 
@@ -457,7 +457,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -532,7 +532,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -953,7 +953,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Create New User Agent
 
 
@@ -993,7 +993,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -1024,7 +1024,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Create New User Agent
 
 
@@ -1064,7 +1064,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -1135,7 +1135,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -1206,7 +1206,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -1500,7 +1499,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -2077,7 +2075,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -3276,7 +3273,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -3572,7 +3568,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -3868,7 +3863,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -3908,7 +3902,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Duplicate Specific Team Agent
 
 
@@ -3954,7 +3948,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -3987,7 +3981,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Duplicate Specific Team Agent
 
 
@@ -4033,7 +4027,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -4112,7 +4106,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -4228,7 +4222,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Duplicate Specific User Agent
 
 
@@ -4271,7 +4265,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -4303,7 +4297,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Duplicate Specific User Agent
 
 
@@ -4346,7 +4340,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -4421,7 +4415,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -4495,7 +4489,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -5072,7 +5065,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -5407,7 +5399,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Get Specific Teams Agent
 
         Looks up a specific agent by address on the hosting platform
@@ -5451,7 +5443,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -5483,7 +5475,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Get Specific Teams Agent
 
         Looks up a specific agent by address on the hosting platform
@@ -5527,7 +5519,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -5603,7 +5595,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -5686,315 +5678,6 @@ class HostingApi:
 
 
     @validate_call
-    async def get_team_agent_interactions(
-        self,
-        slug: StrictStr,
-        address: StrictStr,
-        period: Optional[InteractionPeriod] = None,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> HistoricalInteractions:
-        """Get Agent Team Interactions
-
-
-        :param slug: (required)
-        :type slug: str
-        :param address: (required)
-        :type address: str
-        :param period:
-        :type period: InteractionPeriod
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_team_agent_interactions_serialize(
-            slug=slug,
-            address=address,
-            period=period,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HistoricalInteractions",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_team_agent_interactions_with_http_info(
-        self,
-        slug: StrictStr,
-        address: StrictStr,
-        period: Optional[InteractionPeriod] = None,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[HistoricalInteractions]:
-        """Get Agent Team Interactions
-
-
-        :param slug: (required)
-        :type slug: str
-        :param address: (required)
-        :type address: str
-        :param period:
-        :type period: InteractionPeriod
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_team_agent_interactions_serialize(
-            slug=slug,
-            address=address,
-            period=period,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HistoricalInteractions",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_team_agent_interactions_without_preload_content(
-        self,
-        slug: StrictStr,
-        address: StrictStr,
-        period: Optional[InteractionPeriod] = None,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Get Agent Team Interactions
-
-
-        :param slug: (required)
-        :type slug: str
-        :param address: (required)
-        :type address: str
-        :param period:
-        :type period: InteractionPeriod
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_team_agent_interactions_serialize(
-            slug=slug,
-            address=address,
-            period=period,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HistoricalInteractions",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_team_agent_interactions_serialize(
-        self,
-        slug,
-        address,
-        period,
-        no_cache,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if slug is not None:
-            _path_params['slug'] = slug
-        if address is not None:
-            _path_params['address'] = address
-        # process the query parameters
-        if period is not None:
-            
-            _query_params.append(('period', period.value))
-            
-        if no_cache is not None:
-            
-            _query_params.append(('no_cache', no_cache))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v1/hosting/teams/{slug}/agents/{address}/interactions',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
     async def get_team_agent_profile(
         self,
         slug: StrictStr,
@@ -6012,7 +5695,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PublicAgent:
+    ) -> PublicAgentV1:
         """Get Team Agent Public Profile
 
 
@@ -6055,7 +5738,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PublicAgent",
+            '200': "PublicAgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -6087,7 +5770,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PublicAgent]:
+    ) -> ApiResponse[PublicAgentV1]:
         """Get Team Agent Public Profile
 
 
@@ -6130,7 +5813,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PublicAgent",
+            '200': "PublicAgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -6205,7 +5888,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PublicAgent",
+            '200': "PublicAgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -7744,7 +7427,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -7782,7 +7464,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Get Specific User Agent
 
         Looks up a specific agent by address on the hosting platform
@@ -7823,7 +7505,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -7854,7 +7536,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Get Specific User Agent
 
         Looks up a specific agent by address on the hosting platform
@@ -7895,7 +7577,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -7967,7 +7649,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -8025,306 +7707,11 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/hosting/agents/{address}',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def get_user_agent_interactions(
-        self,
-        address: StrictStr,
-        period: Optional[InteractionPeriod] = None,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> HistoricalInteractions:
-        """Get Agent User Interactions
-
-
-        :param address: (required)
-        :type address: str
-        :param period:
-        :type period: InteractionPeriod
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_user_agent_interactions_serialize(
-            address=address,
-            period=period,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HistoricalInteractions",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def get_user_agent_interactions_with_http_info(
-        self,
-        address: StrictStr,
-        period: Optional[InteractionPeriod] = None,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[HistoricalInteractions]:
-        """Get Agent User Interactions
-
-
-        :param address: (required)
-        :type address: str
-        :param period:
-        :type period: InteractionPeriod
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_user_agent_interactions_serialize(
-            address=address,
-            period=period,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HistoricalInteractions",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def get_user_agent_interactions_without_preload_content(
-        self,
-        address: StrictStr,
-        period: Optional[InteractionPeriod] = None,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Get Agent User Interactions
-
-
-        :param address: (required)
-        :type address: str
-        :param period:
-        :type period: InteractionPeriod
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._get_user_agent_interactions_serialize(
-            address=address,
-            period=period,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "HistoricalInteractions",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _get_user_agent_interactions_serialize(
-        self,
-        address,
-        period,
-        no_cache,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if address is not None:
-            _path_params['address'] = address
-        # process the query parameters
-        if period is not None:
-            
-            _query_params.append(('period', period.value))
-            
-        if no_cache is not None:
-            
-            _query_params.append(('no_cache', no_cache))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-
-        # authentication setting
-        _auth_settings: List[str] = [
-        ]
-
-        return self.api_client.param_serialize(
-            method='GET',
-            resource_path='/v1/hosting/agents/{address}/interactions',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -8357,7 +7744,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> PublicAgent:
+    ) -> PublicAgentV1:
         """Get User Agent Public Profile
 
 
@@ -8397,7 +7784,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PublicAgent",
+            '200': "PublicAgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -8428,7 +7815,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[PublicAgent]:
+    ) -> ApiResponse[PublicAgentV1]:
         """Get User Agent Public Profile
 
 
@@ -8468,7 +7855,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PublicAgent",
+            '200': "PublicAgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -8539,7 +7926,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "PublicAgent",
+            '200': "PublicAgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -8877,7 +8264,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -9175,7 +8561,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -9468,7 +8853,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -9734,7 +9118,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -9776,7 +9159,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> WithPaginationAgentSummary:
+    ) -> WithPaginationAgentSummaryV1:
         """Get Team Agents
 
 
@@ -9828,7 +9211,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WithPaginationAgentSummary",
+            '200': "WithPaginationAgentSummaryV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -9863,7 +9246,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[WithPaginationAgentSummary]:
+    ) -> ApiResponse[WithPaginationAgentSummaryV1]:
         """Get Team Agents
 
 
@@ -9915,7 +9298,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WithPaginationAgentSummary",
+            '200': "WithPaginationAgentSummaryV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -10002,7 +9385,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WithPaginationAgentSummary",
+            '200': "WithPaginationAgentSummaryV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -10121,7 +9504,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> WithPaginationAgentSummary:
+    ) -> WithPaginationAgentSummaryV1:
         """Get User Agents
 
 
@@ -10170,7 +9553,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WithPaginationAgentSummary",
+            '200': "WithPaginationAgentSummaryV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -10204,7 +9587,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[WithPaginationAgentSummary]:
+    ) -> ApiResponse[WithPaginationAgentSummaryV1]:
         """Get User Agents
 
 
@@ -10253,7 +9636,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WithPaginationAgentSummary",
+            '200': "WithPaginationAgentSummaryV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -10336,7 +9719,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "WithPaginationAgentSummary",
+            '200': "WithPaginationAgentSummaryV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -10411,645 +9794,11 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
             method='GET',
             resource_path='/v1/hosting/agents',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def register_new_team_domain_name(
-        self,
-        slug: StrictStr,
-        address: StrictStr,
-        new_domain_name: NewDomainName,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
-        """Register New Team Domain Name
-
-        Register agent name on name service contract
-
-        :param slug: (required)
-        :type slug: str
-        :param address: (required)
-        :type address: str
-        :param new_domain_name: (required)
-        :type new_domain_name: NewDomainName
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_new_team_domain_name_serialize(
-            slug=slug,
-            address=address,
-            new_domain_name=new_domain_name,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def register_new_team_domain_name_with_http_info(
-        self,
-        slug: StrictStr,
-        address: StrictStr,
-        new_domain_name: NewDomainName,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
-        """Register New Team Domain Name
-
-        Register agent name on name service contract
-
-        :param slug: (required)
-        :type slug: str
-        :param address: (required)
-        :type address: str
-        :param new_domain_name: (required)
-        :type new_domain_name: NewDomainName
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_new_team_domain_name_serialize(
-            slug=slug,
-            address=address,
-            new_domain_name=new_domain_name,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def register_new_team_domain_name_without_preload_content(
-        self,
-        slug: StrictStr,
-        address: StrictStr,
-        new_domain_name: NewDomainName,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Register New Team Domain Name
-
-        Register agent name on name service contract
-
-        :param slug: (required)
-        :type slug: str
-        :param address: (required)
-        :type address: str
-        :param new_domain_name: (required)
-        :type new_domain_name: NewDomainName
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_new_team_domain_name_serialize(
-            slug=slug,
-            address=address,
-            new_domain_name=new_domain_name,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _register_new_team_domain_name_serialize(
-        self,
-        slug,
-        address,
-        new_domain_name,
-        no_cache,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if slug is not None:
-            _path_params['slug'] = slug
-        if address is not None:
-            _path_params['address'] = address
-        # process the query parameters
-        if no_cache is not None:
-            
-            _query_params.append(('no_cache', no_cache))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if new_domain_name is not None:
-            _body_params = new_domain_name
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v1/hosting/teams/{slug}/agents/{address}/domains/register',
-            path_params=_path_params,
-            query_params=_query_params,
-            header_params=_header_params,
-            body=_body_params,
-            post_params=_form_params,
-            files=_files,
-            auth_settings=_auth_settings,
-            collection_formats=_collection_formats,
-            _host=_host,
-            _request_auth=_request_auth
-        )
-
-
-
-
-    @validate_call
-    async def register_new_user_domain_name(
-        self,
-        address: StrictStr,
-        new_domain_name: NewDomainName,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> object:
-        """Register New User Domain Name
-
-        Register agent name on name service contract
-
-        :param address: (required)
-        :type address: str
-        :param new_domain_name: (required)
-        :type new_domain_name: NewDomainName
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_new_user_domain_name_serialize(
-            address=address,
-            new_domain_name=new_domain_name,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        ).data
-
-
-    @validate_call
-    async def register_new_user_domain_name_with_http_info(
-        self,
-        address: StrictStr,
-        new_domain_name: NewDomainName,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[object]:
-        """Register New User Domain Name
-
-        Register agent name on name service contract
-
-        :param address: (required)
-        :type address: str
-        :param new_domain_name: (required)
-        :type new_domain_name: NewDomainName
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_new_user_domain_name_serialize(
-            address=address,
-            new_domain_name=new_domain_name,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        await response_data.read()
-        return self.api_client.response_deserialize(
-            response_data=response_data,
-            response_types_map=_response_types_map,
-        )
-
-
-    @validate_call
-    async def register_new_user_domain_name_without_preload_content(
-        self,
-        address: StrictStr,
-        new_domain_name: NewDomainName,
-        no_cache: Optional[StrictBool] = None,
-        _request_timeout: Union[
-            None,
-            Annotated[StrictFloat, Field(gt=0)],
-            Tuple[
-                Annotated[StrictFloat, Field(gt=0)],
-                Annotated[StrictFloat, Field(gt=0)]
-            ]
-        ] = None,
-        _request_auth: Optional[Dict[StrictStr, Any]] = None,
-        _content_type: Optional[StrictStr] = None,
-        _headers: Optional[Dict[StrictStr, Any]] = None,
-        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> RESTResponseType:
-        """Register New User Domain Name
-
-        Register agent name on name service contract
-
-        :param address: (required)
-        :type address: str
-        :param new_domain_name: (required)
-        :type new_domain_name: NewDomainName
-        :param no_cache:
-        :type no_cache: bool
-        :param _request_timeout: timeout setting for this request. If one
-                                 number provided, it will be total request
-                                 timeout. It can also be a pair (tuple) of
-                                 (connection, read) timeouts.
-        :type _request_timeout: int, tuple(int, int), optional
-        :param _request_auth: set to override the auth_settings for an a single
-                              request; this effectively ignores the
-                              authentication in the spec for a single request.
-        :type _request_auth: dict, optional
-        :param _content_type: force content-type for the request.
-        :type _content_type: str, Optional
-        :param _headers: set to override the headers for a single
-                         request; this effectively ignores the headers
-                         in the spec for a single request.
-        :type _headers: dict, optional
-        :param _host_index: set to override the host_index for a single
-                            request; this effectively ignores the host_index
-                            in the spec for a single request.
-        :type _host_index: int, optional
-        :return: Returns the result object.
-        """ # noqa: E501
-
-        _param = self._register_new_user_domain_name_serialize(
-            address=address,
-            new_domain_name=new_domain_name,
-            no_cache=no_cache,
-            _request_auth=_request_auth,
-            _content_type=_content_type,
-            _headers=_headers,
-            _host_index=_host_index
-        )
-
-        _response_types_map: Dict[str, Optional[str]] = {
-            '200': "object",
-            '422': "HTTPValidationError",
-        }
-        response_data = await self.api_client.call_api(
-            *_param,
-            _request_timeout=_request_timeout
-        )
-        return response_data.response
-
-
-    def _register_new_user_domain_name_serialize(
-        self,
-        address,
-        new_domain_name,
-        no_cache,
-        _request_auth,
-        _content_type,
-        _headers,
-        _host_index,
-    ) -> RequestSerialized:
-
-        _host = None
-
-        _collection_formats: Dict[str, str] = {
-        }
-
-        _path_params: Dict[str, str] = {}
-        _query_params: List[Tuple[str, str]] = []
-        _header_params: Dict[str, Optional[str]] = _headers or {}
-        _form_params: List[Tuple[str, str]] = []
-        _files: Dict[
-            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
-        ] = {}
-        _body_params: Optional[bytes] = None
-
-        # process the path parameters
-        if address is not None:
-            _path_params['address'] = address
-        # process the query parameters
-        if no_cache is not None:
-            
-            _query_params.append(('no_cache', no_cache))
-            
-        # process the header parameters
-        # process the form parameters
-        # process the body parameter
-        if new_domain_name is not None:
-            _body_params = new_domain_name
-
-
-        # set the HTTP header `Accept`
-        if 'Accept' not in _header_params:
-            _header_params['Accept'] = self.api_client.select_header_accept(
-                [
-                    'application/json'
-                ]
-            )
-
-        # set the HTTP header `Content-Type`
-        if _content_type:
-            _header_params['Content-Type'] = _content_type
-        else:
-            _default_content_type = (
-                self.api_client.select_header_content_type(
-                    [
-                        'application/json'
-                    ]
-                )
-            )
-            if _default_content_type is not None:
-                _header_params['Content-Type'] = _default_content_type
-
-        # authentication setting
-        _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
-        ]
-
-        return self.api_client.param_serialize(
-            method='POST',
-            resource_path='/v1/hosting/agents/{address}/domains/register',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,
@@ -11083,7 +9832,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Start Specific Team Agent
 
         Starts a specific agent, identified by address
@@ -11127,7 +9876,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11159,7 +9908,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Start Specific Team Agent
 
         Starts a specific agent, identified by address
@@ -11203,7 +9952,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11279,7 +10028,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11378,7 +10127,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Start Specific User Agent
 
         Starts a specific agent, identified by address
@@ -11419,7 +10168,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11450,7 +10199,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Start Specific User Agent
 
         Starts a specific agent, identified by address
@@ -11491,7 +10240,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11563,7 +10312,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11621,7 +10370,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -11660,7 +10408,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Stop Specific Team Agent
 
         Stops a specific agent, identified by address
@@ -11704,7 +10452,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11736,7 +10484,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Stop Specific Team Agent
 
         Stops a specific agent, identified by address
@@ -11780,7 +10528,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11856,7 +10604,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -11955,7 +10703,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> Agent:
+    ) -> AgentV1:
         """Stop Specific User Agent
 
         Stops a specific agent, identified by address
@@ -11996,7 +10744,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -12027,7 +10775,7 @@ class HostingApi:
         _content_type: Optional[StrictStr] = None,
         _headers: Optional[Dict[StrictStr, Any]] = None,
         _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
-    ) -> ApiResponse[Agent]:
+    ) -> ApiResponse[AgentV1]:
         """Stop Specific User Agent
 
         Stops a specific agent, identified by address
@@ -12068,7 +10816,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -12140,7 +10888,7 @@ class HostingApi:
         )
 
         _response_types_map: Dict[str, Optional[str]] = {
-            '200': "Agent",
+            '200': "AgentV1",
             '422': "HTTPValidationError",
         }
         response_data = await self.api_client.call_api(
@@ -12198,7 +10946,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -12239,6 +10986,7 @@ class HostingApi:
     ) -> ResponseSubmitMessageEnvelope:
         """Submit Message Envelope
 
+        Submit a message envelope to a hosted agent.
 
         :param envelope: (required)
         :type envelope: Envelope
@@ -12310,6 +11058,7 @@ class HostingApi:
     ) -> ApiResponse[ResponseSubmitMessageEnvelope]:
         """Submit Message Envelope
 
+        Submit a message envelope to a hosted agent.
 
         :param envelope: (required)
         :type envelope: Envelope
@@ -12381,6 +11130,7 @@ class HostingApi:
     ) -> RESTResponseType:
         """Submit Message Envelope
 
+        Submit a message envelope to a hosted agent.
 
         :param envelope: (required)
         :type envelope: Envelope
@@ -13158,12 +11908,11 @@ class HostingApi:
 
 
     @validate_call
-    async def update_team_agent_network(
+    async def update_team_agent_network_deprecated(
         self,
         slug: StrictStr,
         address: StrictStr,
         update_agent_network: UpdateAgentNetwork,
-        no_cache: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13186,8 +11935,6 @@ class HostingApi:
         :type address: str
         :param update_agent_network: (required)
         :type update_agent_network: UpdateAgentNetwork
-        :param no_cache:
-        :type no_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13210,11 +11957,10 @@ class HostingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_team_agent_network_serialize(
+        _param = self._update_team_agent_network_deprecated_serialize(
             slug=slug,
             address=address,
             update_agent_network=update_agent_network,
-            no_cache=no_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13237,12 +11983,11 @@ class HostingApi:
 
 
     @validate_call
-    async def update_team_agent_network_with_http_info(
+    async def update_team_agent_network_deprecated_with_http_info(
         self,
         slug: StrictStr,
         address: StrictStr,
         update_agent_network: UpdateAgentNetwork,
-        no_cache: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13265,8 +12010,6 @@ class HostingApi:
         :type address: str
         :param update_agent_network: (required)
         :type update_agent_network: UpdateAgentNetwork
-        :param no_cache:
-        :type no_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13289,11 +12032,10 @@ class HostingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_team_agent_network_serialize(
+        _param = self._update_team_agent_network_deprecated_serialize(
             slug=slug,
             address=address,
             update_agent_network=update_agent_network,
-            no_cache=no_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13316,12 +12058,11 @@ class HostingApi:
 
 
     @validate_call
-    async def update_team_agent_network_without_preload_content(
+    async def update_team_agent_network_deprecated_without_preload_content(
         self,
         slug: StrictStr,
         address: StrictStr,
         update_agent_network: UpdateAgentNetwork,
-        no_cache: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -13344,8 +12085,6 @@ class HostingApi:
         :type address: str
         :param update_agent_network: (required)
         :type update_agent_network: UpdateAgentNetwork
-        :param no_cache:
-        :type no_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -13368,11 +12107,10 @@ class HostingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_team_agent_network_serialize(
+        _param = self._update_team_agent_network_deprecated_serialize(
             slug=slug,
             address=address,
             update_agent_network=update_agent_network,
-            no_cache=no_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -13390,12 +12128,11 @@ class HostingApi:
         return response_data.response
 
 
-    def _update_team_agent_network_serialize(
+    def _update_team_agent_network_deprecated_serialize(
         self,
         slug,
         address,
         update_agent_network,
-        no_cache,
         _request_auth,
         _content_type,
         _headers,
@@ -13422,10 +12159,6 @@ class HostingApi:
         if address is not None:
             _path_params['address'] = address
         # process the query parameters
-        if no_cache is not None:
-            
-            _query_params.append(('no_cache', no_cache))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -13457,7 +12190,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -14105,7 +12837,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -14414,7 +13145,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -14436,11 +13166,10 @@ class HostingApi:
 
 
     @validate_call
-    async def update_user_agent_network(
+    async def update_user_agent_network_deprecated(
         self,
         address: StrictStr,
         update_agent_network: UpdateAgentNetwork,
-        no_cache: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14461,8 +13190,6 @@ class HostingApi:
         :type address: str
         :param update_agent_network: (required)
         :type update_agent_network: UpdateAgentNetwork
-        :param no_cache:
-        :type no_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14485,10 +13212,9 @@ class HostingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_user_agent_network_serialize(
+        _param = self._update_user_agent_network_deprecated_serialize(
             address=address,
             update_agent_network=update_agent_network,
-            no_cache=no_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14511,11 +13237,10 @@ class HostingApi:
 
 
     @validate_call
-    async def update_user_agent_network_with_http_info(
+    async def update_user_agent_network_deprecated_with_http_info(
         self,
         address: StrictStr,
         update_agent_network: UpdateAgentNetwork,
-        no_cache: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14536,8 +13261,6 @@ class HostingApi:
         :type address: str
         :param update_agent_network: (required)
         :type update_agent_network: UpdateAgentNetwork
-        :param no_cache:
-        :type no_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14560,10 +13283,9 @@ class HostingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_user_agent_network_serialize(
+        _param = self._update_user_agent_network_deprecated_serialize(
             address=address,
             update_agent_network=update_agent_network,
-            no_cache=no_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14586,11 +13308,10 @@ class HostingApi:
 
 
     @validate_call
-    async def update_user_agent_network_without_preload_content(
+    async def update_user_agent_network_deprecated_without_preload_content(
         self,
         address: StrictStr,
         update_agent_network: UpdateAgentNetwork,
-        no_cache: Optional[StrictBool] = None,
         _request_timeout: Union[
             None,
             Annotated[StrictFloat, Field(gt=0)],
@@ -14611,8 +13332,6 @@ class HostingApi:
         :type address: str
         :param update_agent_network: (required)
         :type update_agent_network: UpdateAgentNetwork
-        :param no_cache:
-        :type no_cache: bool
         :param _request_timeout: timeout setting for this request. If one
                                  number provided, it will be total request
                                  timeout. It can also be a pair (tuple) of
@@ -14635,10 +13354,9 @@ class HostingApi:
         :return: Returns the result object.
         """ # noqa: E501
 
-        _param = self._update_user_agent_network_serialize(
+        _param = self._update_user_agent_network_deprecated_serialize(
             address=address,
             update_agent_network=update_agent_network,
-            no_cache=no_cache,
             _request_auth=_request_auth,
             _content_type=_content_type,
             _headers=_headers,
@@ -14656,11 +13374,10 @@ class HostingApi:
         return response_data.response
 
 
-    def _update_user_agent_network_serialize(
+    def _update_user_agent_network_deprecated_serialize(
         self,
         address,
         update_agent_network,
-        no_cache,
         _request_auth,
         _content_type,
         _headers,
@@ -14685,10 +13402,6 @@ class HostingApi:
         if address is not None:
             _path_params['address'] = address
         # process the query parameters
-        if no_cache is not None:
-            
-            _query_params.append(('no_cache', no_cache))
-            
         # process the header parameters
         # process the form parameters
         # process the body parameter
@@ -14720,7 +13433,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
@@ -15044,7 +13756,6 @@ class HostingApi:
 
         # authentication setting
         _auth_settings: List[str] = [
-            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(

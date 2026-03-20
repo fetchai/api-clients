@@ -159,13 +159,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_get_team_agent_interactions(self) -> None:
-        """Test case for get_team_agent_interactions
-
-        Get Agent Team Interactions
-        """
-        pass
-
     async def test_get_team_agent_profile(self) -> None:
         """Test case for get_team_agent_profile
 
@@ -212,13 +205,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """Test case for get_user_agent_details
 
         Get Specific User Agent
-        """
-        pass
-
-    async def test_get_user_agent_interactions(self) -> None:
-        """Test case for get_user_agent_interactions
-
-        Get Agent User Interactions
         """
         pass
 
@@ -271,20 +257,6 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_register_new_team_domain_name(self) -> None:
-        """Test case for register_new_team_domain_name
-
-        Register New Team Domain Name
-        """
-        pass
-
-    async def test_register_new_user_domain_name(self) -> None:
-        """Test case for register_new_user_domain_name
-
-        Register New User Domain Name
-        """
-        pass
-
     async def test_start_specific_team_agent(self) -> None:
         """Test case for start_specific_team_agent
 
@@ -334,8 +306,8 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_update_team_agent_network(self) -> None:
-        """Test case for update_team_agent_network
+    async def test_update_team_agent_network_deprecated(self) -> None:
+        """Test case for update_team_agent_network_deprecated
 
         Update Team Agent Network
         """
@@ -362,8 +334,8 @@ class TestHostingApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
-    async def test_update_user_agent_network(self) -> None:
-        """Test case for update_user_agent_network
+    async def test_update_user_agent_network_deprecated(self) -> None:
+        """Test case for update_user_agent_network_deprecated
 
         Update User Agent Network
         """

@@ -1,5 +1,6 @@
 # SecretCreate
 
+Model for creating a secret.
 
 ## Properties
 

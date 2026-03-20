@@ -1,5 +1,6 @@
 # AgentLog
 
+Agent log entry model.
 
 ## Properties
 

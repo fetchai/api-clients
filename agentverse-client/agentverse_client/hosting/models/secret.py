@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class Secret(BaseModel):
     """
-    Secret
+    Secret model.
     """ # noqa: E501
     name: StrictStr = Field(description="Name of the secret.")
     secret: StrictStr = Field(description="Masked secret value.")

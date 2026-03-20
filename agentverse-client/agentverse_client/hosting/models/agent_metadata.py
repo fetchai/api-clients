@@ -19,7 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict
 from typing import Any, ClassVar, Dict, List, Optional
-from agentverse_client.hosting.models.agent_geolocation import AgentGeolocation
+from agentverse_client.hosting.models.geolocation import Geolocation
 from typing import Optional, Set
 from typing_extensions import Self
 
@@ -27,7 +27,7 @@ class AgentMetadata(BaseModel):
     """
     Model used to validate metadata for an agent.  Framework specific fields will be added here to ensure valid serialization. Additional fields will simply be passed through.
     """ # noqa: E501
-    geolocation: Optional[AgentGeolocation] = None
+    geolocation: Optional[Geolocation] = None
     additional_properties: Dict[str, Any] = {}
     __properties: ClassVar[List[str]] = ["geolocation"]
 
@@ -97,7 +97,7 @@ class AgentMetadata(BaseModel):
             return cls.model_validate(obj)
 
         _obj = cls.model_validate({
-            "geolocation": AgentGeolocation.from_dict(obj["geolocation"]) if obj.get("geolocation") is not None else None
+            "geolocation": Geolocation.from_dict(obj["geolocation"]) if obj.get("geolocation") is not None else None
         })
         # store additional fields in additional_properties
         for _key in obj.keys():

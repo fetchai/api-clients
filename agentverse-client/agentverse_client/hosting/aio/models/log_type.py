@@ -20,7 +20,7 @@ from typing_extensions import Self
 
 class LogType(str, Enum):
     """
-    LogType
+    Type of agent log entry.
     """
 
     """

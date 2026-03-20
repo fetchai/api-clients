@@ -1,5 +1,6 @@
 # LogType
 
+Type of agent log entry.
 
 ## Enum
 

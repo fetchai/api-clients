@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class AgentCode(BaseModel):
     """
-    AgentCode
+    Model for agent code response.
     """ # noqa: E501
     digest: Optional[StrictStr] = None
     code: Optional[StrictStr] = None

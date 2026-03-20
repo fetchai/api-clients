@@ -6,7 +6,7 @@ Model used to validate metadata for an agent.  Framework specific fields will be
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**geolocation** | [**AgentGeolocation**](AgentGeolocation.md) |  | [optional] 
+**geolocation** | [**Geolocation**](Geolocation.md) |  | [optional] 
 
 ## Example
 

@@ -24,7 +24,7 @@ from typing_extensions import Self
 
 class SecretCreate(BaseModel):
     """
-    SecretCreate
+    Model for creating a secret.
     """ # noqa: E501
     address: StrictStr = Field(description="Address of the agent associated with this secret.")
     name: StrictStr = Field(description="Identifier for the secret; must be a valid Python identifier.")

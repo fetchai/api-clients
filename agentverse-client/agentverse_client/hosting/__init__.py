@@ -18,6 +18,7 @@ __version__ = "1.0.0"
 
 # import apis into sdk package
 from agentverse_client.hosting.api.hosting_api import HostingApi
+from agentverse_client.hosting.api.hosting_v2_api import HostingV2Api
 
 # import ApiClient
 from agentverse_client.hosting.api_response import ApiResponse
@@ -31,33 +32,36 @@ from agentverse_client.hosting.exceptions import ApiAttributeError
 from agentverse_client.hosting.exceptions import ApiException
 
 # import models into sdk package
-from agentverse_client.hosting.models.agent import Agent
 from agentverse_client.hosting.models.agent_code import AgentCode
 from agentverse_client.hosting.models.agent_code_digest import AgentCodeDigest
-from agentverse_client.hosting.models.agent_geolocation import AgentGeolocation
+from agentverse_client.hosting.models.agent_geo_location import AgentGeoLocation
+from agentverse_client.hosting.models.agent_geo_location_details import AgentGeoLocationDetails
 from agentverse_client.hosting.models.agent_log import AgentLog
 from agentverse_client.hosting.models.agent_metadata import AgentMetadata
 from agentverse_client.hosting.models.agent_network import AgentNetwork
-from agentverse_client.hosting.models.agent_summary import AgentSummary
+from agentverse_client.hosting.models.agent_summary_v1 import AgentSummaryV1
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.models.agent_v2 import AgentV2
 from agentverse_client.hosting.models.envelope import Envelope
+from agentverse_client.hosting.models.geolocation import Geolocation
 from agentverse_client.hosting.models.http_validation_error import HTTPValidationError
-from agentverse_client.hosting.models.historical_interactions import HistoricalInteractions
-from agentverse_client.hosting.models.interaction_period import InteractionPeriod
 from agentverse_client.hosting.models.location_inner import LocationInner
 from agentverse_client.hosting.models.log_level import LogLevel
 from agentverse_client.hosting.models.log_type import LogType
 from agentverse_client.hosting.models.new_agent import NewAgent
-from agentverse_client.hosting.models.new_domain_name import NewDomainName
-from agentverse_client.hosting.models.public_agent import PublicAgent
+from agentverse_client.hosting.models.public_agent_v1 import PublicAgentV1
 from agentverse_client.hosting.models.response_submit_message_envelope import ResponseSubmitMessageEnvelope
+from agentverse_client.hosting.models.response_submit_message_envelope_v2 import ResponseSubmitMessageEnvelopeV2
 from agentverse_client.hosting.models.secret import Secret
 from agentverse_client.hosting.models.secret_create import SecretCreate
 from agentverse_client.hosting.models.secret_list import SecretList
+from agentverse_client.hosting.models.secret_update import SecretUpdate
 from agentverse_client.hosting.models.storage_item import StorageItem
 from agentverse_client.hosting.models.storage_item_update import StorageItemUpdate
 from agentverse_client.hosting.models.update_agent import UpdateAgent
 from agentverse_client.hosting.models.update_agent_code import UpdateAgentCode
 from agentverse_client.hosting.models.update_agent_network import UpdateAgentNetwork
 from agentverse_client.hosting.models.validation_error import ValidationError
-from agentverse_client.hosting.models.with_pagination_agent_summary import WithPaginationAgentSummary
+from agentverse_client.hosting.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
+from agentverse_client.hosting.models.with_pagination_agent_v2 import WithPaginationAgentV2
 from agentverse_client.hosting.models.with_pagination_storage_item import WithPaginationStorageItem

@@ -34,7 +34,7 @@ class ResponseSubmitMessageEnvelope(BaseModel):
     # data type: Envelope
     anyof_schema_1_validator: Optional[Envelope] = None
     # data type: object
-    anyof_schema_2_validator: Optional[Dict[str, Any]] = None
+    anyof_schema_2_validator: Optional[Dict[str, Any]] = Field(default=None, description="Empty response model.")
     if TYPE_CHECKING:
         actual_instance: Optional[Union[Envelope, object]] = None
     else:

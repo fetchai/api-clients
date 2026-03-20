@@ -27,7 +27,7 @@ from typing_extensions import Self
 
 class AgentLog(BaseModel):
     """
-    AgentLog
+    Agent log entry model.
     """ # noqa: E501
     log_timestamp: datetime
     log_entry: StrictStr

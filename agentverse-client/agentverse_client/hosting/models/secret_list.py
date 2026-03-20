@@ -25,7 +25,7 @@ from typing_extensions import Self
 
 class SecretList(BaseModel):
     """
-    SecretList
+    List of secrets.
     """ # noqa: E501
     secrets: List[Secret] = Field(description="List containing metadata of all stored secrets, with masked secret values.")
     __properties: ClassVar[List[str]] = ["secrets"]
