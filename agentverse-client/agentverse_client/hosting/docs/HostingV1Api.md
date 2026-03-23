@@ -1,55 +1,55 @@
-# agentverse_client.hosting.aio.HostingApi
+# agentverse_client.hosting.HostingV1Api
 
 All URIs are relative to *https://agentverse.ai*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**agent_readiness_probe**](HostingApi.md#agent_readiness_probe) | **HEAD** /v1/hosting/submit | Agent Readiness Probe
-[**create_team_agent**](HostingApi.md#create_team_agent) | **POST** /v1/hosting/teams/{slug}/agents | Create New Team Agent
-[**create_team_agent_secret**](HostingApi.md#create_team_agent_secret) | **POST** /v1/hosting/teams/{slug}/secrets | Create Team Secret
-[**create_user_agent**](HostingApi.md#create_user_agent) | **POST** /v1/hosting/agents | Create New User Agent
-[**create_user_agent_secret**](HostingApi.md#create_user_agent_secret) | **POST** /v1/hosting/secrets | Create User Secret
-[**delete_logs_for_team_agent**](HostingApi.md#delete_logs_for_team_agent) | **DELETE** /v1/hosting/teams/{slug}/agents/{address}/logs | Delete Logs For Team Agent
-[**delete_logs_for_user_agent**](HostingApi.md#delete_logs_for_user_agent) | **DELETE** /v1/hosting/agents/{address}/logs | Delete Logs For User Agent
-[**delete_team_agent**](HostingApi.md#delete_team_agent) | **DELETE** /v1/hosting/teams/{slug}/agents/{address} | Delete Specific Team Agent
-[**delete_team_agent_storage**](HostingApi.md#delete_team_agent_storage) | **DELETE** /v1/hosting/teams/{slug}/agents/{address}/storage/{key} | Delete Team Agent Storage
-[**delete_team_secret**](HostingApi.md#delete_team_secret) | **DELETE** /v1/hosting/teams/{slug}/secrets/{address}/{name} | Delete Team Secret
-[**delete_user_agent**](HostingApi.md#delete_user_agent) | **DELETE** /v1/hosting/agents/{address} | Delete Specific User Agent
-[**delete_user_agent_storage**](HostingApi.md#delete_user_agent_storage) | **DELETE** /v1/hosting/agents/{address}/storage/{key} | Delete User Agent Storage
-[**delete_user_secret**](HostingApi.md#delete_user_secret) | **DELETE** /v1/hosting/secrets/{address}/{name} | Delete User Secret
-[**duplicate_team_agent**](HostingApi.md#duplicate_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/duplicate | Duplicate Specific Team Agent
-[**duplicate_user_agent**](HostingApi.md#duplicate_user_agent) | **POST** /v1/hosting/agents/{address}/duplicate | Duplicate Specific User Agent
-[**get_latest_logs_for_team_agent**](HostingApi.md#get_latest_logs_for_team_agent) | **GET** /v1/hosting/teams/{slug}/agents/{address}/logs/latest | Get Latest Logs For Team Agent
-[**get_latest_logs_for_user_agent**](HostingApi.md#get_latest_logs_for_user_agent) | **GET** /v1/hosting/agents/{address}/logs/latest | Get Latest Logs For User Agent
-[**get_team_agent_code**](HostingApi.md#get_team_agent_code) | **GET** /v1/hosting/teams/{slug}/agents/{address}/code | Get Team Agent Code
-[**get_team_agent_details**](HostingApi.md#get_team_agent_details) | **GET** /v1/hosting/teams/{slug}/agents/{address} | Get Specific Teams Agent
-[**get_team_agent_profile**](HostingApi.md#get_team_agent_profile) | **GET** /v1/hosting/teams/{slug}/agents/{address}/profile | Get Team Agent Public Profile
-[**get_team_agent_secrets**](HostingApi.md#get_team_agent_secrets) | **GET** /v1/hosting/teams/{slug}/{address}/secrets | Get Team Agent Secrets
-[**get_team_agent_storage**](HostingApi.md#get_team_agent_storage) | **GET** /v1/hosting/teams/{slug}/agents/{address}/storage | Get Team Agent Storage
-[**get_team_agent_storage_by_key**](HostingApi.md#get_team_agent_storage_by_key) | **GET** /v1/hosting/teams/{slug}/agents/{address}/storage/{key} | Get Team Agent Storage By Key
-[**get_team_secret**](HostingApi.md#get_team_secret) | **GET** /v1/hosting/teams/{slug}/secrets | Get Team Secret
-[**get_user_agent_code**](HostingApi.md#get_user_agent_code) | **GET** /v1/hosting/agents/{address}/code | Get User Agent Code
-[**get_user_agent_details**](HostingApi.md#get_user_agent_details) | **GET** /v1/hosting/agents/{address} | Get Specific User Agent
-[**get_user_agent_profile**](HostingApi.md#get_user_agent_profile) | **GET** /v1/hosting/agents/{address}/profile | Get User Agent Public Profile
-[**get_user_agent_secrets**](HostingApi.md#get_user_agent_secrets) | **GET** /v1/hosting/{address}/secrets | Get User Agent Secrets
-[**get_user_agent_storage**](HostingApi.md#get_user_agent_storage) | **GET** /v1/hosting/agents/{address}/storage | Get User Agent Storage
-[**get_user_agent_storage_by_key**](HostingApi.md#get_user_agent_storage_by_key) | **GET** /v1/hosting/agents/{address}/storage/{key} | Get User Agent Storage By Key
-[**get_user_secrets**](HostingApi.md#get_user_secrets) | **GET** /v1/hosting/secrets | Get User Secret
-[**list_team_agents**](HostingApi.md#list_team_agents) | **GET** /v1/hosting/teams/{slug}/agents | Get Team Agents
-[**list_user_agents**](HostingApi.md#list_user_agents) | **GET** /v1/hosting/agents | Get User Agents
-[**start_specific_team_agent**](HostingApi.md#start_specific_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/start | Start Specific Team Agent
-[**start_specific_user_agent**](HostingApi.md#start_specific_user_agent) | **POST** /v1/hosting/agents/{address}/start | Start Specific User Agent
-[**stop_specific_team_agent**](HostingApi.md#stop_specific_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/stop | Stop Specific Team Agent
-[**stop_specific_user_agent**](HostingApi.md#stop_specific_user_agent) | **POST** /v1/hosting/agents/{address}/stop | Stop Specific User Agent
-[**submit_message_envelope**](HostingApi.md#submit_message_envelope) | **POST** /v1/hosting/submit | Submit Message Envelope
-[**update_team_agent**](HostingApi.md#update_team_agent) | **PUT** /v1/hosting/teams/{slug}/agents/{address} | Update Specific Team Agent
-[**update_team_agent_code**](HostingApi.md#update_team_agent_code) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/code | Update Team Agent Code
-[**update_team_agent_network_deprecated**](HostingApi.md#update_team_agent_network_deprecated) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/network | Update Team Agent Network
-[**update_team_agent_storage**](HostingApi.md#update_team_agent_storage) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/storage/{key} | Update Team Agent Storage
-[**update_user_agent**](HostingApi.md#update_user_agent) | **PUT** /v1/hosting/agents/{address} | Update Specific User Agent
-[**update_user_agent_code**](HostingApi.md#update_user_agent_code) | **PUT** /v1/hosting/agents/{address}/code | Update User Agent Code
-[**update_user_agent_network_deprecated**](HostingApi.md#update_user_agent_network_deprecated) | **PUT** /v1/hosting/agents/{address}/network | Update User Agent Network
-[**update_user_agent_storage**](HostingApi.md#update_user_agent_storage) | **PUT** /v1/hosting/agents/{address}/storage/{key} | Update User Agent Storage
+[**agent_readiness_probe**](HostingV1Api.md#agent_readiness_probe) | **HEAD** /v1/hosting/submit | Agent Readiness Probe
+[**create_team_agent**](HostingV1Api.md#create_team_agent) | **POST** /v1/hosting/teams/{slug}/agents | Create New Team Agent
+[**create_team_agent_secret**](HostingV1Api.md#create_team_agent_secret) | **POST** /v1/hosting/teams/{slug}/secrets | Create Team Secret
+[**create_user_agent**](HostingV1Api.md#create_user_agent) | **POST** /v1/hosting/agents | Create New User Agent
+[**create_user_agent_secret**](HostingV1Api.md#create_user_agent_secret) | **POST** /v1/hosting/secrets | Create User Secret
+[**delete_logs_for_team_agent**](HostingV1Api.md#delete_logs_for_team_agent) | **DELETE** /v1/hosting/teams/{slug}/agents/{address}/logs | Delete Logs For Team Agent
+[**delete_logs_for_user_agent**](HostingV1Api.md#delete_logs_for_user_agent) | **DELETE** /v1/hosting/agents/{address}/logs | Delete Logs For User Agent
+[**delete_team_agent**](HostingV1Api.md#delete_team_agent) | **DELETE** /v1/hosting/teams/{slug}/agents/{address} | Delete Specific Team Agent
+[**delete_team_agent_storage**](HostingV1Api.md#delete_team_agent_storage) | **DELETE** /v1/hosting/teams/{slug}/agents/{address}/storage/{key} | Delete Team Agent Storage
+[**delete_team_secret**](HostingV1Api.md#delete_team_secret) | **DELETE** /v1/hosting/teams/{slug}/secrets/{address}/{name} | Delete Team Secret
+[**delete_user_agent**](HostingV1Api.md#delete_user_agent) | **DELETE** /v1/hosting/agents/{address} | Delete Specific User Agent
+[**delete_user_agent_storage**](HostingV1Api.md#delete_user_agent_storage) | **DELETE** /v1/hosting/agents/{address}/storage/{key} | Delete User Agent Storage
+[**delete_user_secret**](HostingV1Api.md#delete_user_secret) | **DELETE** /v1/hosting/secrets/{address}/{name} | Delete User Secret
+[**duplicate_team_agent**](HostingV1Api.md#duplicate_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/duplicate | Duplicate Specific Team Agent
+[**duplicate_user_agent**](HostingV1Api.md#duplicate_user_agent) | **POST** /v1/hosting/agents/{address}/duplicate | Duplicate Specific User Agent
+[**get_latest_logs_for_team_agent**](HostingV1Api.md#get_latest_logs_for_team_agent) | **GET** /v1/hosting/teams/{slug}/agents/{address}/logs/latest | Get Latest Logs For Team Agent
+[**get_latest_logs_for_user_agent**](HostingV1Api.md#get_latest_logs_for_user_agent) | **GET** /v1/hosting/agents/{address}/logs/latest | Get Latest Logs For User Agent
+[**get_team_agent_code**](HostingV1Api.md#get_team_agent_code) | **GET** /v1/hosting/teams/{slug}/agents/{address}/code | Get Team Agent Code
+[**get_team_agent_details**](HostingV1Api.md#get_team_agent_details) | **GET** /v1/hosting/teams/{slug}/agents/{address} | Get Specific Teams Agent
+[**get_team_agent_profile**](HostingV1Api.md#get_team_agent_profile) | **GET** /v1/hosting/teams/{slug}/agents/{address}/profile | Get Team Agent Public Profile
+[**get_team_agent_secrets**](HostingV1Api.md#get_team_agent_secrets) | **GET** /v1/hosting/teams/{slug}/{address}/secrets | Get Team Agent Secrets
+[**get_team_agent_storage**](HostingV1Api.md#get_team_agent_storage) | **GET** /v1/hosting/teams/{slug}/agents/{address}/storage | Get Team Agent Storage
+[**get_team_agent_storage_by_key**](HostingV1Api.md#get_team_agent_storage_by_key) | **GET** /v1/hosting/teams/{slug}/agents/{address}/storage/{key} | Get Team Agent Storage By Key
+[**get_team_secret**](HostingV1Api.md#get_team_secret) | **GET** /v1/hosting/teams/{slug}/secrets | Get Team Secret
+[**get_user_agent_code**](HostingV1Api.md#get_user_agent_code) | **GET** /v1/hosting/agents/{address}/code | Get User Agent Code
+[**get_user_agent_details**](HostingV1Api.md#get_user_agent_details) | **GET** /v1/hosting/agents/{address} | Get Specific User Agent
+[**get_user_agent_profile**](HostingV1Api.md#get_user_agent_profile) | **GET** /v1/hosting/agents/{address}/profile | Get User Agent Public Profile
+[**get_user_agent_secrets**](HostingV1Api.md#get_user_agent_secrets) | **GET** /v1/hosting/{address}/secrets | Get User Agent Secrets
+[**get_user_agent_storage**](HostingV1Api.md#get_user_agent_storage) | **GET** /v1/hosting/agents/{address}/storage | Get User Agent Storage
+[**get_user_agent_storage_by_key**](HostingV1Api.md#get_user_agent_storage_by_key) | **GET** /v1/hosting/agents/{address}/storage/{key} | Get User Agent Storage By Key
+[**get_user_secrets**](HostingV1Api.md#get_user_secrets) | **GET** /v1/hosting/secrets | Get User Secret
+[**list_team_agents**](HostingV1Api.md#list_team_agents) | **GET** /v1/hosting/teams/{slug}/agents | Get Team Agents
+[**list_user_agents**](HostingV1Api.md#list_user_agents) | **GET** /v1/hosting/agents | Get User Agents
+[**start_specific_team_agent**](HostingV1Api.md#start_specific_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/start | Start Specific Team Agent
+[**start_specific_user_agent**](HostingV1Api.md#start_specific_user_agent) | **POST** /v1/hosting/agents/{address}/start | Start Specific User Agent
+[**stop_specific_team_agent**](HostingV1Api.md#stop_specific_team_agent) | **POST** /v1/hosting/teams/{slug}/agents/{address}/stop | Stop Specific Team Agent
+[**stop_specific_user_agent**](HostingV1Api.md#stop_specific_user_agent) | **POST** /v1/hosting/agents/{address}/stop | Stop Specific User Agent
+[**submit_message_envelope**](HostingV1Api.md#submit_message_envelope) | **POST** /v1/hosting/submit | Submit Message Envelope
+[**update_team_agent**](HostingV1Api.md#update_team_agent) | **PUT** /v1/hosting/teams/{slug}/agents/{address} | Update Specific Team Agent
+[**update_team_agent_code**](HostingV1Api.md#update_team_agent_code) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/code | Update Team Agent Code
+[**update_team_agent_network_deprecated**](HostingV1Api.md#update_team_agent_network_deprecated) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/network | Update Team Agent Network
+[**update_team_agent_storage**](HostingV1Api.md#update_team_agent_storage) | **PUT** /v1/hosting/teams/{slug}/agents/{address}/storage/{key} | Update Team Agent Storage
+[**update_user_agent**](HostingV1Api.md#update_user_agent) | **PUT** /v1/hosting/agents/{address} | Update Specific User Agent
+[**update_user_agent_code**](HostingV1Api.md#update_user_agent_code) | **PUT** /v1/hosting/agents/{address}/code | Update User Agent Code
+[**update_user_agent_network_deprecated**](HostingV1Api.md#update_user_agent_network_deprecated) | **PUT** /v1/hosting/agents/{address}/network | Update User Agent Network
+[**update_user_agent_storage**](HostingV1Api.md#update_user_agent_storage) | **PUT** /v1/hosting/agents/{address}/storage/{key} | Update User Agent Storage
 
 
 # **agent_readiness_probe**
@@ -63,30 +63,30 @@ Check if an agent is ready to receive messages.
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Agent Readiness Probe
-        api_response = await api_instance.agent_readiness_probe(no_cache=no_cache)
-        print("The response of HostingApi->agent_readiness_probe:\n")
+        api_response = api_instance.agent_readiness_probe(no_cache=no_cache)
+        print("The response of HostingV1Api->agent_readiness_probe:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->agent_readiness_probe: %s\n" % e)
+        print("Exception when calling HostingV1Api->agent_readiness_probe: %s\n" % e)
 ```
 
 
@@ -130,15 +130,15 @@ Create New Team Agent
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.models.new_agent import NewAgent
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.models.new_agent import NewAgent
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -150,20 +150,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
-    new_agent = agentverse_client.hosting.aio.NewAgent() # NewAgent | 
+    new_agent = agentverse_client.hosting.NewAgent() # NewAgent | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Create New Team Agent
-        api_response = await api_instance.create_team_agent(slug, new_agent, no_cache=no_cache)
-        print("The response of HostingApi->create_team_agent:\n")
+        api_response = api_instance.create_team_agent(slug, new_agent, no_cache=no_cache)
+        print("The response of HostingV1Api->create_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->create_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->create_team_agent: %s\n" % e)
 ```
 
 
@@ -211,15 +211,15 @@ Creates a new secret for the given agent.
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.secret import Secret
-from agentverse_client.hosting.aio.models.secret_create import SecretCreate
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.secret import Secret
+from agentverse_client.hosting.models.secret_create import SecretCreate
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -231,20 +231,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
-    secret_create = agentverse_client.hosting.aio.SecretCreate() # SecretCreate | 
+    secret_create = agentverse_client.hosting.SecretCreate() # SecretCreate | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Create Team Secret
-        api_response = await api_instance.create_team_agent_secret(slug, secret_create, no_cache=no_cache)
-        print("The response of HostingApi->create_team_agent_secret:\n")
+        api_response = api_instance.create_team_agent_secret(slug, secret_create, no_cache=no_cache)
+        print("The response of HostingV1Api->create_team_agent_secret:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->create_team_agent_secret: %s\n" % e)
+        print("Exception when calling HostingV1Api->create_team_agent_secret: %s\n" % e)
 ```
 
 
@@ -289,33 +289,33 @@ Create New User Agent
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.models.new_agent import NewAgent
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.models.new_agent import NewAgent
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
-    new_agent = agentverse_client.hosting.aio.NewAgent() # NewAgent | 
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
+    new_agent = agentverse_client.hosting.NewAgent() # NewAgent | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Create New User Agent
-        api_response = await api_instance.create_user_agent(new_agent, no_cache=no_cache)
-        print("The response of HostingApi->create_user_agent:\n")
+        api_response = api_instance.create_user_agent(new_agent, no_cache=no_cache)
+        print("The response of HostingV1Api->create_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->create_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->create_user_agent: %s\n" % e)
 ```
 
 
@@ -361,33 +361,33 @@ Creates a new secret for the given agent.
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.secret import Secret
-from agentverse_client.hosting.aio.models.secret_create import SecretCreate
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.secret import Secret
+from agentverse_client.hosting.models.secret_create import SecretCreate
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
-    secret_create = agentverse_client.hosting.aio.SecretCreate() # SecretCreate | 
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
+    secret_create = agentverse_client.hosting.SecretCreate() # SecretCreate | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Create User Secret
-        api_response = await api_instance.create_user_agent_secret(secret_create, no_cache=no_cache)
-        print("The response of HostingApi->create_user_agent_secret:\n")
+        api_response = api_instance.create_user_agent_secret(secret_create, no_cache=no_cache)
+        print("The response of HostingV1Api->create_user_agent_secret:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->create_user_agent_secret: %s\n" % e)
+        print("Exception when calling HostingV1Api->create_user_agent_secret: %s\n" % e)
 ```
 
 
@@ -434,13 +434,13 @@ Deletes all the logs for a specific agent, identified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -452,20 +452,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Delete Logs For Team Agent
-        api_response = await api_instance.delete_logs_for_team_agent(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->delete_logs_for_team_agent:\n")
+        api_response = api_instance.delete_logs_for_team_agent(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_logs_for_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_logs_for_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_logs_for_team_agent: %s\n" % e)
 ```
 
 
@@ -512,31 +512,31 @@ Deletes all the logs for a specific agent, identified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Delete Logs For User Agent
-        api_response = await api_instance.delete_logs_for_user_agent(address, no_cache=no_cache)
-        print("The response of HostingApi->delete_logs_for_user_agent:\n")
+        api_response = api_instance.delete_logs_for_user_agent(address, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_logs_for_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_logs_for_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_logs_for_user_agent: %s\n" % e)
 ```
 
 
@@ -583,13 +583,13 @@ Deletes a specific agent, by address from the platform
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -601,20 +601,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Delete Specific Team Agent
-        api_response = await api_instance.delete_team_agent(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->delete_team_agent:\n")
+        api_response = api_instance.delete_team_agent(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_team_agent: %s\n" % e)
 ```
 
 
@@ -662,13 +662,13 @@ Updates the storage for a specific agent, identified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -680,9 +680,9 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     key = 'key_example' # str | 
@@ -690,11 +690,11 @@ async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
 
     try:
         # Delete Team Agent Storage
-        api_response = await api_instance.delete_team_agent_storage(slug, address, key, no_cache=no_cache)
-        print("The response of HostingApi->delete_team_agent_storage:\n")
+        api_response = api_instance.delete_team_agent_storage(slug, address, key, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_team_agent_storage:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_team_agent_storage: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_team_agent_storage: %s\n" % e)
 ```
 
 
@@ -743,13 +743,13 @@ Deletes a secret for the given address and name.
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -761,9 +761,9 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     name = 'name_example' # str | 
@@ -771,11 +771,11 @@ async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
 
     try:
         # Delete Team Secret
-        api_response = await api_instance.delete_team_secret(slug, address, name, no_cache=no_cache)
-        print("The response of HostingApi->delete_team_secret:\n")
+        api_response = api_instance.delete_team_secret(slug, address, name, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_team_secret:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_team_secret: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_team_secret: %s\n" % e)
 ```
 
 
@@ -823,31 +823,31 @@ Deletes a specific agent, by address from the platform
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Delete Specific User Agent
-        api_response = await api_instance.delete_user_agent(address, no_cache=no_cache)
-        print("The response of HostingApi->delete_user_agent:\n")
+        api_response = api_instance.delete_user_agent(address, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_user_agent: %s\n" % e)
 ```
 
 
@@ -893,32 +893,32 @@ Updates the storage for a specific agent, identified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     key = 'key_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Delete User Agent Storage
-        api_response = await api_instance.delete_user_agent_storage(address, key, no_cache=no_cache)
-        print("The response of HostingApi->delete_user_agent_storage:\n")
+        api_response = api_instance.delete_user_agent_storage(address, key, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_user_agent_storage:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_user_agent_storage: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_user_agent_storage: %s\n" % e)
 ```
 
 
@@ -965,32 +965,32 @@ Deletes a secret for the given address and name.
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     name = 'name_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Delete User Secret
-        api_response = await api_instance.delete_user_secret(address, name, no_cache=no_cache)
-        print("The response of HostingApi->delete_user_secret:\n")
+        api_response = api_instance.delete_user_secret(address, name, no_cache=no_cache)
+        print("The response of HostingV1Api->delete_user_secret:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->delete_user_secret: %s\n" % e)
+        print("Exception when calling HostingV1Api->delete_user_secret: %s\n" % e)
 ```
 
 
@@ -1036,15 +1036,15 @@ Duplicate Specific Team Agent
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.models.new_agent import NewAgent
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.models.new_agent import NewAgent
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1056,21 +1056,21 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
-    new_agent = agentverse_client.hosting.aio.NewAgent() # NewAgent | 
+    new_agent = agentverse_client.hosting.NewAgent() # NewAgent | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Duplicate Specific Team Agent
-        api_response = await api_instance.duplicate_team_agent(slug, address, new_agent, no_cache=no_cache)
-        print("The response of HostingApi->duplicate_team_agent:\n")
+        api_response = api_instance.duplicate_team_agent(slug, address, new_agent, no_cache=no_cache)
+        print("The response of HostingV1Api->duplicate_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->duplicate_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->duplicate_team_agent: %s\n" % e)
 ```
 
 
@@ -1116,34 +1116,34 @@ Duplicate Specific User Agent
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.models.new_agent import NewAgent
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.models.new_agent import NewAgent
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
-    new_agent = agentverse_client.hosting.aio.NewAgent() # NewAgent | 
+    new_agent = agentverse_client.hosting.NewAgent() # NewAgent | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Duplicate Specific User Agent
-        api_response = await api_instance.duplicate_user_agent(address, new_agent, no_cache=no_cache)
-        print("The response of HostingApi->duplicate_user_agent:\n")
+        api_response = api_instance.duplicate_user_agent(address, new_agent, no_cache=no_cache)
+        print("The response of HostingV1Api->duplicate_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->duplicate_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->duplicate_user_agent: %s\n" % e)
 ```
 
 
@@ -1191,14 +1191,14 @@ Gets the latest logs for a specific agent, identified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_log import AgentLog
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_log import AgentLog
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1210,20 +1210,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Latest Logs For Team Agent
-        api_response = await api_instance.get_latest_logs_for_team_agent(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->get_latest_logs_for_team_agent:\n")
+        api_response = api_instance.get_latest_logs_for_team_agent(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_latest_logs_for_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_latest_logs_for_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_latest_logs_for_team_agent: %s\n" % e)
 ```
 
 
@@ -1270,32 +1270,32 @@ Gets the latest logs for a specific agent, identified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_log import AgentLog
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_log import AgentLog
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Latest Logs For User Agent
-        api_response = await api_instance.get_latest_logs_for_user_agent(address, no_cache=no_cache)
-        print("The response of HostingApi->get_latest_logs_for_user_agent:\n")
+        api_response = api_instance.get_latest_logs_for_user_agent(address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_latest_logs_for_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_latest_logs_for_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_latest_logs_for_user_agent: %s\n" % e)
 ```
 
 
@@ -1342,14 +1342,14 @@ Gets the current code for an agent, specified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_code import AgentCode
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_code import AgentCode
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1361,20 +1361,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Team Agent Code
-        api_response = await api_instance.get_team_agent_code(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->get_team_agent_code:\n")
+        api_response = api_instance.get_team_agent_code(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_team_agent_code:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_team_agent_code: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_team_agent_code: %s\n" % e)
 ```
 
 
@@ -1422,14 +1422,14 @@ Looks up a specific agent by address on the hosting platform
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1441,20 +1441,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Specific Teams Agent
-        api_response = await api_instance.get_team_agent_details(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->get_team_agent_details:\n")
+        api_response = api_instance.get_team_agent_details(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_team_agent_details:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_team_agent_details: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_team_agent_details: %s\n" % e)
 ```
 
 
@@ -1499,33 +1499,33 @@ Get Team Agent Public Profile
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.public_agent_v1 import PublicAgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.public_agent_v1 import PublicAgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Team Agent Public Profile
-        api_response = await api_instance.get_team_agent_profile(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->get_team_agent_profile:\n")
+        api_response = api_instance.get_team_agent_profile(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_team_agent_profile:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_team_agent_profile: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_team_agent_profile: %s\n" % e)
 ```
 
 
@@ -1573,14 +1573,14 @@ Returns all secrets for the given agent address.
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.secret_list import SecretList
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.secret_list import SecretList
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1592,20 +1592,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Team Agent Secrets
-        api_response = await api_instance.get_team_agent_secrets(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->get_team_agent_secrets:\n")
+        api_response = api_instance.get_team_agent_secrets(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_team_agent_secrets:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_team_agent_secrets: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_team_agent_secrets: %s\n" % e)
 ```
 
 
@@ -1653,14 +1653,14 @@ Gets the storage for an agent, specified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.with_pagination_storage_item import WithPaginationStorageItem
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.with_pagination_storage_item import WithPaginationStorageItem
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1672,9 +1672,9 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     cursor = 'cursor_example' # str |  (optional)
@@ -1682,11 +1682,11 @@ async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Team Agent Storage
-        api_response = await api_instance.get_team_agent_storage(slug, address, cursor=cursor, no_cache=no_cache)
-        print("The response of HostingApi->get_team_agent_storage:\n")
+        api_response = api_instance.get_team_agent_storage(slug, address, cursor=cursor, no_cache=no_cache)
+        print("The response of HostingV1Api->get_team_agent_storage:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_team_agent_storage: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_team_agent_storage: %s\n" % e)
 ```
 
 
@@ -1733,14 +1733,14 @@ Get Team Agent Storage By Key
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.storage_item import StorageItem
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.storage_item import StorageItem
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1752,9 +1752,9 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     key = 'key_example' # str | 
@@ -1762,11 +1762,11 @@ async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Team Agent Storage By Key
-        api_response = await api_instance.get_team_agent_storage_by_key(slug, address, key, no_cache=no_cache)
-        print("The response of HostingApi->get_team_agent_storage_by_key:\n")
+        api_response = api_instance.get_team_agent_storage_by_key(slug, address, key, no_cache=no_cache)
+        print("The response of HostingV1Api->get_team_agent_storage_by_key:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_team_agent_storage_by_key: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_team_agent_storage_by_key: %s\n" % e)
 ```
 
 
@@ -1815,14 +1815,14 @@ Returns all secrets for the given team.
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.secret_list import SecretList
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.secret_list import SecretList
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -1834,19 +1834,19 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Team Secret
-        api_response = await api_instance.get_team_secret(slug, no_cache=no_cache)
-        print("The response of HostingApi->get_team_secret:\n")
+        api_response = api_instance.get_team_secret(slug, no_cache=no_cache)
+        print("The response of HostingV1Api->get_team_secret:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_team_secret: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_team_secret: %s\n" % e)
 ```
 
 
@@ -1892,32 +1892,32 @@ Gets the current code for an agent, specified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_code import AgentCode
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_code import AgentCode
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get User Agent Code
-        api_response = await api_instance.get_user_agent_code(address, no_cache=no_cache)
-        print("The response of HostingApi->get_user_agent_code:\n")
+        api_response = api_instance.get_user_agent_code(address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_user_agent_code:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_user_agent_code: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_user_agent_code: %s\n" % e)
 ```
 
 
@@ -1963,32 +1963,32 @@ Looks up a specific agent by address on the hosting platform
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get Specific User Agent
-        api_response = await api_instance.get_user_agent_details(address, no_cache=no_cache)
-        print("The response of HostingApi->get_user_agent_details:\n")
+        api_response = api_instance.get_user_agent_details(address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_user_agent_details:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_user_agent_details: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_user_agent_details: %s\n" % e)
 ```
 
 
@@ -2032,32 +2032,32 @@ Get User Agent Public Profile
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.public_agent_v1 import PublicAgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.public_agent_v1 import PublicAgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get User Agent Public Profile
-        api_response = await api_instance.get_user_agent_profile(address, no_cache=no_cache)
-        print("The response of HostingApi->get_user_agent_profile:\n")
+        api_response = api_instance.get_user_agent_profile(address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_user_agent_profile:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_user_agent_profile: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_user_agent_profile: %s\n" % e)
 ```
 
 
@@ -2103,32 +2103,32 @@ Returns all secrets for the given agent address.
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.secret_list import SecretList
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.secret_list import SecretList
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get User Agent Secrets
-        api_response = await api_instance.get_user_agent_secrets(address, no_cache=no_cache)
-        print("The response of HostingApi->get_user_agent_secrets:\n")
+        api_response = api_instance.get_user_agent_secrets(address, no_cache=no_cache)
+        print("The response of HostingV1Api->get_user_agent_secrets:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_user_agent_secrets: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_user_agent_secrets: %s\n" % e)
 ```
 
 
@@ -2174,33 +2174,33 @@ Gets the storage for an agent, specified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.with_pagination_storage_item import WithPaginationStorageItem
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.with_pagination_storage_item import WithPaginationStorageItem
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     cursor = 'cursor_example' # str |  (optional)
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get User Agent Storage
-        api_response = await api_instance.get_user_agent_storage(address, cursor=cursor, no_cache=no_cache)
-        print("The response of HostingApi->get_user_agent_storage:\n")
+        api_response = api_instance.get_user_agent_storage(address, cursor=cursor, no_cache=no_cache)
+        print("The response of HostingV1Api->get_user_agent_storage:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_user_agent_storage: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_user_agent_storage: %s\n" % e)
 ```
 
 
@@ -2245,33 +2245,33 @@ Get User Agent Storage By Key
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.storage_item import StorageItem
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.storage_item import StorageItem
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     key = 'key_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get User Agent Storage By Key
-        api_response = await api_instance.get_user_agent_storage_by_key(address, key, no_cache=no_cache)
-        print("The response of HostingApi->get_user_agent_storage_by_key:\n")
+        api_response = api_instance.get_user_agent_storage_by_key(address, key, no_cache=no_cache)
+        print("The response of HostingV1Api->get_user_agent_storage_by_key:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_user_agent_storage_by_key: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_user_agent_storage_by_key: %s\n" % e)
 ```
 
 
@@ -2318,31 +2318,31 @@ Returns all secrets for the given user.
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.secret_list import SecretList
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.secret_list import SecretList
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Get User Secret
-        api_response = await api_instance.get_user_secrets(no_cache=no_cache)
-        print("The response of HostingApi->get_user_secrets:\n")
+        api_response = api_instance.get_user_secrets(no_cache=no_cache)
+        print("The response of HostingV1Api->get_user_secrets:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->get_user_secrets: %s\n" % e)
+        print("Exception when calling HostingV1Api->get_user_secrets: %s\n" % e)
 ```
 
 
@@ -2386,14 +2386,14 @@ Get Team Agents
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -2405,9 +2405,9 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     cursor = 'cursor_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
@@ -2417,11 +2417,11 @@ async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get Team Agents
-        api_response = await api_instance.list_team_agents(slug, cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
-        print("The response of HostingApi->list_team_agents:\n")
+        api_response = api_instance.list_team_agents(slug, cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
+        print("The response of HostingV1Api->list_team_agents:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->list_team_agents: %s\n" % e)
+        print("Exception when calling HostingV1Api->list_team_agents: %s\n" % e)
 ```
 
 
@@ -2469,22 +2469,22 @@ Get User Agents
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.with_pagination_agent_summary_v1 import WithPaginationAgentSummaryV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     cursor = 'cursor_example' # str |  (optional)
     name = 'name_example' # str |  (optional)
     no_cache = False # bool |  (optional) (default to False)
@@ -2493,11 +2493,11 @@ async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
 
     try:
         # Get User Agents
-        api_response = await api_instance.list_user_agents(cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
-        print("The response of HostingApi->list_user_agents:\n")
+        api_response = api_instance.list_user_agents(cursor=cursor, name=name, no_cache=no_cache, sort_by=sort_by, direction=direction)
+        print("The response of HostingV1Api->list_user_agents:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->list_user_agents: %s\n" % e)
+        print("Exception when calling HostingV1Api->list_user_agents: %s\n" % e)
 ```
 
 
@@ -2547,14 +2547,14 @@ Starts a specific agent, identified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -2566,20 +2566,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Start Specific Team Agent
-        api_response = await api_instance.start_specific_team_agent(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->start_specific_team_agent:\n")
+        api_response = api_instance.start_specific_team_agent(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->start_specific_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->start_specific_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->start_specific_team_agent: %s\n" % e)
 ```
 
 
@@ -2626,32 +2626,32 @@ Starts a specific agent, identified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Start Specific User Agent
-        api_response = await api_instance.start_specific_user_agent(address, no_cache=no_cache)
-        print("The response of HostingApi->start_specific_user_agent:\n")
+        api_response = api_instance.start_specific_user_agent(address, no_cache=no_cache)
+        print("The response of HostingV1Api->start_specific_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->start_specific_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->start_specific_user_agent: %s\n" % e)
 ```
 
 
@@ -2698,14 +2698,14 @@ Stops a specific agent, identified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -2717,20 +2717,20 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Stop Specific Team Agent
-        api_response = await api_instance.stop_specific_team_agent(slug, address, no_cache=no_cache)
-        print("The response of HostingApi->stop_specific_team_agent:\n")
+        api_response = api_instance.stop_specific_team_agent(slug, address, no_cache=no_cache)
+        print("The response of HostingV1Api->stop_specific_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->stop_specific_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->stop_specific_team_agent: %s\n" % e)
 ```
 
 
@@ -2777,32 +2777,32 @@ Stops a specific agent, identified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v1 import AgentV1
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Stop Specific User Agent
-        api_response = await api_instance.stop_specific_user_agent(address, no_cache=no_cache)
-        print("The response of HostingApi->stop_specific_user_agent:\n")
+        api_response = api_instance.stop_specific_user_agent(address, no_cache=no_cache)
+        print("The response of HostingV1Api->stop_specific_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->stop_specific_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->stop_specific_user_agent: %s\n" % e)
 ```
 
 
@@ -2848,33 +2848,33 @@ Submit a message envelope to a hosted agent.
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.envelope import Envelope
-from agentverse_client.hosting.aio.models.response_submit_message_envelope import ResponseSubmitMessageEnvelope
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.envelope import Envelope
+from agentverse_client.hosting.models.response_submit_message_envelope import ResponseSubmitMessageEnvelope
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
-    envelope = agentverse_client.hosting.aio.Envelope() # Envelope | 
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
+    envelope = agentverse_client.hosting.Envelope() # Envelope | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Submit Message Envelope
-        api_response = await api_instance.submit_message_envelope(envelope, no_cache=no_cache)
-        print("The response of HostingApi->submit_message_envelope:\n")
+        api_response = api_instance.submit_message_envelope(envelope, no_cache=no_cache)
+        print("The response of HostingV1Api->submit_message_envelope:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->submit_message_envelope: %s\n" % e)
+        print("Exception when calling HostingV1Api->submit_message_envelope: %s\n" % e)
 ```
 
 
@@ -2921,14 +2921,14 @@ Updates a specific agent, by address from the platform
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.update_agent import UpdateAgent
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.update_agent import UpdateAgent
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -2940,21 +2940,21 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
-    update_agent = agentverse_client.hosting.aio.UpdateAgent() # UpdateAgent | 
+    update_agent = agentverse_client.hosting.UpdateAgent() # UpdateAgent | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update Specific Team Agent
-        api_response = await api_instance.update_team_agent(slug, address, update_agent, no_cache=no_cache)
-        print("The response of HostingApi->update_team_agent:\n")
+        api_response = api_instance.update_team_agent(slug, address, update_agent, no_cache=no_cache)
+        print("The response of HostingV1Api->update_team_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_team_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_team_agent: %s\n" % e)
 ```
 
 
@@ -3003,15 +3003,15 @@ Updates the code for a specific agent, identified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_code_digest import AgentCodeDigest
-from agentverse_client.hosting.aio.models.update_agent_code import UpdateAgentCode
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_code_digest import AgentCodeDigest
+from agentverse_client.hosting.models.update_agent_code import UpdateAgentCode
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -3023,21 +3023,21 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
-    update_agent_code = agentverse_client.hosting.aio.UpdateAgentCode() # UpdateAgentCode | 
+    update_agent_code = agentverse_client.hosting.UpdateAgentCode() # UpdateAgentCode | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update Team Agent Code
-        api_response = await api_instance.update_team_agent_code(slug, address, update_agent_code, no_cache=no_cache)
-        print("The response of HostingApi->update_team_agent_code:\n")
+        api_response = api_instance.update_team_agent_code(slug, address, update_agent_code, no_cache=no_cache)
+        print("The response of HostingV1Api->update_team_agent_code:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_team_agent_code: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_team_agent_code: %s\n" % e)
 ```
 
 
@@ -3083,33 +3083,33 @@ Update Team Agent Network
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.update_agent_network import UpdateAgentNetwork
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.update_agent_network import UpdateAgentNetwork
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
-    update_agent_network = agentverse_client.hosting.aio.UpdateAgentNetwork() # UpdateAgentNetwork | 
+    update_agent_network = agentverse_client.hosting.UpdateAgentNetwork() # UpdateAgentNetwork | 
 
     try:
         # Update Team Agent Network
-        api_response = await api_instance.update_team_agent_network_deprecated(slug, address, update_agent_network)
-        print("The response of HostingApi->update_team_agent_network_deprecated:\n")
+        api_response = api_instance.update_team_agent_network_deprecated(slug, address, update_agent_network)
+        print("The response of HostingV1Api->update_team_agent_network_deprecated:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_team_agent_network_deprecated: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_team_agent_network_deprecated: %s\n" % e)
 ```
 
 
@@ -3157,14 +3157,14 @@ Updates the storage for a specific agent, identified by address
 * OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.storage_item_update import StorageItemUpdate
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.storage_item_update import StorageItemUpdate
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
@@ -3176,22 +3176,22 @@ configuration = agentverse_client.hosting.aio.Configuration(
 configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     slug = 'slug_example' # str | 
     address = 'address_example' # str | 
     key = 'key_example' # str | 
-    storage_item_update = agentverse_client.hosting.aio.StorageItemUpdate() # StorageItemUpdate | 
+    storage_item_update = agentverse_client.hosting.StorageItemUpdate() # StorageItemUpdate | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update Team Agent Storage
-        api_response = await api_instance.update_team_agent_storage(slug, address, key, storage_item_update, no_cache=no_cache)
-        print("The response of HostingApi->update_team_agent_storage:\n")
+        api_response = api_instance.update_team_agent_storage(slug, address, key, storage_item_update, no_cache=no_cache)
+        print("The response of HostingV1Api->update_team_agent_storage:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_team_agent_storage: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_team_agent_storage: %s\n" % e)
 ```
 
 
@@ -3240,33 +3240,33 @@ Updates a specific agent, by address from the platform
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.update_agent import UpdateAgent
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.update_agent import UpdateAgent
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
-    update_agent = agentverse_client.hosting.aio.UpdateAgent() # UpdateAgent | 
+    update_agent = agentverse_client.hosting.UpdateAgent() # UpdateAgent | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update Specific User Agent
-        api_response = await api_instance.update_user_agent(address, update_agent, no_cache=no_cache)
-        print("The response of HostingApi->update_user_agent:\n")
+        api_response = api_instance.update_user_agent(address, update_agent, no_cache=no_cache)
+        print("The response of HostingV1Api->update_user_agent:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_user_agent: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_user_agent: %s\n" % e)
 ```
 
 
@@ -3313,34 +3313,34 @@ Updates the code for a specific agent, identified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.agent_code_digest import AgentCodeDigest
-from agentverse_client.hosting.aio.models.update_agent_code import UpdateAgentCode
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_code_digest import AgentCodeDigest
+from agentverse_client.hosting.models.update_agent_code import UpdateAgentCode
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
-    update_agent_code = agentverse_client.hosting.aio.UpdateAgentCode() # UpdateAgentCode | 
+    update_agent_code = agentverse_client.hosting.UpdateAgentCode() # UpdateAgentCode | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update User Agent Code
-        api_response = await api_instance.update_user_agent_code(address, update_agent_code, no_cache=no_cache)
-        print("The response of HostingApi->update_user_agent_code:\n")
+        api_response = api_instance.update_user_agent_code(address, update_agent_code, no_cache=no_cache)
+        print("The response of HostingV1Api->update_user_agent_code:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_user_agent_code: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_user_agent_code: %s\n" % e)
 ```
 
 
@@ -3385,32 +3385,32 @@ Update User Agent Network
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.update_agent_network import UpdateAgentNetwork
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.update_agent_network import UpdateAgentNetwork
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
-    update_agent_network = agentverse_client.hosting.aio.UpdateAgentNetwork() # UpdateAgentNetwork | 
+    update_agent_network = agentverse_client.hosting.UpdateAgentNetwork() # UpdateAgentNetwork | 
 
     try:
         # Update User Agent Network
-        api_response = await api_instance.update_user_agent_network_deprecated(address, update_agent_network)
-        print("The response of HostingApi->update_user_agent_network_deprecated:\n")
+        api_response = api_instance.update_user_agent_network_deprecated(address, update_agent_network)
+        print("The response of HostingV1Api->update_user_agent_network_deprecated:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_user_agent_network_deprecated: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_user_agent_network_deprecated: %s\n" % e)
 ```
 
 
@@ -3456,34 +3456,34 @@ Updates the storage for a specific agent, identified by address
 
 
 ```python
-import agentverse_client.hosting.aio
-from agentverse_client.hosting.aio.models.storage_item_update import StorageItemUpdate
-from agentverse_client.hosting.aio.rest import ApiException
+import agentverse_client.hosting
+from agentverse_client.hosting.models.storage_item_update import StorageItemUpdate
+from agentverse_client.hosting.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://agentverse.ai
 # See configuration.py for a list of all supported configuration parameters.
-configuration = agentverse_client.hosting.aio.Configuration(
+configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
 
 # Enter a context with an instance of the API client
-async with agentverse_client.hosting.aio.ApiClient(configuration) as api_client:
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
     # Create an instance of the API class
-    api_instance = agentverse_client.hosting.aio.HostingApi(api_client)
+    api_instance = agentverse_client.hosting.HostingV1Api(api_client)
     address = 'address_example' # str | 
     key = 'key_example' # str | 
-    storage_item_update = agentverse_client.hosting.aio.StorageItemUpdate() # StorageItemUpdate | 
+    storage_item_update = agentverse_client.hosting.StorageItemUpdate() # StorageItemUpdate | 
     no_cache = False # bool |  (optional) (default to False)
 
     try:
         # Update User Agent Storage
-        api_response = await api_instance.update_user_agent_storage(address, key, storage_item_update, no_cache=no_cache)
-        print("The response of HostingApi->update_user_agent_storage:\n")
+        api_response = api_instance.update_user_agent_storage(address, key, storage_item_update, no_cache=no_cache)
+        print("The response of HostingV1Api->update_user_agent_storage:\n")
         pprint(api_response)
     except Exception as e:
-        print("Exception when calling HostingApi->update_user_agent_storage: %s\n" % e)
+        print("Exception when calling HostingV1Api->update_user_agent_storage: %s\n" % e)
 ```
 
 

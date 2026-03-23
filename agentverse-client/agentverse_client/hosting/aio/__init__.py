@@ -17,7 +17,7 @@
 __version__ = "1.0.0"
 
 # import apis into sdk package
-from agentverse_client.hosting.aio.api.hosting_api import HostingApi
+from agentverse_client.hosting.aio.api.hosting_v1_api import HostingV1Api
 from agentverse_client.hosting.aio.api.hosting_v2_api import HostingV2Api
 
 # import ApiClient
