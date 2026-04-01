@@ -335,7 +335,7 @@ class HostingV2Api:
     ) -> AgentV2:
         """Create Hosted Agent
 
-        Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service.
+        Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service and then proves ownership of the agent to the hub service.
 
         :param no_cache:
         :type no_cache: bool
@@ -403,7 +403,7 @@ class HostingV2Api:
     ) -> ApiResponse[AgentV2]:
         """Create Hosted Agent
 
-        Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service.
+        Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service and then proves ownership of the agent to the hub service.
 
         :param no_cache:
         :type no_cache: bool
@@ -471,7 +471,7 @@ class HostingV2Api:
     ) -> RESTResponseType:
         """Create Hosted Agent
 
-        Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service.
+        Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service and then proves ownership of the agent to the hub service.
 
         :param no_cache:
         :type no_cache: bool

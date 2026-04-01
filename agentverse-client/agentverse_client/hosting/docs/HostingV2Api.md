@@ -101,7 +101,7 @@ No authorization required
 
 Create Hosted Agent
 
-Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service.
+Create a new hosted agent without profile information.  Profile data (name, readme, avatar, description) should be managed via the hub API. This endpoint only creates the agent identity and address in the hosting service and then proves ownership of the agent to the hub service.
 
 ### Example
 
