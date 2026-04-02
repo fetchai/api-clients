@@ -28,8 +28,6 @@ class StatusType(str, Enum):
     """
     ACTIVE = 'active'
     INACTIVE = 'inactive'
-    RESPONSIVE = 'responsive'
-    UNRESPONSIVE = 'unresponsive'
 
     @classmethod
     def from_json(cls, json_str: str) -> Self:
