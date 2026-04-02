@@ -30,7 +30,7 @@ class AgentFilters(BaseModel):
     """
     The set of filters that should be applied to the agent search entries
     """ # noqa: E501
-    state: Optional[List[StatusType]] = Field(default=None, description="The state of the agent, i.e. is it alive or not")
+    state: Optional[List[StatusType]] = Field(default=None, description="Filter by agent state: active/inactive (running & expiry), or responsive/unresponsive")
     category: Optional[List[AgentCategory]] = Field(default=None, description="The category of the creator of the agent")
     agent_type: Optional[List[AgentType]] = Field(default=None, description="The category of how the agent is hosted")
     protocol_digest: Optional[List[StrictStr]] = Field(default=None, description="The digest(s) of the protocol(s) that belong(s) to the agent")
