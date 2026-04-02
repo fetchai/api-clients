@@ -6,7 +6,7 @@ The set of filters that should be applied to the agent search entries
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**state** | [**List[StatusType]**](StatusType.md) | Filter by agent state: active/inactive (running &amp; expiry), or responsive/unresponsive (is_responsive in the index) | [optional] 
+**state** | [**List[StatusType]**](StatusType.md) | Filter by agent state: active/inactive (running &amp; expiry), or responsive/unresponsive | [optional] 
 **category** | [**List[AgentCategory]**](AgentCategory.md) | The category of the creator of the agent | [optional] 
 **agent_type** | [**List[AgentType]**](AgentType.md) | The category of how the agent is hosted | [optional] 
 **protocol_digest** | **List[str]** | The digest(s) of the protocol(s) that belong(s) to the agent | [optional] 
