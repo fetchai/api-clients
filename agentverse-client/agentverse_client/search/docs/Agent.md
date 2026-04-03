@@ -16,7 +16,6 @@ Name | Type | Description | Notes
 **recent_interactions** | **int** | the number of interactions in the last 90 days | 
 **rating** | **float** |  | [optional] 
 **status** | [**StatusType**](StatusType.md) | the status if the agent | 
-**responsive** | **bool** | whether the agent is responsive | 
 **type** | [**AgentType**](AgentType.md) | the type of agent | 
 **featured** | **bool** | signaled if the agent is featured or not | [optional] [default to False]
 **category** | [**AgentCategory**](AgentCategory.md) | the creator of the agent | 
