@@ -53,6 +53,7 @@ class TestAgentSearchResponse(unittest.TestCase):
                         recent_interactions = 56, 
                         rating = 1.337, 
                         status = null, 
+                        unresponsive = True, 
                         type = null, 
                         featured = True, 
                         category = null, 
