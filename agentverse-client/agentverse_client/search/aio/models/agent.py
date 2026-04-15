@@ -45,7 +45,6 @@ class Agent(BaseModel):
     recent_interactions: StrictInt = Field(description="the number of interactions in the last 90 days")
     rating: Optional[Union[StrictFloat, StrictInt]] = None
     status: StatusType = Field(description="the status if the agent")
-    unresponsive: StrictBool = Field(description="whether the agent has been marked as unresponsive")
     type: AgentType = Field(description="the type of agent")
     featured: Optional[StrictBool] = Field(default=False, description="signaled if the agent is featured or not")
     category: AgentCategory = Field(description="the creator of the agent")
@@ -61,7 +60,7 @@ class Agent(BaseModel):
     owner: Optional[StrictStr] = None
     recent_verified_interactions: StrictInt = Field(description="the number of recent interactions of this agent coming from a verified source like ASI:One or the QA Agent")
     recent_success_verified_interactions: StrictInt = Field(description="the number of recent successful interactions of this agent coming from a verified source like ASI:One or the QA Agent")
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "unresponsive", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "total_interactions", "recent_interactions", "rating", "status", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -187,7 +186,6 @@ class Agent(BaseModel):
             "recent_interactions": obj.get("recent_interactions"),
             "rating": obj.get("rating"),
             "status": obj.get("status"),
-            "unresponsive": obj.get("unresponsive"),
             "type": obj.get("type"),
             "featured": obj.get("featured") if obj.get("featured") is not None else False,
             "category": obj.get("category"),
