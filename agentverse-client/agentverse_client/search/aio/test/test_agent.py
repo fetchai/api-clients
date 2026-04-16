@@ -51,6 +51,7 @@ class TestAgent(unittest.TestCase):
                 recent_interactions = 56,
                 rating = 1.337,
                 status = 'active',
+                unresponsive = True,
                 type = 'hosted',
                 featured = True,
                 category = 'fetch-ai',
@@ -99,6 +100,7 @@ class TestAgent(unittest.TestCase):
                 total_interactions = 56,
                 recent_interactions = 56,
                 status = 'active',
+                unresponsive = True,
                 type = 'hosted',
                 category = 'fetch-ai',
                 system_wide_tags = [
