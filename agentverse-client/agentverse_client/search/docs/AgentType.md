@@ -3,6 +3,10 @@
 
 ## Enum
 
+* `UAGENT` (value: `'uagent'`)
+
+* `A2A` (value: `'a2a'`)
+
 * `HOSTED` (value: `'hosted'`)
 
 * `LOCAL` (value: `'local'`)

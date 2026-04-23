@@ -43,7 +43,7 @@ class TestAgentSearchRequest(unittest.TestCase):
                         'fetch-ai'
                         ], 
                     agent_type = [
-                        'hosted'
+                        'uagent'
                         ], 
                     protocol_digest = [
                         ''

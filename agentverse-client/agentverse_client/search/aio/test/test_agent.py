@@ -52,7 +52,7 @@ class TestAgent(unittest.TestCase):
                 rating = 1.337,
                 status = 'active',
                 unresponsive = True,
-                type = 'hosted',
+                type = 'uagent',
                 featured = True,
                 category = 'fetch-ai',
                 system_wide_tags = [
@@ -101,7 +101,7 @@ class TestAgent(unittest.TestCase):
                 recent_interactions = 56,
                 status = 'active',
                 unresponsive = True,
-                type = 'hosted',
+                type = 'uagent',
                 category = 'fetch-ai',
                 system_wide_tags = [
                     ''

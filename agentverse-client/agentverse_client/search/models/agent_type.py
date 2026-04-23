@@ -26,6 +26,8 @@ class AgentType(str, Enum):
     """
     allowed enum values
     """
+    UAGENT = 'uagent'
+    A2A = 'a2a'
     HOSTED = 'hosted'
     LOCAL = 'local'
     MAILBOX = 'mailbox'
