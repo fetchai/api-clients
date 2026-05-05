@@ -63,8 +63,8 @@ class TestAgentSearchRequest(unittest.TestCase):
                 offset = 56,
                 limit = 56,
                 exclude_geo_agents = True,
-                source = '',
-                search_id = ''
+                search_id = '',
+                source = ''
             )
         else:
             return AgentSearchRequest(
