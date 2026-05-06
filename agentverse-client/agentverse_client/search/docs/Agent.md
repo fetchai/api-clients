@@ -12,6 +12,7 @@ Name | Type | Description | Notes
 **readme** | **str** | the contents of the readme file | 
 **protocols** | [**List[Protocol]**](Protocol.md) | the list of protocols supported by the agent | 
 **avatar_href** | **str** |  | [optional] 
+**banner_href** | **str** |  | [optional] 
 **total_interactions** | **int** | the total interactions for this agent | 
 **recent_interactions** | **int** | the number of interactions in the last 90 days | 
 **rating** | **float** |  | [optional] 

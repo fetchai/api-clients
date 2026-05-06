@@ -63,13 +63,13 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                 offset = 56,
                 limit = 56,
                 exclude_geo_agents = True,
+                source = '',
                 geo_filter = agentverse_client.search.aio.models.agent_geo_filter.AgentGeoFilter(
                     latitude = -90.0, 
                     longitude = -180.0, 
                     radius = 1.337, ),
                 include_geo_in_relevancy = True,
-                search_id = '',
-                source = ''
+                search_id = ''
             )
         else:
             return AgentGeoSearchRequest(
