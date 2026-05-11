@@ -19,6 +19,7 @@ import json
 
 from pydantic import BaseModel, ConfigDict, Field, StrictBool, StrictInt, StrictStr
 from typing import Any, ClassVar, Dict, List, Optional
+from typing_extensions import Annotated
 from agentverse_client.search.models.agent_filters import AgentFilters
 from agentverse_client.search.models.agent_geo_filter import AgentGeoFilter
 from agentverse_client.search.models.direction import Direction
@@ -40,7 +41,7 @@ class AgentGeoSearchRequest(BaseModel):
     semantic_search: Optional[StrictBool] = Field(default=False, description="Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead.")
     use_reranker: Optional[StrictBool] = Field(default=False, description="Whether to use the reranker to rank the semantic search results.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
-    limit: Optional[StrictInt] = Field(default=30, description="The limit of the search results for pagination")
+    limit: Optional[Annotated[int, Field(le=50, strict=True)]] = Field(default=30, description="The limit of the search results for pagination")
     exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
     source: Optional[StrictStr] = Field(default='', description="The source where the request is sent from. Used by semantic search to ensure consistent results per user. It means ideally it should contain the user id, e.g. 'agentverse-prod-user123', 'asi1-prod-user123', etc.")
     geo_filter: AgentGeoFilter = Field(description="The geo filter that can be applied to the search")
