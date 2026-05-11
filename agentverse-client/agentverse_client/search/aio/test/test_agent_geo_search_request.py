@@ -60,7 +60,6 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                 search_text = '',
                 exact_match = True,
                 semantic_search = True,
-                use_reranker = True,
                 offset = 56,
                 limit = 56,
                 exclude_geo_agents = True,
