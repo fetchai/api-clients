@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **search_text** | **str** |  | [optional] 
 **exact_match** | **bool** | Whether to perform exact keyword match only instead of doing both exact and fuzzy match. | [optional] [default to False]
 **semantic_search** | **bool** | Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead. | [optional] [default to False]
-**use_reranker** | **bool** | Whether to use the reranker to rank the semantic search results. | [optional] [default to False]
+**rerank** | **bool** | Whether to use the reranker to filter and reorder the semantic search results. | [optional] [default to False]
 **offset** | **int** | The offset of the search results for pagination | [optional] [default to 0]
 **limit** | **int** | The limit of the search results for pagination | [optional] [default to 30]
 **exclude_geo_agents** | **bool** | Whether to exclude agents that have a geo location specified | [optional] [default to True]
