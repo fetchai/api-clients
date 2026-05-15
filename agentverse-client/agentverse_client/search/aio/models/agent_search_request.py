@@ -38,7 +38,7 @@ class AgentSearchRequest(BaseModel):
     search_text: Optional[StrictStr] = None
     exact_match: Optional[StrictBool] = Field(default=False, description="Whether to perform exact keyword match only instead of doing both exact and fuzzy match.")
     semantic_search: Optional[StrictBool] = Field(default=False, description="Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead.")
-    rerank: Optional[StrictBool] = Field(default=False, description="Whether to use the reranker to reorder the semantic search results.")
+    rerank: Optional[StrictBool] = Field(default=False, description="Whether to use the reranker to reorder the semantic search results based on their relevance to the search text.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[Annotated[int, Field(le=50, strict=True)]] = Field(default=30, description="The limit of the search results for pagination")
     exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
