@@ -38,7 +38,7 @@ class AgentSearchRequest(BaseModel):
     search_text: Optional[StrictStr] = None
     exact_match: Optional[StrictBool] = Field(default=False, description="Whether to perform exact keyword match only instead of doing both exact and fuzzy match.")
     semantic_search: Optional[StrictBool] = Field(default=False, description="Whether to perform semantic-based search, where agents semantically close to the search text rank highest. If not enabled, a keywords-based search is performed instead.")
-    rerank: Optional[StrictBool] = Field(default=False, description="Whether to use the reranker to reorder the semantic search results based on their relevance to `search_text`.")
+    rerank: Optional[StrictBool] = Field(default=True, description="Whether to use the reranker to reorder the semantic search results based on their relevance to `search_text`.")
     offset: Optional[StrictInt] = Field(default=0, description="The offset of the search results for pagination")
     limit: Optional[Annotated[int, Field(le=50, strict=True)]] = Field(default=30, description="The limit of the search results for pagination")
     exclude_geo_agents: Optional[StrictBool] = Field(default=True, description="Whether to exclude agents that have a geo location specified")
@@ -112,7 +112,7 @@ class AgentSearchRequest(BaseModel):
             "search_text": obj.get("search_text"),
             "exact_match": obj.get("exact_match") if obj.get("exact_match") is not None else False,
             "semantic_search": obj.get("semantic_search") if obj.get("semantic_search") is not None else False,
-            "rerank": obj.get("rerank") if obj.get("rerank") is not None else False,
+            "rerank": obj.get("rerank") if obj.get("rerank") is not None else True,
             "offset": obj.get("offset") if obj.get("offset") is not None else 0,
             "limit": obj.get("limit") if obj.get("limit") is not None else 30,
             "exclude_geo_agents": obj.get("exclude_geo_agents") if obj.get("exclude_geo_agents") is not None else True,
