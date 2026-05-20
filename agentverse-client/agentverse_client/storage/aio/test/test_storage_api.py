@@ -47,6 +47,13 @@ class TestStorageApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_delete_asset_delegation(self) -> None:
+        """Test case for delete_asset_delegation
+
+        Delete Delegation
+        """
+        pass
+
     async def test_delete_asset_permission(self) -> None:
         """Test case for delete_asset_permission
 
@@ -68,6 +75,13 @@ class TestStorageApi(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_list_asset_delegations(self) -> None:
+        """Test case for list_asset_delegations
+
+        List Delegations
+        """
+        pass
+
     async def test_list_asset_permissions(self) -> None:
         """Test case for list_asset_permissions
 
@@ -86,6 +100,13 @@ class TestStorageApi(unittest.IsolatedAsyncioTestCase):
         """Test case for upload_asset_contents
 
         Upload Asset Contents
+        """
+        pass
+
+    async def test_upsert_asset_delegation(self) -> None:
+        """Test case for upsert_asset_delegation
+
+        Upsert Delegation
         """
         pass
 

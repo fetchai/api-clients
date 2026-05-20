@@ -35,6 +35,8 @@ from agentverse_client.storage.models.asset import Asset
 from agentverse_client.storage.models.asset_content import AssetContent
 from agentverse_client.storage.models.asset_download import AssetDownload
 from agentverse_client.storage.models.assets_list import AssetsList
+from agentverse_client.storage.models.delegation_list import DelegationList
+from agentverse_client.storage.models.delegation_response import DelegationResponse
 from agentverse_client.storage.models.http_validation_error import HTTPValidationError
 from agentverse_client.storage.models.location_inner import LocationInner
 from agentverse_client.storage.models.new_asset import NewAsset

@@ -7,12 +7,15 @@ Method | HTTP request | Description
 [**add_asset_permission**](StorageApi.md#add_asset_permission) | **PUT** /v1/storage/assets/{asset_id}/permissions/ | Add Permission
 [**create_asset_metadata**](StorageApi.md#create_asset_metadata) | **POST** /v1/storage/assets/ | Create Asset Metadata
 [**delete_asset**](StorageApi.md#delete_asset) | **DELETE** /v1/storage/assets/{asset_id}/ | Delete Asset
+[**delete_asset_delegation**](StorageApi.md#delete_asset_delegation) | **DELETE** /v1/storage/assets/delegations/{agent_address} | Delete Delegation
 [**delete_asset_permission**](StorageApi.md#delete_asset_permission) | **DELETE** /v1/storage/assets/{asset_id}/permissions/ | Delete Asset Permission For An Agent
 [**download_asset_contents**](StorageApi.md#download_asset_contents) | **GET** /v1/storage/assets/{asset_id}/contents/ | Download Asset
 [**get_asset_metadata**](StorageApi.md#get_asset_metadata) | **GET** /v1/storage/assets/{identifier}/ | Retrieve Asset
+[**list_asset_delegations**](StorageApi.md#list_asset_delegations) | **GET** /v1/storage/assets/delegations/ | List Delegations
 [**list_asset_permissions**](StorageApi.md#list_asset_permissions) | **GET** /v1/storage/assets/{asset_id}/permissions/ | List Asset Permissions
 [**list_user_assets**](StorageApi.md#list_user_assets) | **GET** /v1/storage/assets/ | List Assets
 [**upload_asset_contents**](StorageApi.md#upload_asset_contents) | **PUT** /v1/storage/assets/{asset_id}/contents/ | Upload Asset Contents
+[**upsert_asset_delegation**](StorageApi.md#upsert_asset_delegation) | **PUT** /v1/storage/assets/delegations/{agent_address} | Upsert Delegation
 
 
 # **add_asset_permission**
@@ -198,6 +201,70 @@ async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **asset_id** | **str**|  | 
+
+### Return type
+
+void (empty response body)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**204** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **delete_asset_delegation**
+> delete_asset_delegation(agent_address)
+
+Delete Delegation
+
+### Example
+
+
+```python
+import agentverse_client.storage.aio
+from agentverse_client.storage.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.storage.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
+    agent_address = 'agent_address_example' # str | 
+
+    try:
+        # Delete Delegation
+        await api_instance.delete_asset_delegation(agent_address)
+    except Exception as e:
+        print("Exception when calling StorageApi->delete_asset_delegation: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_address** | **str**|  | 
 
 ### Return type
 
@@ -425,6 +492,68 @@ No authorization required
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
+# **list_asset_delegations**
+> DelegationList list_asset_delegations()
+
+List Delegations
+
+### Example
+
+
+```python
+import agentverse_client.storage.aio
+from agentverse_client.storage.aio.models.delegation_list import DelegationList
+from agentverse_client.storage.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.storage.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
+
+    try:
+        # List Delegations
+        api_response = await api_instance.list_asset_delegations()
+        print("The response of StorageApi->list_asset_delegations:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling StorageApi->list_asset_delegations: %s\n" % e)
+```
+
+
+
+### Parameters
+
+This endpoint does not need any parameter.
+
+### Return type
+
+[**DelegationList**](DelegationList.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
 # **list_asset_permissions**
 > PermissionList list_asset_permissions(asset_id, agent_address=agent_address, offset=offset, limit=limit)
 
@@ -630,6 +759,73 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: application/json
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **upsert_asset_delegation**
+> DelegationResponse upsert_asset_delegation(agent_address)
+
+Upsert Delegation
+
+### Example
+
+
+```python
+import agentverse_client.storage.aio
+from agentverse_client.storage.aio.models.delegation_response import DelegationResponse
+from agentverse_client.storage.aio.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.storage.aio.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+async with agentverse_client.storage.aio.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.storage.aio.StorageApi(api_client)
+    agent_address = 'agent_address_example' # str | 
+
+    try:
+        # Upsert Delegation
+        api_response = await api_instance.upsert_asset_delegation(agent_address)
+        print("The response of StorageApi->upsert_asset_delegation:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling StorageApi->upsert_asset_delegation: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **agent_address** | **str**|  | 
+
+### Return type
+
+[**DelegationResponse**](DelegationResponse.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
  - **Accept**: application/json
 
 ### HTTP response details
