@@ -24,6 +24,7 @@ from agentverse_client.hosting.aio.models.agent_network import AgentNetwork
 from agentverse_client.hosting.aio.models.agent_summary_v1 import AgentSummaryV1
 from agentverse_client.hosting.aio.models.agent_v1 import AgentV1
 from agentverse_client.hosting.aio.models.agent_v2 import AgentV2
+from agentverse_client.hosting.aio.models.duplicate_hosted_agent_options import DuplicateHostedAgentOptions
 from agentverse_client.hosting.aio.models.envelope import Envelope
 from agentverse_client.hosting.aio.models.geolocation import Geolocation
 from agentverse_client.hosting.aio.models.http_validation_error import HTTPValidationError

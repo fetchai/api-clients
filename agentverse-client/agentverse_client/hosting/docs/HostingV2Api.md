@@ -10,6 +10,7 @@ Method | HTTP request | Description
 [**delete_agent_secret_v2**](HostingV2Api.md#delete_agent_secret_v2) | **DELETE** /v2/hosting/{address}/secrets/{name} | Delete Secret Endpoint
 [**delete_agent_storage_v2**](HostingV2Api.md#delete_agent_storage_v2) | **DELETE** /v2/hosting/{address}/storage/{key} | Delete Storage
 [**delete_hosted_agent_v2**](HostingV2Api.md#delete_hosted_agent_v2) | **DELETE** /v2/hosting/{address} | Delete Agent
+[**duplicate_hosted_agent_v2**](HostingV2Api.md#duplicate_hosted_agent_v2) | **POST** /v2/hosting/{address}/duplicate | Duplicate Hosted Agent
 [**get_agent_code_v2**](HostingV2Api.md#get_agent_code_v2) | **GET** /v2/hosting/{address}/code | Get Code
 [**get_agent_logs_v2**](HostingV2Api.md#get_agent_logs_v2) | **GET** /v2/hosting/{address}/logs | Get Agent Logs
 [**get_agent_secrets_v2**](HostingV2Api.md#get_agent_secrets_v2) | **GET** /v2/hosting/{address}/secrets | Get Secrets
@@ -438,6 +439,80 @@ No authorization required
 ### HTTP request headers
 
  - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+### HTTP response details
+
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+**200** | Successful Response |  -  |
+**422** | Validation Error |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+# **duplicate_hosted_agent_v2**
+> AgentV2 duplicate_hosted_agent_v2(address, no_cache=no_cache, duplicate_hosted_agent_options=duplicate_hosted_agent_options)
+
+Duplicate Hosted Agent
+
+Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+
+### Example
+
+
+```python
+import agentverse_client.hosting
+from agentverse_client.hosting.models.agent_v2 import AgentV2
+from agentverse_client.hosting.models.duplicate_hosted_agent_options import DuplicateHostedAgentOptions
+from agentverse_client.hosting.rest import ApiException
+from pprint import pprint
+
+# Defining the host is optional and defaults to https://agentverse.ai
+# See configuration.py for a list of all supported configuration parameters.
+configuration = agentverse_client.hosting.Configuration(
+    host = "https://agentverse.ai"
+)
+
+
+# Enter a context with an instance of the API client
+with agentverse_client.hosting.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = agentverse_client.hosting.HostingV2Api(api_client)
+    address = 'address_example' # str | 
+    no_cache = False # bool |  (optional) (default to False)
+    duplicate_hosted_agent_options = agentverse_client.hosting.DuplicateHostedAgentOptions() # DuplicateHostedAgentOptions |  (optional)
+
+    try:
+        # Duplicate Hosted Agent
+        api_response = api_instance.duplicate_hosted_agent_v2(address, no_cache=no_cache, duplicate_hosted_agent_options=duplicate_hosted_agent_options)
+        print("The response of HostingV2Api->duplicate_hosted_agent_v2:\n")
+        pprint(api_response)
+    except Exception as e:
+        print("Exception when calling HostingV2Api->duplicate_hosted_agent_v2: %s\n" % e)
+```
+
+
+
+### Parameters
+
+
+Name | Type | Description  | Notes
+------------- | ------------- | ------------- | -------------
+ **address** | **str**|  | 
+ **no_cache** | **bool**|  | [optional] [default to False]
+ **duplicate_hosted_agent_options** | [**DuplicateHostedAgentOptions**](DuplicateHostedAgentOptions.md)|  | [optional] 
+
+### Return type
+
+[**AgentV2**](AgentV2.md)
+
+### Authorization
+
+No authorization required
+
+### HTTP request headers
+
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 ### HTTP response details

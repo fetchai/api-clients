@@ -22,6 +22,7 @@ from agentverse_client.hosting.models.agent_code import AgentCode
 from agentverse_client.hosting.models.agent_code_digest import AgentCodeDigest
 from agentverse_client.hosting.models.agent_log import AgentLog
 from agentverse_client.hosting.models.agent_v2 import AgentV2
+from agentverse_client.hosting.models.duplicate_hosted_agent_options import DuplicateHostedAgentOptions
 from agentverse_client.hosting.models.envelope import Envelope
 from agentverse_client.hosting.models.response_submit_message_envelope_v2 import ResponseSubmitMessageEnvelopeV2
 from agentverse_client.hosting.models.secret import Secret
@@ -1716,6 +1717,314 @@ class HostingV2Api:
         return self.api_client.param_serialize(
             method='DELETE',
             resource_path='/v2/hosting/{address}',
+            path_params=_path_params,
+            query_params=_query_params,
+            header_params=_header_params,
+            body=_body_params,
+            post_params=_form_params,
+            files=_files,
+            auth_settings=_auth_settings,
+            collection_formats=_collection_formats,
+            _host=_host,
+            _request_auth=_request_auth
+        )
+
+
+
+
+    @validate_call
+    def duplicate_hosted_agent_v2(
+        self,
+        address: StrictStr,
+        no_cache: Optional[StrictBool] = None,
+        duplicate_hosted_agent_options: Optional[DuplicateHostedAgentOptions] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> AgentV2:
+        """Duplicate Hosted Agent
+
+        Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+
+        :param address: (required)
+        :type address: str
+        :param no_cache:
+        :type no_cache: bool
+        :param duplicate_hosted_agent_options:
+        :type duplicate_hosted_agent_options: DuplicateHostedAgentOptions
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._duplicate_hosted_agent_v2_serialize(
+            address=address,
+            no_cache=no_cache,
+            duplicate_hosted_agent_options=duplicate_hosted_agent_options,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AgentV2",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        ).data
+
+
+    @validate_call
+    def duplicate_hosted_agent_v2_with_http_info(
+        self,
+        address: StrictStr,
+        no_cache: Optional[StrictBool] = None,
+        duplicate_hosted_agent_options: Optional[DuplicateHostedAgentOptions] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> ApiResponse[AgentV2]:
+        """Duplicate Hosted Agent
+
+        Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+
+        :param address: (required)
+        :type address: str
+        :param no_cache:
+        :type no_cache: bool
+        :param duplicate_hosted_agent_options:
+        :type duplicate_hosted_agent_options: DuplicateHostedAgentOptions
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._duplicate_hosted_agent_v2_serialize(
+            address=address,
+            no_cache=no_cache,
+            duplicate_hosted_agent_options=duplicate_hosted_agent_options,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AgentV2",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        response_data.read()
+        return self.api_client.response_deserialize(
+            response_data=response_data,
+            response_types_map=_response_types_map,
+        )
+
+
+    @validate_call
+    def duplicate_hosted_agent_v2_without_preload_content(
+        self,
+        address: StrictStr,
+        no_cache: Optional[StrictBool] = None,
+        duplicate_hosted_agent_options: Optional[DuplicateHostedAgentOptions] = None,
+        _request_timeout: Union[
+            None,
+            Annotated[StrictFloat, Field(gt=0)],
+            Tuple[
+                Annotated[StrictFloat, Field(gt=0)],
+                Annotated[StrictFloat, Field(gt=0)]
+            ]
+        ] = None,
+        _request_auth: Optional[Dict[StrictStr, Any]] = None,
+        _content_type: Optional[StrictStr] = None,
+        _headers: Optional[Dict[StrictStr, Any]] = None,
+        _host_index: Annotated[StrictInt, Field(ge=0, le=0)] = 0,
+    ) -> RESTResponseType:
+        """Duplicate Hosted Agent
+
+        Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+
+        :param address: (required)
+        :type address: str
+        :param no_cache:
+        :type no_cache: bool
+        :param duplicate_hosted_agent_options:
+        :type duplicate_hosted_agent_options: DuplicateHostedAgentOptions
+        :param _request_timeout: timeout setting for this request. If one
+                                 number provided, it will be total request
+                                 timeout. It can also be a pair (tuple) of
+                                 (connection, read) timeouts.
+        :type _request_timeout: int, tuple(int, int), optional
+        :param _request_auth: set to override the auth_settings for an a single
+                              request; this effectively ignores the
+                              authentication in the spec for a single request.
+        :type _request_auth: dict, optional
+        :param _content_type: force content-type for the request.
+        :type _content_type: str, Optional
+        :param _headers: set to override the headers for a single
+                         request; this effectively ignores the headers
+                         in the spec for a single request.
+        :type _headers: dict, optional
+        :param _host_index: set to override the host_index for a single
+                            request; this effectively ignores the host_index
+                            in the spec for a single request.
+        :type _host_index: int, optional
+        :return: Returns the result object.
+        """ # noqa: E501
+
+        _param = self._duplicate_hosted_agent_v2_serialize(
+            address=address,
+            no_cache=no_cache,
+            duplicate_hosted_agent_options=duplicate_hosted_agent_options,
+            _request_auth=_request_auth,
+            _content_type=_content_type,
+            _headers=_headers,
+            _host_index=_host_index
+        )
+
+        _response_types_map: Dict[str, Optional[str]] = {
+            '200': "AgentV2",
+            '422': "HTTPValidationError",
+        }
+        response_data = self.api_client.call_api(
+            *_param,
+            _request_timeout=_request_timeout
+        )
+        return response_data.response
+
+
+    def _duplicate_hosted_agent_v2_serialize(
+        self,
+        address,
+        no_cache,
+        duplicate_hosted_agent_options,
+        _request_auth,
+        _content_type,
+        _headers,
+        _host_index,
+    ) -> RequestSerialized:
+
+        _host = None
+
+        _collection_formats: Dict[str, str] = {
+        }
+
+        _path_params: Dict[str, str] = {}
+        _query_params: List[Tuple[str, str]] = []
+        _header_params: Dict[str, Optional[str]] = _headers or {}
+        _form_params: List[Tuple[str, str]] = []
+        _files: Dict[
+            str, Union[str, bytes, List[str], List[bytes], List[Tuple[str, bytes]]]
+        ] = {}
+        _body_params: Optional[bytes] = None
+
+        # process the path parameters
+        if address is not None:
+            _path_params['address'] = address
+        # process the query parameters
+        if no_cache is not None:
+            
+            _query_params.append(('no_cache', no_cache))
+            
+        # process the header parameters
+        # process the form parameters
+        # process the body parameter
+        if duplicate_hosted_agent_options is not None:
+            _body_params = duplicate_hosted_agent_options
+
+
+        # set the HTTP header `Accept`
+        if 'Accept' not in _header_params:
+            _header_params['Accept'] = self.api_client.select_header_accept(
+                [
+                    'application/json'
+                ]
+            )
+
+        # set the HTTP header `Content-Type`
+        if _content_type:
+            _header_params['Content-Type'] = _content_type
+        else:
+            _default_content_type = (
+                self.api_client.select_header_content_type(
+                    [
+                        'application/json'
+                    ]
+                )
+            )
+            if _default_content_type is not None:
+                _header_params['Content-Type'] = _default_content_type
+
+        # authentication setting
+        _auth_settings: List[str] = [
+        ]
+
+        return self.api_client.param_serialize(
+            method='POST',
+            resource_path='/v2/hosting/{address}/duplicate',
             path_params=_path_params,
             query_params=_query_params,
             header_params=_header_params,

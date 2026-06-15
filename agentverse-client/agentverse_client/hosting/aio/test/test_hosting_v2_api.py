@@ -68,6 +68,13 @@ class TestHostingV2Api(unittest.IsolatedAsyncioTestCase):
         """
         pass
 
+    async def test_duplicate_hosted_agent_v2(self) -> None:
+        """Test case for duplicate_hosted_agent_v2
+
+        Duplicate Hosted Agent
+        """
+        pass
+
     async def test_get_agent_code_v2(self) -> None:
         """Test case for get_agent_code_v2
 
