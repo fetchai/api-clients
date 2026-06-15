@@ -455,10 +455,11 @@ No authorization required
 
 Duplicate Hosted Agent
 
-Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+Duplicate a hosted agent's code and optionally secrets and storage.  The source agent is read from its actual owner. The duplicate is created under the personal account or the team from the ``X-Team`` request header. Profile data must be registered separately via the hub API.
 
 ### Example
 
+* OAuth Authentication (FaunaAuthorizationScheme):
 
 ```python
 import agentverse_client.hosting
@@ -473,6 +474,12 @@ configuration = agentverse_client.hosting.Configuration(
     host = "https://agentverse.ai"
 )
 
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+configuration.access_token = os.environ["ACCESS_TOKEN"]
 
 # Enter a context with an instance of the API client
 with agentverse_client.hosting.ApiClient(configuration) as api_client:
@@ -508,7 +515,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[FaunaAuthorizationScheme](../README.md#FaunaAuthorizationScheme)
 
 ### HTTP request headers
 

@@ -1753,7 +1753,7 @@ class HostingV2Api:
     ) -> AgentV2:
         """Duplicate Hosted Agent
 
-        Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+        Duplicate a hosted agent's code and optionally secrets and storage.  The source agent is read from its actual owner. The duplicate is created under the personal account or the team from the ``X-Team`` request header. Profile data must be registered separately via the hub API.
 
         :param address: (required)
         :type address: str
@@ -1829,7 +1829,7 @@ class HostingV2Api:
     ) -> ApiResponse[AgentV2]:
         """Duplicate Hosted Agent
 
-        Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+        Duplicate a hosted agent's code and optionally secrets and storage.  The source agent is read from its actual owner. The duplicate is created under the personal account or the team from the ``X-Team`` request header. Profile data must be registered separately via the hub API.
 
         :param address: (required)
         :type address: str
@@ -1905,7 +1905,7 @@ class HostingV2Api:
     ) -> RESTResponseType:
         """Duplicate Hosted Agent
 
-        Duplicate a hosted agent's code and optionally secrets and storage.  Profile data must be registered separately via the hub API.
+        Duplicate a hosted agent's code and optionally secrets and storage.  The source agent is read from its actual owner. The duplicate is created under the personal account or the team from the ``X-Team`` request header. Profile data must be registered separately via the hub API.
 
         :param address: (required)
         :type address: str
@@ -2020,6 +2020,7 @@ class HostingV2Api:
 
         # authentication setting
         _auth_settings: List[str] = [
+            'FaunaAuthorizationScheme'
         ]
 
         return self.api_client.param_serialize(
