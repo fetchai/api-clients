@@ -13,6 +13,7 @@ Name | Type | Description | Notes
 **protocols** | [**List[Protocol]**](Protocol.md) | the list of protocols supported by the agent | 
 **avatar_href** | **str** |  | [optional] 
 **banner_href** | **str** |  | [optional] 
+**starter_prompts** | **List[str]** |  | [optional] 
 **total_interactions** | **int** | the total interactions for this agent | 
 **recent_interactions** | **int** | the number of interactions in the last 90 days | 
 **rating** | **float** |  | [optional] 

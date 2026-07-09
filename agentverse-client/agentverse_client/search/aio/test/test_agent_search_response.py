@@ -50,6 +50,9 @@ class TestAgentSearchResponse(unittest.TestCase):
                             ], 
                         avatar_href = '', 
                         banner_href = '', 
+                        starter_prompts = [
+                            ''
+                            ], 
                         total_interactions = 56, 
                         recent_interactions = 56, 
                         rating = 1.337, 

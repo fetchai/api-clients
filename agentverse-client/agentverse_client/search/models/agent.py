@@ -42,6 +42,7 @@ class Agent(BaseModel):
     protocols: List[Protocol] = Field(description="the list of protocols supported by the agent")
     avatar_href: Optional[StrictStr] = None
     banner_href: Optional[StrictStr] = None
+    starter_prompts: Optional[List[StrictStr]] = None
     total_interactions: StrictInt = Field(description="the total interactions for this agent")
     recent_interactions: StrictInt = Field(description="the number of interactions in the last 90 days")
     rating: Optional[Union[StrictFloat, StrictInt]] = None
@@ -62,7 +63,7 @@ class Agent(BaseModel):
     owner: Optional[StrictStr] = None
     recent_verified_interactions: StrictInt = Field(description="the number of recent interactions of this agent coming from a verified source like ASI:One or the QA Agent")
     recent_success_verified_interactions: StrictInt = Field(description="the number of recent successful interactions of this agent coming from a verified source like ASI:One or the QA Agent")
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "banner_href", "total_interactions", "recent_interactions", "rating", "status", "unresponsive", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "banner_href", "starter_prompts", "total_interactions", "recent_interactions", "rating", "status", "unresponsive", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -130,6 +131,11 @@ class Agent(BaseModel):
         if self.banner_href is None and "banner_href" in self.model_fields_set:
             _dict['banner_href'] = None
 
+        # set to None if starter_prompts (nullable) is None
+        # and model_fields_set contains the field
+        if self.starter_prompts is None and "starter_prompts" in self.model_fields_set:
+            _dict['starter_prompts'] = None
+
         # set to None if rating (nullable) is None
         # and model_fields_set contains the field
         if self.rating is None and "rating" in self.model_fields_set:
@@ -190,6 +196,7 @@ class Agent(BaseModel):
             "protocols": [Protocol.from_dict(_item) for _item in obj["protocols"]] if obj.get("protocols") is not None else None,
             "avatar_href": obj.get("avatar_href"),
             "banner_href": obj.get("banner_href"),
+            "starter_prompts": obj.get("starter_prompts"),
             "total_interactions": obj.get("total_interactions"),
             "recent_interactions": obj.get("recent_interactions"),
             "rating": obj.get("rating"),
