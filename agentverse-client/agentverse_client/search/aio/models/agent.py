@@ -52,7 +52,6 @@ class Agent(BaseModel):
     featured: Optional[StrictBool] = Field(default=False, description="signaled if the agent is featured or not")
     category: AgentCategory = Field(description="the creator of the agent")
     system_wide_tags: List[StrictStr] = Field(description="the system-wide tags assigned to the agent")
-    is_effectful: Optional[StrictBool] = Field(default=False, description="whether the agent has capabilities beyond LLM/web-search (transactions, privileged data access, media generation)")
     geo_location: Optional[AgentGeoLocation] = None
     handle: Optional[StrictStr] = None
     domain: Optional[StrictStr] = None
@@ -64,7 +63,7 @@ class Agent(BaseModel):
     owner: Optional[StrictStr] = None
     recent_verified_interactions: StrictInt = Field(description="the number of recent interactions of this agent coming from a verified source like ASI:One or the QA Agent")
     recent_success_verified_interactions: StrictInt = Field(description="the number of recent successful interactions of this agent coming from a verified source like ASI:One or the QA Agent")
-    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "banner_href", "starter_prompts", "total_interactions", "recent_interactions", "rating", "status", "unresponsive", "type", "featured", "category", "system_wide_tags", "is_effectful", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions"]
+    __properties: ClassVar[List[str]] = ["address", "prefix", "name", "description", "readme", "protocols", "avatar_href", "banner_href", "starter_prompts", "total_interactions", "recent_interactions", "rating", "status", "unresponsive", "type", "featured", "category", "system_wide_tags", "geo_location", "handle", "domain", "metadata", "last_updated", "created_at", "recent_success_rate", "recent_eval_success_rate", "owner", "recent_verified_interactions", "recent_success_verified_interactions"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -207,7 +206,6 @@ class Agent(BaseModel):
             "featured": obj.get("featured") if obj.get("featured") is not None else False,
             "category": obj.get("category"),
             "system_wide_tags": obj.get("system_wide_tags"),
-            "is_effectful": obj.get("is_effectful") if obj.get("is_effectful") is not None else False,
             "geo_location": AgentGeoLocation.from_dict(obj["geo_location"]) if obj.get("geo_location") is not None else None,
             "handle": obj.get("handle"),
             "domain": obj.get("domain"),

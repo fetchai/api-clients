@@ -53,8 +53,7 @@ class TestAgentGeoSearchRequest(unittest.TestCase):
                     n_interactions = null, 
                     tags = [
                         ''
-                        ], 
-                    is_effectful = True, ),
+                        ], ),
                 sort = 'relevancy',
                 direction = 'asc',
                 cutoff = 'none',
