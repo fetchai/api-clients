@@ -52,8 +52,7 @@ class TestAgentFilters(unittest.TestCase):
                 n_interactions = None,
                 tags = [
                     ''
-                    ],
-                is_effectful = True
+                    ]
             )
         else:
             return AgentFilters(

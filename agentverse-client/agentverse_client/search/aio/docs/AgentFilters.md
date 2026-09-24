@@ -14,7 +14,6 @@ Name | Type | Description | Notes
 **has_readme** | **bool** | If set to True, it will filter for agents that have a non-empty readme | [optional] [default to False]
 **n_interactions** | [**NInteractions**](NInteractions.md) |  | [optional] 
 **tags** | **List[str]** | The tag(s) associated to the agent | [optional] 
-**is_effectful** | **bool** |  | [optional] 
 
 ## Example
 
