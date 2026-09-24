@@ -62,6 +62,7 @@ class TestAgent(unittest.TestCase):
                 system_wide_tags = [
                     ''
                     ],
+                is_effectful = True,
                 geo_location = agentverse_client.search.aio.models.agent_geo_location.AgentGeoLocation(
                     name = '', 
                     description = '', 

@@ -23,6 +23,7 @@ Name | Type | Description | Notes
 **featured** | **bool** | signaled if the agent is featured or not | [optional] [default to False]
 **category** | [**AgentCategory**](AgentCategory.md) | the creator of the agent | 
 **system_wide_tags** | **List[str]** | the system-wide tags assigned to the agent | 
+**is_effectful** | **bool** | whether the agent has capabilities beyond LLM/web-search (transactions, privileged data access, media generation) | [optional] [default to False]
 **geo_location** | [**AgentGeoLocation**](AgentGeoLocation.md) |  | [optional] 
 **handle** | **str** |  | [optional] 
 **domain** | **str** |  | [optional] 
