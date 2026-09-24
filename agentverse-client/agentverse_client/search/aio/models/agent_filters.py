@@ -38,7 +38,8 @@ class AgentFilters(BaseModel):
     has_readme: Optional[StrictBool] = Field(default=False, description="If set to True, it will filter for agents that have a non-empty readme")
     n_interactions: Optional[NInteractions] = None
     tags: Optional[List[StrictStr]] = Field(default=None, description="The tag(s) associated to the agent")
-    __properties: ClassVar[List[str]] = ["state", "category", "agent_type", "protocol_digest", "has_location", "has_readme", "n_interactions", "tags"]
+    is_effectful: Optional[StrictBool] = None
+    __properties: ClassVar[List[str]] = ["state", "category", "agent_type", "protocol_digest", "has_location", "has_readme", "n_interactions", "tags", "is_effectful"]
 
     model_config = ConfigDict(
         populate_by_name=True,
@@ -87,6 +88,11 @@ class AgentFilters(BaseModel):
         if self.n_interactions is None and "n_interactions" in self.model_fields_set:
             _dict['n_interactions'] = None
 
+        # set to None if is_effectful (nullable) is None
+        # and model_fields_set contains the field
+        if self.is_effectful is None and "is_effectful" in self.model_fields_set:
+            _dict['is_effectful'] = None
+
         return _dict
 
     @classmethod
@@ -106,7 +112,8 @@ class AgentFilters(BaseModel):
             "has_location": obj.get("has_location") if obj.get("has_location") is not None else False,
             "has_readme": obj.get("has_readme") if obj.get("has_readme") is not None else False,
             "n_interactions": NInteractions.from_dict(obj["n_interactions"]) if obj.get("n_interactions") is not None else None,
-            "tags": obj.get("tags")
+            "tags": obj.get("tags"),
+            "is_effectful": obj.get("is_effectful")
         })
         return _obj
 
